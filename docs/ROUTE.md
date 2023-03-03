@@ -2,7 +2,7 @@
 * accueil
 * boutique (liste des catégories)
 
-* boutique/categorie
+* boutique/categorie (slug category)
 
 <!--* boutique/entremets-->
 <!--* boutique/tartes-->
@@ -12,7 +12,7 @@
 <!--* boutique/confiserie-->
 <!--* boutique/glaces-->
 <!--* boutique/evenements-de-la-vie-->
-* boutique/categorie/produit
+* boutique/categorie/produit (slug product)
 
 <!--* boutique/entremets/royal-->
 
