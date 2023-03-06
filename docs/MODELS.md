@@ -28,6 +28,8 @@
 * description (string)
 * ingredients (Ingredient)
 * categoryId (int)
+* size (int)
+* price (int)
 * slug (string)
 
 ### Ingredient
