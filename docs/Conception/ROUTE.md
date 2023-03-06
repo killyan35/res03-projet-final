@@ -28,10 +28,10 @@
 
 * /contact
 * /panier
-* /a-propos
-* /creation-de-compte
-* /connexion
+* /creation-de-compte-connexion
 * /mon-compte
+* /formulaire-de-commande
+
 
 * admin/categories (display all categorys)
 * admin/categories/create
