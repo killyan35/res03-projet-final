@@ -4,14 +4,12 @@ class Category {
     // private attribute
     private ?int $id;
     private string $name;
-    private ?string $description;
 
     // public constructor
-    public function __construct(string $name, ?string $description)
+    public function __construct(string $name)
     {
         $this->id = null;
         $this->name = $name;
-        $this->description = $description;
     }
 
     // public getter
@@ -23,10 +21,6 @@ class Category {
     {
         return $this->name;
     }
-    public function getDescription() : string
-    {
-        return $this->description;
-    }
     
     // public setter
     public function setId(int $id) : void
@@ -36,10 +30,6 @@ class Category {
     public function setName(string $name) : void
     {
         $this->name = $name;
-    }
-    public function setDescription(string $description) : void
-    {
-        $this->description = $description;
     }
 }
 ?>

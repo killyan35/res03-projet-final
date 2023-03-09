@@ -2,17 +2,21 @@
 class Order {
     // private attribute
     private ?int $id;
+    private int $size; // formulaire dans le html
+    private int $number; // formulaire dans le html
+    private int $totalPrice; // prix de base multiplier par le $size et le $number
     private int $userId;
     private int $billingId;
-    private int $deliveryId;
 
     // public constructor
-    public function __construct(int $userId, int $billingId, int $deliveryId)
+    public function __construct(int $userId, int $size, int $number, int $totalPrice, int $billingId)
     {
         $this->id = null;
         $this->userId = $userId;
+        $this->size = $size;
+        $this->number = $number;
+        $this->totalPrice = $totalPrice;
         $this->billingId = $billingId;
-        $this->deliveryId = $deliveryId;
     }
 
     // public getter
@@ -24,13 +28,21 @@ class Order {
     {
         return $this->userId;
     }
+    public function getSize() : int
+    {
+        return $this->size;
+    }
+    public function getNumber() : int
+    {
+        return $this->number;
+    }
+    public function getTotalPrice() : int
+    {
+        return $this->totalPrice;
+    }
     public function getBillingId() : int
     {
         return $this->billingId;
-    }
-    public function getDeliveryId() : int
-    {
-        return $this->deliveryId;
     }
     
     // public setter
@@ -42,13 +54,21 @@ class Order {
     {
         $this->userId = $userId;
     }
+    public function setSize(int $size) : void
+    {
+        $this->size = $size;
+    }
+    public function setNumber(int $number) : void
+    {
+        $this->number = $number;
+    }
+    public function setTotalPrice(int $totalPrice) : void
+    {
+        $this->totalPrice = $totalPrice;
+    }
     public function setBillingId(int $billingId) : void
     {
         $this->billingId = $billingId;
-    }
-    public function setDeliveryId(int $deliveryId) : void
-    {
-        $this->deliveryId = $deliveryId;
     }
 }
 ?>

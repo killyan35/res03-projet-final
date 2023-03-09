@@ -3,19 +3,23 @@ class User {
 
     // private attribute
     private ?int $id;
-    private string $username;
+    private string $firstname;
+    private string $lastname;
     private string $email;
     private string $password;
     private string $role;
+    private int $billingId;
 
     // public constructor
-    public function __construct(string $username, string $email, string $password)
+    public function __construct(string $firstname, string $lastname, string $email, string $password, string $role, int $billingId)
     {
         $this->id = null;
-        $this->username = $username;
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
         $this->email = $email;
         $this->password = $password;
         $this->role = $role;
+        $this->billingId = $billingId;
     }
 
     // public getter
@@ -23,9 +27,13 @@ class User {
     {
         return $this->id;
     }
-    public function getUsername() : string
+    public function getFirstname() : string
     {
-        return $this->username;
+        return $this->firstname;
+    }
+    public function getLastname() : string
+    {
+        return $this->lastname;
     }
     public function getEmail() : string
     {
@@ -39,16 +47,23 @@ class User {
     {
         return $this->role;
     }
-    
+    public function getBillingId() : int
+    {
+        return $this->billingId;
+    }
     
     // public setter
     public function setId(int $id) : void
     {
         $this->id = $id;
     }
-    public function setUsername(string $username) : void
+    public function setFirstname(string $firstname) : void
     {
         $this->username = $username;
+    }
+    public function setLastname(string $lastname) : void
+    {
+        $this->lastname = $lastname;
     }
     public function setEmail(string $email) : void
     {
@@ -61,6 +76,10 @@ class User {
     public function setRole(string $role) : void
     {
         $this->role = $role;
+    }
+    public function setBillingId(int $billingId) : void
+    {
+        $this->billingId = $billingId;
     }
 }
 ?>

@@ -4,15 +4,15 @@ class Category {
     // private attribute
     private ?int $id;
     private string $name;
-    private ?string $description;
+    private ?string $imgURL;
     private string $slug;
 
     // public constructor
-    public function __construct(string $name, ?string $description, string $slug)
+    public function __construct(string $name, ?string $imgURL, string $slug)
     {
         $this->id = null;
         $this->name = $name;
-        $this->description = $description;
+        $this->imgURL = $imgURL;
         $this->slug = $slug;
     }
 
@@ -25,9 +25,9 @@ class Category {
     {
         return $this->name;
     }
-    public function getDescription() : string
+    public function getImgURL() : string
     {
-        return $this->description;
+        return $this->imgURL;
     }
     public function getSlug() : string
     {
@@ -43,9 +43,9 @@ class Category {
     {
         $this->name = $name;
     }
-    public function setDescription(string $description) : void
+    public function setImgURL(string $imgURL) : void
     {
-        $this->description = $description;
+        $this->imgURL = $imgURL;
     }
     public function setSlug(string $slug) : void
     {

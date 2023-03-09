@@ -3,24 +3,20 @@ class Product {
     // private attribute
     private ?int $id;
     private string $name;
-    private string $description;
-    private Ingredient $ingredients;
-    private int $categoryId;
-    private int $size; // formulaire dans le html
-    private int $price; // prix de base multiplier par le $size
     private string $slug; // $name avec la fonction slug
-
+    private string $description;
+    private int $price;
+    private int $categoryId; // formulaire dans le html
+ 
     // public constructor
-    public function __construct(string $name, string $slug, string $description, int $price)
+    public function __construct(string $name, string $slug, string $description, int $price, int $categoryId)
     {
         $this->id = null;
         $this->name = $name;
-        $this->description = $description;
-        $this->ingredients = $ingredients;
-        $this->categoryId = $categoryId;
-        $this->size = $size;
-        $this->price = $price;
         $this->slug = $slug;
+        $this->description = $description;
+        $this->price = $price;
+        $this->categoryId = $categoryId;
     }
 
     // public getter
@@ -28,17 +24,21 @@ class Product {
     {
         return $this->id;
     }
-    public function getUsername() : string
+    public function getName() : string
     {
-        return $this->username;
+        return $this->name;
     }
-    public function getEmail() : string
+    public function getDescription() : string
     {
-        return $this->email;
+        return $this->description;
     }
-    public function getPassword() : string
+    public function getCategoryId() : int
     {
-        return $this->password;
+        return $this->categoryId;
+    }
+    public function getPrice() : int
+    {
+        return $this->price;
     }
     public function getSlug() : string
     {
@@ -50,17 +50,21 @@ class Product {
     {
         $this->id = $id;
     }
-    public function setUsername(string $username) : void
+    public function setName(string $name) : void
     {
-        $this->username = $username;
+        $this->name = $name;
     }
-    public function setEmail(string $email) : void
+    public function setDescription(string $description) : void
     {
-        $this->email = $email;
+        $this->description = $description;
     }
-    public function setPassword(string $password) : void
+    public function setCategoryId(int $categoryId) : void
     {
-        $this->password = $password;
+        $this->categoryId = $categoryId;
+    }
+    public function setPrice(int $price) : void
+    {
+        $this->price = $price;
     }
     public function setSlug(string $slug) : void
     {
