@@ -11,15 +11,14 @@ class User {
     private int $billingId;
 
     // public constructor
-    public function __construct(string $firstname, string $lastname, string $email, string $password, string $role, int $billingId)
+    public function __construct(string $firstname, string $lastname, string $email, string $password)
     {
         $this->id = null;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->email = $email;
         $this->password = $password;
-        $this->role = $role;
-        $this->billingId = $billingId;
+        $this->role = "USER";
     }
 
     // public getter

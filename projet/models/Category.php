@@ -8,12 +8,12 @@ class Category {
     private string $slug;
 
     // public constructor
-    public function __construct(string $name, ?string $imgURL, string $slug)
+    public function __construct(string $name, ?string $imgURL)
     {
         $this->id = null;
         $this->name = $name;
         $this->imgURL = $imgURL;
-        $this->slug = $slug;
+        $this->slug = $this->slugify($name);
     }
 
     // public getter
