@@ -1,5 +1,5 @@
 <?php
-class Category {
+class Ingredient {
 
     // private attribute
     private ?int $id;

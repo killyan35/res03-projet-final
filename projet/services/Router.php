@@ -5,7 +5,7 @@ class Router {
     private CategoryController $cc;
     private ProductController $pc;
     private AdminController $ac;
-    private EventController $ac;
+    private EventController $ec;
     public function __construct()
     {
         $this->uc = new UserController();
@@ -23,22 +23,31 @@ class Router {
         
         // ensuite je veux vérifier mes routes
         
-    if (isset ($_GET["PATH"]))
-    {
-        $route = explode("/", $_GET["PATH"]);
+        if (!isset($_GET['path'])) {
+
+            echo "marche plus"; // Si pas de route , je redirige sur la homepage
+            var_dump($_GET["path"]);
+        }
+
+        else {
+
+            $route = explode("/", $_GET['path']); // Je sépare tout ce qui se trouve entre les "/" pour les différentes routes
+        
+        var_dump($_GET["path"]);
     
         if($route[0] === "boutique")
         {
             if(!isset($route[1])) // j'ai donc juste /boutique
             {
                 // c'est la liste des catégories
+                echo "boutique";
                 $this->cc->displayAllCategories();
             }
             else if(isset($route[1])  && !isset($route[2])) // j'ai bien /boutique/un-truc mais rien après
             {
                 // c'est donc la liste des produits dans une catégorie
                 $this->pc->displayAllProducts($route[1]);
-                
+                echo "produits";
                 // $route[1] = Tarte (par exemple)
                 // et le slug de ma catégorie c'est $route[1]
             }
@@ -48,6 +57,7 @@ class Router {
                 // et le slug de mon produit c'est $route[2]
                 // $route[2] = tarte-chocolat (par exemple)
                 $this->pc->displayOneProduct($route[2]);
+                echo "detail produit";
             }
         }
         if($route[0] === "admin")
@@ -156,6 +166,7 @@ class Router {
             if(!isset($route[1])) // j'ai donc juste /connexion
             {
                 // j'affiche mon login
+                $this->uc->login();
             }
         }
         if($route[0] === "evenements")

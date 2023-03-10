@@ -2,5 +2,5 @@
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /res03-projet-final/projet/index.php [NC,L,QSA]
+RewriteRule ^(.*)$ /res03-projet-final/projet/index.php?path=$1 [NC,L,QSA]
 </IfModule>
