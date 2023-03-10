@@ -8,7 +8,7 @@ class User {
     private string $email;
     private string $password;
     private string $role;
-    private int $billingId;
+    private ?int $billingId;
 
     // public constructor
     public function __construct(string $firstname, string $lastname, string $email, string $password)

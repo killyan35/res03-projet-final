@@ -13,12 +13,11 @@ class UserController extends AbstractController {
             
             if (!empty($Post))
             {
-                if (($Post['email']!=='') && ($Post['password']!=='')) 
+                if (($Post['email2']!=='') && ($Post['password2']!=='')) 
                  {
-                     if($this->loginUser($Post["email"],$Post["password"])===true)
+                     if($this->loginUser($Post["email2"],$Post["password2"])===true)
                      {
                          $_SESSION["Connected"]=true;
-                         $_GET["route"]="accueil";
                          $this->render("accueil", []);
                      }
                      else 
@@ -29,7 +28,7 @@ class UserController extends AbstractController {
             }
             else
             {
-                $this->render("connexion", []);
+                $this->render("register", []);
             }
         }
         
@@ -41,12 +40,15 @@ class UserController extends AbstractController {
             {
                  if (($post['firstname']!=='' )  &&  ($post['lastname']!=='') && ($post['email']!=='')  &&  ($post['password']!=='')) 
                  {
-                     $userToAdd = new User($post["username"],$post["email"],$post["password"]);
+                     $userToAdd = new User($post["firstname"],$post["lastname"],$post["email"],$post["password"]);
                      $this->manager->insertUser($userToAdd);
                  }
             }
             $this->render("register", []);
         }
+        
+        
+        
         private function loginUser(string $Email , string $Password):bool 
         {
              $user = $this->manager->getUserByEmail($Email);

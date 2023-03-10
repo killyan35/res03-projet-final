@@ -10,7 +10,7 @@ class UserManager extends AbstractManager {
         ];
         $query->execute($parameters);
         $users = $query->fetch(PDO::FETCH_ASSOC);
-        $return = new User($users["firstname"],$users["lastname"],$users["email"],$users["password"],$users["role"]);
+        $return = new User($users["firstname"],$users["lastname"],$users["email"],$users["password"]);
         $return->setId($users["id"]);
         
         return $return;
@@ -27,7 +27,7 @@ class UserManager extends AbstractManager {
         $users = $query->fetch(PDO::FETCH_ASSOC);
         if($users!==false)
         {
-            $return = new User($users["firstname"],$users["lastname"],$users["email"],$users["password"],$users["role"]);
+            $return = new User($users["firstname"],$users["lastname"],$users["email"],$users["password"]);
             $return->setId($users["id"]);
             return $return;
         }
@@ -40,21 +40,25 @@ class UserManager extends AbstractManager {
     
     public function insertUser(User $user) : User
     {
-        $query = $this->db->prepare('INSERT INTO user VALUES (null, :value1, :value2, :value3, :value4, :value5)');
-        $parameter = [
-        'value1' => $user->getFirstname(),
-        'value2' => $user->getLastname(),
-        'value3' => $user->getEmail(),
-        'value4' => $user->getPassword(),
-        'value5' => $user->getRole()
+        $query = $this->db->prepare('INSERT INTO user VALUES (null, :prenom, :nom, :email, :mdp, :role, null, null)');
+        $parameters= [
+        'prenom' => $user->getFirstname(),
+        'nom' => $user->getLastname(),
+        'email' => $user->getEmail(),
+        'mdp' => $user->getPassword(),
+        'role' => $user->getRole()
         ];
-        $query->execute($parameter);
+        $query->execute($parameters);
+        
+        
+        
+        
         
         $query = $this->db->prepare("SELECT * FROM user WHERE email=:value");
         $parameters = ['value' => $user->getEmail()];
         $query->execute($parameters);
         $users = $query->fetch(PDO::FETCH_ASSOC);
-        $UserToReturn = new User($users["firstname"],$users["lastname"],$users["email"],$users["password"],$users["role"]);
+        $UserToReturn = new User($users["first_name"],$users["last_name"],$users["email"],$users["password"]);
         $UserToReturn->setId($users["id"]);
         return $UserToReturn ;
     }

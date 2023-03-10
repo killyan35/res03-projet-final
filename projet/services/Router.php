@@ -166,7 +166,7 @@ class Router {
             if(!isset($route[1])) // j'ai donc juste /connexion
             {
                 // j'affiche mon login
-                $this->uc->login();
+                $this->uc->register($_POST);
             }
         }
         if($route[0] === "evenements")
