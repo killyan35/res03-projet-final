@@ -26,25 +26,31 @@
 <!--* evenements/st-valentin-->
 <!--* evenements/epiphanie-->
 
-* /contact
-* /panier
+
 * /creation-de-compte-connexion
-* /mon-compte
-* /formulaire-de-commande
+* /mon-compte/formulaire-de-commande
+* /mon-compte/panier
+
 
 
 * admin/categories (display all categorys)
 * admin/categories/create
 * admin/categories/delete
 * admin/categories/update
+ 
+
 * admin/products (display all products)
 * admin/products/create
 * admin/products/delete
 * admin/products/update
+ 
+
 * admin/events (display all events)
 * admin/events/create
 * admin/events/delete
 * admin/events/update
+ 
+
 * admin/users (display all users)
 * admin/users/create
 * admin/users/delete
