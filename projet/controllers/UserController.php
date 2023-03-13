@@ -11,21 +11,18 @@ class UserController extends AbstractController {
         {
             $this->render("accueil", []);
         }
-        
-        
-        private function loginUser(string $Email , string $Password):bool 
+        public function admin() 
         {
-             $user = $this->manager->getUserByEmail($Email);
-    
-             if($user !== null && $Password === $user->getPassword())
-             {
-                return true;   
-             }
-             else
-             {
-                return false;
-             }
+            $this->render("admin", []);
         }
+        
+        
+        //  private function loginUser(string $Email , string $Password):bool 
+        // {
+        //      $user = $this->manager->getUserByEmail($Email);
+        //      $mdpClair = password_verify($Password,$user->getPassword());
+        //      return $mdpClair;
+        // }
         
         public function login(array $Post) : void
         {
@@ -33,11 +30,30 @@ class UserController extends AbstractController {
             {
                 if (($Post['email']!=='') && ($Post['password']!=='')) 
                  {
-                     if($this->loginUser($Post["email"],$Post["password"])===true)
+                    $user = $this->manager->getUserByEmail($Post["email"]);
+                    
+                    $mdpClair = password_verify($Post["password"],$user->getPassword());
+                    
+                    if($mdpClair===true)
                      {
-                         $_SESSION["Connected"]=true;
-                         header ('Location: accueil');
-                         var_dump($_SESSION["Connected"]);
+                         if($user->getRole() === "ADMIN")
+                         {
+                             $_SESSION["Connected"]=true;
+                             $_SESSION["admin"]=true;
+                             
+                             header ('Location: admin');
+                             echo "admin";
+                         }
+                         else if($user->getRole() === "USER")
+                         {
+                             $_SESSION["Connected"]=true;
+                             
+                             $_SESSION["admin"]=false;
+                             header ('Location: accueil');
+                             echo "user";
+                         }
+                    
+                         
                      }
                      else
                      {

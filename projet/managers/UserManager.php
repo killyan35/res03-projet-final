@@ -29,6 +29,7 @@ class UserManager extends AbstractManager {
         {
             $return = new User($users["first_name"],$users["last_name"],$users["email"],$users["password"]);
             $return->setId($users["id"]);
+            $return->setRole($users["role"]);
             return $return;
         }
         else
@@ -45,7 +46,7 @@ class UserManager extends AbstractManager {
         'prenom' => $user->getFirstname(),
         'nom' => $user->getLastname(),
         'email' => $user->getEmail(),
-        'mdp' => $user->getPassword(),
+        'mdp' => password_hash($user->getPassword() , PASSWORD_DEFAULT),
         'role' => $user->getRole()
         ];
         $query->execute($parameters);

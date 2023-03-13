@@ -65,7 +65,16 @@ class Router {
             if(!isset($route[1])) // j'ai donc juste /admin
             {
                 // on vérifie que c'est bien un admin et on le renvoi vers la user list 
-                $this->ac->login();
+                if(!isset($route[1]) && ($_SESSION["Connected"] === true) && ($_SESSION["admin"] === true))
+                {
+                    echo "je suis admin";
+                    $this->uc->admin();
+                    
+                }
+                else
+                {
+                    $this->uc->login($_POST);
+                }
             }
             else if(isset($route[1]) && !isset($route[2])) // j'ai donc /admin/ un-truc
             {
@@ -156,17 +165,17 @@ class Router {
         }
         if($route[0] === "accueil")
         {
-            if(!isset($route[1]) && !isset($_SESSION["Connected"])) // j'ai donc juste /accueil
-            {
-                // j'affiche ma homepage
-                echo "je suis pas co";
-                $this->uc->home();
-            }
-            else if(!isset($route[1]) && ($_SESSION["Connected"] === true))
+            if(!isset($route[1]) && ($_SESSION["Connected"] === true) && ($_SESSION["admin"] === false))
             {
                 echo "je suis co";
                 $this->uc->home();
                 var_dump($_SESSION["Connected"]);
+            }
+            else if(!isset($route[1]) && !isset($_SESSION["Connected"])) // j'ai donc juste /accueil
+            {
+                // j'affiche ma homepage
+                echo "je suis pas co";
+                $this->uc->home();
             }
         }
         
