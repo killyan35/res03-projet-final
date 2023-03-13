@@ -1,5 +1,4 @@
-<section class="register">
- <form method="post" action="connexion">
+<form id="regist" method="post" action="register">
                 
                     <label for="firstname">Prénom</label>
                     <input type="text" name="firstname" id="firstname" />
@@ -16,6 +15,7 @@
                     <label for="confirmPassword">Confirmer le mot de passe </label>
                     <input type="password" name="confirmPassword" id="confirmPassword" />
                     
+                    <input type="hidden" name="formName" value="register">
+                    
                     <input type="submit" value="Envoyer"/>
             </form>
-</section>

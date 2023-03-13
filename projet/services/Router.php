@@ -156,16 +156,42 @@ class Router {
         }
         if($route[0] === "accueil")
         {
-            if(!isset($route[1])) // j'ai donc juste /accueil
+            if(!isset($route[1]) && !isset($_SESSION["Connected"])) // j'ai donc juste /accueil
             {
                 // j'affiche ma homepage
+                echo "je suis pas co";
+                $this->uc->home();
+            }
+            else if(!isset($route[1]) && ($_SESSION["Connected"] === true))
+            {
+                echo "je suis co";
+                $this->uc->home();
+                var_dump($_SESSION["Connected"]);
             }
         }
+        
         if($route[0] === "connexion")
         {
             if(!isset($route[1])) // j'ai donc juste /connexion
             {
                 // j'affiche mon login
+                $this->uc->login($_POST);
+            }
+        }
+        if($route[0] === "deconnexion")
+        {
+            if(!isset($route[1])) // j'ai donc juste /connexion
+            {
+                // j'affiche mon login
+                session_destroy();
+                session_start();
+                header("Location: /res03-projet-final/projet/accueil");
+            }
+        }
+        if($route[0] === "register")
+        {
+            if(!isset($route[1])) // j'ai donc juste /connexion
+            {
                 $this->uc->register($_POST);
             }
         }
