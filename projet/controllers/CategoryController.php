@@ -6,21 +6,23 @@ class CategoryController extends AbstractController {
     {
         $this->manager = new CategoryManager();
     }
+    
         public function createCategory(array $post)
         {
+            echo "j'eassaye de créer un truc";
             
-            if (!empty($post))
+            if (isset($post["formName"]))
             {
-                 if ($post['NomCategorie']!=='') 
+                 if (($post['name']!=='' )  &&  ($post['url']!=='')) 
                  {
-                     $categoryToAdd = new Category($post["NomCategorie"]);
+                     $categoryToAdd = new Category($post["name"],$post["url"]);
                      $this->manager->insertCategory($categoryToAdd);
                  }
             }
-            $this->render("register-category", []);
         }
         public function displayAllCategory()
         {
+            $this->manager->findAllCategory();
             
         }
         

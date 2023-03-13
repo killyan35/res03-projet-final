@@ -86,7 +86,7 @@ class Router {
                 else if ($route[1] === "category")
                 {
                     // c'est donc la liste des category 
-                    $this->ac->displayAllCategories();
+                   $this->ac->category();
                 }
                 else if ($route[1] === "product")
                 {
@@ -118,13 +118,16 @@ class Router {
                 }
                 else if ($route[1] === "category")
                 {
+                    $this->cc->displayAllCategory();
+                    
                     if ($route[2] === "delete")
                     {
                         $this->ac->deleteCategory();
                     }
                     else if ($route[2] === "create")
                     {
-                        $this->ac->createCategory();
+                        $this->cc->createCategory($_POST);
+                        header("Location: /res03-projet-final/projet/admin/category");
                     }
                     else if ($route[2] === "update")
                     {
@@ -165,18 +168,19 @@ class Router {
         }
         if($route[0] === "accueil")
         {
-            if(!isset($route[1]) && ($_SESSION["Connected"] === true) && ($_SESSION["admin"] === false))
-            {
-                echo "je suis co";
-                $this->uc->home();
-                var_dump($_SESSION["Connected"]);
-            }
-            else if(!isset($route[1]) && !isset($_SESSION["Connected"])) // j'ai donc juste /accueil
+            if(!isset($route[1]) && !isset($_SESSION["Connected"])) // j'ai donc juste /accueil
             {
                 // j'affiche ma homepage
                 echo "je suis pas co";
                 $this->uc->home();
             }
+            else if(!isset($route[1]) && ($_SESSION["Connected"] === true) && ($_SESSION["admin"] === false))
+            {
+                echo "je suis co";
+                $this->uc->home();
+                var_dump($_SESSION["Connected"]);
+            }
+            
         }
         
         if($route[0] === "connexion")

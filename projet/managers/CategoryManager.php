@@ -15,6 +15,7 @@ class CategoryManager extends AbstractManager {
         
         return $return;
     }
+    
     public function insertCategory(Category $category) : Category
     {
         $query = $this->db->prepare('INSERT INTO category VALUES (null, :value1, :value2, :value3)');
@@ -24,15 +25,24 @@ class CategoryManager extends AbstractManager {
         'value3' => $category->getSlug()
         ];
         $query->execute($parameters);
+        
+        
+        
+        
         $query = $this->db->prepare("SELECT * FROM category WHERE name=:value");
         $parameter = ['value' => $category->getName()];
         $query->execute($parameter);
         $categorys = $query->fetch(PDO::FETCH_ASSOC);
-        $categoryToReturn = new Category($categorys["name"], $categorys["imgURL"], $categorys["slug"]);
+        $categoryToReturn = new Category($categorys["name"], $categorys["img_url"]);
         $categoryToReturn->setId($categorys["id"]);
+        $categoryToReturn->setSlug($categorys["slug"]);
         return $categoryToReturn;
      
     }
+    
+    
+    
+    
     function findAllCategory() : array
         {
             $query = $this->db->prepare("SELECT * FROM category");
@@ -42,11 +52,13 @@ class CategoryManager extends AbstractManager {
             $return = [];
             foreach ($categorys as $category)
             {
-                $newCat = new Category($category["name"], $category["imgURL"], $category["slug"]);
+                $newCat = new Category($category["name"], $category["img_url"]);
                 $newCat->setId($category["id"]);
+                $newCat->setSlug($category["slug"]);
                 $return[]=$newCat;
             }
             return $return;
+            var_dump($return);
         }
 }
 ?>

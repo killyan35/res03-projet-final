@@ -7,6 +7,10 @@ class AdminController extends AbstractController {
         
         $this->manager = new AdminManager();
     }
+    public function category() 
+        {
+            $this->render("category", []);
+        }
 }
 
 ?>
