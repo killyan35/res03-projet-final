@@ -53,6 +53,7 @@ class Product {
     public function setName(string $name) : void
     {
         $this->name = $name;
+        $this->slug = $this->slugify($name);
     }
     public function setDescription(string $description) : void
     {

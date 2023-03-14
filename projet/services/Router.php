@@ -41,7 +41,7 @@ class Router {
             {
                 // c'est la liste des catégories
                 echo "boutique";
-                $this->cc->displayAllCategories();
+                $this->uc->displayAllCategorys();
             }
             else if(isset($route[1])  && !isset($route[2])) // j'ai bien /boutique/un-truc mais rien après
             {
@@ -86,7 +86,7 @@ class Router {
                 else if ($route[1] === "category")
                 {
                     // c'est donc la liste des category 
-                   $this->ac->category();
+                    $this->cc->displayAllCategorys();
                 }
                 else if ($route[1] === "product")
                 {
@@ -116,13 +116,16 @@ class Router {
                         $this->ac->updateUser();
                     }
                 }
+                
+                
                 else if ($route[1] === "category")
                 {
-                    $this->cc->displayAllCategory();
-                    
                     if ($route[2] === "delete")
                     {
-                        $this->ac->deleteCategory();
+                        if(isset($route[3]))
+                        {
+                            $this->cc->deleteCategory($route[3]);
+                        }
                     }
                     else if ($route[2] === "create")
                     {
@@ -131,9 +134,15 @@ class Router {
                     }
                     else if ($route[2] === "update")
                     {
-                        $this->ac->updateCategory();
+                        if(isset($route[3]))
+                        {
+                            $this->cc->displayUpdateFormCategory($route[3]);
+                            $this->cc->EditCategory($_POST, $route[3]);
+                        }
                     }
                 }
+                
+                
                 else if ($route[1] === "product")
                 {
                     if ($route[2] === "delete")

@@ -1,22 +1,21 @@
 <?php
 class CategoryManager extends AbstractManager {
 
-    public function getCategoryById(int $id) : Category
+    public function getCategoryBySlug(string $slug) : Category
     {
        
-        $query = $this->db->prepare("SELECT * FROM category WHERE id=:id");
-        $parameters = [
-            'id'=>$id
+        $query = $this->db->prepare("SELECT * FROM category WHERE slug=:slug");
+        $parameter = [
+            'slug'=>$slug
         ];
-        $query->execute($parameters);
-        $categorys = $query->fetch(PDO::FETCH_ASSOC);
-        $return = new Category($categorys["name"], $categorys["imgURL"], $categorys["slug"]);
-        $return->setId($categorys["id"]);
+        $query->execute($parameter);
+        $category = $query->fetch(PDO::FETCH_ASSOC);
+        $return = new Category(intval($category["id"]),$category["name"], $category["img_url"], $category["slug"]);
         
         return $return;
     }
     
-    public function insertCategory(Category $category) : Category
+    public function insertCategory(Category $category)
     {
         $query = $this->db->prepare('INSERT INTO category VALUES (null, :value1, :value2, :value3)');
         $parameters = [
@@ -25,25 +24,10 @@ class CategoryManager extends AbstractManager {
         'value3' => $category->getSlug()
         ];
         $query->execute($parameters);
-        
-        
-        
-        
-        $query = $this->db->prepare("SELECT * FROM category WHERE name=:value");
-        $parameter = ['value' => $category->getName()];
-        $query->execute($parameter);
-        $categorys = $query->fetch(PDO::FETCH_ASSOC);
-        $categoryToReturn = new Category($categorys["name"], $categorys["img_url"]);
-        $categoryToReturn->setId($categorys["id"]);
-        $categoryToReturn->setSlug($categorys["slug"]);
-        return $categoryToReturn;
-     
     }
     
     
-    
-    
-    function findAllCategory() : array
+    public function findAllCategory() : array
         {
             $query = $this->db->prepare("SELECT * FROM category");
             $query->execute([]);
@@ -52,13 +36,36 @@ class CategoryManager extends AbstractManager {
             $return = [];
             foreach ($categorys as $category)
             {
-                $newCat = new Category($category["name"], $category["img_url"]);
+                $newCat = new Category(intval($category["id"]),$category["name"], $category["img_url"], $category["slug"]);
                 $newCat->setId($category["id"]);
                 $newCat->setSlug($category["slug"]);
                 $return[]=$newCat;
             }
             return $return;
-            var_dump($return);
         }
+        
+        
+    public function editCategory(Category $category) : void
+    {
+    $query = $this->db->prepare("UPDATE category SET name=:name, img_url=:img_url, slug=:slug WHERE id=:id");
+    $parameters = [
+        'id'=>$category->getId(),
+        'name'=>$category->getName(),
+        'img_url'=>$category->getImgURL(),
+        'slug'=>$category->getSlug()
+    ];
+    $query->execute($parameters);
+    }
+    
+    
+    public function deleteCat(Category $category)
+    {
+        
+        $query = $this->db->prepare("DELETE FROM category WHERE id=:id");
+        $parameters = [
+            'id'=>$category->getId()
+        ];
+        $query->execute($parameters);
+    }
 }
 ?>

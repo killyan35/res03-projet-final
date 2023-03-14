@@ -8,12 +8,19 @@ class Category {
     private string $slug;
 
     // public constructor
-    public function __construct(string $name, string $imgURL)
+    public function __construct(?int $id=null, string $name, string $imgURL, ?string $slug=null)
     {
-        $this->id = null;
+        $this->id = $id;
         $this->name = $name;
         $this->imgURL = $imgURL;
-        $this->slug = $this->slugify($name);
+        if($slug===null)
+        {
+            $this->slug = $this->slugify($name);
+        }
+        else
+        {
+            $this->slug = $slug;
+        }
     }
 
     // public getter
@@ -34,7 +41,7 @@ class Category {
         return $this->slug;
     }
     
-    // public setter
+    // public setter 
     public function setId(int $id) : void
     {
         $this->id = $id;
@@ -42,6 +49,7 @@ class Category {
     public function setName(string $name) : void
     {
         $this->name = $name;
+        $this->slug = $this->slugify($name);
     }
     public function setImgURL(string $imgURL) : void
     {
@@ -52,7 +60,7 @@ class Category {
         $this->slug = $slug;
     }
     
-    public function slugify($text, string $divider = '-')
+    private function slugify($text, string $divider = '-')
         {
           // replace non letter or digits by divider
           $text = preg_replace('~[^\pL\d]+~u', $divider, $text);

@@ -46,7 +46,7 @@ class ProductManager extends AbstractManager {
         
         return $ProductToReturn ;
     }
-    function findAllProduct() : array
+    public function findAllProduct() : array
         {
             $query = $this->db->prepare("SELECT * FROM product");
             $query->execute([]);
@@ -62,5 +62,17 @@ class ProductManager extends AbstractManager {
             }
             return $return;
         }
+    public function editProduct(Product $product) : void
+    {
+    $query = $this->db->prepare("UPDATE user SET name=:name, description=:description, price=:price, category_id=:category_id WHERE product.id=:id");
+    $parameters = [
+        'id'=>$product->getId(),
+        'name'=>$product->getName(),
+        'description'=>$product->getDescription(),
+        'price'=>$product->getPrice(),
+        'category_id'=>$product->getCategory_id()
+    ];
+    $query->execute($parameters);
+    }
 }
 ?>

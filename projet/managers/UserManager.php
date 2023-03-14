@@ -64,5 +64,29 @@ class UserManager extends AbstractManager {
         return $UserToReturn ;
     }
     
+    public function editUser(User $user) : void
+    {
+    $query = $this->db->prepare("UPDATE user SET first_name=:first_name, last_name=:last_name, email=:email, password=:password WHERE user.id=:id");
+    $parameters = [
+        'id'=>$user->getId(),
+        'first_name'=>$user->getFirstname(),
+        'last_name'=>$user->getLastname(),
+        'email'=>$user->getEmail(),
+        'password'=>$user->getPassword()
+    ];
+    $query->execute($parameters);
+    }
+    
+    
+    public function deleteUser(User $user)
+    {
+        
+        $query = $this->db->prepare("DELETE FROM user WHERE id=:id");
+        $parameters = [
+            'id'=>$user->getId()
+        ];
+        $query->execute($parameters);
+    }
+    
 }
 ?>

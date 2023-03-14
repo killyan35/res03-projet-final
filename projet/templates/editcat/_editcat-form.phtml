@@ -1,0 +1,15 @@
+ <form method="post" action="/res03-projet-final/projet/admin/category/update/<?php echo($data["category"]->getSlug()); ?>" id="editcategory">
+  
+                    <label for="id">Id</label>
+                    <input type="text" value="<?php echo($data["category"]->getId()); ?>" 
+                    name="id" id="id" disabled/>
+                
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" value="<?php echo($data["category"]->getName()); ?>"/>
+                    
+                    <label for="url">URL</label>
+                    <input type="url" name="url" id="url" value="<?php echo($data["category"]->getImgURL()); ?>"/>
+                    
+                    <input type="hidden" name="formName" value="editcategory">
+                    <input type="submit" value="Envoyer"/>
+            </form>

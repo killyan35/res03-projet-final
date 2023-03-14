@@ -9,23 +9,52 @@ class CategoryController extends AbstractController {
     
         public function createCategory(array $post)
         {
-            echo "j'eassaye de créer un truc";
-            
             if (isset($post["formName"]))
             {
-                 if (($post['name']!=='' )  &&  ($post['url']!=='')) 
+                 if ((isset($post['name']) && $post['name']!=='')  &&  (isset($post['url']) && $post['url']!=='')) 
                  {
-                     $categoryToAdd = new Category($post["name"],$post["url"]);
+                     $categoryToAdd = new Category(null, $post["name"],$post["url"], null);
                      $this->manager->insertCategory($categoryToAdd);
+                     header("Location: /res03-projet-final/projet/admin/category");
                  }
             }
         }
-        public function displayAllCategory()
-        {
-            $this->manager->findAllCategory();
-            
+        public function EditCategory(array $post, string $catslug)
+        { 
+            if (isset($post["formName"]))
+            {
+                 if ((isset($post['name']) && $post['name']!=='')  &&  (isset($post['url']) && $post['url']!=='')) 
+                 {
+                     $categoryToChange = $this->manager->getCategoryBySlug($catslug);
+                     $categoryToChange->setName($post['name']);
+                     $categoryToChange->setImgURL($post['url']);
+                     $this->manager->editCategory($categoryToChange);
+                 }
+            }
         }
         
         
+        
+        public function displayUpdateFormCategory(string $slug)
+        {
+            $Categories = $this->manager->getCategoryBySlug($slug);
+            $tab = [];
+            $tab["category"]=$Categories;
+            $this->render("editcat", $tab);
+        }
+        
+        
+        public function displayAllCategorys()
+        {
+            $Categories = $this->manager->findAllCategory();
+            $this->render("category", $Categories);
+        }
+        
+        public function deleteCategory(string $slug)
+        {
+            $delete = $this->manager->getCategoryBySlug($slug);
+            $this->manager->deleteCat($delete);
+            header("Location: /res03-projet-final/projet/admin/category");
+        }
 }
 ?>
