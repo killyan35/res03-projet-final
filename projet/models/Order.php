@@ -7,9 +7,10 @@ class Order {
     private int $totalPrice; // prix de base multiplier par le $size et le $number
     private int $userId;
     private int $billingId;
+    private int $totalOrderPrice;
 
     // public constructor
-    public function __construct(int $userId, int $size, int $number, int $totalPrice, int $billingId)
+    public function __construct(int $billingId, int $size, int $number, ?int $totalPrice=null, int $userId)
     {
         $this->id = null;
         $this->userId = $userId;
@@ -17,6 +18,22 @@ class Order {
         $this->number = $number;
         $this->totalPrice = $totalPrice;
         $this->billingId = $billingId;
+        if($totalPrice===null)
+        {
+            $this->totalPrice = $this->slugify($name);
+        }
+        else
+        {
+            $this->totalPrice = $totalPrice;
+        }
+        if($totalOrderPrice===null)
+        {
+            $this->totalOrderPrice = $this->slugify($name);
+        }
+        else
+        {
+            $this->totalOrderPrice = $totalOrderPrice;
+        }
     }
 
     // public getter
@@ -69,6 +86,19 @@ class Order {
     public function setBillingId(int $billingId) : void
     {
         $this->billingId = $billingId;
+    }
+    
+    
+    
+    private function calculTotalPrice(int $number, int $size, int $price) 
+    {
+        $totalprice = ($price*$size)*$number;
+        return $totalprice;
+    }
+    
+    private function calculTotalOrderPrice(int $number, int $totalprice)
+    {
+        
     }
 }
 ?>

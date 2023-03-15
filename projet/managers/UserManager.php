@@ -93,5 +93,12 @@ class UserManager extends AbstractManager {
             return $return;
         }
     
+    
+    public function findAllProductOnOneCat(string $slug)
+    {
+        
+    }
+    
+    
 }
 ?>
