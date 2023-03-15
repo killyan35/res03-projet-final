@@ -91,5 +91,29 @@ class UserController extends AbstractController {
             $tab["category"]=$Categories;
             $this->render("boutique", $tab);
         }
+        
+        
+        public function displayAllUsers()
+        {
+            $users = $this->manager->findAllUser();
+            $this->render("users", $users);
+        }
+        
+        public function deleteUser(string $email)
+        {
+            $delete = $this->manager->getUserByEmail($email);
+            $this->manager->deleteUser($delete);
+            header("Location: /res03-projet-final/projet/admin/user");
+        }
+        
+        
+        public function displayOneUser(string $email)
+        {
+            $one = $this->manager->getUserByEmail($email);
+            $user = [];
+            $user ["user"] = $one;
+            $this->render("user", $user);
+        }
+        
 }
 ?>

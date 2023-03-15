@@ -81,7 +81,7 @@ class Router {
                 if ($route[1] === "user")
                 { 
                     // c'est donc la liste des user 
-                    $this->ac->displayAllUsers();
+                    $this->uc->displayAllUsers();
                 }
                 else if ($route[1] === "category")
                 {
@@ -105,16 +105,26 @@ class Router {
                 { 
                     if ($route[2] === "delete")
                     {
-                        $this->ac->deleteUser();
+                        if(isset($route[3]))
+                        {
+                            $this->uc->deleteUser($route[3]);
+                        }
                     }
-                    else if ($route[2] === "create")
+                    else if ($route[2] === "info")
                     {
-                        $this->ac->createUser();
+                        if(isset($route[3]))
+                        {
+                            $this->uc->displayOneUser($route[3]);
+                        }
                     }
-                    else if ($route[2] === "update")
-                    {
-                        $this->ac->updateUser();
-                    }
+                    // else if ($route[2] === "update")
+                    // {
+                    //     if(isset($route[3]))
+                    //     {
+                    //         $this->uc->displayUpdateFormUser($route[3]);
+                    //         $this->uc->EditUser($_POST, $route[3]);
+                    //     }
+                    // }
                 }
                 
                 

@@ -39,7 +39,7 @@ class UserManager extends AbstractManager {
         
     }
     
-    public function insertUser(User $user) : User
+    public function insertUser(User $user)
     {
         $query = $this->db->prepare('INSERT INTO user VALUES (null, :prenom, :nom, :email, :mdp, :role, null, null)');
         $parameters= [
@@ -50,23 +50,11 @@ class UserManager extends AbstractManager {
         'role' => $user->getRole()
         ];
         $query->execute($parameters);
-        
-        
-        
-        
-        
-        $query = $this->db->prepare("SELECT * FROM user WHERE email=:value");
-        $parameters = ['value' => $user->getEmail()];
-        $query->execute($parameters);
-        $users = $query->fetch(PDO::FETCH_ASSOC);
-        $UserToReturn = new User($users["first_name"],$users["last_name"],$users["email"],$users["password"]);
-        $UserToReturn->setId($users["id"]);
-        return $UserToReturn ;
     }
     
     public function editUser(User $user) : void
     {
-    $query = $this->db->prepare("UPDATE user SET first_name=:first_name, last_name=:last_name, email=:email, password=:password WHERE user.id=:id");
+    $query = $this->db->prepare("UPDATE user SET first_name=:first_name, last_name=:last_name, email=:email, password=:password WHERE id=:id");
     $parameters = [
         'id'=>$user->getId(),
         'first_name'=>$user->getFirstname(),
@@ -87,6 +75,23 @@ class UserManager extends AbstractManager {
         ];
         $query->execute($parameters);
     }
+    
+    
+    public function findAllUser() : array
+        {
+            $query = $this->db->prepare("SELECT * FROM user");
+            $query->execute([]);
+            $users = $query->fetchAll(PDO::FETCH_ASSOC);
+          
+            $return = [];
+            foreach ($users as $user)
+            {
+                $newUser = new User($user["first_name"],$user["last_name"],$user["email"],$user["password"]);
+                $newUser->setId($user["id"]);
+                $return[]=$newUser;
+            }
+            return $return;
+        }
     
 }
 ?>

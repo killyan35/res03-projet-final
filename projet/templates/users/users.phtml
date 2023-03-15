@@ -1,0 +1,29 @@
+<section>
+<h1>Toutes les users</h1>
+<h2><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin">revenir au menu admin</a></h2>
+<table>
+    <thead>
+        <tr>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php 
+    foreach($data as $user){ 
+    ?>
+        <tr>
+            <td><?= $user->getFirstname() ?></td>
+            <td><?= $user->getLastname()?></td>
+            <td><?= $user->getEmail()?></td>
+            <td>
+               <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/user/delete/<?=$user->getEmail()?>">Supprimer</a>
+               <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/user/info/<?=$user->getEmail()?>">Info</a>
+            </td>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>
+</section>
