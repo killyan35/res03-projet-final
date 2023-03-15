@@ -7,30 +7,34 @@ class ProductController extends AbstractController {
         
         $this->manager = new ProductManager();
     }
+    
+        public function displayAllProducts()
+        {
+            $Products = $this->manager->findAllProducts();
+            $this->render("product", $Products);
+        }
   
         public function createProduct(array $post)
         {
-            $CM = new CategoryManager();
-            
-            if (!empty($post))
+            if (isset($post["formName"]))
             {
-                 if ($post['name']!=='' && $post["description"]!=='' && $post["price"]!=='' && $post["categoryId"]!=='') 
+                var_dump($post);
+                
+                 if (
+                     (isset($post['name']) && $post['name']!=='')
+                     &&  (isset($post['description']) && $post['description']!=='')
+                     &&  (isset($post['price']) && $post['price']!=='')
+                     &&  (isset($post['category_id']) && $post['category_id']!=='')
+                    ) 
                  {
-                     $ProductToAdd = new Product($products["name"],$products["description"],$products["price"],$products["categoryId"]);
+                     
+                     
+                     $ProductToAdd = new Product(null, $post["name"],$post["description"], null, floatval($post["price"]), intval($post["category_id"]));
+                     var_dump($ProductToAdd);
                      $this->manager->insertProduct($ProductToAdd);
+                     header("Location: /res03-projet-final/projet/admin/product");
                  }
             }
-            $Categories=$CM->findAllCategory();
-            $this->render("Product", $Categories);
-            
-        }
-        public function displayAllProducts($post)
-        {
-           
-        }
-         public function displayOneProduct($post)
-        {
-            
         }
 }
 

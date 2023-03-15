@@ -5,6 +5,7 @@ require 'controllers/AdminController.php';
 require 'controllers/EventController.php';
 require 'controllers/ProductController.php';
 require 'controllers/UserController.php';
+require 'controllers/IngredientController.php';
 
 require 'managers/AbstractManager.php';
 require 'managers/AdminManager.php';

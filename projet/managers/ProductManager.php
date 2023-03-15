@@ -15,25 +15,17 @@ class ProductManager extends AbstractManager {
         
         return $return;
     }
-    public function insertProduct(Product $product) : Product
+    public function insertProduct(Product $product)
     {
         $query = $this->db->prepare('INSERT INTO product VALUES (null, :value1, :value2, :value3, :value4, :value5)');
         $parameters = [
-        'value1' => $salon->getName(),
-        'value2' => $salon->getSlug(),
-        'value3' => $salon->getDescription(),
-        'value4' => $salon->getPrice(),
-        'value5' => $salon->getCategoryId()
+        'value1' => $product->getName(),
+        'value2' => $product->getDescription(),
+        'value3' => $product->getSlug(),
+        'value4' => $product->getPrice(),
+        'value5' => $product->getCategoryId()
         ];
         $query->execute($parameters);
-        $query = $this->db->prepare("SELECT * FROM product WHERE name=:value");
-        $parameter = ['value' => $product->getName()];
-        $query->execute($parameter);
-        $products = $query->fetch(PDO::FETCH_ASSOC);
-        $ProductToReturn = new Product($products["name"],$products["description"],$products["price"],$products["categoryId"]);
-        $ProductToReturn->setId($products["id"]);
-        
-        return $ProductToReturn ;
     }
     public function getProductByName(string $name) : Product
     {
@@ -46,7 +38,7 @@ class ProductManager extends AbstractManager {
         
         return $ProductToReturn ;
     }
-    public function findAllProduct() : array
+    public function findAllProducts() : array
         {
             $query = $this->db->prepare("SELECT * FROM product");
             $query->execute([]);
@@ -55,10 +47,11 @@ class ProductManager extends AbstractManager {
             $return = [];
             foreach ($products as $product)
             {
-                $newproduct= new Product($products["name"],$products["description"],$products["price"],$products["categoryId"]);
-                $newproduct->setId($product["id"]);
-                $return[]=$newproduct;
-                
+                $newProduct = new Product(intval($product["id"]),$product["name"], $product["description"],
+                $product["slug"], floatval($product["price"]), intval($product["category_id"]));
+                $newProduct->setId($product["id"]);
+                $newProduct->setSlug($product["slug"]);
+                $return[]=$newProduct;
             }
             return $return;
         }

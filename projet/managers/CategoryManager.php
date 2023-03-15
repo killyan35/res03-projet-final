@@ -36,7 +36,8 @@ class CategoryManager extends AbstractManager {
             $return = [];
             foreach ($categorys as $category)
             {
-                $newCat = new Category(intval($category["id"]),$category["name"], $category["img_url"], $category["slug"]);
+                $newCat = new Category(intval($category["id"]),$category["name"],
+                $category["img_url"], $category["slug"]);
                 $newCat->setId($category["id"]);
                 $newCat->setSlug($category["slug"]);
                 $return[]=$newCat;

@@ -13,6 +13,7 @@ class Router {
         $this->pc = new ProductController();
         $this->ac = new AdminController();
         $this->ec = new EventController();
+        $this->ic = new IngredientController();
     }
     
     function checkRoute() : void
@@ -91,7 +92,12 @@ class Router {
                 else if ($route[1] === "product")
                 {
                     // c'est donc la liste des product 
-                    $this->ac->displayAllProducts();
+                    $this->pc->displayAllProducts();
+                }
+                else if ($route[1] === "ingredient")
+                {
+                    // c'est donc la liste des product 
+                    $this->ic->displayIngredients();
                 }
                 else if ($route[1] === "events")
                 {
@@ -153,6 +159,44 @@ class Router {
                 }
                 
                 
+                
+                
+                
+                
+                
+                
+                else if ($route[1] === "ingredient")
+                {
+                    if ($route[2] === "delete")
+                    {
+                        if(isset($route[3]))
+                        {
+                            $this->ic->deleteIngredient($route[3]);
+                        }
+                    }
+                    else if ($route[2] === "create")
+                    {
+                        $this->ic->createIngredient($_POST);
+                        header("Location: /res03-projet-final/projet/admin/ingredient");
+                    }
+                    else if ($route[2] === "update")
+                    {
+                        if(isset($route[3]))
+                        {
+                            $this->ic->displayUpdateFormIngredient($route[3]);
+                            $this->ic->EditIngredient($_POST, $route[3]);
+                        }
+                    }
+                }
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 else if ($route[1] === "product")
                 {
                     if ($route[2] === "delete")
@@ -161,7 +205,8 @@ class Router {
                     }
                     else if ($route[2] === "create")
                     {
-                        $this->ac->createProduct();
+                        $this->pc->createProduct($_POST);
+                        header("Location: /res03-projet-final/projet/admin/product");
                     }
                     else if ($route[2] === "update")
                     {

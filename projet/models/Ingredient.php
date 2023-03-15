@@ -6,7 +6,7 @@ class Ingredient {
     private string $name;
 
     // public constructor
-    public function __construct(string $name)
+    public function __construct(?int $id, string $name)
     {
         $this->id = null;
         $this->name = $name;

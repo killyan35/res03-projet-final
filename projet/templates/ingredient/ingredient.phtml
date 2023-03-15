@@ -1,0 +1,28 @@
+<section class="createingredient">
+    <h2>Creation d'ingredient</h2>
+    <?php  require  '_ingredient-form.phtml'; ?>
+</section>
+<section>
+<h1>Toutes les ingredients</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php 
+    foreach($data as $ingredient){ 
+    ?>
+        <tr>
+            <td><?= $ingredient->getName() ?></td>
+            <td>
+               <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/ingredient/delete/<?=$ingredient->getName()?>">Supprimer</a>
+                <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/ingredient/update/<?=$ingredient->getName()?>">Modifier</a>
+            </td>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>
+</section>
