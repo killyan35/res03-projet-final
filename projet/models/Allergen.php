@@ -1,5 +1,5 @@
 <?php
-class Ingredient {
+class Allergen {
 
     // private attribute
     private ?int $id;
@@ -42,11 +42,11 @@ class Ingredient {
     public function setName(string $name) : void
     {
         $this->name = $name;
-        $this->slug = $this->slugify($name);
     }
     public function setSlug(string $slug) : void
     {
         $this->slug = $slug;
+        $this->slug = $this->slugify($name);
     }
     public function slugify($text, string $divider = '-')
         {

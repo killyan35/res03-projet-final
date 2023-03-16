@@ -1,0 +1,12 @@
+ <form method="post" action="/res03-projet-final/projet/admin/allergen/update/<?php echo($data["allergen"]->getSlug()); ?>" id="editallergen">
+  
+                    <label for="id">Id</label>
+                    <input type="text" value="<?= $data["allergen"]->getId(); ?>" 
+                    name="id" id="id" disabled/>
+                
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" value="<?php echo($data["allergen"]->getName()); ?>"/>
+                    
+                    <input type="hidden" name="formName" value="editallergen">
+                    <input type="submit" value="Envoyer"/>
+            </form>

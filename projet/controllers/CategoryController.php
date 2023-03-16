@@ -29,6 +29,7 @@ class CategoryController extends AbstractController {
                      $categoryToChange->setName($post['name']);
                      $categoryToChange->setImgURL($post['url']);
                      $this->manager->editCategory($categoryToChange);
+                     header("Location: /res03-projet-final/projet/admin/category");
                  }
             }
         }

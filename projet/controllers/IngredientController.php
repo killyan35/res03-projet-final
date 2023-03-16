@@ -26,25 +26,33 @@ class IngredientController extends AbstractController {
             }
         }
         
-    public function EditIngredient(array $post, string $name)
+    public function EditIngredient(array $post, string $slug)
         { 
             if (isset($post["formName"]))
             {
                  if (isset($post['name']) && $post['name']!=='')
                  {
-                     $ingredientToChange = $this->manager->getIngredientByName($name);
+                     $ingredientToChange = $this->manager->getIngredientBySlug($slug);
                      $ingredientToChange->setName($post['name']);
                      $this->manager->editIngredient($ingredientToChange);
+                     header("Location: /res03-projet-final/projet/admin/ingredient");
                  }
             }
         }
         
-    public function displayUpdateFormIngredient(string $name)
+    public function displayUpdateFormIngredient(string $slug)
         {
-            $ingredients = $this->manager->getIngredientByName($name);
+            $ingredients = $this->manager->getIngredientBySlug($slug);
             $tab = [];
-            $tab["ingredient"]=$ingredients;
+            $tab["ingredient"]= $ingredients;
             $this->render("edit-ingredient", $tab);
+        }
+        
+    public function deleteIngredient(string $slug)
+        {
+            $delete = $this->manager->getIngredientBySlug($slug);
+            $this->manager->deleteIngredient($delete);
+            header("Location: /res03-projet-final/projet/admin/ingredient");
         }
 }
 

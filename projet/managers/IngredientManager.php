@@ -4,9 +4,10 @@ class IngredientManager extends AbstractManager {
     
     public function insertIngredient(Ingredient $ingredient)
     {
-        $query = $this->db->prepare('INSERT INTO ingredient VALUES (null, :value1)');
+        $query = $this->db->prepare('INSERT INTO ingredient VALUES (null, :value1, :value2)');
         $parameters = [
-        'value1' => $ingredient->getName()
+        'value1' => $ingredient->getName(),
+        'value2' => $ingredient->getSlug()
         ];
         $query->execute($parameters);
     }
@@ -21,7 +22,7 @@ class IngredientManager extends AbstractManager {
             $return = [];
             foreach ($ingredients as $ingredient)
             {
-                $newIngredient = new Ingredient(intval($ingredient["id"]),$ingredient["name"]);
+                $newIngredient = new Ingredient(intval($ingredient["id"]),$ingredient["name"],$ingredient["slug"]);
                 $newIngredient->setId($ingredient["id"]);
                 $return[]=$newIngredient;
             }
@@ -36,18 +37,38 @@ class IngredientManager extends AbstractManager {
             $this->render("ingredient", $tab);
         }
     
-    public function getIngredientByName(string $name) : Ingredient
+    public function getIngredientBySlug(string $slug) : Ingredient
         {
            
-            $query = $this->db->prepare("SELECT * FROM ingredient WHERE name=:name");
+            $query = $this->db->prepare("SELECT * FROM ingredient WHERE slug=:slug");
             $parameter = [
-                'name'=>$name
+                'slug'=>$slug
             ];
             $query->execute($parameter);
             $ingredient = $query->fetch(PDO::FETCH_ASSOC);
-            $return = new Ingredient(intval($ingredient["id"]),$ingredient["name"]);
+            $return = new Ingredient(intval($ingredient["id"]),$ingredient["name"],$ingredient["slug"]);
             
             return $return;
+        }
+        
+    public function editIngredient(Ingredient $ingredient) : void
+        {
+        $query = $this->db->prepare("UPDATE ingredient SET name=:name WHERE id=:id");
+        $parameters = [
+            'id'=>$ingredient->getId(),
+            'name'=>$ingredient->getName()
+        ];
+        $query->execute($parameters);
+        }
+        
+    public function deleteIngredient(Ingredient $ingredient)
+        {
+            
+            $query = $this->db->prepare("DELETE FROM ingredient WHERE id=:id");
+            $parameters = [
+                'id'=>$ingredient->getId()
+            ];
+            $query->execute($parameters);
         }
 }
 ?>

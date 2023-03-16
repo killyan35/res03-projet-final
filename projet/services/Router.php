@@ -6,6 +6,8 @@ class Router {
     private ProductController $pc;
     private AdminController $ac;
     private EventController $ec;
+    private IngredientController $ic;
+    private AllergenController $alc;
     public function __construct()
     {
         $this->uc = new UserController();
@@ -14,6 +16,7 @@ class Router {
         $this->ac = new AdminController();
         $this->ec = new EventController();
         $this->ic = new IngredientController();
+        $this->alc = new AllergenController();
     }
     
     function checkRoute() : void
@@ -99,6 +102,11 @@ class Router {
                     // c'est donc la liste des product 
                     $this->ic->displayIngredients();
                 }
+                else if ($route[1] === "allergen")
+                {
+                    // c'est donc la liste des product 
+                    $this->alc->displayAllergens();
+                }
                 else if ($route[1] === "events")
                 {
                     // c'est donc la liste des product 
@@ -157,14 +165,6 @@ class Router {
                         }
                     }
                 }
-                
-                
-                
-                
-                
-                
-                
-                
                 else if ($route[1] === "ingredient")
                 {
                     if ($route[2] === "delete")
@@ -188,15 +188,29 @@ class Router {
                         }
                     }
                 }
-                
-                
-                
-                
-                
-                
-                
-                
-                
+                else if ($route[1] === "allergen")
+                {
+                    if ($route[2] === "delete")
+                    {
+                        if(isset($route[3]))
+                        {
+                            $this->alc->deleteAllergen($route[3]);
+                        }
+                    }
+                    else if ($route[2] === "create")
+                    {
+                        $this->alc->createAllergen($_POST);
+                        header("Location: /res03-projet-final/projet/admin/allergen");
+                    }
+                    else if ($route[2] === "update")
+                    {
+                        if(isset($route[3]))
+                        {
+                            $this->alc->displayUpdateFormAllergen($route[3]);
+                            $this->alc->EditAllergen($_POST, $route[3]);
+                        }
+                    }
+                }
                 else if ($route[1] === "product")
                 {
                     if ($route[2] === "delete")
