@@ -8,6 +8,7 @@ class Router {
     private EventController $ec;
     private IngredientController $ic;
     private AllergenController $alc;
+    private ImageController $imc;
     public function __construct()
     {
         $this->uc = new UserController();
@@ -17,6 +18,7 @@ class Router {
         $this->ec = new EventController();
         $this->ic = new IngredientController();
         $this->alc = new AllergenController();
+        $this->imc = new ImageController();
     }
     
     function checkRoute() : void
@@ -106,6 +108,11 @@ class Router {
                 {
                     // c'est donc la liste des product 
                     $this->alc->displayAllergens();
+                }
+                else if ($route[1] === "image")
+                {
+                    // c'est donc la liste des product 
+                    $this->imc->displayAllImage();
                 }
                 else if ($route[1] === "events")
                 {
@@ -211,6 +218,21 @@ class Router {
                         }
                     }
                 }
+                else if ($route[1] === "image")
+                {
+                    if ($route[2] === "delete")
+                    {
+                        if(isset($route[3]))
+                        {
+                            $this->imc->deleteImage($route[3]);
+                        }
+                    }
+                    else if ($route[2] === "create")
+                    {
+                        $this->imc->insertImage($_POST);
+                        header("Location: /res03-projet-final/projet/admin/image");
+                    }
+                }
                 else if ($route[1] === "product")
                 {
                     if ($route[2] === "delete")
@@ -220,11 +242,17 @@ class Router {
                     else if ($route[2] === "create")
                     {
                         $this->pc->createProduct($_POST);
-                        header("Location: /res03-projet-final/projet/admin/product");
                     }
                     else if ($route[2] === "update")
                     {
                         $this->ac->updateProduct();
+                    }
+                    else if ($route[2]=== "info")
+                    {
+                        if(isset($route[3]))
+                        {
+                            $this->pc->displayIngredientInOneProduct($route[3]);
+                        }
                     }
                 }
                 else if ($route[1] === "events")
@@ -241,6 +269,7 @@ class Router {
                     {
                         $this->ac->updateEvent();
                     }
+                    
                 }
             }
         }

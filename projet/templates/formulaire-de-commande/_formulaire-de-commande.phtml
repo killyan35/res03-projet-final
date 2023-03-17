@@ -1,21 +1,21 @@
- <form method="post" action="product/create" id="createproduct">
+ <form method="post" action="mon-compte/panier" id="createCommande">
                 
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name" />
+                    <label for="size">Taille du gateau</label>
+                    <input type="number" name="size" id="size" />
                     
-                    <label for="description">description</label>
-                    <input type="text" name="description" id="description" />
+                    <label for="number">Nombre de parts</label>
+                    <input type="number" name="number" id="number" />
                     
-                    <label for="price">price</label>
-                    <input type="text" name="price" id="price" />
+                    <label for="totalPiece">Nombre Total de parts</label>
+                    <input type="number" name="totalPiece" id="totalPiece" />
                     
-                    <label for="category_id">dans quel catégorie ?</label>
-                    <select name="category_id" id="category_id">
+                    <label for="billingId">A quel adresse ?</label>
+                    <select name="billingId" id="billingId">
                         <option value=""></option>
                          <?php 
-                              foreach($data["categorys"] as $category){ ?>
+                              foreach($data["billingId"] as $billingId){ ?>
                               
-                        <option value="<?= $category->getId()?>"><?= $category->getName()?></option>
+                        <option value="<?= $billingId->getId()?>"><?= $billingId->getName()?></option>
                          <?php } ?>
                     </select>
                      
@@ -40,6 +40,6 @@
                          <?php } ?>
                     </select>
                     
-                    <input type="hidden" name="formName" value="createproduct">
+                    <input type="hidden" name="formName" value="createCommande">
                     <input type="submit" value="Envoyer"/>
  </form>

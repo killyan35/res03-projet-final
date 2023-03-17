@@ -11,8 +11,12 @@ class CategoryController extends AbstractController {
         {
             if (isset($post["formName"]))
             {
-                 if ((isset($post['name']) && $post['name']!=='')  &&  (isset($post['url']) && $post['url']!=='')) 
+                 if ((isset($post['name']) && $post['name']!=='')) 
                  {
+                     $uploader = new Uploader();
+                     $media = $uploader->upload($_FILES, "url");
+                     $post["url"]=$media->getUrl();
+                     
                      $categoryToAdd = new Category(null, $post["name"],$post["url"], null);
                      $this->manager->insertCategory($categoryToAdd);
                      header("Location: /res03-projet-final/projet/admin/category");

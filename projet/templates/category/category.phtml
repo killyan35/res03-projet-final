@@ -11,8 +11,7 @@
         <tr>
             <th>Nom de la catégorie</th>
             <th>Image de la catégorie</th>
-            <th>Modifier</th>
-            <th>Supprimer</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -21,11 +20,9 @@
     ?>
         <tr>
             <td><?= $category->getName() ?></td>
-            <td><?= $category->getImgURL()?></td>
+            <td><img height=60px src="/res03-projet-final/projet/<?= $category->getImgURL()?>"></td>
             <td>
                <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/category/delete/<?=$category->getSlug()?>">Supprimer</a>
-            </td>
-            <td>
                 <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/category/update/<?=$category->getSlug()?>">Modifier</a>
             </td>
         </tr>

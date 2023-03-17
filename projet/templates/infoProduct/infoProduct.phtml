@@ -1,0 +1,40 @@
+
+<h1><?php
+     foreach($data["product"] as $product)
+    { 
+            echo $product->getName() ;
+    } 
+    ?>
+</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Liste des ingredients</th>
+            <th>Liste des allergenes</th>
+            <th>prix</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php 
+     foreach($data["ingredients"] as $ingredient){ 
+        
+    ?>
+        <tr>
+            <td><?= $ingredient->getName() ?></td>
+            <td>
+                 <?php 
+                foreach($data["allergens"] as $allergen){ 
+                    
+                    echo $allergen->getName() ;
+                 }?>
+            </td>
+            <td><?php 
+     foreach($data["product"] as $product)
+    { 
+            echo  round($product->getPrice(),2) ;
+    } 
+    ?></td>
+        </tr>
+    <?php  }?>
+    </tbody>
+</table>

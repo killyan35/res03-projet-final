@@ -114,6 +114,15 @@ class UserController extends AbstractController {
             $user ["user"] = $one;
             $this->render("user", $user);
         }
+        public function CommandeUser()
+        {
+            $order = $this->findOrder();
+            $this->render("formulaire-de-commande", $order);
+        }
+        public function sendOrder(array $post)
+        {
+            
+        }
         
 }
 ?>

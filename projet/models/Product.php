@@ -6,10 +6,10 @@ class Product {
     private string $description;
     private string $slug; // $name avec la fonction slug
     private float $price;
-    private int $categoryId; // formulaire dans le html
+    private int $category_id; // formulaire dans le html
  
     // public constructor
-    public function __construct(?int $id=null, string $name, string $description, ?string $slug=null, float $price, int $categoryId)
+    public function __construct(?int $id=null, string $name, string $description, ?string $slug=null, float $price, int $category_id)
     {
         $this->id = null;
         $this->name = $name;
@@ -23,7 +23,7 @@ class Product {
             $this->slug = $slug;
         }
         $this->price = $price;
-        $this->categoryId = $categoryId;
+        $this->category_id = $category_id;
     }
 
     // public getter
@@ -41,7 +41,7 @@ class Product {
     }
     public function getCategoryId() : int
     {
-        return $this->categoryId;
+        return $this->category_id;
     }
     public function getPrice() : float
     {
@@ -66,9 +66,9 @@ class Product {
     {
         $this->description = $description;
     }
-    public function setCategoryId(int $categoryId) : void
+    public function setCategoryId(int $category_id) : void
     {
-        $this->categoryId = $categoryId;
+        $this->category_id = $category_id;
     }
     public function setPrice(float $price) : void
     {
@@ -78,7 +78,6 @@ class Product {
     {
         $this->slug = $slug;
     }
-    
     
     public function slugify($text, string $divider = '-')
         {

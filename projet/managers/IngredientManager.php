@@ -70,5 +70,30 @@ class IngredientManager extends AbstractManager {
             ];
             $query->execute($parameters);
         }
+        
+    public function getIngredientsByProductId(int $Idproduct) : array 
+        {  
+            $query = $this->db->prepare('SELECT ingredient.* FROM product_has_ingredient 
+            JOIN ingredient ON product_has_ingredient.ingredient_id = ingredient.id 
+            JOIN product ON product_has_ingredient.product_id = product.id
+            WHERE product.id= :productId');
+    
+            $parameters = [
+                'productId' => $Idproduct
+            ];
+    
+            $query->execute($parameters);
+            
+            $ingredients = $query->fetchAll(PDO::FETCH_ASSOC);
+          
+            $return = [];
+            foreach ($ingredients as $ingredient)
+            {
+                $newIngredient = new Ingredient(intval($ingredient["id"]),$ingredient["name"],$ingredient["slug"]);
+                $newIngredient->setId($ingredient["id"]);
+                $return[]=$newIngredient;
+            }
+            return $return;
+        }
 }
 ?>

@@ -70,5 +70,29 @@ class AllergenManager extends AbstractManager {
             ];
             $query->execute($parameters);
         }
+        
+     public function getAllergensByProductId(int $Idproduct) : array  
+        {  
+            $query = $this->db->prepare('SELECT allergen.* FROM product_has_allergen 
+            JOIN allergen ON product_has_allergen.allergen_id = allergen.id 
+            JOIN product ON product_has_allergen.product_id = product.id
+            WHERE product.id= :productId');
+    
+            $parameters = [
+                'productId' => $Idproduct
+            ];
+    
+            $query->execute($parameters);
+            $allergens = $query->fetchAll(PDO::FETCH_ASSOC);
+          
+            $return = [];
+            foreach ($allergens as $allergen)
+            {
+                $newAllergen = new Allergen(intval($allergen["id"]),$allergen["name"],$allergen["slug"]);
+                $newAllergen->setId($allergen["id"]);
+                $return[]=$newAllergen;
+            }
+            return $return;  
+        }
 }
 ?>

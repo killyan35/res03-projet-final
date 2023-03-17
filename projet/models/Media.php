@@ -1,45 +1,48 @@
 <?php
+/**
+ * @author : Gaellan
+ * @link : https://github.com/Gaellan
+ */
+
 class Media {
-
-    // private attribute
-    private ?int $id;
+    private string $name;
     private string $url;
-    private string $description;
 
-    // public constructor
-    public function __construct(string $url, string $description)
+    public function __construct(string $name, string $url)
     {
-        $this->id = null;
         $this->name = $name;
-        $this->description = $description;
+        $this->url = $url;
     }
 
-    // public getter
-    public function getId() : int
+    /**
+     * @return string
+     */
+    public function getName(): string
     {
-        return $this->id;
+        return $this->name;
     }
-    public function getUrl() : string
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl(): string
     {
         return $this->url;
     }
-    public function getDescription() : string
-    {
-        return $this->description;
-    }
-    
-    // public setter
-    public function setId(int $id) : void
-    {
-        $this->id = $id;
-    }
-    public function setUrl(string $url) : void
+
+    /**
+     * @param string $url
+     */
+    public function setUrl(string $url): void
     {
         $this->url = $url;
     }
-    public function setDescription(string $description) : void
-    {
-        $this->description = $description;
-    }
 }
-?>

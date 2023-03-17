@@ -1,19 +1,19 @@
 <?php
 class ProductManager extends AbstractManager {
 
-    public function getProductById(int $id) : Product
+    public function getProductById(int $id) : array
     {
        
         $query = $this->db->prepare("SELECT * FROM product WHERE id=:id");
-        $parameters = [
-            'id'=>$id
-        ];
-        $query->execute($parameters);
-        $products = $query->fetch(PDO::FETCH_ASSOC);
-        $return = new Product($products["name"],$products["description"],$products["price"],$products["categoryId"]);
-        $return->setId($products["id"]);
-        
-        return $return;
+        $parameter = ['id' =>$id];
+        $query->execute($parameter);
+        $product = $query->fetch(PDO::FETCH_ASSOC);
+        $return = [];
+        $ProductToReturn = new Product(intval($product["id"]),$product["name"], $product["description"],
+                $product["slug"], floatval($product["price"]), intval($product["category_id"]));
+        $ProductToReturn->setId($product["id"]);
+        $return[]=$ProductToReturn;
+        return $return ;
     }
     public function insertProduct(Product $product)
     {
@@ -26,6 +26,8 @@ class ProductManager extends AbstractManager {
         'value5' => $product->getCategoryId()
         ];
         $query->execute($parameters);
+        
+        return $this->db->lastInsertId();
     }
     public function getProductByName(string $name) : Product
     {
@@ -33,7 +35,7 @@ class ProductManager extends AbstractManager {
         $parameter = ['name' =>$name];
         $query->execute($parameter);
         $products = $query->fetch(PDO::FETCH_ASSOC);
-        $ProductToReturn = new Product($products["name"],$products["description"],$products["price"],$products["categoryId"]);
+        $ProductToReturn = new Product($products["name"],$products["description"],$products["price"],$products["category_id"]);
         $ProductToReturn->setId($products["id"]);
         
         return $ProductToReturn ;
@@ -48,7 +50,7 @@ class ProductManager extends AbstractManager {
             foreach ($products as $product)
             {
                 $newProduct = new Product(intval($product["id"]),$product["name"], $product["description"],
-                $product["slug"], floatval($product["price"]), intval($product["category_id"]));
+                $product["slug"], intval($product["price"]), intval($product["category_id"]));
                 $newProduct->setId($product["id"]);
                 $newProduct->setSlug($product["slug"]);
                 $return[]=$newProduct;
@@ -67,5 +69,31 @@ class ProductManager extends AbstractManager {
     ];
     $query->execute($parameters);
     }
+    
+     
+   
+        
+    public function addIngredientOnProduct(int $ingredientId,int $productId)
+        {
+            $query = $this->db->prepare('INSERT INTO product_has_ingredient VALUES (:ProductId , :ingredientId )');
+            $parameters = [
+                'ingredientId' => $ingredientId,
+                'ProductId' => $productId
+            ];
+    
+            $query->execute($parameters);
+        }
+    public function addAllergenOnProduct(int $allergenId,int $productId)
+        {
+            $query = $this->db->prepare('INSERT INTO product_has_allergen VALUES (:ProductId , :allergenId )');
+            $parameters = [
+                'allergenId' => $allergenId,
+                'ProductId' => $productId
+            ];
+    
+            $query->execute($parameters);
+        }
+    
+    
 }
 ?>

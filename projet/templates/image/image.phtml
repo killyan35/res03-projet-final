@@ -1,0 +1,33 @@
+<section class="createimage">
+    <h2>Creation de image</h2>
+    <?php  require  '_image-form.phtml'; ?>
+</section>
+<h2><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin">revenir aux menu admin</a></h2>
+
+<section>
+<h1>Toutes les catégories</h1>
+<table>
+    <thead>
+        <tr>
+            <th>image</th>
+            <th>url de l'image</th>
+            <th>description de l'image</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php 
+    foreach($data as $image){ 
+    ?>
+        <tr>
+            <td><img height=60px src="/res03-projet-final/projet/<?= $image->getURL()?>"></td>
+            <td><?= $image->getURL()?></td>
+            <td><?= $image->getDescription() ?></td>
+            <td>
+                <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/$image/delete/<?=$image->getId()?>">Supprimer</a>
+            </td>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>
+</section>

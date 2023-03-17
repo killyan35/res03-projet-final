@@ -4,13 +4,13 @@ class Order {
     private ?int $id;
     private int $size; // formulaire dans le html
     private int $number; // formulaire dans le html
-    private int $totalPrice; // prix de base multiplier par le $size et le $number
+    private int $totalPiece; // prix de base multiplier par le $size et le $number
     private int $userId;
     private int $billingId;
-    private int $totalOrderPrice;
+    private float $totalOrderPrice;
 
     // public constructor
-    public function __construct(int $billingId, int $size, int $number, ?int $totalPrice=null, int $userId)
+    public function __construct(int $billingId, int $size, int $number, int $totalPiece, int $userId, float $totalOrderPrice)
     {
         $this->id = null;
         $this->userId = $userId;
@@ -18,22 +18,8 @@ class Order {
         $this->number = $number;
         $this->totalPrice = $totalPrice;
         $this->billingId = $billingId;
-        if($totalPrice===null)
-        {
-            $this->totalPrice = $this->slugify($name);
-        }
-        else
-        {
-            $this->totalPrice = $totalPrice;
-        }
-        if($totalOrderPrice===null)
-        {
-            $this->totalOrderPrice = $this->slugify($name);
-        }
-        else
-        {
-            $this->totalOrderPrice = $totalOrderPrice;
-        }
+        $this->totalPiece = $this->calculTotalPiece($number,$size);
+        $this->totalOrderPrice = $this->calculTotalOrderPrice($number,$totalPrice);
     }
 
     // public getter
@@ -53,13 +39,17 @@ class Order {
     {
         return $this->number;
     }
-    public function getTotalPrice() : int
+    public function getTotalPiece() : int
     {
         return $this->totalPrice;
     }
     public function getBillingId() : int
     {
         return $this->billingId;
+    }
+    public function getTotalOrderPrice() : float
+    {
+        return $this->totalOrderPrice;
     }
     
     // public setter
@@ -79,26 +69,31 @@ class Order {
     {
         $this->number = $number;
     }
-    public function setTotalPrice(int $totalPrice) : void
+    public function setTotalPiece(int $totalPiece) : void
     {
-        $this->totalPrice = $totalPrice;
+        $this->totalPiece = $totalPiece;
     }
     public function setBillingId(int $billingId) : void
     {
         $this->billingId = $billingId;
     }
-    
-    
-    
-    private function calculTotalPrice(int $number, int $size, int $price) 
+    public function setTotalOrderPrice(float $totalOrderPrice) : void
     {
-        $totalprice = ($price*$size)*$number;
-        return $totalprice;
+        $this->totalOrderPrice = $totalOrderPrice;
     }
     
-    private function calculTotalOrderPrice(int $number, int $totalprice)
+    
+    
+    private function calculTotalPiece(int $number, int $size) : int
     {
-        
+        $totalpiece = $size*$number;
+        return $totalpiece;
+    }
+    
+    private function calculTotalOrderPrice(float $number, float $totalprice) : float
+    {
+        $TotalOrderPrice = $totalprice + $number;
+        return $TotalOrderPrice;
     }
 }
 ?>
