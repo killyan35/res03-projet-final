@@ -9,7 +9,7 @@ class AdminController extends AbstractController {
     }
     public function category() 
         {
-            $this->render("category", []);
+            $this->renderadmin("category", []);
         }
 }
 

@@ -49,14 +49,14 @@ class CategoryController extends AbstractController {
             $Categories = $this->manager->getCategoryBySlug($slug);
             $tab = [];
             $tab["category"]=$Categories;
-            $this->render("editcat", $tab);
+            $this->renderadmin("editcat", $tab);
         }
         
         
         public function displayAllCategorys()
         {
             $Categories = $this->manager->findAllCategory();
-            $this->render("category", $Categories);
+            $this->renderadmin("category", $Categories);
         }
         
         public function deleteCategory(string $slug)

@@ -9,11 +9,11 @@ class UserController extends AbstractController {
     
         public function home() 
         {
-            $this->render("accueil", []);
+            $this->renderpublic("accueil", []);
         }
         public function admin() 
         {
-            $this->render("admin", []);
+            $this->renderadmin("admin", []);
         }
         
         
@@ -50,18 +50,18 @@ class UserController extends AbstractController {
                      }
                      else
                      {
-                         $this->render("register", []);
+                         $this->renderpublic("register", []);
                          echo "mdp invalide";
                      }
                  }
                  else
             {
-                $this->render("register", []);
+                $this->renderpublic("register", []);
             }
             }
             else
             {
-                $this->render("register", []);
+                $this->renderpublic("register", []);
             }
         }
         
@@ -83,20 +83,13 @@ class UserController extends AbstractController {
             }
         }
            
-        public function displayAllCategorys()
-        {
-            $CM = new CategoryManager();
-            $Categories=$CM->findAllCategory();
-            $tab = [];
-            $tab["category"]=$Categories;
-            $this->render("boutique", $tab);
-        }
+        
         
         
         public function displayAllUsers()
         {
             $users = $this->manager->findAllUser();
-            $this->render("users", $users);
+            $this->renderadmin("users", $users);
         }
         
         public function deleteUser(string $email)
@@ -112,7 +105,7 @@ class UserController extends AbstractController {
             $one = $this->manager->getUserByEmail($email);
             $user = [];
             $user ["user"] = $one;
-            $this->render("user", $user);
+            $this->renderadmin("user", $user);
         }
         public function CommandeUser()
         {
@@ -125,7 +118,7 @@ class UserController extends AbstractController {
         }
         public function displayError404()
         {
-            $this->render("error404", []);
+            $this->renderpublic("error404", []);
         }
         
 }

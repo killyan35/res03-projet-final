@@ -1,0 +1,17 @@
+<h2><a href="/res03-projet-final/projet/boutique">
+    revenir a la boutique
+</a></h2>
+<?php 
+    foreach($data["products"] as $product){ 
+    ?>
+<h1><?=$product->getName()?></h1>
+    <ul>
+        <li>
+            <a href="/res03-projet-final/projet/boutique/<?php echo $data["category"]->getSlug(); ?>/<?php echo $product->getSlug(); ?>">
+            <figure>
+                <img height=60px src="/res03-projet-final/projet/<?php foreach($data["image"] as $image){ echo $image->getURL(); } ?>">
+            </figure>
+            </a>
+        </li>
+    </ul>
+       <?php } ?>

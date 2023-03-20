@@ -29,7 +29,7 @@ class ProductController extends AbstractController {
                     "allergens"=>$Allergens,
                     "image"=>$image
                 ] ;
-            $this->render("product", $tab);
+            $this->renderadmin("product", $tab);
         }
    
         public function createProduct(array $post)
@@ -73,7 +73,7 @@ class ProductController extends AbstractController {
                     "ingredients"=>$ingredients,
                     "allergens"=>$Allergens
                 ] ;
-            $this->render("infoProduct", $tab);
+            $this->renderadmin("infoProduct", $tab);
         }
         
     public function EditProduct(array $post, string $prodslug)
@@ -116,7 +116,7 @@ class ProductController extends AbstractController {
                     "ingredients"=>$Ingredients,
                     "allergens"=>$Allergens
                 ] ;
-            $this->render("editproduct", $tab);
+            $this->renderadmin("editproduct", $tab);
         }
         
     public function deleteProduct(int $id)

@@ -17,6 +17,22 @@ class ImageManager extends AbstractManager {
             }
             return $return;
         }
+    public function findAllImagesInOneProduct(int $product_id) : array
+        {
+            $query = $this->db->prepare("SELECT * FROM media WHERE product_id=:product_id");
+            $parameter = ['product_id' =>$product_id];
+            $query->execute($parameter);
+            $images = $query->fetchAll(PDO::FETCH_ASSOC);
+          
+            $return = [];
+            foreach ($images as $image)
+            {
+                $newimg = new Image(intval($image["id"]),$image["url"],$image["description"], $image["product_id"]);
+                $newimg->setId($image["id"]);
+                $return[]=$newimg;
+            }
+            return $return;
+        }
     public function insertImage(Image $media)
         {
             $query = $this->db->prepare('INSERT INTO media VALUES (null, :value1, :value2, :value3)');

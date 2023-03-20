@@ -14,6 +14,19 @@ class CategoryManager extends AbstractManager {
         
         return $return;
     }
+    public function getCategoryById(int $categoryId) : Category
+    {
+       
+        $query = $this->db->prepare("SELECT * FROM category WHERE id=:id");
+        $parameter = [
+            'id'=>$categoryId
+        ];
+        $query->execute($parameter);
+        $category = $query->fetch(PDO::FETCH_ASSOC);
+        $return = new Category(intval($category["id"]),$category["name"], $category["img_url"], $category["slug"]);
+        
+        return $return;
+    }
     
     public function insertCategory(Category $category)
     {

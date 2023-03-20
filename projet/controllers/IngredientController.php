@@ -10,7 +10,7 @@ class IngredientController extends AbstractController {
     public function displayIngredients()
         {
             $Ingredients = $this->manager->findAllIngredients();
-            $this->render("ingredient", $Ingredients);
+            $this->renderadmin("ingredient", $Ingredients);
         }
     
     public function createIngredient(array $post)
@@ -45,7 +45,7 @@ class IngredientController extends AbstractController {
             $ingredients = $this->manager->getIngredientBySlug($slug);
             $tab = [];
             $tab["ingredient"]= $ingredients;
-            $this->render("edit-ingredient", $tab);
+            $this->renderadmin("edit-ingredient", $tab);
         }
         
     public function deleteIngredient(string $slug)

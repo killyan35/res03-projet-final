@@ -8,6 +8,7 @@ require 'controllers/UserController.php';
 require 'controllers/IngredientController.php';
 require 'controllers/AllergenController.php';
 require 'controllers/ImageController.php';
+require 'controllers/PageController.php';
 
 
 require 'managers/AbstractManager.php';

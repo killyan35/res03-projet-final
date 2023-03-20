@@ -9,6 +9,8 @@ class Router {
     private IngredientController $ic;
     private AllergenController $alc;
     private ImageController $imc;
+    private PageController $page;
+    
     public function __construct()
     {
         $this->uc = new UserController();
@@ -19,6 +21,7 @@ class Router {
         $this->ic = new IngredientController();
         $this->alc = new AllergenController();
         $this->imc = new ImageController();
+        $this->page = new PageController();
     }
     
     function checkRoute() : void
@@ -47,23 +50,22 @@ class Router {
             {
                 // c'est la liste des catégories
                 echo "boutique";
-                $this->uc->displayAllCategorys();
+                $this->page->displayAllCategorys();
             }
             else if(isset($route[1])  && !isset($route[2])) // j'ai bien /boutique/un-truc mais rien après
             {
                 // c'est donc la liste des produits dans une catégorie
-                $this->pc->displayAllProducts($route[1]);
+                $this->page->displayAllProductsByCategory($route[1]);
                 echo "produits";
                 // $route[1] = Tarte (par exemple)
                 // et le slug de ma catégorie c'est $route[1]
             }
-            else // j'ai donc boutique/un-truc/un-autre-truc
+            else if(isset($route[2]))// j'ai donc boutique/un-truc/un-autre-truc
             {
                 // c'est la page d'un produit précis
                 // et le slug de mon produit c'est $route[2]
                 // $route[2] = tarte-chocolat (par exemple)
-                $this->pc->displayOneProduct($route[2]);
-                echo "detail produit";
+                $this->page->displayOneProduct($route[2]);
             }
         }
         if($route[0] === "admin")
@@ -301,7 +303,7 @@ class Router {
             if(!isset($route[1])) // j'ai donc juste /connexion
             {
                 // j'affiche mon login
-                $this->uc->displayAllCategorys();
+                $this->page->displayAllCategorys();
             }
         }
         if($route[0] === "connexion")
@@ -354,24 +356,24 @@ class Router {
                     if ($route[1] === "panier")
                     { 
                         // c'est donc le panier 
-                        $this->uc->displayUserPanier();
+                        $this->uc->displayPanier();
+                        
+                        if ($route[2] === "formulaire-de-commande")
+                        {
+                            $this->uc->CommandeUser();
+                        }
+                        if(isset($route[2]))
+                        {
+                            $this->uc->addPanier($route[2]);
+                        }
                     }
+                    
                     else if ($route[1] === "favoris")
                     {
                         // c'est donc la liste des favoris 
                         $this->uc->displayUserfavorite();
                     }
                 }    
-                 else if(isset($route[1]) && isset($route[2]))  // j'ai donc admin/un-truc/un-autre-truc
-                {
-                    if ($route[1] === "panier")
-                    { 
-                        if ($route[2] === "formulaire-de-commande")
-                        {
-                            $this->uc->CommandeUser();
-                        }
-                    }
-                }
             }
         }
         if($route[0] === "error404")

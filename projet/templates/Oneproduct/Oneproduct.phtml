@@ -1,0 +1,38 @@
+<h2><a href="/res03-projet-final/projet/boutique/<?php echo $data["category"]->getSlug(); ?>">
+    revenir a la category <?php echo $data["category"]->getName() ?>
+</a></h2>
+<h2><a href="/res03-projet-final/projet/boutique">
+    revenir a la boutique
+</a></h2>
+<h1><?=$data["product"]->getName()?></h1>
+    <ul>
+        <li>
+            <figure>
+                <img height=60px src="/res03-projet-final/projet/<?php foreach($data["image"] as $image){ echo $image->getURL(); } ?>">
+            </figure>
+        </li>
+        <li>
+            <?php foreach($data["ingredients"] as $ingredients)
+            {    
+                echo $ingredients->getName(); 
+            } ?>
+        </li>
+        <li>
+            <?php foreach($data["allergens"] as $allergens)
+            {    
+                echo $allergens->getName(); 
+            } ?>
+        </li>
+        <li>
+            <?php  
+                echo $data["product"]->getDescription(); 
+            ?>
+        </li>
+        <li>
+            <?php  
+                echo $data["product"]->getPrice(); 
+            ?>€
+        </li>
+    </ul>
+    <button attribute="<?php echo $data["product"]->getId(); ?>">Ajouter au panier</button>
+     <button>Ajouter au favoris</button>
