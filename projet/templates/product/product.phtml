@@ -8,11 +8,10 @@
 <table>
     <thead>
         <tr>
+            <th>Image du produit</th>
             <th>Nom du produit</th>
             <th>Description du produit</th>
             <th>Action</th>
-            <th>ingredients</th>
-            <th>allergenes</th>
         </tr>
     </thead>
     <tbody>
@@ -20,24 +19,17 @@
     foreach($data["products"] as $product){ 
     ?>
         <tr>
+            <td>
+                
+                   <img height=60px src="/res03-projet-final/projet/<?php foreach($data["image"] as $image){ echo $image->getURL(); } ?>">
+            
+            </td>
             <td><?= $product->getName() ?></td>
             <td><?= $product->getDescription() ?></td>
             <td>
-               <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/product/delete/<?=$product->getSlug()?>">Supprimer</a>
+               <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/product/delete/<?=$product->getId()?>">Supprimer</a>
                 <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/product/update/<?=$product->getSlug()?>">Modifier</a>
                 <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/product/info/<?=$product->getId()?>">Info</a>
-            </td>
-            <td>
-                 <?php 
-                foreach($data["ingredients"] as $ingredient){ 
-                    echo $ingredient->getName() ;
-                } ?>
-            </td>
-            <td>
-                 <?php 
-                foreach($data["allergens"] as $allergen){ 
-                    echo $allergen->getName() ;
-                } ?>
             </td>
         </tr>
     <?php } ?>

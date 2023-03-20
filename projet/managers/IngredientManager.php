@@ -95,5 +95,16 @@ class IngredientManager extends AbstractManager {
             }
             return $return;
         }
+        
+    
+    public function deleteOneIngredientInAllProduct(int $ingredientId)
+        {
+            $query = $this->db->prepare('DELETE FROM product_has_ingredient WHERE ingredient_id=:ingredient_id');
+            $parameters = [
+                'ingredient_id' => $ingredientId
+            ];
+    
+            $query->execute($parameters);
+        }
 }
 ?>

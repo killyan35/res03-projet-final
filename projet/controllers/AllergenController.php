@@ -50,7 +50,10 @@ class AllergenController extends AbstractController {
         
     public function deleteAllergen(string $name)
         {
+            
             $delete = $this->manager->getAllergenBySlug($name);
+            $id = $delete->getId();
+            $deleteallerg = $this->manager->deleteOneAllergenInAllProduct(intval($id));
             $this->manager->deleteAllergen($delete);
             header("Location: /res03-projet-final/projet/admin/allergen");
         }

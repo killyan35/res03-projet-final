@@ -237,7 +237,10 @@ class Router {
                 {
                     if ($route[2] === "delete")
                     {
-                        $this->ac->deleteProduct();
+                        if(isset($route[3]))
+                        {
+                            $this->pc->deleteProduct($route[3]);
+                        }
                     }
                     else if ($route[2] === "create")
                     {
@@ -245,7 +248,11 @@ class Router {
                     }
                     else if ($route[2] === "update")
                     {
-                        $this->ac->updateProduct();
+                        if(isset($route[3]))
+                        {
+                            $this->pc->displayUpdateFormProduct($route[3]);
+                            $this->pc->EditProduct($_POST, $route[3]);
+                        }
                     }
                     else if ($route[2]=== "info")
                     {
@@ -255,22 +262,22 @@ class Router {
                         }
                     }
                 }
-                else if ($route[1] === "events")
-                {
-                    if ($route[2] === "delete")
-                    {
-                        $this->ac->deleteEvent();
-                    }
-                    else if ($route[2] === "create")
-                    {
-                        $this->ac->createEvent();
-                    }
-                    else if ($route[2] === "update")
-                    {
-                        $this->ac->updateEvent();
-                    }
+                // else if ($route[1] === "events")
+                // {
+                //     if ($route[2] === "delete")
+                //     {
+                //         $this->ac->deleteEvent();
+                //     }
+                //     else if ($route[2] === "create")
+                //     {
+                //         $this->ac->createEvent();
+                //     }
+                //     else if ($route[2] === "update")
+                //     {
+                //         $this->ac->updateEvent();
+                //     }
                     
-                }
+                // }
             }
         }
         if($route[0] === "accueil")
@@ -289,7 +296,14 @@ class Router {
             }
             
         }
-        
+        if($route[0] === "boutique")
+        {
+            if(!isset($route[1])) // j'ai donc juste /connexion
+            {
+                // j'affiche mon login
+                $this->uc->displayAllCategorys();
+            }
+        }
         if($route[0] === "connexion")
         {
             if(!isset($route[1])) // j'ai donc juste /connexion
@@ -358,6 +372,14 @@ class Router {
                         }
                     }
                 }
+            }
+        }
+        if($route[0] === "error404")
+        {
+            if(!isset($route[1])) // j'ai donc juste /evenements
+            {
+                // j'affiche mes evenements
+                $this->uc->displayError404();
             }
         }
         else

@@ -123,6 +123,10 @@ class UserController extends AbstractController {
         {
             
         }
+        public function displayError404()
+        {
+            $this->render("error404", []);
+        }
         
 }
 ?>

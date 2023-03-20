@@ -9,37 +9,6 @@
                     <label for="totalPiece">Nombre Total de parts</label>
                     <input type="number" name="totalPiece" id="totalPiece" />
                     
-                    <label for="billingId">A quel adresse ?</label>
-                    <select name="billingId" id="billingId">
-                        <option value=""></option>
-                         <?php 
-                              foreach($data["billingId"] as $billingId){ ?>
-                              
-                        <option value="<?= $billingId->getId()?>"><?= $billingId->getName()?></option>
-                         <?php } ?>
-                    </select>
-                     
-                    <label for="ingredient">avec quel ingredient ?</label>
-                    <select name="ingredient" id="ingredient">
-                        <option value=""></option>
-                         <?php 
-                              foreach($data["ingredients"] as $ingredient){ ?>
-                              
-                        <option value="<?= $ingredient->getId()?>"><?= $ingredient->getName()?></option>
-                         <?php } ?>
-                    </select>
-                    
-                    
-                    <label for="allergen">avec quel allergen ?</label>
-                    <select name="allergen" id="allergen">
-                        <option value=""></option>
-                         <?php 
-                              foreach($data["allergens"] as $allergen){ ?>
-                              
-                        <option value="<?= $allergen->getId()?>"><?= $allergen->getName()?></option>
-                         <?php } ?>
-                    </select>
-                    
                     <input type="hidden" name="formName" value="createCommande">
                     <input type="submit" value="Envoyer"/>
  </form>

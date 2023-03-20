@@ -94,5 +94,14 @@ class AllergenManager extends AbstractManager {
             }
             return $return;  
         }
+    public function deleteOneAllergenInAllProduct(int $allergenId)
+        {
+            $query = $this->db->prepare('DELETE FROM product_has_allergen WHERE allergen_id=:allergen_id');
+            $parameters = [
+                'allergen_id' => $allergenId
+            ];
+    
+            $query->execute($parameters);
+        }
 }
 ?>

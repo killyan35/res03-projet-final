@@ -1,4 +1,4 @@
- <form method="post" action="product/create" id="createproduct">
+ <form method="post" action="product/create" id="createproduct" enctype="multipart/form-data">
                 
                     <label for="name">Name</label>
                     <input type="text" name="name" id="name" />
@@ -22,13 +22,12 @@
                     <label for="ingredient">avec quel ingredient ?</label>
                     <select name="ingredient" id="ingredient">
                         <option value=""></option>
-                         <?php 
+                         <?php var_dump($data["ingredients"]);
                               foreach($data["ingredients"] as $ingredient){ ?>
                               
                         <option value="<?= $ingredient->getId()?>"><?= $ingredient->getName()?></option>
                          <?php } ?>
                     </select>
-                    
                     
                     <label for="allergen">avec quel allergen ?</label>
                     <select name="allergen" id="allergen">
@@ -40,6 +39,14 @@
                          <?php } ?>
                     </select>
                     
+                    
+                    <label for="image">Importer image</label>
+                    <input type="file" name="image" id="image" />
+                    
+                    <label for="descriptionimg">Description</label>
+                    <input type="text" name="descriptionimg" id="descriptionimg" />
+                    
                     <input type="hidden" name="formName" value="createproduct">
                     <input type="submit" value="Envoyer"/>
+                
  </form>

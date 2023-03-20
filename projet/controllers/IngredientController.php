@@ -50,7 +50,10 @@ class IngredientController extends AbstractController {
         
     public function deleteIngredient(string $slug)
         {
+            
             $delete = $this->manager->getIngredientBySlug($slug);
+            $id = $delete->getId();
+            $deleteing = $this->manager->deleteOneIngredientInAllProduct(intval($id));
             $this->manager->deleteIngredient($delete);
             header("Location: /res03-projet-final/projet/admin/ingredient");
         }

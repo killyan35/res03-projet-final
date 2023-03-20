@@ -1,0 +1,47 @@
+<form method="post" action="/res03-projet-final/projet/admin/product/update/<?php echo($data["product"]->getSlug()); ?>" id="editproduct">
+  
+        
+        <label for="name">Name</label>
+        <input type="text" value="<?php echo($data["product"]->getName()); ?>" name="name" id="name" />
+        
+        <label for="description">description</label>
+        <input type="text" value="<?php echo($data["product"]->getDescription()); ?>" name="description" id="description" />
+        
+        <label for="price">price</label>
+        <input type="text" value="<?php echo($data["product"]->getPrice()); ?>" name="price" id="price" />
+        
+        <label for="category">Catégorie</label>
+        <input type="text" value="<?php echo($data["product"]->getCategoryId()); ?>" 
+        name="id" id="id" disabled/>
+        
+        <label for="slug">Slug</label>
+        <input type="text" value="<?php echo($data["product"]->getSlug()); ?>" 
+        name="id" id="id" disabled/>
+        
+        <label for="id">Id</label>
+        <input type="text" value="<?php echo($data["product"]->getId()); ?>" 
+        name="id" id="id" disabled/>
+        
+        <label for="ingredient">avec quel ingredient ?</label>
+                    <select name="ingredient" id="ingredient">
+                        <option value=""></option>
+                         <?php 
+                              foreach($data["ingredients"] as $ingredient){ ?>
+                              
+                        <option value="<?= $ingredient->getId()?>"><?= $ingredient->getName()?></option>
+                         <?php } ?>
+                    </select>
+                    
+                    <label for="allergen">avec quel allergen ?</label>
+                    <select name="allergen" id="allergen">
+                        <option value=""></option>
+                         <?php 
+                              foreach($data["allergens"] as $allergen){ ?>
+                              
+                        <option value="<?= $allergen->getId()?>"><?= $allergen->getName()?></option>
+                         <?php } ?>
+                    </select> 
+                    
+        <input type="hidden" name="formName" value="editproduct">
+        <input type="submit" value="Envoyer"/>
+</form>

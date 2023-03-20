@@ -68,5 +68,25 @@ class CategoryManager extends AbstractManager {
         ];
         $query->execute($parameters);
     }
+    
+     public function getAllProductByCategoryId(int $category_id) : array
+    {
+       
+        $query = $this->db->prepare("SELECT * FROM product WHERE category_id=:category_id");
+        $parameter = ['category_id' =>$category_id];
+        $query->execute($parameter);
+        $products = $query->fetchAll(PDO::FETCH_ASSOC);
+        $return = [];
+            foreach ($products as $product)
+            {
+                $Product = new Product(intval($product["id"]),$product["name"], $product["description"],
+                        $product["slug"], intval($product["price"]), intval($product["category_id"]));
+                $Product->setId($product["id"]);
+                $Product->setSlug($product["slug"]);
+                $return[]=$Product;
+            }
+        
+        return $return;
+    }
 }
 ?>

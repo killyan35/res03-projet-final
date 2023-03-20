@@ -1,10 +1,14 @@
 <?php
 class CategoryController extends AbstractController {
     private CategoryManager $manager;
+    private ProductManager $pmanager;
+    private ImageManager $immanager;
     
     public function __construct()
     {
         $this->manager = new CategoryManager();
+        $this->pmanager = new ProductManager();
+        $this->immanager = new ImageManager();
     }
     
         public function createCategory(array $post)
@@ -58,6 +62,18 @@ class CategoryController extends AbstractController {
         public function deleteCategory(string $slug)
         {
             $delete = $this->manager->getCategoryBySlug($slug);
+            $id = $delete->getId();
+            $deleteproducts = $this->manager->getAllProductByCategoryId($id);
+            foreach($deleteproducts as $deleteproduct)
+            {
+                $id = $deleteproduct->getId();
+                $deleteing = $this->pmanager->deleteAllergenOnProduct(intval($id));
+                $deletealler = $this->pmanager->deleteIngredientOnProduct(intval($id));
+                $deleteimg = $this->immanager->getImageById(intval($id));
+                $deleteim = $this->immanager->deleteImage($deleteimg);
+                $deletep = $this->pmanager->getProductbyId1(intval($id));
+                $this->pmanager->deleteProduct($deletep);
+            }
             $this->manager->deleteCat($delete);
             header("Location: /res03-projet-final/projet/admin/category");
         }

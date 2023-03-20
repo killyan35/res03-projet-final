@@ -27,5 +27,27 @@ class ImageManager extends AbstractManager {
             ];
             $query->execute($parameters);
         }
+     public function getImageById(int $product_id) : Image
+    {
+       
+        $query = $this->db->prepare("SELECT * FROM media WHERE product_id=:product_id");
+        $parameter = ['product_id' =>$product_id];
+        $query->execute($parameter);
+        $image = $query->fetch(PDO::FETCH_ASSOC);
+       
+        $ImageToReturn = new Image(intval($image["id"]),$image["url"],$image["description"], $image["product_id"]);
+        $ImageToReturn->setId($image["id"]);
+        
+        return $ImageToReturn;
+    }
+    public function deleteImage(Image $image)
+    {
+        
+        $query = $this->db->prepare("DELETE FROM media WHERE id=:id");
+        $parameters = [
+            'id'=>$image->getId()
+        ];
+        $query->execute($parameters);
+    }
 }
 ?>
