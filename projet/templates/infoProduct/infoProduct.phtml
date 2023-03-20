@@ -1,4 +1,4 @@
-
+<h2><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin">revenir aux menu admin</a></h2>
 <h1><?php
      foreach($data["product"] as $product)
     { 
@@ -15,26 +15,26 @@
         </tr>
     </thead>
     <tbody>
-        <?php 
-     foreach($data["ingredients"] as $ingredient){ 
-        
-    ?>
+      
         <tr>
-            <td><?= $ingredient->getName() ?></td>
-            <td>
+            <td><ul><?php 
+            foreach($data["ingredients"] as $ingredient)
+            { ?>
+                <li> <?php   echo $ingredient->getName(); ?></li>
+          <?php  } ?></ul></td>
+            <td><ul>
                  <?php 
-                foreach($data["allergens"] as $allergen){ 
+                foreach($data["allergens"] as $allergen){ ?>
                     
-                    echo $allergen->getName() ;
-                 }?>
-            </td>
+                   <li><?php echo $allergen->getName() ; ?></li>
+                <?php } ?>
+            </ul></td>
             <td><?php 
      foreach($data["product"] as $product)
     { 
             echo  round($product->getPrice(),2) ;
-    } 
-    ?></td>
+    } ?></td>
         </tr>
-    <?php  }?>
+   
     </tbody>
 </table>
