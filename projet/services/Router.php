@@ -282,22 +282,32 @@ class Router {
                 // }
             }
         }
-        if($route[0] === "accueil")
+        
+        
+        
+    if($route[0] === "accueil")
+    {
+        if(!isset($route[1]) && !isset($_SESSION["Connected"])) // j'ai donc juste /accueil
         {
-            if(!isset($route[1]) && !isset($_SESSION["Connected"])) // j'ai donc juste /accueil
-            {
-                // j'affiche ma homepage
-                echo "je suis pas co";
-                $this->uc->home();
-            }
-            else if(!isset($route[1]) && ($_SESSION["Connected"] === true) && ($_SESSION["admin"] === false))
-            {
-                echo "je suis co";
-                $this->uc->home();
-                var_dump($_SESSION["Connected"]);
-            }
-            
+            // j'affiche ma homepage en invité
+            $this->uc->home();
         }
+        else if(!isset($route[1]) && ($_SESSION["Connected"] === true) && ($_SESSION["admin"] === true))
+        {
+            // j'affiche mon interface admin
+            $this->uc->home();
+        }
+        else if(!isset($route[1]) && ($_SESSION["Connected"] === true) && ($_SESSION["admin"] === false))
+        {
+            // j'affiche ma homepage en tant que User connecté
+            $this->uc->home();
+        }
+        
+    }
+        
+        
+        
+        
         if($route[0] === "boutique")
         {
             if(!isset($route[1])) // j'ai donc juste /connexion

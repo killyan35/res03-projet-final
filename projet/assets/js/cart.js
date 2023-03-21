@@ -2,14 +2,9 @@
 function initCart() {
 
     
-        saveCart();
-    
+        console.log(saveCart());
+        
 
-}
-
-function getCart()
-{
-    return JSON.parse(sessionStorage.getItem("cart"));
 }
 // update the cart in session storage
 function saveCart()
@@ -26,7 +21,8 @@ function saveCart()
             fetch("/res03-projet-final/projet/addPanier/"+id,options)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
+                
+                return data ;
             });
 
     })

@@ -21,7 +21,11 @@ class UserController extends AbstractController {
         {
             if (isset($Post["formName"]))
             {
-                if (($Post['email']!=='') && ($Post['password']!=='')) 
+                if 
+                (
+                    (isset($Post['email']) &&($Post['email']!==''))
+                && (isset($Post['password']) &&($Post['password']!==''))
+                ) 
                  {
                     $user = $this->manager->getUserByEmail($Post["email"]);
                     
@@ -40,9 +44,18 @@ class UserController extends AbstractController {
                          else if($user->getRole() === "USER")
                          {
                              $_SESSION["Connected"]=true;
-                             
                              $_SESSION["admin"]=false;
-                             header ('Location: accueil');
+                             $tab = [
+                             "user"=>$user
+                             ];
+                             $this->renderpublic("accueil", $tab);
+                             echo "user";
+                         }
+                         else
+                         {
+                             $_SESSION["Connected"]=false;
+                             $_SESSION["admin"]=false;
+                             $this->renderpublic("accueil", []);
                              echo "user";
                          }
                     
@@ -54,10 +67,6 @@ class UserController extends AbstractController {
                          echo "mdp invalide";
                      }
                  }
-                 else
-            {
-                $this->renderpublic("register", []);
-            }
             }
             else
             {
