@@ -35,14 +35,14 @@ class Router {
         if (!isset($_GET['path'])) {
 
             echo "marche plus"; // Si pas de route , je redirige sur la homepage
-            var_dump($_GET["path"]);
+           
         }
 
         else {
 
             $route = explode("/", $_GET['path']); // Je sépare tout ce qui se trouve entre les "/" pour les différentes routes
         
-        var_dump($_GET["path"]);
+      
     
         if($route[0] === "boutique")
         {
@@ -362,10 +362,6 @@ class Router {
                         {
                             $this->uc->CommandeUser();
                         }
-                        if(isset($route[2]))
-                        {
-                            $this->uc->addPanier($route[2]);
-                        }
                     }
                     
                     else if ($route[1] === "favoris")
@@ -376,6 +372,10 @@ class Router {
                 }    
             }
         }
+        if($route[0] === "addPanier")
+        {
+            $this->page->addPanier($route[1]);
+        }    
         if($route[0] === "error404")
         {
             if(!isset($route[1])) // j'ai donc juste /evenements

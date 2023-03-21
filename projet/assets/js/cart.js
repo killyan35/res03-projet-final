@@ -1,73 +1,37 @@
 // init the cart with either data from session storage or the demo data
 function initCart() {
 
-    if(getCart() === null) // if cart session storage doesn't exist create it
-    {
-        saveCart(fakeCart);
-    }
+    
+        saveCart();
+    
 
-    renderCart();
 }
 
 function getCart()
 {
-
     return JSON.parse(sessionStorage.getItem("cart"));
-
 }
 // update the cart in session storage
-function saveCart($cart)
+function saveCart()
 {
-    console.log($cart)
-    let buttons = document.getElementsByClassName("paniers");
-    console.log(buttons)
-    for(let i = 0 ; i < buttons.length ; i++){
-
-        buttons[i].addEventListener("click",function(){
-
-
-
-
-        let formData = new FormData();
-        let id = buttons[i].value ;
-        
-        const options = {
-            method: 'POST',
-            body: formData
+    let button = document.getElementById("add-to-cart");
+    button.addEventListener("click",function(e)
+    {
+        let id = e.target.getAttribute("data-id") ;
+        const options = 
+        {
+            method: 'GET',
         };
+        
+            fetch("/res03-projet-final/projet/addPanier/"+id,options)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            });
 
-            fetch("/res03-projet-final/projet/panier/"+id,options)
-            .then(response => response.json());
-
-        })
-    }
+    })
+    
 }
-
-let fakeCart = {
-    totalPrice : 59,
-    itemCount : 3,
-    items : [
-        {
-        id : 12,
-        imageUrl : "https://picsum.photos/id/1025/50/50",
-        price : 23,
-        amount: 1,
-        },
-        {
-        id : 23,
-        imageUrl : "https://picsum.photos/id/823/50/50",
-        price : 17,
-        amount: 1,
-        },
-        {
-        id : 42,
-        imageUrl : "https://picsum.photos/id/742/50/50",
-        price : 19,
-        amount: 1,
-        },
-    ]
-} 
-
 
 // display the cart
 function renderCart() {
@@ -257,5 +221,3 @@ function removeItem(event)
 
 }
 export { initCart };
-// retrieve the cart from session storage
-

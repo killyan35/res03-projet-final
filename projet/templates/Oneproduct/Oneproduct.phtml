@@ -4,7 +4,10 @@
 <h2><a href="/res03-projet-final/projet/boutique">
     revenir a la boutique
 </a></h2>
-<h1><?=$data["product"]->getName()?></h1>
+<header>
+    <h1><?=$data["product"]->getName()?></h1>
+</header>
+<main>
     <ul>
         <li>
             <figure>
@@ -34,5 +37,21 @@
             ?>€
         </li>
     </ul>
-    <button attribute="<?php echo $data["product"]->getId(); ?>">Ajouter au panier</button>
+    <button id="add-to-cart" data-id="<?php echo $data["product"]->getId(); ?>">Ajouter au panier</button>
      <button>Ajouter au favoris</button>
+</main>
+<aside>
+            <header>
+                <h2>Mon panier</h2>
+                <p id="cart-total-price">Total : </p>
+            </header>
+            <main>
+                <ul>
+
+                </ul>
+            </main>
+            <footer>
+                <a class="btn btn-cart-back" href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">Continuer mes achats</a>
+                <a class="btn btn-cart-order" href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte/panier">Finaliser la commande</a>
+            </footer>
+</aside>

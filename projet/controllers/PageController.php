@@ -52,6 +52,24 @@ class PageController extends AbstractController {
             $this->renderpublic("Oneproduct", $tab);
         }
         
+    public function addPanier(int $poductId){
+        // $productManager = new ProductManager();
+        // $result = $productManager->getProductById($id);
+        // $result2 = $result->test();
+        // $_SESSION["cart"][]=$result2;
+        // return $data = json_encode($_SESSION["cart"]);
+        
+        $cart=[];
+        $_SESSION['cart'][]=$poductId;
+        foreach($_SESSION['cart'] as $id)
+        {
+            $product = $this->pmanager->getProductById1($id);
+            $cart[] = $product->toArray();
+        }
+        echo json_encode($cart);
+
+    }
+        
 }
 
 ?>

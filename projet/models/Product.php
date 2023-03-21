@@ -78,6 +78,9 @@ class Product {
     {
         $this->slug = $slug;
     }
+    public function toArray() {
+      return get_object_vars($this);
+    }
     
     public function slugify($text, string $divider = '-')
         {
