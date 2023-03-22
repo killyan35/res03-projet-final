@@ -29,7 +29,7 @@
                    <li><?php echo $allergen->getName() ; ?></li>
                 <?php } ?>
             </ul></td>
-            <td><?php 
+            <td><?php var_dump($data["product"]);
      foreach($data["product"] as $product)
     { 
             echo  round($product->getPrice(),2) ;

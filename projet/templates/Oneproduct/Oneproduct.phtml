@@ -26,7 +26,9 @@
                     echo $data["product"]->getDescription(); 
                 ?>
             </li>
-            <li>
+            <li id="prix" price="<?php  
+                    echo $data["product"]->getPrice(); 
+                ?>">
                 <?php  
                     echo $data["product"]->getPrice(); 
                 ?>€
@@ -40,16 +42,18 @@
                     <h2>Mon panier</h2>
                     <p id="cart-total-price">Total : </p>
                 </header>
-                <main>
-                    <ul>
+                <section id="section">
+                    <ul id="ul">
     
                     </ul>
-                </main>
+                </section>
                 <footer>
                     <a class="btn btn-cart-back" href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">Continuer mes achats</a>
                     <a class="btn btn-cart-order" href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte/panier">Finaliser la commande</a>
                 </footer>
     </aside>
+    
+    
     <h2><a href="/res03-projet-final/projet/boutique/<?php echo $data["category"]->getSlug(); ?>">
         revenir a la category <?php echo $data["category"]->getName() ?>
     </a></h2>

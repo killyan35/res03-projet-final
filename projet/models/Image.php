@@ -51,5 +51,8 @@ class Image {
     {
         $this->product_id = $product_id;
     }
+    public function toArray() {
+      return get_object_vars($this);
+    }
 }
 ?>

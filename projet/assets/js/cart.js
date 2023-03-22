@@ -1,88 +1,76 @@
 // init the cart with either data from session storage or the demo data
-function initCart() {
 
-    
-        console.log(saveCart());
-        
-
-}
 // update the cart in session storage
-function saveCart()
+function addtoCart(event)
 {
-    let button = document.getElementById("add-to-cart");
-    button.addEventListener("click",function(e)
-    {
-        let id = e.target.getAttribute("data-id") ;
+    
+        let id = event.target.getAttribute("data-id") ;
         const options = 
         {
             method: 'GET',
         };
         
+        
             fetch("/res03-projet-final/projet/addPanier/"+id,options)
             .then(response => response.json())
             .then(data => {
+                renderCart(data);
+                console.log(data);
                 
-                return data ;
             });
-
-    })
-    
+       
 }
-
 // display the cart
-function renderCart() {
+function renderCart(panier) {
 
     // retrieve the cart
-    var $cart = getCart();
-
-    // remove the ul
-    var $productList = document.querySelector("body > aside > main");
-    var $ulToRemove = document.querySelector("body > aside > main > ul");
-    $productList.removeChild($ulToRemove);
+    let cart = panier;
+    console.log(cart);   // remove the ul
+    let productList = document.getElementById("section");
+    let ulToRemove = document.getElementById("ul");
+    productList.removeChild(ulToRemove);
 
     // create the new ul
-    var $newUl = document.createElement("ul");
-
-    // create the lis
-    for(var i = 0; i < $cart.items.length; i++)
+    let newUl = document.createElement("ul");
+    let totalprice = 0;
+    // create the list
+    for(let i = 0; i < cart.length; i++)
     {
-        if($cart.items[i].amount > 0)
-        {
-            var $item = $cart.items[i];
-            var $li = document.createElement("li");
-            $li.appendChild(createCartItem($item)); // append them
-            $newUl.appendChild($li);
-        }
+        let Price = cart[i].price;
+        let number = cart.length;
+        totalprice = Price * number ;
+        let item = cart[i];
+        let li = document.createElement("li");
+        li.appendChild(createCartItem(item)); // append them
+        newUl.appendChild(li);
     }
-
-    $productList.appendChild($newUl);
+    productList.appendChild(newUl);
 
     // update cart total price
-    let $totalPrice = document.getElementById("cart-total-price");
-    $totalPrice.innerText = "Total : " + $cart.totalPrice + " $";
+    let totalPrice = document.getElementById("cart-total-price");
+    totalPrice.innerText = "Total : " + totalprice + " €";
 
     loadListeners();
 }
 
 // create one cart item to be injected in the html
-function createCartItem($item)
+function createCartItem(item)
 {
-    var $containerSection = document.createElement("section");
-
+    let $containerSection = document.createElement("section");
+    let number = 1;
     // creating the figure and img
-    var $figure = document.createElement("figure");
-    var $img = document.createElement("img");
-    $img.setAttribute("alt", "image du produit " + $item.id);
-    $img.setAttribute("src", $item.imageUrl);
+    let $figure = document.createElement("figure");
+    let $img = document.createElement("img");
+    $img.setAttribute("alt", "image du produit " + item.name);
+    $img.setAttribute("src", "https://kilyangerard.sites.3wa.io/res03-projet-final/projet/" + item.url);
     $figure.appendChild($img);
-
     $containerSection.appendChild($figure);
 
     // creating the product info
     let $productInfo = document.createElement("section");
     $productInfo.classList.add("cart-product-info");
     let $productName = document.createElement("h3");
-    let $productNameContent = document.createTextNode("Nom du produit " + $item.id);
+    let $productNameContent = document.createTextNode(item.name);
     $productName.appendChild($productNameContent);
     $productInfo.appendChild($productName);
 
@@ -95,18 +83,18 @@ function createCartItem($item)
     let $buttonsSection = document.createElement("section");
 
     let $removeButton = document.createElement("button");
-    $removeButton.setAttribute("data-product-id", $item.id);
+    $removeButton.setAttribute("data-product-id", item.id);
     $removeButton.classList.add("cart-btn");
     $removeButton.classList.add("cart-button-remove");
     let $minus = document.createTextNode("-");
     $removeButton.appendChild($minus);
 
     let $amountSpan = document.createElement("span");
-    let $amountContent = document.createTextNode($item.amount);
+    let $amountContent = document.createTextNode(number);
     $amountSpan.appendChild($amountContent);
 
     let $addButton = document.createElement("button");
-    $addButton.setAttribute("data-product-id", $item.id);
+    $addButton.setAttribute("data-product-id", item.id);
     $addButton.classList.add("cart-btn");
     $addButton.classList.add("cart-button-add");
     let $plus = document.createTextNode("+");
@@ -119,14 +107,14 @@ function createCartItem($item)
     $productActions.appendChild($buttonsSection);
 
     let $productPrice = document.createElement("p");
-    $productPrice.setAttribute("data-product-id", $item.id);
+    $productPrice.setAttribute("data-product-id", item.price);
     $productPrice.classList.add("cart-product-price");
 
     let $productPriceSpan = document.createElement("span");
-    let $productPriceSpanContent = document.createTextNode("" + $item.amount * $item.price);
+    let $productPriceSpanContent = document.createTextNode("" + number * item.price);
     $productPriceSpan.appendChild($productPriceSpanContent);
 
-    let $currencyContent = document.createTextNode("$");
+    let $currencyContent = document.createTextNode(" €");
 
     $productPrice.appendChild($productPriceSpan);
     $productPrice.appendChild($currencyContent);
@@ -156,13 +144,13 @@ function loadListeners()
 function addItem(event)
 {
     let $id = event.target.getAttribute("data-product-id");
-    let $itemKey = findItem($id);
-    let $cart = getCart();
-
-    if($itemKey !== null)
+    let itemKey = findItem($id);
+    let $cart = addtoCart();
+    
+    if(itemKey !== null)
     {
-        $cart.items[$itemKey].amount += 1;
-        saveCart($cart);
+        $cart[itemKey].amount += 1;
+        addtoCart($cart);
         computeCartTotal();
         renderCart();
     }
@@ -171,11 +159,11 @@ function addItem(event)
 // get the item key in the cart.items array
 function findItem($id)
 {
-    let $cart = getCart();
+    let $cart = addtoCart();
 
-    for(var i = 0; i < $cart.items.length; i++)
+    for(var i = 0; i < $cart.length; i++)
     {
-        if($cart.items[i].id === parseInt($id))
+        if($cart[i].id === parseInt($id))
         {
             return i;
         }
@@ -187,16 +175,16 @@ function findItem($id)
 // update the total price of the cart
 function computeCartTotal()
 {
-    let $cart = getCart();
+    let $cart = addtoCart();
     let $price = 0;
 
-    for(var i = 0; i < $cart.items.length; i++)
+    for(var i = 0; i < $cart.length; i++)
     {
-        $price += ($cart.items[i].price * $cart.items[i].amount);
+        $price += ($cart[i].price * $cart[i].amount);
     }
 
     $cart.totalPrice = $price;
-    saveCart($cart);
+    addtoCart($cart);
 }
 
 
@@ -204,16 +192,16 @@ function computeCartTotal()
 function removeItem(event)
 {
     let $id = event.target.getAttribute("data-product-id");
-    let $itemKey = findItem($id);
-    let $cart = getCart();
+    let itemKey = findItem($id);
+    let $cart = addtoCart();
 
-    if($itemKey !== null)
+    if(itemKey !== null)
     {
-        $cart.items[$itemKey].amount -= 1;
-        saveCart($cart);
+        $cart[itemKey].amount -= 1;
+        addtoCart($cart);
         computeCartTotal();
         renderCart();
     }
 
 }
-export { initCart };
+export { addtoCart };

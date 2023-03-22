@@ -64,12 +64,20 @@ class PageController extends AbstractController {
         foreach($_SESSION['cart'] as $id)
         {
             $product = $this->pmanager->getProductById1($id);
-            $cart[] = $product->toArray();
+            $image = $this->immanager->getImageById($id);
+            $tab = [
+                        "id" => $product->getId(),
+                        "name" => $product->getName(),
+                        "description" => $product->getDescription(),
+                        "slug"=>$product->getSlug(),
+                        "price"=>$product->getPrice(),
+                        "url"=>$image->getUrl(),
+                        "descriptionURL"=>$product->getName()
+                    ];
+            $cart[] = $tab;
         }
         echo json_encode($cart);
-
     }
-        
 }
 
 ?>

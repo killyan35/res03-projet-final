@@ -1,1 +1,59 @@
-<h1>accueil</h1>
+<nav>
+                <ul>
+                    <?php 
+                    if (!isset($_SESSION["Connected"]))
+                    { ?>
+                        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/connexion">connexion</a></li>
+                    <?php }
+                    else if ((isset($_SESSION["Connected"])) && ($_SESSION["Connected"]===true))
+                    { ?>
+                        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/deconnexion">déconnexion</a></li>
+                        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte/panier">Panier</a></li>
+                        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte/favoris">Favoris</a></li>
+                        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte"><?php echo $data["user"]->getFirstname(); ?>   <?php echo $data["user"]->getLastname();?></a></li>
+                    <?php } ?>
+                        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">boutique</a></li>
+                        <li><a href="">Instagraam</a></li>
+                </ul>
+            </nav>
+<section>
+    <figure>
+        <img src="uploads/RcLTWF9E.png">
+    </figure>
+    <h1><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">Boutique en ligne</a></h1>
+    <ul>
+        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">
+                <figure>
+                    <img height=100px src="uploads/682c1Knp.jpg">
+                </figure>
+            </a>
+        </li>
+        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">
+            <figure>
+                <img height=100px src="uploads/bNq77tnc.jpg">
+            </figure>
+            </a>
+        </li>
+        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">
+            <figure>
+                <img height=100px src="uploads/cg66LJdW.jpg">
+            </figure>
+            </a>
+        </li>
+    </ul>
+</section>    
+    <section>
+            <article>
+                <h2>A PROPOS DE NOUS</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</p>
+            </article>
+            <article>
+                <h2>Nos Produits</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</p>
+            </article>
+            <article>
+                <h2>Nos DERNIERES CREATION</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</p>
+            </article>
+    </section>
+</section>

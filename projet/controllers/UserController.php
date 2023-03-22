@@ -39,7 +39,6 @@ class UserController extends AbstractController {
                              $_SESSION["admin"]=true;
                              
                              header ('Location: admin');
-                             echo "admin";
                          }
                          else if($user->getRole() === "USER")
                          {
@@ -49,14 +48,12 @@ class UserController extends AbstractController {
                              "user"=>$user
                              ];
                              $this->renderpublic("accueil", $tab);
-                             echo "user";
                          }
                          else
                          {
                              $_SESSION["Connected"]=false;
                              $_SESSION["admin"]=false;
                              $this->renderpublic("accueil", []);
-                             echo "user";
                          }
                     
                          
