@@ -1,3 +1,6 @@
+<h2><a href="/res03-projet-final/projet/accueil">
+        revenir a l'accueil
+    </a></h2>
 <body>
     <header>
         <h1><?=$data["product"]->getName()?></h1>
@@ -34,7 +37,7 @@
                 ?>€
             </li>
         </ul>
-        <button id="add-to-cart" data-id="<?php echo $data["product"]->getId(); ?>">Ajouter au panier</button>
+        <button id="add-to-cart" data-number="1" data-size="1" data-id="<?php echo $data["product"]->getId(); ?>">Ajouter au panier</button>
         <button>Ajouter au favoris</button>
     </main>
     <aside>
@@ -55,7 +58,7 @@
     
     
     <h2><a href="/res03-projet-final/projet/boutique/<?php echo $data["category"]->getSlug(); ?>">
-        revenir a la category <?php echo $data["category"]->getName() ?>
+        revenir a la category <?php echo $data["category"]->getName();  ?>
     </a></h2>
     <h2><a href="/res03-projet-final/projet/boutique">
         revenir a la boutique

@@ -384,7 +384,7 @@ class Router {
         }
         if($route[0] === "addPanier")
         {
-            $this->page->addPanier($route[1]);
+            $this->page->addPanier($route[1], $route[2], $route[3]);
         }    
         if($route[0] === "error404")
         {

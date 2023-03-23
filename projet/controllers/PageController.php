@@ -52,27 +52,54 @@ class PageController extends AbstractController {
             $this->renderpublic("Oneproduct", $tab);
         }
         
-    public function addPanier(int $poductId){
-        // $productManager = new ProductManager();
-        // $result = $productManager->getProductById($id);
-        // $result2 = $result->test();
-        // $_SESSION["cart"][]=$result2;
-        // return $data = json_encode($_SESSION["cart"]);
+    public function addPanier(int $productId, int $number, int $size){
         
         $cart=[];
-        $_SESSION['cart'][]=$poductId;
-        foreach($_SESSION['cart'] as $id)
+        $InArray = false;
+        $index= -1;
+        
+        if (!isset($_SESSION['cart']))
         {
-            $product = $this->pmanager->getProductById1($id);
-            $image = $this->immanager->getImageById($id);
+            $_SESSION['cart']=[];
+        }
+        
+        foreach($_SESSION['cart'] as $key => $item)
+        {
+            if(($item["id"] === $productId) && ($item["taille"] === $size))
+            {
+                $InArray = true;
+                $index = $key;
+            }
+        }
+        
+        if ($InArray === false) 
+        {
+            $tableau = [
+                    "id" => $productId,
+                    "quantite" => $number,
+                    "taille" => $size
+                ];
+            $_SESSION['cart'][]=$tableau;  
+        }
+        else
+        {
+            $_SESSION['cart'][$key]["quantite"] += $number;
+        }
+        
+        foreach($_SESSION['cart'] as $item)
+        {
+            $product = $this->pmanager->getProductById1($item["id"]);
+            $image = $this->immanager->getImageById($item["id"]);
             $tab = [
                         "id" => $product->getId(),
                         "name" => $product->getName(),
                         "description" => $product->getDescription(),
-                        "slug"=>$product->getSlug(),
-                        "price"=>$product->getPrice(),
-                        "url"=>$image->getUrl(),
-                        "descriptionURL"=>$product->getName()
+                        "slug" => $product->getSlug(),
+                        "price" => $product->getPrice(),
+                        "url" => $image->getUrl(),
+                        "descriptionURL" => $product->getName(),
+                        "number" => $item["quantite"],
+                        "size" => $item["taille"]
                     ];
             $cart[] = $tab;
         }

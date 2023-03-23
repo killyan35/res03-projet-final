@@ -17,9 +17,24 @@ function addtopanier(event)
             .then(response => response.json())
             .then(data => {
                 rendercart(data);
+                findItem(data);
+                getCart(data);
+                addItem(data);
+                computecartTotal(data);
                 console.log(data);
+                console.log(getCart());
             });
        
+}
+function getCart(data)
+{
+    let tab = [];
+    for(let i = 0; i < data.length; i++)
+        {
+            tab.push(data[i].id);
+        }
+    return tab;
+
 }
 // display the cart
 function rendercart(data) {
@@ -52,6 +67,7 @@ function rendercart(data) {
     let totalPrice = document.getElementById("cart-total-price");
     totalPrice.innerText = "Total : " + totalprice + " €";
 
+    loadListeners();
 }
 
 // create one cart item to be injected in the html
@@ -81,6 +97,31 @@ function createcartItem(item)
     let cartActions = document.createElement("section");
     cartActions.classList.add("cart-cart-actions");
 
+    let buttonsSection = document.createElement("section");
+
+    let removeButton = document.createElement("button");
+    removeButton.setAttribute("data-cart-id", item.id);
+    removeButton.classList.add("cart-btn");
+    removeButton.classList.add("cart-button-remove");
+    let minus = document.createTextNode("-");
+    removeButton.appendChild(minus);
+
+    let amountSpan = document.createElement("span");
+    let amountContent = document.createTextNode(number);
+    amountSpan.appendChild(amountContent);
+
+    let addButton = document.createElement("button");
+    addButton.setAttribute("data-cart-id", item.id);
+    addButton.classList.add("cart-btn");
+    addButton.classList.add("cart-button-add");
+    let plus = document.createTextNode("+");
+    addButton.appendChild(plus);
+
+    buttonsSection.appendChild(removeButton);
+    buttonsSection.appendChild(amountSpan);
+    buttonsSection.appendChild(addButton);
+
+    cartActions.appendChild(buttonsSection);
 
     let cartPrice = document.createElement("p");
     cartPrice.setAttribute("data-cart-id", item.price);
@@ -101,4 +142,94 @@ function createcartItem(item)
 
     return containerSection;
 }
-export { addtopanier };
+
+
+function loadListeners()
+{
+    let addButtons = document.getElementsByClassName("cart-button-add");
+    let removeButtons = document.getElementsByClassName("cart-button-remove");
+
+    for(let i = 0; i < addButtons.length; i++)
+    {
+        addButtons[i].addEventListener("click", addItemFromEvent);
+        removeButtons[i].addEventListener("click", removeItem);
+    }
+}
+
+
+function addItem(event)
+{
+    console.log(event.target);
+    let id = event.target.getAttribute("data-cart-id");
+    let itemKey = findItem(id);
+    let cart = getCart();
+
+    if(itemKey !== null)
+    {
+        cart[itemKey].number += 1;
+        addtopanier(cart);
+        computecartTotal();
+        rendercart();
+    }
+}
+function addItemFromEvent(event)
+{
+    console.log(event.target);
+    let id = event.target.getAttribute("data-cart-id");
+    let itemKey = findItem(id);
+    let cart = getCart();
+
+    if(itemKey !== null)
+    {
+        cart[itemKey].number += 1;
+        addtopanier(cart);
+        computecartTotal();
+        rendercart();
+    }
+}
+
+function findItem(data)
+{
+    let cart = getCart(data);
+    
+    for(var i = 0; i < cart.length; i++)
+    {
+        if(cart[i].id === parseInt(data.id))
+        {
+            return i;
+        }
+    }
+
+    return null;
+}
+
+function computecartTotal(add)
+{
+    let cart = add;
+    let price = 0;
+
+    for(let i = 0; i < cart.length; i++)
+    {
+        price += (cart[i].price * cart[i].price.length);
+    }
+
+    cart.totalPrice = price;
+    addtopanier(cart);
+}
+
+
+function removeItem(event)
+{
+    let id = event.target.getAttribute("data-cart-id");
+    let itemKey = findItem(id);
+    let cart = getCart();
+
+    if(itemKey !== null)
+    {
+        cart[itemKey].number -= 1;
+        addtopanier(cart);
+        computecartTotal();
+        rendercart();
+    }
+
+}
