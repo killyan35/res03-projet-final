@@ -58,59 +58,104 @@ function rendercart(data) {
 // create one cart item to be injected in the html
 function createcartItem(item)
 {
-    let containerSection = document.createElement("section");
-    let number = item.number;
-    // creating the figure and img
-    let figure = document.createElement("figure");
-    let img = document.createElement("img");
-    img.setAttribute("alt", "image du produit " + item.name);
-    img.setAttribute("src", "https://kilyangerard.sites.3wa.io/res03-projet-final/projet/" + item.url);
-    figure.appendChild(img);
-    containerSection.appendChild(figure);
-
-    // creating the cart info
-    let cartInfo = document.createElement("section");
-    cartInfo.classList.add("cart-cart-info");
-    let cartName = document.createElement("h3");
-    let cartNameContent = document.createTextNode(item.name);
-    cartName.appendChild(cartNameContent);
-    cartInfo.appendChild(cartName);
-
-    containerSection.appendChild(cartInfo);
-
-    // creating the cart actions
-    let newbtn = document.createElement("button");
-    newbtn.setAttribute("removedata-id", item.id);
-    newbtn.setAttribute("removedata-size", item.size);
-    newbtn.setAttribute("id", item.id);
-    newbtn.setAttribute("class", "supp");
-    let removeitemtext = document.createTextNode("supprimer");
-    newbtn.appendChild(removeitemtext);
+    if(item.number !== 0)
+    {
+        let containerSection = document.createElement("section");
+        containerSection.setAttribute("id", item.id);
+        let number = item.number;
+        // creating the figure and img
+        let figure = document.createElement("figure");
+        let img = document.createElement("img");
+        img.setAttribute("alt", "image du produit " + item.name);
+        img.setAttribute("src", "https://kilyangerard.sites.3wa.io/res03-projet-final/projet/" + item.url);
+        figure.appendChild(img);
+        containerSection.appendChild(figure);
     
+        // creating the cart info
+        let cartInfo = document.createElement("section");
+        cartInfo.classList.add("cart-cart-info");
+        let cartName = document.createElement("h3");
+        let cartNameContent = document.createTextNode(item.name);
+        cartName.appendChild(cartNameContent);
+        cartInfo.appendChild(cartName);
     
-    let cartActions = document.createElement("section");
-    cartActions.classList.add("cart-cart-actions");
+        containerSection.appendChild(cartInfo);
     
-    let cartPrice = document.createElement("p");
-    cartPrice.setAttribute("data-cart-id", item.price);
-    cartPrice.classList.add("cart-cart-price");
-
-    let cartPriceSpan = document.createElement("span");
-    cartPriceSpan.setAttribute("class", "price");
-    let cartPriceSpanContent = document.createTextNode("" + (item.number * item.price * item.size));
-    cartPriceSpan.appendChild(cartPriceSpanContent);
-
-    let currencyContent = document.createTextNode(" €");
-
-    cartPrice.appendChild(cartPriceSpan);
-    cartPrice.appendChild(currencyContent);
-
-    cartActions.appendChild(cartPrice);
+        // creating the cart actions
+        
+        let cartActions = document.createElement("section");
+        cartActions.classList.add("cart-cart-actions");
+        
+        let newbtn = document.createElement("button");
+        newbtn.setAttribute("removedata-id", item.id);
+        newbtn.setAttribute("removedata-size", item.size);
+        newbtn.setAttribute("id", item.id);
+        newbtn.setAttribute("class", "supp");
+        let removeitemtext = document.createTextNode("supprimer");
+        newbtn.appendChild(removeitemtext);
+        
+        // bouton -
+        let reButton = document.createElement("button");
+        reButton.setAttribute("reData-id", item.id);
+        reButton.setAttribute("reData-size", item.size);
+        reButton.setAttribute("reData-number", item.number);
+        reButton.classList.add("cart-btn");
+        reButton.classList.add("cart-button-remove");
+        let minus = document.createTextNode("-");
+        reButton.appendChild(minus);
+        
+        // quantité du produit
+        let amountSpan = document.createElement("span");
+        let amountContent = document.createTextNode(item.number);
+        amountSpan.appendChild(amountContent);
     
-    containerSection.appendChild(cartActions);
-    containerSection.appendChild(newbtn);
-
-    return containerSection;
+        // bouton +
+        let addButton = document.createElement("button");
+        addButton.setAttribute("addData-id", item.id);
+        addButton.setAttribute("addData-size", item.size);
+        addButton.setAttribute("addData-number", item.number);
+        addButton.classList.add("cart-btn");
+        addButton.classList.add("cart-button-add");
+        let plus = document.createTextNode("+");
+        addButton.appendChild(plus);
+        
+        let buttonsSection = document.createElement("section");
+    
+        buttonsSection.appendChild(reButton);
+        buttonsSection.appendChild(amountSpan);
+        buttonsSection.appendChild(addButton);
+        
+        
+        cartActions.appendChild(buttonsSection);
+        
+        let cartPrice = document.createElement("p");
+        cartPrice.setAttribute("data-cart-id", item.price);
+        cartPrice.classList.add("cart-cart-price");
+    
+        let cartPriceSpan = document.createElement("span");
+        cartPriceSpan.setAttribute("class", "price");
+        let cartPriceSpanContent = document.createTextNode("" + (item.number * item.price * item.size));
+        cartPriceSpan.appendChild(cartPriceSpanContent);
+    
+        let currencyContent = document.createTextNode(" €");
+    
+        cartPrice.appendChild(cartPriceSpan);
+        cartPrice.appendChild(currencyContent);
+    
+        cartActions.appendChild(cartPrice);
+        
+        containerSection.appendChild(cartActions);
+        containerSection.appendChild(newbtn);
+    
+        return containerSection;
+    }
+    else
+    {
+        let containerSection = document.createElement("section");
+        containerSection.setAttribute("class", "hidden");
+        remove(item.id, item.size);
+        return containerSection;
+    }
 }
 function TotalPrices(data)
 {
@@ -134,9 +179,10 @@ function remove(id, size)
 {
     fetch("https://kilyangerard.sites.3wa.io/res03-projet-final/projet/removePanier/"+id+"/"+size);
     
-    setTimeout(function() {
- displayPanier();
-}, 10);
+    setTimeout(function() 
+    {
+        displayPanier();
+    }, 1);
     
 }
 function displayPanier()
@@ -147,7 +193,7 @@ function displayPanier()
     .then(data => {
         rendercart(data);
         TotalPrices(data);
-        
+        console.log(data);
     });
 }
 
@@ -156,35 +202,60 @@ function loadListeners()
     let buttons = document.getElementsByClassName("supp");
         for(let i = 0; i < buttons.length; i++)
         {
-          buttons[i].addEventListener("click", function(event){
-              
+          buttons[i].addEventListener("click", function(event)
+          {
             let removeId = event.target.getAttribute("removedata-id");
             let removeSize = event.target.getAttribute("removedata-size");
+            let section = document.getElementById(removeId);
+            section.setAttribute("class", "hidden");
             remove(removeId, removeSize);
           });
         }
     
-  //  let $addButtons = document.getElementsByClassName("cart-button-add");
-  //  let $removeButtons = document.getElementsByClassName("cart-button-remove");
-
- //   for(var i = 0; i < $addButtons.length; i++)
- //   {
-//        $addButtons[i].addEventListener("click", addItem);
- //       $removeButtons[i].addEventListener("click", removeItem);
- //   }
+    let addButtons = document.getElementsByClassName("cart-button-add");
+    for(let i = 0; i < addButtons.length; i++)
+    {
+         addButtons[i].addEventListener("click", function(event)
+         {
+            let addId = event.target.getAttribute("addData-id");
+            let addNumber = event.target.getAttribute("addData-number");
+            let addSize = event.target.getAttribute("addData-size");
+            additem(addId, addNumber, addSize);
+          });
+    }
+    
+    let removeButtons = document.getElementsByClassName("cart-button-remove");
+    for(let i = 0; i < removeButtons.length; i++)
+    {
+         removeButtons[i].addEventListener("click", function(event)
+         {
+            let reId = event.target.getAttribute("reData-id");
+            let reNumber = event.target.getAttribute("reData-number");
+            let reSize = event.target.getAttribute("reData-size");
+            removeItem(reId, reNumber, reSize);
+          });
+    }
     
 }
 
-function finditem(id, size)
+function additem(id, number, size)
 {
-    fetch("https://kilyangerard.sites.3wa.io/res03-projet-final/projet/findItem/"+id+"/"+size)
-    .then(response => response.json())
-    .then(data => {
-        
-    });
+    fetch("https://kilyangerard.sites.3wa.io/res03-projet-final/projet/addItem/"+id+"/"+number+"/"+size)
+    setTimeout(function() 
+    {
+        displayPanier();
+    }, 1);
     
 }
-export { finditem };
+function removeItem(id, number, size)
+{
+    fetch("https://kilyangerard.sites.3wa.io/res03-projet-final/projet/removeItem/"+id+"/"+number+"/"+size)
+    setTimeout(function() 
+    {
+        displayPanier();
+    }, 1);
+    
+}
 export { remove };
 export { displayPanier };
 export { addtopanier };

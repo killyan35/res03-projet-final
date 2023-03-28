@@ -384,9 +384,13 @@ class Router {
         {
             $this->page->removeOnPanier($route[1], $route[2]);
         }
-        if($route[0] === "findItem")
+        if($route[0] === "addItem")
         {
-            $this->page->findItem($route[1], $route[2]);
+            $this->page->addItem($route[1], $route[2], $route[3]);
+        }
+        if($route[0] === "removeItem")
+        {
+            $this->page->removeItem($route[1], $route[2], $route[3]);
         }
         if($route[0] === "displayPanier")
         {

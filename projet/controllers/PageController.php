@@ -110,7 +110,7 @@ class PageController extends AbstractController {
     {
          foreach($_SESSION['cart'] as $key => $item)
         {
-            if($item["id"] === $productId && $item["taille"] === $size)
+            if( ($item["id"] === $productId) && ($item["taille"] === $size) )
             {
                 unset($_SESSION['cart'][$key]);
             }
@@ -119,11 +119,35 @@ class PageController extends AbstractController {
     
     public function displayPanier()
     {
-        foreach($_SESSION['cart'] as $item)
+        foreach($_SESSION['cart'] as $key => $item)
         {
-            $product = $this->pmanager->getProductById1($item["id"]);
-            $image = $this->immanager->getImageById($item["id"]);
-            $tab = [
+                $product = $this->pmanager->getProductById1($item["id"]);
+                $image = $this->immanager->getImageById($item["id"]);
+                $tab = [
+                            "id" => $product->getId(),
+                            "name" => $product->getName(),
+                            "description" => $product->getDescription(),
+                            "slug" => $product->getSlug(),
+                            "price" => $product->getPrice(),
+                            "url" => $image->getUrl(),
+                            "descriptionURL" => $product->getName(),
+                            "number" => $item["quantite"],
+                            "size" => $item["taille"]
+                        ];
+                $cart[] = $tab;
+        }
+        echo json_encode($cart);
+    }
+    public function addItem(int $productId, int $number, int $size)
+    {
+        foreach($_SESSION['cart'] as $key => $item)
+        {
+            if( ($item["id"] === $productId) && ($item["taille"] === $size) )
+            {
+                $_SESSION['cart'][$key]["quantite"] = $number + 1;
+                $product = $this->pmanager->getProductById1($item["id"]);
+                $image = $this->immanager->getImageById($item["id"]);
+                $tab = [
                         "id" => $product->getId(),
                         "name" => $product->getName(),
                         "description" => $product->getDescription(),
@@ -135,16 +159,18 @@ class PageController extends AbstractController {
                         "size" => $item["taille"]
                     ];
             $cart[] = $tab;
+            }
         }
         echo json_encode($cart);
     }
-    public function findItem(int $productId, int $size)
+    
+    public function removeItem(int $productId, int $number, int $size)
     {
-        for($i = 0; $i < count($_SESSION["cart"]) ; $i++)
-        {
-            $item = $_SESSION["cart"][$i];
-            if(($item["id"] === $productId) && ($item["taille"] === $size))
+        foreach($_SESSION['cart'] as $key => $item)
+        { 
+            if( ($item["id"] === $productId) && ($item["taille"] === $size) && ($item["quantite"] > 0))
             {
+                $_SESSION['cart'][$key]["quantite"] = $number - 1;
                 $product = $this->pmanager->getProductById1($item["id"]);
                 $image = $this->immanager->getImageById($item["id"]);
                 $tab = [
