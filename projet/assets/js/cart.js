@@ -52,7 +52,7 @@ function rendercart(data) {
     // update cart total price
     let totalPrice = document.getElementById("cart-total-price");
     totalPrice.innerText = "Total : " + TotalPrice + " €";
-    
+    loadListeners()
 }
 
 // create one cart item to be injected in the html
@@ -133,6 +133,11 @@ function TotalPrices(data)
 function remove(id, size)
 {
     fetch("https://kilyangerard.sites.3wa.io/res03-projet-final/projet/removePanier/"+id+"/"+size);
+    
+    setTimeout(function() {
+ displayPanier();
+}, 10);
+    
 }
 function displayPanier()
 {
@@ -141,8 +146,14 @@ function displayPanier()
     .then(response => response.json())
     .then(data => {
         rendercart(data);
+        TotalPrices(data);
         
-        let buttons = document.getElementsByClassName("supp");
+    });
+}
+
+function loadListeners()
+{
+    let buttons = document.getElementsByClassName("supp");
         for(let i = 0; i < buttons.length; i++)
         {
           buttons[i].addEventListener("click", function(event){
@@ -152,10 +163,15 @@ function displayPanier()
             remove(removeId, removeSize);
           });
         }
-        TotalPrices(data);
-    });
     
-    
+  //  let $addButtons = document.getElementsByClassName("cart-button-add");
+  //  let $removeButtons = document.getElementsByClassName("cart-button-remove");
+
+ //   for(var i = 0; i < $addButtons.length; i++)
+ //   {
+//        $addButtons[i].addEventListener("click", addItem);
+ //       $removeButtons[i].addEventListener("click", removeItem);
+ //   }
     
 }
 

@@ -108,18 +108,13 @@ class PageController extends AbstractController {
     }
     public function removeOnPanier(int $productId, int $size)
     {
-         foreach($_SESSION['cart'] as $item)
+         foreach($_SESSION['cart'] as $key => $item)
         {
             if($item["id"] === $productId && $item["taille"] === $size)
             {
-                 var_dump($item);
-                 $item["id"]="";
-               // unset($item);
-                 var_dump($item);
-                 var_dump($_SESSION['cart']);
+                unset($_SESSION['cart'][$key]);
             }
         }
-       
     }
     
     public function displayPanier()
