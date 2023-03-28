@@ -52,7 +52,8 @@ class PageController extends AbstractController {
             $this->renderpublic("Oneproduct", $tab);
         }
         
-    public function addPanier(int $productId, int $number, int $size){
+     public function addPanier(int $productId, int $number, int $size)
+     {
         
         $cart=[];
         $InArray = false;
@@ -102,6 +103,68 @@ class PageController extends AbstractController {
                         "size" => $item["taille"]
                     ];
             $cart[] = $tab;
+        }
+        echo json_encode($cart);
+    }
+    public function removeOnPanier(int $productId, int $size)
+    {
+         foreach($_SESSION['cart'] as $item)
+        {
+            if($item["id"] === $productId && $item["taille"] === $size)
+            {
+                 var_dump($item);
+                 $item["id"]="";
+               // unset($item);
+                 var_dump($item);
+                 var_dump($_SESSION['cart']);
+            }
+        }
+       
+    }
+    
+    public function displayPanier()
+    {
+        foreach($_SESSION['cart'] as $item)
+        {
+            $product = $this->pmanager->getProductById1($item["id"]);
+            $image = $this->immanager->getImageById($item["id"]);
+            $tab = [
+                        "id" => $product->getId(),
+                        "name" => $product->getName(),
+                        "description" => $product->getDescription(),
+                        "slug" => $product->getSlug(),
+                        "price" => $product->getPrice(),
+                        "url" => $image->getUrl(),
+                        "descriptionURL" => $product->getName(),
+                        "number" => $item["quantite"],
+                        "size" => $item["taille"]
+                    ];
+            $cart[] = $tab;
+        }
+        echo json_encode($cart);
+    }
+    public function findItem(int $productId, int $size)
+    {
+        for($i = 0; $i < count($_SESSION["cart"]) ; $i++)
+        {
+            $item = $_SESSION["cart"][$i];
+            if(($item["id"] === $productId) && ($item["taille"] === $size))
+            {
+                $product = $this->pmanager->getProductById1($item["id"]);
+                $image = $this->immanager->getImageById($item["id"]);
+                $tab = [
+                        "id" => $product->getId(),
+                        "name" => $product->getName(),
+                        "description" => $product->getDescription(),
+                        "slug" => $product->getSlug(),
+                        "price" => $product->getPrice(),
+                        "url" => $image->getUrl(),
+                        "descriptionURL" => $product->getName(),
+                        "number" => $item["quantite"],
+                        "size" => $item["taille"]
+                    ];
+            $cart[] = $tab;
+            }
         }
         echo json_encode($cart);
     }

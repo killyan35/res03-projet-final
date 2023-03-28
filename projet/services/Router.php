@@ -46,13 +46,7 @@ class Router {
     
         if($route[0] === "boutique")
         {
-            if(!isset($route[1])) // j'ai donc juste /boutique
-            {
-                // c'est la liste des catégories
-                echo "boutique";
-                $this->page->displayAllCategorys();
-            }
-            else if(isset($route[1])  && !isset($route[2])) // j'ai bien /boutique/un-truc mais rien après
+            if(isset($route[1])  && !isset($route[2])) // j'ai bien /boutique/un-truc mais rien après
             {
                 // c'est donc la liste des produits dans une catégorie
                 $this->page->displayAllProductsByCategory($route[1]);
@@ -386,6 +380,18 @@ class Router {
         {
             $this->page->addPanier($route[1], $route[2], $route[3]);
         }    
+        if($route[0] === "removePanier")
+        {
+            $this->page->removeOnPanier($route[1], $route[2]);
+        }
+        if($route[0] === "findItem")
+        {
+            $this->page->findItem($route[1], $route[2]);
+        }
+        if($route[0] === "displayPanier")
+        {
+            $this->page->displayPanier();
+        }
         if($route[0] === "error404")
         {
             if(!isset($route[1])) // j'ai donc juste /evenements

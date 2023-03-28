@@ -37,7 +37,23 @@
                 ?>€
             </li>
         </ul>
-        <button id="add-to-cart" data-number="1" data-size="1" data-id="<?php echo $data["product"]->getId(); ?>">Ajouter au panier</button>
+        <fieldset>
+            <form action="" method="post">
+                <label for="select">Pour combien de personne ?</label>
+
+                <select name="size" id="select">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                    <option value="12">12</option>
+                </select>
+            </form>
+
+        </fieldset>
+        <button id="add-to-cart" data-number="1" data-id="<?php echo $data["product"]->getId(); ?>">Ajouter au panier</button>
         <button>Ajouter au favoris</button>
     </main>
     <aside>
@@ -47,13 +63,14 @@
                 </header>
                 <section id="section">
                     <ul id="ul">
-    
+                        
                     </ul>
                 </section>
                 <footer>
                     <a class="btn btn-cart-back" href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">Continuer mes achats</a>
                     <a class="btn btn-cart-order" href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte/panier">Finaliser la commande</a>
                 </footer>
+                
     </aside>
     
     
