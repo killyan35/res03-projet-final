@@ -286,17 +286,19 @@ class Router {
             // j'affiche ma homepage en invité
             $this->uc->home();
         }
-        else if(!isset($route[1]) && ($_SESSION["Connected"] === true) && ($_SESSION["admin"] === true))
-        {
-            // j'affiche mon interface admin
-            $this->uc->home();
-        }
-        else if(!isset($route[1]) && ($_SESSION["Connected"] === true) && ($_SESSION["admin"] === false))
+        else if(!isset($route[1]) && ($_SESSION["Connected"] != false) && ($_SESSION["admin"] === false))
         {
             // j'affiche ma homepage en tant que User connecté
             $this->uc->home();
         }
-        
+    }
+    if($route[0] === "admin")
+    {
+        if(!isset($route[1]) && ($_SESSION["Connected"] === false) && ($_SESSION["admin"] === true))
+        {
+            // j'affiche mon interface admin
+            $this->uc->admin();
+        }
     }
         
         
@@ -350,32 +352,31 @@ class Router {
         }
         if($route[0] === "mon-compte")
         {
-            if(!isset($route[1])) // j'ai donc juste /connexion
-            {
-                // j'affiche mon compte
-                $this->uc->displayOneUser();
-                
-                if(isset($route[1]) && !isset($route[2])) // j'ai donc /mon-compte/ un-truc
-                {
-                    if ($route[1] === "panier")
-                    { 
-                        // c'est donc le panier 
-                        $this->uc->displayPanier();
-                        
-                        if ($route[2] === "formulaire-de-commande")
-                        {
-                            $this->uc->CommandeUser();
-                        }
-                    }
-                    
-                    else if ($route[1] === "favoris")
-                    {
-                        // c'est donc la liste des favoris 
-                        $this->uc->displayUserfavorite();
-                    }
-                }    
-            }
+            // j'affiche mon compte
         }
+        if($route[0] === "mon-compte")
+        {
+            if($route[1] === "panier" && !isset($route[2]))
+            {
+                // c'est donc le panier 
+                $this->page->displayPanier();
+                $this->page->panier();
+            }
+            else if ($route[1] === "panier")
+            {
+                if ($route[2] === "formulaire-de-commande")
+                {
+                    $this->uc->CommandeUser($_POST);
+                    echo "hey";
+                }
+            }
+            else if ($route[1] === "favoris" && !isset($route[2]))
+            {
+                // c'est donc la liste des favoris 
+                $this->uc->displayUserfavorite();
+            }
+        }   
+        // function php pour JS
         if($route[0] === "addPanier")
         {
             $this->page->addPanier($route[1], $route[2], $route[3]);
@@ -396,11 +397,13 @@ class Router {
         {
             $this->page->displayPanier();
         }
+        // function php pour JS
+        
         if($route[0] === "error404")
         {
-            if(!isset($route[1])) // j'ai donc juste /evenements
+            if(!isset($route[1])) // j'ai donc juste /error404
             {
-                // j'affiche mes evenements
+                // j'affiche mon erreur
                 $this->uc->displayError404();
             }
         }

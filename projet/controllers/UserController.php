@@ -35,14 +35,22 @@ class UserController extends AbstractController {
                      {
                          if($user->getRole() === "ADMIN")
                          {
-                             $_SESSION["Connected"]=true;
+                             $_SESSION["Connected"]=false;
                              $_SESSION["admin"]=true;
                              
                              header ('Location: admin');
                          }
                          else if($user->getRole() === "USER")
                          {
-                             $_SESSION["Connected"]=true;
+                             $_SESSION["Connected"]=[];
+                             $id = $user->getId();
+                             $email = $user->getEmail();
+                             $tableau = [
+                                            "id" => $id,
+                                            "email" => $email
+                                        ];
+                             $_SESSION['Connected'][]=$tableau;
+                             
                              $_SESSION["admin"]=false;
                              $tab = [
                              "user"=>$user
@@ -81,7 +89,7 @@ class UserController extends AbstractController {
             {
                  if (($post['firstname']!=='' )  &&  ($post['lastname']!=='') && ($post['email']!=='')  &&  ($post['password']!=='')) 
                  {
-                     $userToAdd = new User($post["firstname"],$post["lastname"],$post["email"],$post["password"]);
+                     $userToAdd = new User(null, $post["firstname"],$post["lastname"],$post["email"],$post["password"]);
                      $this->manager->insertUser($userToAdd);
                      header ('Location: accueil');
                      var_dump($_SESSION["Connected"]);
@@ -113,10 +121,36 @@ class UserController extends AbstractController {
             $user ["user"] = $one;
             $this->renderadmin("user", $user);
         }
-        public function CommandeUser()
+        public function CommandeUser(array $post)
         {
-            $order = $this->findOrder();
-            $this->render("formulaire-de-commande", $order);
+            if (isset($post["formName"]))
+            {
+                 if((isset($post['street']) && ($post['street']!=='' ))
+                 && (isset($post['number']) && ($post['number']!=='' ))
+                 && (isset($post['city']) && ($post['city']!=='' ))
+                 && (isset($post['zipcod']) && ($post['zipcod']!=='' ))
+                 && (isset($post['totalprice']) && ($post['totalprice']!=='' ))
+                 && (isset($post['Userid']) && ($post['Userid']!=='' ))
+                 ) 
+                 {
+                     $adressToAdd = new Adress($post["street"],$post["city"], intval($post["number"]), intval($post["zipcod"]));
+                     $adressId = $this->manager->insertAdress($adressToAdd);
+                     $orderToAdd = new Order(intval($adressId),intval($post['Userid']),floatval($post['totalprice']));
+                     $orderId = $this->manager->insertOrder($orderToAdd);
+                     $usertoedit = $this->manager->getUserById(intval($post['Userid']));
+                     $firstname = $usertoedit->getFirstname();
+                     $lastname = $usertoedit->getLastname();
+                     $email = $usertoedit->getEmail();
+                     $password = $usertoedit->getPassword();
+                     $UserToEdit = new User(intval($post['Userid']), $firstname, $lastname, $email, $password, $adressId);
+                     $this->manager->addAddressinUser($UserToEdit);
+                     foreach($_SESSION['cart'] as $item)
+                     {
+                        $this->manager->addProductOnOrder(intval($orderId),intval($item["id"]), intval($item["taille"]), intval($item["quantite"]));
+                     }
+                     header ('Location: /res03-projet-final/projet/mon-compte/panier');
+                 }
+            }
         }
         public function sendOrder(array $post)
         {

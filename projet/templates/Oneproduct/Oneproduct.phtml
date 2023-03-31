@@ -1,11 +1,10 @@
 <h2><a href="/res03-projet-final/projet/accueil">
         revenir a l'accueil
     </a></h2>
-<body>
     <header>
         <h1><?=$data["product"]->getName()?></h1>
     </header>
-    <main>
+    <section>
         <ul>
             <li>
                 <figure>
@@ -55,7 +54,7 @@
         </fieldset>
         <button id="add-to-cart" data-number="1" data-id="<?php echo $data["product"]->getId(); ?>">Ajouter au panier</button>
         <button>Ajouter au favoris</button>
-    </main>
+    </section>
     <aside>
                 <header>
                     <h2>Mon panier</h2>
@@ -80,5 +79,4 @@
     <h2><a href="/res03-projet-final/projet/boutique">
         revenir a la boutique
     </a></h2>
-    
-</body>
+    <script type="module" src="/res03-projet-final/projet/assets/js/mainCart.js"></script>  

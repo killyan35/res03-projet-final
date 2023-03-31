@@ -10,7 +10,7 @@ class AllergenController extends AbstractController {
     public function displayAllergens()
         {
             $Allergens = $this->manager->findAllAllergens();
-            $this->render("allergen", $Allergens);
+            $this->renderadmin("allergen", $Allergens);
         }
     
     public function createAllergen(array $post)
@@ -45,7 +45,7 @@ class AllergenController extends AbstractController {
             $allergens = $this->manager->getAllergenBySlug($name);
             $tab = [];
             $tab["allergen"]= $allergens;
-            $this->render("edit-allergen", $tab);
+            $this->renderadmin("edit-allergen", $tab);
         }
         
     public function deleteAllergen(string $name)

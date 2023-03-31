@@ -51,6 +51,11 @@ class PageController extends AbstractController {
                 ] ;
             $this->renderpublic("Oneproduct", $tab);
         }
+    
+    public function panier()
+    {
+        $this->renderpublic("panier", []);
+    }
         
      public function addPanier(int $productId, int $number, int $size)
      {

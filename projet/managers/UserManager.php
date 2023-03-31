@@ -10,7 +10,7 @@ class UserManager extends AbstractManager {
         ];
         $query->execute($parameters);
         $users = $query->fetch(PDO::FETCH_ASSOC);
-        $return = new User($users["first_name"],$users["last_name"],$users["email"],$users["password"]);
+        $return = new User(null, $users["first_name"],$users["last_name"],$users["email"],$users["password"], null);
         $return->setId($users["id"]);
         
         return $return;
@@ -27,7 +27,7 @@ class UserManager extends AbstractManager {
         $users = $query->fetch(PDO::FETCH_ASSOC);
         if($users!==false)
         {
-            $return = new User($users["first_name"],$users["last_name"],$users["email"],$users["password"]);
+            $return = new User(null, $users["first_name"],$users["last_name"],$users["email"],$users["password"], null);
             $return->setId($users["id"]);
             $return->setRole($users["role"]);
             return $return;
@@ -41,7 +41,7 @@ class UserManager extends AbstractManager {
     
     public function insertUser(User $user)
     {
-        $query = $this->db->prepare('INSERT INTO user VALUES (null, :prenom, :nom, :email, :mdp, :role, null, null)');
+        $query = $this->db->prepare('INSERT INTO user VALUES (null, :prenom, :nom, :email, :mdp, :role, null)');
         $parameters= [
         'prenom' => $user->getFirstname(),
         'nom' => $user->getLastname(),
@@ -61,6 +61,20 @@ class UserManager extends AbstractManager {
         'last_name'=>$user->getLastname(),
         'email'=>$user->getEmail(),
         'password'=>$user->getPassword()
+    ];
+    $query->execute($parameters);
+    }
+    
+    public function addAddressinUser(User $user) : void
+    {
+    $query = $this->db->prepare("UPDATE user SET first_name=:first_name, last_name=:last_name, email=:email, password=:password, address_id=:address_id WHERE id=:id");
+    $parameters = [
+        'id'=>$user->getId(),
+        'first_name'=>$user->getFirstname(),
+        'last_name'=>$user->getLastname(),
+        'email'=>$user->getEmail(),
+        'password'=>$user->getPassword(),
+        'address_id'=>$user->getAddress_id()
     ];
     $query->execute($parameters);
     }
@@ -86,19 +100,52 @@ class UserManager extends AbstractManager {
             $return = [];
             foreach ($users as $user)
             {
-                $newUser = new User($user["first_name"],$user["last_name"],$user["email"],$user["password"]);
+                $newUser = new User(null, $user["first_name"],$user["last_name"],$user["email"],$user["password"], null);
                 $newUser->setId($user["id"]);
                 $return[]=$newUser;
             }
             return $return;
         }
-    
-    
-    public function findAllProductOnOneCat(string $slug)
+    public function insertAdress(Adress $adress)
     {
+        $query = $this->db->prepare('INSERT INTO address VALUES (null, :street, :city, :number, :zipcode)');
+        $parameters= [
+        'street' => $adress->getStreet(),
+        'city' => $adress->getCity(),
+        'number' => $adress->getNumber(),
+        'zipcode' => $adress->getZipcode()
+        ];
+        $query->execute($parameters);
         
+        return $this->db->lastInsertId();
     }
     
+    public function insertOrder(Order $order)
+    {
+        $query = $this->db->prepare('INSERT INTO orders VALUES (null, :address_id, :user_id, :total_price)');
+        $parameters= [
+        'address_id' => $order->getAddress_id(),
+        'user_id' => $order->getUser_id(),
+        'total_price' => $order->getTotal_price()
+        ];
+        $query->execute($parameters);
+        
+        return $this->db->lastInsertId();
+    }
+
+   public function addProductOnOrder(int $orderId, int $productId, int $size, int $quantity)
+   {
+        $query = $this->db->prepare('INSERT INTO orders_has_product VALUES (:orderId , :productId , :size , :quantity)');
+        $parameters = [
+            'orderId' => $orderId,
+            'productId' => $productId,
+            'size' => $size,
+            'quantity' => $quantity
+        ];
+
+        $query->execute($parameters);
+    }
+
     
 }
 ?>

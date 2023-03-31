@@ -8,17 +8,18 @@ class User {
     private string $email;
     private string $password;
     private string $role;
-    private ?int $billingId;
+    private ?int $address_id;
 
     // public constructor
-    public function __construct(string $firstname, string $lastname, string $email, string $password)
+    public function __construct(?int $id=null, string $firstname, string $lastname, string $email, string $password, ?int $address_id=null)
     {
-        $this->id = null;
+        $this->id = $id;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->email = $email;
         $this->password = $password;
         $this->role = "USER";
+        $this->address_id = $address_id;
     }
 
     // public getter
@@ -46,9 +47,9 @@ class User {
     {
         return $this->role;
     }
-    public function getBillingId() : int
+    public function getAddress_id() : int
     {
-        return $this->billingId;
+        return $this->address_id;
     }
     
     // public setter
@@ -76,9 +77,9 @@ class User {
     {
         $this->role = $role;
     }
-    public function setBillingId(int $billingId) : void
+    public function setAddress_id(int $address_id) : void
     {
-        $this->billingId = $billingId;
+        $this->address_id = $address_id;
     }
 }
 ?>

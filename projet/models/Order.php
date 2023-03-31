@@ -2,24 +2,17 @@
 class Order {
     // private attribute
     private ?int $id;
-    private int $size; // formulaire dans le html
-    private int $number; // formulaire dans le html
-    private int $totalPiece; // prix de base multiplier par le $size et le $number
-    private int $userId;
-    private int $billingId;
-    private float $totalOrderPrice;
+    private int $address_id;
+    private int $user_id;
+    private float $total_price;
 
     // public constructor
-    public function __construct(int $billingId, int $size, int $number, int $totalPiece, int $userId, float $totalOrderPrice)
+    public function __construct(int $address_id, int $user_id, float $total_price)
     {
         $this->id = null;
-        $this->userId = $userId;
-        $this->size = $size;
-        $this->number = $number;
-        $this->totalPrice = $totalPrice;
-        $this->billingId = $billingId;
-        $this->totalPiece = $this->calculTotalPiece($number,$size);
-        $this->totalOrderPrice = $this->calculTotalOrderPrice($number,$totalPrice);
+        $this->address_id = $address_id;
+        $this->user_id = $user_id;
+        $this->total_price = $total_price;
     }
 
     // public getter
@@ -27,29 +20,17 @@ class Order {
     {
         return $this->id;
     }
-    public function getUserId() : int
+    public function getUser_id() : int
     {
-        return $this->userId;
+        return $this->user_id;
     }
-    public function getSize() : int
+    public function getAddress_id() : int
     {
-        return $this->size;
+        return $this->address_id;
     }
-    public function getNumber() : int
+    public function getTotal_price() : float
     {
-        return $this->number;
-    }
-    public function getTotalPiece() : int
-    {
-        return $this->totalPrice;
-    }
-    public function getBillingId() : int
-    {
-        return $this->billingId;
-    }
-    public function getTotalOrderPrice() : float
-    {
-        return $this->totalOrderPrice;
+        return $this->total_price;
     }
     
     // public setter
@@ -57,43 +38,17 @@ class Order {
     {
         $this->id = $id;
     }
-    public function setUserId(int $userId) : void
+    public function setUser_id(int $user_id) : void
     {
-        $this->userId = $userId;
+        $this->user_id = $user_id;
     }
-    public function setSize(int $size) : void
+    public function setAddress_id(int $address_id) : void
     {
-        $this->size = $size;
+        $this->address_id = $address_id;
     }
-    public function setNumber(int $number) : void
+    public function setTotal_price(float $total_price) : void
     {
-        $this->number = $number;
-    }
-    public function setTotalPiece(int $totalPiece) : void
-    {
-        $this->totalPiece = $totalPiece;
-    }
-    public function setBillingId(int $billingId) : void
-    {
-        $this->billingId = $billingId;
-    }
-    public function setTotalOrderPrice(float $totalOrderPrice) : void
-    {
-        $this->totalOrderPrice = $totalOrderPrice;
-    }
-    
-    
-    
-    private function calculTotalPiece(int $number, int $size) : int
-    {
-        $totalpiece = $size*$number;
-        return $totalpiece;
-    }
-    
-    private function calculTotalOrderPrice(float $number, float $totalprice) : float
-    {
-        $TotalOrderPrice = $totalprice + $number;
-        return $TotalOrderPrice;
+        $this->total_price = $total_price;
     }
 }
 ?>

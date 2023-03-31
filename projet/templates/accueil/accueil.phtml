@@ -5,7 +5,7 @@
                     { ?>
                         <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/connexion">connexion</a></li>
                     <?php }
-                    else if ((isset($_SESSION["Connected"])) && ($_SESSION["Connected"]===true))
+                    else if ((isset($_SESSION["Connected"])) && ($_SESSION["Connected"]!=false))
                     { ?>
                         <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/deconnexion">déconnexion</a></li>
                         <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte/panier">Panier</a></li>

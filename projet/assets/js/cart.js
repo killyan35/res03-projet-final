@@ -52,6 +52,7 @@ function rendercart(data) {
     // update cart total price
     let totalPrice = document.getElementById("cart-total-price");
     totalPrice.innerText = "Total : " + TotalPrice + " €";
+    totalPrice.setAttribute("price", TotalPrice);
     loadListeners()
 }
 
@@ -193,7 +194,6 @@ function displayPanier()
     .then(data => {
         rendercart(data);
         TotalPrices(data);
-        console.log(data);
     });
 }
 
@@ -254,8 +254,10 @@ function removeItem(id, number, size)
     {
         displayPanier();
     }, 1);
-    
 }
+
+
+
 export { remove };
 export { displayPanier };
 export { addtopanier };

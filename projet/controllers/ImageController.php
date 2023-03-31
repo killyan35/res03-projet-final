@@ -11,7 +11,7 @@ class ImageController extends AbstractController {
     {
         {
             $images = $this->manager->findAllImages();
-            $this->render("image", $images);
+            $this->renderadmin("image", $images);
         }
     }
     public function insertImage(array $post)
