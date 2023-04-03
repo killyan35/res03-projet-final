@@ -17,11 +17,12 @@
     <tbody>
         <?php 
     foreach($data["products"] as $product){ 
+        
     ?>
         <tr>
             <td>
                 
-                   <img height=60px src="/res03-projet-final/projet/<?php foreach($data["image"] as $image){ echo $image->getURL(); } ?>">
+                   <img <?php foreach($data["image"] as $image){ ?> height=60px src="/res03-projet-final/projet/<?= $image->getURL(); ?>"   <?php  } ?>>
             
             </td>
             <td><?= $product->getName() ?></td>
@@ -32,7 +33,7 @@
                 <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/product/info/<?=$product->getId()?>">Info</a>
             </td>
         </tr>
-    <?php } ?>
+    <?php  } ?>
     </tbody>
 </table>
 </section>

@@ -10,7 +10,7 @@ class OrderManager extends AbstractManager
     
     public function  createOrder()
     {
-        $query = $this->db->prepare('INSERT INTO order VALUES (null, :billing, :size, :number, :totalPrice, null)');
+        $query = $this->db->prepare('INSERT INTO orders VALUES (null, :billing, :size, :number, :totalPrice, null)');
         $parameters= [
         'prenom' => $user->getFirstname(),
         'nom' => $user->getLastname(),

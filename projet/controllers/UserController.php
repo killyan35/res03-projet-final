@@ -7,16 +7,25 @@ class UserController extends AbstractController {
         $this->manager = new UserManager();
     }
     
-        public function home() 
-        {
-            $this->renderpublic("accueil", []);
-        }
+        
         public function admin() 
         {
             $this->renderadmin("admin", []);
         }
         
-        
+        public function home()
+        {
+            if (!isset($_SESSION["Connected"]))
+            {
+                $this->renderpublic("accueil", []);
+            }
+            else if ((isset($_SESSION["Connected"])) && ($_SESSION["Connected"]!=false))
+            {
+                $userId = $_SESSION["Connected"][0]["id"];
+                $user = $this->manager->getUserById($userId);
+                $this->renderprive("accueil", [$user]);
+            }
+        }
         public function login(array $Post) : void
         {
             if (isset($Post["formName"]))
@@ -37,8 +46,7 @@ class UserController extends AbstractController {
                          {
                              $_SESSION["Connected"]=false;
                              $_SESSION["admin"]=true;
-                             
-                             header ('Location: admin');
+                             header("Location: /res03-projet-final/projet/admin");
                          }
                          else if($user->getRole() === "USER")
                          {
@@ -55,7 +63,7 @@ class UserController extends AbstractController {
                              $tab = [
                              "user"=>$user
                              ];
-                             $this->renderpublic("accueil", $tab);
+                             header("Location: /res03-projet-final/projet/accueil");
                          }
                          else
                          {
@@ -92,14 +100,10 @@ class UserController extends AbstractController {
                      $userToAdd = new User(null, $post["firstname"],$post["lastname"],$post["email"],$post["password"]);
                      $this->manager->insertUser($userToAdd);
                      header ('Location: accueil');
-                     var_dump($_SESSION["Connected"]);
+                     ($_SESSION["Connected"]);
                  }
             }
         }
-           
-        
-        
-        
         public function displayAllUsers()
         {
             $users = $this->manager->findAllUser();
@@ -151,10 +155,6 @@ class UserController extends AbstractController {
                      header ('Location: /res03-projet-final/projet/mon-compte/panier');
                  }
             }
-        }
-        public function sendOrder(array $post)
-        {
-            
         }
         public function displayError404()
         {

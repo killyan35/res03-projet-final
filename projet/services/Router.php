@@ -50,7 +50,6 @@ class Router {
             {
                 // c'est donc la liste des produits dans une catégorie
                 $this->page->displayAllProductsByCategory($route[1]);
-                echo "produits";
                 // $route[1] = Tarte (par exemple)
                 // et le slug de ma catégorie c'est $route[1]
             }
@@ -358,16 +357,23 @@ class Router {
         {
             if($route[1] === "panier" && !isset($route[2]))
             {
-                // c'est donc le panier 
-                $this->page->displayPanier();
-                $this->page->panier();
+                if(isset($_SESSION["connected"]))
+                {
+                    $this->page->displayPanier();
+                    $this->page->panier();
+                }
+                else
+                {
+                    header("Location: /res03-projet-final/projet/connexion");
+                }
+                
             }
             else if ($route[1] === "panier")
             {
                 if ($route[2] === "formulaire-de-commande")
                 {
                     $this->uc->CommandeUser($_POST);
-                    echo "hey";
+                 
                 }
             }
             else if ($route[1] === "favoris" && !isset($route[2]))

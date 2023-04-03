@@ -54,12 +54,11 @@ class PageController extends AbstractController {
     
     public function panier()
     {
-        $this->renderpublic("panier", []);
+        $this->renderprive("panier", []);
     }
         
      public function addPanier(int $productId, int $number, int $size)
      {
-        
         $cart=[];
         $InArray = false;
         $index= -1;
