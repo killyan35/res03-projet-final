@@ -5,6 +5,7 @@ class PageController extends AbstractController {
     private IngredientManager $imanager;
     private AllergenManager $amanager;
     private ImageManager $immanager;
+    private UserManager $umanager;
     public function __construct()
     {
         $this->pmanager = new ProductManager();
@@ -12,6 +13,7 @@ class PageController extends AbstractController {
         $this->imanager = new IngredientManager();
         $this->amanager = new AllergenManager();
         $this->immanager = new ImageManager();
+        $this->umanager = new UserManager();
     }
     public function displayAllCategorys()
         {
@@ -54,7 +56,16 @@ class PageController extends AbstractController {
     
     public function panier()
     {
-        $this->renderprive("panier", []);
+        $userId = $_SESSION["Connected"][0]["id"];
+        $user = $this->umanager->getUserById($userId);
+        $address_id = $_SESSION["Connected"][0]["address_id"];
+        $address = $this->umanager->getUserAdressByAdressId($address_id);
+        $user = 
+            [
+            $user,
+            $address
+            ];
+        $this->renderprive("panier", $user);
     }
         
      public function addPanier(int $productId, int $number, int $size)
@@ -120,10 +131,12 @@ class PageController extends AbstractController {
             }
         }
     }
-    
+    // && (empty($_SESSION['cart']) === false)
     public function displayPanier()
     {
-        foreach($_SESSION['cart'] as $key => $item)
+        if(empty($_SESSION['cart']) === false)
+        {
+            foreach($_SESSION['cart'] as $key => $item)
         {
                 $product = $this->pmanager->getProductById1($item["id"]);
                 $image = $this->immanager->getImageById($item["id"]);
@@ -140,7 +153,8 @@ class PageController extends AbstractController {
                         ];
                 $cart[] = $tab;
         }
-        echo json_encode($cart);
+        echo json_encode($cart);   
+        }
     }
     public function addItem(int $productId, int $number, int $size)
     {

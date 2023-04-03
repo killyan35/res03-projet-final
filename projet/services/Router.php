@@ -349,31 +349,22 @@ class Router {
                 }    
             }
         }
-        if($route[0] === "mon-compte")
+        if($route[0] === "mon-compte" && !isset($route[1])) // j'affiche mon compte
         {
-            // j'affiche mon compte
+            $this->uc->compte();
         }
-        if($route[0] === "mon-compte")
+        if($route[0] === "mon-compte" && isset($route[1]))
         {
             if($route[1] === "panier" && !isset($route[2]))
             {
-                if(isset($_SESSION["connected"]))
-                {
-                    $this->page->displayPanier();
-                    $this->page->panier();
-                }
-                else
-                {
-                    header("Location: /res03-projet-final/projet/connexion");
-                }
-                
+                $this->page->displayPanier();
+                $this->page->panier();
             }
-            else if ($route[1] === "panier")
+            else if ($route[1] === "panier" && isset($route[2]))
             {
                 if ($route[2] === "formulaire-de-commande")
                 {
                     $this->uc->CommandeUser($_POST);
-                 
                 }
             }
             else if ($route[1] === "favoris" && !isset($route[2]))
@@ -382,6 +373,16 @@ class Router {
                 $this->uc->displayUserfavorite();
             }
         }   
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         // function php pour JS
         if($route[0] === "addPanier")
         {

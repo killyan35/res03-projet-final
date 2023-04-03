@@ -12,10 +12,13 @@ class UserManager extends AbstractManager {
         $users = $query->fetch(PDO::FETCH_ASSOC);
         $return = new User(null, $users["first_name"],$users["last_name"],$users["email"],$users["password"], null);
         $return->setId($users["id"]);
-        
+        if($users["address_id"] != null)
+            {
+                $return->setAddress_id($users["address_id"]);
+            }
         return $return;
     }
-    public function getUserByEmail(string $email) : ?User
+    public function getUserByEmail(string $email) : User
     {
        
         $query = $this->db->prepare("SELECT * FROM user WHERE email=:email");
@@ -30,6 +33,11 @@ class UserManager extends AbstractManager {
             $return = new User(null, $users["first_name"],$users["last_name"],$users["email"],$users["password"], null);
             $return->setId($users["id"]);
             $return->setRole($users["role"]);
+            if($users["address_id"] != null)
+            {
+                $return->setAddress_id($users["address_id"]);
+            }
+           
             return $return;
         }
         else
@@ -146,6 +154,18 @@ class UserManager extends AbstractManager {
         $query->execute($parameters);
     }
 
-    
+    public function getUserAdressByAdressId(int $id) : Adress
+    {
+        $query = $this->db->prepare("SELECT * FROM address WHERE id=:id");
+        $parameters = [
+            'id'=>$id
+        ];
+        $query->execute($parameters);
+        $address = $query->fetch(PDO::FETCH_ASSOC);
+        $return = new Adress($address["street"],$address["city"],intval($address["number"]),intval($address["zipcode"]) );
+        $return->setId($address["id"]);
+        
+        return $return;
+    }
 }
 ?>

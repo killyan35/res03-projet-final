@@ -47,7 +47,7 @@ class User {
     {
         return $this->role;
     }
-    public function getAddress_id() : int
+    public function getAddress_id()
     {
         return $this->address_id;
     }

@@ -1,0 +1,65 @@
+<h2>Mon compte</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>prénom</th>
+            <th>Email</th>
+            <th>Mot de passe</th>
+            <th>Adresse</th>
+        </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+            <td><?= $data[0]->getLastname(); ?></td>
+            <td><?= $data[0]->getFirstname(); ?></td>
+            <td><?= $data[0]->getEmail(); ?></td>
+            <td>******</td>
+            <?php if(isset($data[1])) { ?>
+            <td><?= $data[1]->getNumber(); ?>  <?= $data[1]->getStreet(); ?>, <?= $data[1]->getCity(); ?>  <?= $data[1]->getZipcode(); ?></td>
+            <?php } ?>
+        </tr>
+    </tbody>
+</table>
+<button userId="<?= $data[0]->getId(); ?>">modifier</button>
+
+<form method="post" action="/res03-projet-final/projet/mon-compte<?= $data[0]->getId(); ?>" id="edituser">
+  
+        <label for="firstname">Prénom</label>
+        <input value="<?= $data[0]->getFirstname(); ?>" type="text" name="firstname" id="firstname" />
+        
+        <label for="lastname">Nom</label>
+        <input value="<?= $data[0]->getLastname(); ?>" type="text" name="lastname" id="lastname" />
+        
+        <label for="email">Email</label>
+        <input value="<?= $data[0]->getEmail(); ?>" type="email" name="email" id="email" />
+        
+        <label for="password">Mot de passe</label>
+        <input type="password" name="password" id="password" />
+        
+        <label for="confirmPassword">Confirmer le mot de passe </label>
+        <input type="password" name="confirmPassword" id="confirmPassword" />
+        
+        <input type="hidden" name="formName" value="register">
+        <input type="submit" value="Envoyer"/>
+</form>
+    <form method="post" action="panier/formulaire-de-commande" id="createCommande">
+        
+        <input value="<?= $data[0]->getAddress_id(); ?>" type="int" class="hidden" name="id" id="id">
+        
+        <label for="street">Rue ou Avenue</label>
+        <input value="<?php if(isset($data[1])) { echo $data[1]->getStreet(); } ?>" type="string" name="street" id="street">
+        
+        <label for="number">Numéro</label>
+        <input value="<?php if(isset($data[1])) { echo $data[1]->getNumber(); } ?>" type="text" name="number" id="number">
+        
+        <label for="city">Ville</label>
+        <input value="<?php if(isset($data[1])) { echo $data[1]->getCity(); } ?>" type="string" name="city" id="city">
+        
+        <label for="zipcod">Code postal</label>
+        <input value="<?php if(isset($data[1])) { echo $data[1]->getZipcode(); } ?>" type="text" name="zipcod" id="zipcod">
+    
+        <input type="hidden" name="formName" value="createCommande">
+        <input type="submit" value="Envoyer">
+    </form
