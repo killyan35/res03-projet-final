@@ -7,9 +7,9 @@ class Adress {
     private int $number;
     private int $zipcode;
     // public constructor
-    public function __construct(string $street, string $city, int $number, int $zipcode)
+    public function __construct(?int $id=null, string $street, string $city, int $number, int $zipcode)
     {
-        $this->id = null;
+        $this->id = $id;
         $this->street = $street;
         $this->city = $city;
         $this->number = $number;

@@ -349,16 +349,24 @@ class Router {
                 }    
             }
         }
-        if($route[0] === "mon-compte" && !isset($route[1])) // j'affiche mon compte
+        if($route[0] === "mon-compte" && ($_SESSION["Connected"] != false) && !isset($route[1])) // j'affiche mon compte
         {
             $this->uc->compte();
         }
-        if($route[0] === "mon-compte" && isset($route[1]))
+        if($route[0] === "mon-compte" && ($_SESSION["Connected"] != false) && isset($route[1]))
         {
             if($route[1] === "panier" && !isset($route[2]))
             {
                 $this->page->displayPanier();
                 $this->page->panier();
+            }
+            else if($route[1] === "addAddress" && !isset($route[2]))
+            {
+                $this->uc->addAddress($_POST);
+            }
+            else if($route[1] === "edituser" && !isset($route[2]))
+            {
+                $this->uc->edituser($_POST);
             }
             else if ($route[1] === "panier" && isset($route[2]))
             {
@@ -367,7 +375,7 @@ class Router {
                     $this->uc->CommandeUser($_POST);
                 }
             }
-            else if ($route[1] === "favoris" && !isset($route[2]))
+            else if ($route[1] === "favoris" && ($_SESSION["Connected"] != false) && !isset($route[2]))
             {
                 // c'est donc la liste des favoris 
                 $this->uc->displayUserfavorite();
@@ -384,25 +392,36 @@ class Router {
         
         
         // function php pour JS
-        if($route[0] === "addPanier")
+        if($_SESSION["Connected"] != false)
         {
-            $this->page->addPanier($route[1], $route[2], $route[3]);
-        }    
-        if($route[0] === "removePanier")
-        {
-            $this->page->removeOnPanier($route[1], $route[2]);
-        }
-        if($route[0] === "addItem")
-        {
-            $this->page->addItem($route[1], $route[2], $route[3]);
-        }
-        if($route[0] === "removeItem")
-        {
-            $this->page->removeItem($route[1], $route[2], $route[3]);
-        }
-        if($route[0] === "displayPanier")
-        {
-            $this->page->displayPanier();
+            if($route[0] === "addPanier")
+            {
+                $this->page->addPanier($route[1], $route[2], $route[3]);
+            }    
+            else if($route[0] === "removePanier")
+            {
+                $this->page->removeOnPanier($route[1], $route[2]);
+            }
+            else if($route[0] === "addItem")
+            {
+                $this->page->addItem($route[1], $route[2], $route[3]);
+            }
+            else if($route[0] === "removeItem")
+            {
+                $this->page->removeItem($route[1], $route[2], $route[3]);
+            }
+            else if($route[0] === "displayPanier")
+            {
+                $this->page->displayPanier();
+            }
+            else if($route[0] === "addfavorite")
+            {
+                $this->uc->addfavorite($route[1]);
+            }
+            else if($route[0] === "removefavorite")
+            {
+                $this->uc->deletefavorite($route[1]);
+            }
         }
         // function php pour JS
         

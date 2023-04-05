@@ -7,9 +7,9 @@
             <a href="/res03-projet-final/projet/boutique/<?php echo $data["category"]->getSlug(); ?>/<?php echo $product->getSlug(); ?>">
             <figure>
                 <img <?php foreach($data["image"] as $image){ ?> height=60px src="/res03-projet-final/projet/<?= $image->getURL(); ?>"   <?php  } ?>>
-            
             </figure>
             </a>
         </li>
+        <li><button id="add-to-favorite" data-id="<?php echo $product->getId(); ?>">Ajouter au favoris</button></li>
     </ul>
        <?php } ?>

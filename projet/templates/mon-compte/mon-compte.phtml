@@ -22,10 +22,12 @@
         </tr>
     </tbody>
 </table>
-<button userId="<?= $data[0]->getId(); ?>">modifier</button>
+<button id="editform">modifier</button>
 
-<form method="post" action="/res03-projet-final/projet/mon-compte<?= $data[0]->getId(); ?>" id="edituser">
-  
+<form class="hidden"  method="post" action="/res03-projet-final/projet/mon-compte/edituser" id="edituser">
+          
+        <input value="<?= $data[0]->getId(); ?>" type="int" class="hidden" name="id" id="id">
+        
         <label for="firstname">Prénom</label>
         <input value="<?= $data[0]->getFirstname(); ?>" type="text" name="firstname" id="firstname" />
         
@@ -41,12 +43,16 @@
         <label for="confirmPassword">Confirmer le mot de passe </label>
         <input type="password" name="confirmPassword" id="confirmPassword" />
         
-        <input type="hidden" name="formName" value="register">
+        <input value="<?= $data[0]->getAddress_Id(); ?>" type="int" class="hidden" name="addressid" id="id">
+        
+        <input type="hidden" name="formName" value="edituser">
         <input type="submit" value="Envoyer"/>
 </form>
-    <form method="post" action="panier/formulaire-de-commande" id="createCommande">
+
+<form class="hidden" method="post" action="/res03-projet-final/projet/mon-compte/addAddress" id="createAddress">
         
-        <input value="<?= $data[0]->getAddress_id(); ?>" type="int" class="hidden" name="id" id="id">
+        <input value="<?= $data[0]->getId(); ?>" type="int" class="hidden" name="id" id="id">
+        <input value="<?= $data[1]->getId(); ?>" type="int" class="hidden" name="addressid" id="addressid">
         
         <label for="street">Rue ou Avenue</label>
         <input value="<?php if(isset($data[1])) { echo $data[1]->getStreet(); } ?>" type="string" name="street" id="street">
@@ -60,6 +66,7 @@
         <label for="zipcod">Code postal</label>
         <input value="<?php if(isset($data[1])) { echo $data[1]->getZipcode(); } ?>" type="text" name="zipcod" id="zipcod">
     
-        <input type="hidden" name="formName" value="createCommande">
+        <input type="hidden" name="formName" value="createAddress">
         <input type="submit" value="Envoyer">
-    </form
+</form>
+<script type="module" src="/res03-projet-final/projet/assets/js/account.js"></script>

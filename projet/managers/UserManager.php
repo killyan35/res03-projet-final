@@ -68,12 +68,12 @@ class UserManager extends AbstractManager {
         'first_name'=>$user->getFirstname(),
         'last_name'=>$user->getLastname(),
         'email'=>$user->getEmail(),
-        'password'=>$user->getPassword()
+        'password'=> password_hash($user->getPassword() , PASSWORD_DEFAULT)
     ];
     $query->execute($parameters);
     }
     
-    public function addAddressinUser(User $user) : void
+    public function EditUserWithAddress(User $user) : void
     {
     $query = $this->db->prepare("UPDATE user SET first_name=:first_name, last_name=:last_name, email=:email, password=:password, address_id=:address_id WHERE id=:id");
     $parameters = [
@@ -81,7 +81,7 @@ class UserManager extends AbstractManager {
         'first_name'=>$user->getFirstname(),
         'last_name'=>$user->getLastname(),
         'email'=>$user->getEmail(),
-        'password'=>$user->getPassword(),
+        'password'=> password_hash($user->getPassword() , PASSWORD_DEFAULT),
         'address_id'=>$user->getAddress_id()
     ];
     $query->execute($parameters);
@@ -127,6 +127,18 @@ class UserManager extends AbstractManager {
         
         return $this->db->lastInsertId();
     }
+    public function editAdress(Adress $adress) : void
+    {
+    $query = $this->db->prepare("UPDATE address SET street=:street, city=:city, number=:number, zipcode=:zipcode WHERE id=:id");
+    $parameters = [
+        'id'=>$adress->getId(),
+        'street'=>$adress->getStreet(),
+        'city'=>$adress->getCity(),
+        'number'=>$adress->getNumber(),
+        'zipcode'=>$adress->getZipcode()
+    ];
+    $query->execute($parameters);
+    }
     
     public function insertOrder(Order $order)
     {
@@ -141,14 +153,14 @@ class UserManager extends AbstractManager {
         return $this->db->lastInsertId();
     }
 
-   public function addProductOnOrder(int $orderId, int $productId, int $size, int $quantity)
+   public function addProductOnOrder(int $orderId, int $productId, int $size, int $number)
    {
-        $query = $this->db->prepare('INSERT INTO orders_has_product VALUES (:orderId , :productId , :size , :quantity)');
+        $query = $this->db->prepare('INSERT INTO orders_has_product VALUES (:orderId , :productId , :size , :number)');
         $parameters = [
             'orderId' => $orderId,
             'productId' => $productId,
             'size' => $size,
-            'quantity' => $quantity
+            'number' => $number
         ];
 
         $query->execute($parameters);
@@ -162,10 +174,40 @@ class UserManager extends AbstractManager {
         ];
         $query->execute($parameters);
         $address = $query->fetch(PDO::FETCH_ASSOC);
-        $return = new Adress($address["street"],$address["city"],intval($address["number"]),intval($address["zipcode"]) );
+        $return = new Adress(null, $address["street"],$address["city"],intval($address["number"]),intval($address["zipcode"]) );
         $return->setId($address["id"]);
         
         return $return;
     }
+    
+    public function addfavorite(int $userId, int $productId)
+    {
+        $query = $this->db->prepare('INSERT INTO favorite VALUES (:user_id, :product_id)');
+        $parameters= [
+        'user_id' => $userId,
+        'product_id' => $productId
+        ];
+        $query->execute($parameters);
+    }
+    public function deletefavorite(int $userId, int $productId)
+    {
+        
+        $query = $this->db->prepare("DELETE FROM favorite WHERE user_id=:user_id AND product_id=:product_id");
+        $parameters = [
+            'user_id'=>$userId,
+            'product_id'=>$productId
+        ];
+        $query->execute($parameters);
+    }
+    public function findAllfavorite(int $userId) : array
+        {
+            $query = $this->db->prepare("SELECT * FROM favorite WHERE user_id=:user_id");
+            $parameters = [
+            'user_id'=>$userId
+            ];
+            $query->execute([$parameter]);
+            $favorites = $query->fetchAll(PDO::FETCH_ASSOC);
+            return $favorites;
+        }
 }
 ?>

@@ -58,14 +58,22 @@ class PageController extends AbstractController {
     {
         $userId = $_SESSION["Connected"][0]["id"];
         $user = $this->umanager->getUserById($userId);
-        $address_id = $_SESSION["Connected"][0]["address_id"];
-        $address = $this->umanager->getUserAdressByAdressId($address_id);
-        $user = 
-            [
-            $user,
-            $address
-            ];
-        $this->renderprive("panier", $user);
+        
+        if(isset($_SESSION["Connected"][0]["address_id"]) && $_SESSION["Connected"][0]["address_id"] != null)
+        {
+            $address_id = $_SESSION["Connected"][0]["address_id"];
+            $address = $this->umanager->getUserAdressByAdressId($address_id);
+            $user = 
+                [
+                $user,
+                $address
+                ];
+            $this->renderprive("panier", $user);
+        }
+        else
+        {
+            $this->renderprive("panier", [$user]);
+        }
     }
         
      public function addPanier(int $productId, int $number, int $size)

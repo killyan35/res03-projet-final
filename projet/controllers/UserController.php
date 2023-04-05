@@ -51,8 +51,16 @@ class UserController extends AbstractController {
                          $_SESSION["Connected"]=[];
                          $id = $user->getId();
                          $email = $user->getEmail();
-                         $address =  $user->getAddress_id();
-                         if($address != null)
+                         $address = $user->getAddress_id();
+                         var_dump($address);
+                         if($address === null)
+                         {
+                            $tableau = [
+                                        "id" => $id,
+                                        "email" => $email
+                                    ];
+                         }
+                         else
                          {
                              
                              $tableau = [
@@ -61,13 +69,6 @@ class UserController extends AbstractController {
                                         "address_id" => $address
                                     ];
                          } 
-                         else
-                         {
-                            $tableau = [
-                                        "id" => $id,
-                                        "email" => $email
-                                    ];
-                         }
                          
                          $_SESSION['Connected'][]=$tableau;
                          
@@ -149,22 +150,54 @@ class UserController extends AbstractController {
              && (isset($post['Userid']) && ($post['Userid']!=='' ))
              ) 
              {
-                 $adressToAdd = new Adress($post["street"],$post["city"], intval($post["number"]), intval($post["zipcod"]));
-                 $adressId = $this->manager->insertAdress($adressToAdd);
-                 $orderToAdd = new Order(intval($adressId),intval($post['Userid']),floatval($post['totalprice']));
-                 $orderId = $this->manager->insertOrder($orderToAdd);
+                 
                  $usertoedit = $this->manager->getUserById(intval($post['Userid']));
-                 $firstname = $usertoedit->getFirstname();
-                 $lastname = $usertoedit->getLastname();
-                 $email = $usertoedit->getEmail();
-                 $password = $usertoedit->getPassword();
-                 $UserToEdit = new User(intval($post['Userid']), $firstname, $lastname, $email, $password, $adressId);
-                 $this->manager->addAddressinUser($UserToEdit);
-                 foreach($_SESSION['cart'] as $item)
+                 $addressId = $usertoedit->getAddress_id();
+                 if ($addressId === null)
                  {
-                    $this->manager->addProductOnOrder(intval($orderId),intval($item["id"]), intval($item["taille"]), intval($item["quantite"]));
+                     var_dump($addressid);
+                     $adressToAdd = new Adress(null, $post["street"],$post["city"], intval($post["number"]), intval($post["zipcod"]));
+                     $adressId = $this->manager->insertAdress($adressToAdd);
+                     $orderToAdd = new Order(intval($adressId),intval($post['Userid']),floatval($post['totalprice']));
+                     $orderId = $this->manager->insertOrder($orderToAdd);
+                     $firstname = $usertoedit->getFirstname();
+                     $lastname = $usertoedit->getLastname();
+                     $email = $usertoedit->getEmail();
+                     $password = $usertoedit->getPassword();
+                     $UserToEdit = new User(intval($post['Userid']), $firstname, $lastname, $email, $password, $adressId);
+                     $this->manager->EditUserWithAddress($UserToEdit);
+                     foreach($_SESSION['cart'] as $item)
+                     {
+                        $this->manager->addProductOnOrder(intval($orderId),intval($item["id"]), intval($item["taille"]), intval($item["quantite"]));
+                     }
+                     header ('Location: /res03-projet-final/projet/mon-compte/panier');
                  }
-                 header ('Location: /res03-projet-final/projet/mon-compte/panier');
+                 else 
+                 {
+                     var_dump($addressId);
+                     $AddressToEdit = new Adress(intval($addressId) ,$post["street"],$post["city"],intval($post["number"]),intval($post["zipcod"]));
+                     $this->manager->editAdress($AddressToEdit);
+                     $orderToAdd = new Order(intval($addressId),intval($post['Userid']),floatval($post['totalprice']));
+                     $orderId = $this->manager->insertOrder($orderToAdd);
+                     $firstname = $usertoedit->getFirstname();
+                     $lastname = $usertoedit->getLastname();
+                     $email = $usertoedit->getEmail();
+                     $password = $usertoedit->getPassword();
+                     $UserToEdit = new User(intval($post['Userid']), $firstname, $lastname, $email, $password, $addressId);
+                     $this->manager->EditUserWithAddress($UserToEdit);
+                     
+                     foreach($_SESSION['cart'] as $item)
+                     {
+                         var_dump(intval($orderId));
+                        var_dump(intval($item["id"]));
+                        var_dump(intval($item["taille"]));
+                        var_dump(intval($item["quantite"]));
+                        $this->manager->addProductOnOrder(intval($orderId),intval($item["id"]),intval($item["taille"]),intval($item["quantite"]));
+                        
+                     }
+                     header ('Location: /res03-projet-final/projet/mon-compte/panier');
+                 }
+                 
              }
         }
     }
@@ -202,7 +235,99 @@ class UserController extends AbstractController {
             }
         }
     }
+    public function addAddress($post)
+    {
+        if (isset($post["formName"]))
+        {
+             if ( (isset($post['street'])) && ($post['street']!=='' )  
+             &&   (isset($post['number'])) && ($post['number']!=='' )  
+             &&  (isset($post['city'])) && ($post['city']!=='' )  
+             &&  (isset($post['zipcod'])) && ($post['zipcod']!=='' )  
+             )
+             {
+                 if($post['addressid'] === null)
+                 {
+                     $AddressToAdd = new Adress(null, $post["street"],$post["city"],intval($post["number"]),intval($post["zipcod"]));
+                     $addressId = $this->manager->insertAdress($AddressToAdd);
+                     $userId = $post['id'];
+                     $usertoedit = $this->manager->getUserById(intval($userId));
+                     $firstname = $usertoedit->getFirstname();
+                     $lastname = $usertoedit->getLastname();
+                     $email = $usertoedit->getEmail();
+                     $password = $usertoedit->getPassword();
+                     $UserToEdit = new User(intval($userId), $firstname, $lastname, $email, $password, intval($addressId));
+                     $this->manager->EditUserWithAddress($UserToEdit);
+                     
+                     header ('Location: /res03-projet-final/projet/mon-compte');
+                 }
+                 else 
+                 {
+                     $addressId = $post['addressid'];
+                     $AddressToEdit = new Adress(intval($addressId) ,$post["street"],$post["city"],intval($post["number"]),intval($post["zipcod"]));
+                     $this->manager->editAdress($AddressToEdit);
+                     header ('Location: /res03-projet-final/projet/mon-compte');
+                 }
+             }
+        }
+    }
+    public function edituser($post)
+    {
+        if (isset($post["formName"]))
+        {
+             if ( (isset($post['firstname'])) && ($post['firstname']!=='' )  
+             &&   (isset($post['lastname'])) && ($post['lastname']!=='' )  
+             &&  (isset($post['email'])) && ($post['email']!=='' )  
+             &&  (isset($post['password'])) && ($post['password']!=='' )  
+             )
+             {
+                 $userId = $post['id'];
+                 $userAddressId = $post['addressid'];
+                 if($userAddressId === null)
+                 {
+                     $userToEdit = new User(intval($userId), $post["firstname"],$post["lastname"],$post["email"],$post["password"]);
+                     $this->manager->editUser($userToEdit);
+                     header ('Location: /res03-projet-final/projet/mon-compte');
+                 }
+                 else
+                 {
+                     $userToEdit = new User(intval($userId), $post["firstname"],$post["lastname"],$post["email"],$post["password"],intval($userAddressId));
+                     $this->manager->EditUserWithAddress($userToEdit);
+                     header ('Location: /res03-projet-final/projet/mon-compte');
+                 }
+             }
+        }
+    }
     
+    public function addfavorite($product_id)
+    {
+        if($_SESSION["Connected"] != false)
+        {
+           $user_id = $_SESSION["Connected"][0]["id"];
+           $this->manager->addfavorite(intval($user_id), intval($product_id));
+        }
+        else
+        {
+            echo "vous devez etre connecter";    
+        }
+        
+    }
+    public function deletefavorite($product_id)
+    {
+        if($_SESSION["Connected"] != false)
+        {
+           $user_id = $_SESSION["Connected"][0]["id"];
+           $this->manager->deletefavorite(intval($user_id), intval($product_id));
+        }
+    }
+    public function displayfavorite()
+    {
+        if($_SESSION["Connected"] != false)
+        {
+            $user_id = $_SESSION["Connected"][0]["id"];
+            $return = $this->manager->findAllfavorite(intval($user_id));
+            echo json_encode($return);
+        }
+    }    
     public function displayError404()
     {
         $this->renderpublic("error404", []);
