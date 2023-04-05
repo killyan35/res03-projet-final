@@ -416,7 +416,7 @@ class Router {
             {
                 $this->uc->addfavorite($route[1]);
             }
-            else if($route[0] === "removefavorite")
+            else if($route[0] === "deletefavorite")
             {
                 $this->uc->deletefavorite($route[1]);
             }
@@ -426,7 +426,7 @@ class Router {
             }
         // function php pour JS
         
-        if($route[0] === "error404")
+        if($route[0] === "error404" || !isset($_SESSION["Connected"]) )
         {
             if(!isset($route[1])) // j'ai donc juste /error404
             {

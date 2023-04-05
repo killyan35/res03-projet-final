@@ -348,7 +348,6 @@ class UserController extends AbstractController {
         if($_SESSION["Connected"] != false)
         {
            $user_id = $_SESSION["Connected"][0]["id"];
-           var_dump($user_id);
            $this->manager->deletefavorite(intval($user_id), intval($product_id));
         }
     }

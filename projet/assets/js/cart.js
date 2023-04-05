@@ -179,11 +179,7 @@ function TotalPrices(data)
 function remove(id, size)
 {
     fetch("https://kilyangerard.sites.3wa.io/res03-projet-final/projet/removePanier/"+id+"/"+size);
-    
-    setTimeout(function() 
-    {
-        displayPanier();
-    }, 1);
+    .then(response => displayPanier());
     
 }
 function displayPanier()
@@ -241,19 +237,13 @@ function loadListeners()
 function additem(id, number, size)
 {
     fetch("https://kilyangerard.sites.3wa.io/res03-projet-final/projet/addItem/"+id+"/"+number+"/"+size)
-    setTimeout(function() 
-    {
-        displayPanier();
-    }, 1);
+    .then(response => displayPanier());
     
 }
 function removeItem(id, number, size)
 {
     fetch("https://kilyangerard.sites.3wa.io/res03-projet-final/projet/removeItem/"+id+"/"+number+"/"+size)
-    setTimeout(function() 
-    {
-        displayPanier();
-    }, 1);
+    .then(response => displayPanier());
 }
 
 

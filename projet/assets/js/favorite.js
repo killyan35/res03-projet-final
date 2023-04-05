@@ -1,20 +1,20 @@
 function addfavorite(id)
 {
-    fetch("https://kilyangerard.sites.3wa.io/res03-projet-final/projet/addfavorite/"+id);
-       
+    fetch("https://kilyangerard.sites.3wa.io/res03-projet-final/projet/addfavorite/"+id)
+    .then(response => response.json());
 }
 function removefavorite(id)
 {
-    fetch("https://kilyangerard.sites.3wa.io/res03-projet-final/projet/deletefavorite/"+id);
-       
+    fetch("https://kilyangerard.sites.3wa.io/res03-projet-final/projet/deletefavorite/"+id)
+    .then(response => displayfavorite());
 }
 function displayfavorite()
 {
-        
     fetch("https://kilyangerard.sites.3wa.io/res03-projet-final/projet/displayFavorite")
     .then(response => response.json())
     .then(data => {
         rendercart(data);
+        loadListeners();
     });
 }
 function loadListeners()
@@ -25,6 +25,7 @@ function loadListeners()
          removeButtons[i].addEventListener("click", function(event)
          {
             let id = event.target.getAttribute("data-id");
+            console.log(id);
             removefavorite(id);
           });
     }
@@ -52,7 +53,7 @@ function rendercart(data)
         newUl.appendChild(li);
     }
     cartList.appendChild(newUl);
-    loadListeners();
+    
 }
 
 // create one cart item to be injected in the html
