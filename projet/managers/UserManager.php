@@ -47,7 +47,7 @@ class UserManager extends AbstractManager {
         
     }
     
-    public function insertUser(User $user)
+    public function insertUser(User $user) :int
     {
         $query = $this->db->prepare('INSERT INTO user VALUES (null, :prenom, :nom, :email, :mdp, :role, null)');
         $parameters= [
@@ -58,6 +58,8 @@ class UserManager extends AbstractManager {
         'role' => $user->getRole()
         ];
         $query->execute($parameters);
+        $id = intval($this->db->lastInsertId());
+        return $id;
     }
     
     public function editUser(User $user) : void
@@ -199,15 +201,16 @@ class UserManager extends AbstractManager {
         ];
         $query->execute($parameters);
     }
-    public function findAllfavorite(int $userId) : array
-        {
-            $query = $this->db->prepare("SELECT * FROM favorite WHERE user_id=:user_id");
-            $parameters = [
-            'user_id'=>$userId
-            ];
-            $query->execute([$parameter]);
-            $favorites = $query->fetchAll(PDO::FETCH_ASSOC);
-            return $favorites;
-        }
+    public function findAllfavorite(int $userId): array
+    {
+        $query = $this->db->prepare("SELECT * FROM favorite WHERE user_id = :user_id");
+        $parameters = [
+            'user_id' => $userId
+        ];
+        $query->execute($parameters);
+        $favorites = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $favorites;
+    }
+
 }
 ?>

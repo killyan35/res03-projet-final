@@ -1,10 +1,16 @@
 <?php
 class UserController extends AbstractController {
     private UserManager $manager;
+    private ProductManager $pmanager;
+    private ImageManager $imanager;
+    private CategoryManager $cmanager;
     
     public function __construct()
     {
         $this->manager = new UserManager();
+        $this->pmanager = new ProductManager();
+        $this->imanager = new ImageManager();
+        $this->cmanager = new CategoryManager();
     }
     public function admin() 
     {
@@ -111,9 +117,35 @@ class UserController extends AbstractController {
              if (($post['firstname']!=='' )  &&  ($post['lastname']!=='') && ($post['email']!=='')  &&  ($post['password']!=='')) 
              {
                  $userToAdd = new User(null, $post["firstname"],$post["lastname"],$post["email"],$post["password"]);
-                 $this->manager->insertUser($userToAdd);
-                 header ('Location: accueil');
-                 ($_SESSION["Connected"]);
+                 $id = $this->manager->insertUser($userToAdd);
+                 $_SESSION["Connected"]=[];
+                 $user = $this->manager->getUserById($id);
+                 $email = $user->getEmail();
+                 $address = $user->getAddress_id();
+                 if($address === null)
+                 {
+                    $tableau = [
+                                "id" => $id,
+                                "email" => $email
+                            ];
+                 }
+                 else
+                 {
+                     
+                     $tableau = [
+                                "id" => $id,
+                                "email" => $email,
+                                "address_id" => $address
+                            ];
+                 } 
+                 
+                 $_SESSION['Connected'][]=$tableau;
+                 
+                 $_SESSION["admin"]=false;
+                 $tab = [
+                 "user"=>$user
+                 ];
+                 header("Location: /res03-projet-final/projet/accueil");
              }
         }
     }
@@ -316,6 +348,7 @@ class UserController extends AbstractController {
         if($_SESSION["Connected"] != false)
         {
            $user_id = $_SESSION["Connected"][0]["id"];
+           var_dump($user_id);
            $this->manager->deletefavorite(intval($user_id), intval($product_id));
         }
     }
@@ -324,10 +357,57 @@ class UserController extends AbstractController {
         if($_SESSION["Connected"] != false)
         {
             $user_id = $_SESSION["Connected"][0]["id"];
-            $return = $this->manager->findAllfavorite(intval($user_id));
-            echo json_encode($return);
+            $favorites = $this->manager->findAllfavorite(intval($user_id));
+            foreach($favorites as $favorite)
+            {
+                $product = $this->pmanager->getProductById1($favorite["product_id"]);
+                $category = $this->cmanager->getCategoryById($product->getCategoryId());
+                $image = $this->imanager->getImageById($favorite["product_id"]);
+                $tab = [
+                            "id" => $product->getId(),
+                            "name" => $product->getName(),
+                            "description" => $product->getDescription(),
+                            "slug" => $product->getSlug(),
+                            "price" => $product->getPrice(),
+                            "url" => $image->getUrl(),
+                            "descriptionURL" => $product->getName(),
+                            "catslug" => $category->getSlug()
+                        ];
+                $cart[] = $tab;
+            }
+        echo json_encode($cart);   
         }
     }    
+    public function displayUserFavorite()
+    {
+        if ((isset($_SESSION["Connected"])) && ($_SESSION["Connected"]!=false))
+        {
+            $userId = $_SESSION["Connected"][0]["id"];
+            $user = $this->manager->getUserById($userId);
+            if( isset($_SESSION["Connected"][0]["address_id"]) && $_SESSION["Connected"][0]["address_id"] != null)
+            {
+                $address_id = $_SESSION["Connected"][0]["address_id"];
+                if($address_id != null)
+                         {
+                            $address = $this->manager->getUserAdressByAdressId($address_id);
+                            $user = 
+                                [
+                                $user,
+                                $address
+                                ];
+                            $this->renderprive("favorite", $user);
+                         } 
+                         else
+                         {
+                            $this->renderprive("favorite", [$user]);
+                         }
+            }
+            else
+            {
+                $this->renderprive("favorite", [$user]);
+            }
+        }
+    }
     public function displayError404()
     {
         $this->renderpublic("error404", []);

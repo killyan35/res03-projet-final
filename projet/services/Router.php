@@ -378,7 +378,7 @@ class Router {
             else if ($route[1] === "favoris" && ($_SESSION["Connected"] != false) && !isset($route[2]))
             {
                 // c'est donc la liste des favoris 
-                $this->uc->displayUserfavorite();
+                $this->uc->displayUserFavorite();
             }
         }   
         
@@ -392,8 +392,6 @@ class Router {
         
         
         // function php pour JS
-        if($_SESSION["Connected"] != false)
-        {
             if($route[0] === "addPanier")
             {
                 $this->page->addPanier($route[1], $route[2], $route[3]);
@@ -422,7 +420,10 @@ class Router {
             {
                 $this->uc->deletefavorite($route[1]);
             }
-        }
+            else if($route[0] === "displayFavorite")
+            {
+                $this->uc->displayFavorite();
+            }
         // function php pour JS
         
         if($route[0] === "error404")
