@@ -58,7 +58,6 @@ class UserController extends AbstractController {
                          $id = $user->getId();
                          $email = $user->getEmail();
                          $address = $user->getAddress_id();
-                         var_dump($address);
                          if($address === null)
                          {
                             $tableau = [
@@ -187,46 +186,31 @@ class UserController extends AbstractController {
                  $addressId = $usertoedit->getAddress_id();
                  if ($addressId === null)
                  {
-                     var_dump($addressid);
                      $adressToAdd = new Adress(null, $post["street"],$post["city"], intval($post["number"]), intval($post["zipcod"]));
                      $adressId = $this->manager->insertAdress($adressToAdd);
                      $orderToAdd = new Order(intval($adressId),intval($post['Userid']),floatval($post['totalprice']));
                      $orderId = $this->manager->insertOrder($orderToAdd);
-                     $firstname = $usertoedit->getFirstname();
-                     $lastname = $usertoedit->getLastname();
-                     $email = $usertoedit->getEmail();
-                     $password = $usertoedit->getPassword();
-                     $UserToEdit = new User(intval($post['Userid']), $firstname, $lastname, $email, $password, $adressId);
-                     $this->manager->EditUserWithAddress($UserToEdit);
+                     $this->manager->AddAddressOnUser(intval($post['Userid']), intval($adressId));
                      foreach($_SESSION['cart'] as $item)
                      {
                         $this->manager->addProductOnOrder(intval($orderId),intval($item["id"]), intval($item["taille"]), intval($item["quantite"]));
                      }
+                     $_SESSION['cart']=[];
                      header ('Location: /res03-projet-final/projet/mon-compte/panier');
                  }
                  else 
                  {
-                     var_dump($addressId);
-                     $AddressToEdit = new Adress(intval($addressId) ,$post["street"],$post["city"],intval($post["number"]),intval($post["zipcod"]));
+                     $AddressToEdit = new Adress(intval($addressId),$post["street"],$post["city"],intval($post["number"]),intval($post["zipcod"]));
                      $this->manager->editAdress($AddressToEdit);
                      $orderToAdd = new Order(intval($addressId),intval($post['Userid']),floatval($post['totalprice']));
                      $orderId = $this->manager->insertOrder($orderToAdd);
-                     $firstname = $usertoedit->getFirstname();
-                     $lastname = $usertoedit->getLastname();
-                     $email = $usertoedit->getEmail();
-                     $password = $usertoedit->getPassword();
-                     $UserToEdit = new User(intval($post['Userid']), $firstname, $lastname, $email, $password, $addressId);
-                     $this->manager->EditUserWithAddress($UserToEdit);
+                     $this->manager->AddAddressOnUser(intval($post['Userid']), intval($addressId));
                      
                      foreach($_SESSION['cart'] as $item)
                      {
-                         var_dump(intval($orderId));
-                        var_dump(intval($item["id"]));
-                        var_dump(intval($item["taille"]));
-                        var_dump(intval($item["quantite"]));
                         $this->manager->addProductOnOrder(intval($orderId),intval($item["id"]),intval($item["taille"]),intval($item["quantite"]));
-                        
                      }
+                     $_SESSION['cart']=[];
                      header ('Location: /res03-projet-final/projet/mon-compte/panier');
                  }
                  
@@ -277,19 +261,12 @@ class UserController extends AbstractController {
              &&  (isset($post['zipcod'])) && ($post['zipcod']!=='' )  
              )
              {
-                 if($post['addressid'] === null)
+                 if($post['addressid'] === "")
                  {
                      $AddressToAdd = new Adress(null, $post["street"],$post["city"],intval($post["number"]),intval($post["zipcod"]));
                      $addressId = $this->manager->insertAdress($AddressToAdd);
                      $userId = $post['id'];
-                     $usertoedit = $this->manager->getUserById(intval($userId));
-                     $firstname = $usertoedit->getFirstname();
-                     $lastname = $usertoedit->getLastname();
-                     $email = $usertoedit->getEmail();
-                     $password = $usertoedit->getPassword();
-                     $UserToEdit = new User(intval($userId), $firstname, $lastname, $email, $password, intval($addressId));
-                     $this->manager->EditUserWithAddress($UserToEdit);
-                     
+                     $this->manager->AddAddressOnUser(intval($userId), intval($addressId));
                      header ('Location: /res03-projet-final/projet/mon-compte');
                  }
                  else 
@@ -329,7 +306,6 @@ class UserController extends AbstractController {
              }
         }
     }
-    
     public function addfavorite($product_id)
     {
         if($_SESSION["Connected"] != false)
@@ -405,6 +381,31 @@ class UserController extends AbstractController {
             {
                 $this->renderprive("favorite", [$user]);
             }
+        }
+    }
+    public function displayAllOrders()
+    {
+        if($_SESSION["Connected"] != false)
+        {
+           $user_id = $_SESSION["Connected"][0]["id"];
+           $user = $this->manager->getUserById($user_id);
+           $address_id = $_SESSION["Connected"][0]["address_id"];
+           $orders = $this->manager->findAllOrders($user_id);
+                if($address_id != null)
+                         {
+                            $address = $this->manager->getUserAdressByAdressId($address_id);
+                            $tab = 
+                                [
+                                $user,
+                                $address,
+                                $orders
+                                ];
+                            $this->renderprive("mes-commandes", $tab);
+                         } 
+        }
+        else
+        {
+            echo "vous devez etre connecter";    
         }
     }
     public function displayError404()

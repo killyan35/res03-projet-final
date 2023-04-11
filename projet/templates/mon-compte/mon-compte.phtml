@@ -1,4 +1,5 @@
 <h2>Mon compte</h2>
+<a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte/mes-commandes">Mes Commandes</a>
 <table>
     <thead>
         <tr>
@@ -18,7 +19,7 @@
             <td>******</td>
             <?php if(isset($data[1])) { ?>
             <td><?= $data[1]->getNumber(); ?>  <?= $data[1]->getStreet(); ?>, <?= $data[1]->getCity(); ?>  <?= $data[1]->getZipcode(); ?></td>
-            <?php } ?>
+            <?php }  ?>
         </tr>
     </tbody>
 </table>
@@ -52,7 +53,7 @@
 <form class="hidden" method="post" action="/res03-projet-final/projet/mon-compte/addAddress" id="createAddress">
         
         <input value="<?= $data[0]->getId(); ?>" type="int" class="hidden" name="id" id="id">
-        <input value="<?= $data[1]->getId(); ?>" type="int" class="hidden" name="addressid" id="addressid">
+        <input value="<?php if(isset($data[1])) { echo $data[1]->getId(); } ?>" type="int" class="hidden" name="addressid" id="addressid">
         
         <label for="street">Rue ou Avenue</label>
         <input value="<?php if(isset($data[1])) { echo $data[1]->getStreet(); } ?>" type="string" name="street" id="street">

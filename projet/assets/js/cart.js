@@ -178,7 +178,7 @@ function TotalPrices(data)
 }
 function remove(id, size)
 {
-    fetch("https://kilyangerard.sites.3wa.io/res03-projet-final/projet/removePanier/"+id+"/"+size);
+    fetch("https://kilyangerard.sites.3wa.io/res03-projet-final/projet/removePanier/"+id+"/"+size)
     .then(response => displayPanier());
     
 }

@@ -1,0 +1,36 @@
+<section>
+<h1>Toutes mes commandes</h1>
+     <?php
+        foreach($data[2] as $orders){
+             foreach($orders as $order){
+    ?>
+<table>
+    <thead>
+        <tr>
+            <th>Image du produit</th>
+            <th>Nom du produit</th>
+            <th>Taille du produit</th>
+            <th>Nombre de produits commander</th>
+            <th>prix du produit</th>
+            <th>total de la commande</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach($order as $Order){ ?>
+        <tr>
+           
+            <td>
+                <img  height=60px src="/res03-projet-final/projet/<?= $Order['url']; ?>">
+            </td>
+            <td><?= $Order['name']; ?></td>
+            <td><?= $Order['size']; ?></td>
+            <td><?= $Order['number']; ?></td>
+            <td><?php $price = $Order['price']*$Order['number']*$Order['size']; echo $price; ?></td>
+    <?php } ?>
+            <td><?php echo $order[0]["total_price"]; ?></td>
+        </tr>
+         
+    </tbody>
+</table>
+   <?php  } } ?>
+</section>

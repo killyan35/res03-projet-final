@@ -68,7 +68,6 @@ class Router {
                 // on vérifie que c'est bien un admin et on le renvoi vers la user list 
                 if(!isset($route[1]) && ($_SESSION["Connected"] === true) && ($_SESSION["admin"] === true))
                 {
-                    echo "je suis admin";
                     $this->uc->admin();
                     
                 }
@@ -321,9 +320,8 @@ class Router {
         }
         if($route[0] === "deconnexion")
         {
-            if(!isset($route[1])) // j'ai donc juste /connexion
+            if(!isset($route[1])) // j'ai donc juste /deconnexion
             {
-                // j'affiche mon login
                 session_destroy();
                 session_start();
                 header("Location: /res03-projet-final/projet/accueil");
@@ -357,7 +355,6 @@ class Router {
         {
             if($route[1] === "panier" && !isset($route[2]))
             {
-                $this->page->displayPanier();
                 $this->page->panier();
             }
             else if($route[1] === "addAddress" && !isset($route[2]))
@@ -375,22 +372,19 @@ class Router {
                     $this->uc->CommandeUser($_POST);
                 }
             }
+            else if ($route[1] === "mes-commandes" && ($_SESSION["Connected"] != false) && !isset($route[2]))
+            {
+                // c'est donc la liste des favoris 
+                $this->uc->displayAllOrders();
+            }
             else if ($route[1] === "favoris" && ($_SESSION["Connected"] != false) && !isset($route[2]))
             {
                 // c'est donc la liste des favoris 
                 $this->uc->displayUserFavorite();
             }
-        }   
+        } 
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
+  
         // function php pour JS
             if($route[0] === "addPanier")
             {
@@ -426,7 +420,7 @@ class Router {
             }
         // function php pour JS
         
-        if($route[0] === "error404" || !isset($_SESSION["Connected"]) )
+        if($route[0] === "error404")
         {
             if(!isset($route[1])) // j'ai donc juste /error404
             {

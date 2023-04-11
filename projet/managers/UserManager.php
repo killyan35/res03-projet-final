@@ -89,7 +89,15 @@ class UserManager extends AbstractManager {
     $query->execute($parameters);
     }
     
-    
+    public function AddAddressOnUser(int $userId, int $addressId)
+    {
+    $query = $this->db->prepare("UPDATE user SET address_id=:address_id WHERE id=:id");
+    $parameters = [
+        'id'=>$userId,
+        'address_id'=>$addressId
+    ];
+    $query->execute($parameters);
+    }
     public function deleteUser(User $user)
     {
         
@@ -157,7 +165,7 @@ class UserManager extends AbstractManager {
 
    public function addProductOnOrder(int $orderId, int $productId, int $size, int $number)
    {
-        $query = $this->db->prepare('INSERT INTO orders_has_product VALUES (:orderId , :productId , :size , :number)');
+        $query = $this->db->prepare('INSERT INTO orders_has_product VALUES (null, :orderId , :productId , :size , :number)');
         $parameters = [
             'orderId' => $orderId,
             'productId' => $productId,
@@ -211,6 +219,35 @@ class UserManager extends AbstractManager {
         $favorites = $query->fetchAll(PDO::FETCH_ASSOC);
         return $favorites;
     }
-
+    public function findAllOrders(int $userId): array
+    {
+        $query = $this->db->prepare("
+        SELECT orders.*, product.*, orders_has_product.*, media.* FROM orders
+        JOIN orders_has_product ON orders.id = orders_has_product.orders_id
+        JOIN product ON product.id = orders_has_product.product_id
+        JOIN media ON media.id = orders_has_product.product_id
+        WHERE orders.user_id = :user_id");
+        $parameters = [
+            'user_id' => $userId
+        ];
+        $query->execute($parameters);
+        $orders = $query->fetchAll(PDO::FETCH_ASSOC);
+        $myProducts = [];
+        $result = $orders;
+        foreach($result as $item)
+        {
+          if(isset($myProducts[$item["orders_id"]]))
+          {
+            $myProducts[$item["orders_id"]]["products"][] = $item;
+          }
+          else
+          {
+            $myProducts[$item["orders_id"]] = [];
+            $myProducts[$item["orders_id"]]["products"] = [];
+            $myProducts[$item["orders_id"]]["products"][] = $item;
+          }
+        }
+        return $myProducts;
+    }
 }
 ?>

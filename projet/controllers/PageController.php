@@ -53,29 +53,6 @@ class PageController extends AbstractController {
                 ] ;
             $this->renderpublic("Oneproduct", $tab);
         }
-    
-    public function panier()
-    {
-        $userId = $_SESSION["Connected"][0]["id"];
-        $user = $this->umanager->getUserById($userId);
-        
-        if(isset($_SESSION["Connected"][0]["address_id"]) && $_SESSION["Connected"][0]["address_id"] != null)
-        {
-            $address_id = $_SESSION["Connected"][0]["address_id"];
-            $address = $this->umanager->getUserAdressByAdressId($address_id);
-            $user = 
-                [
-                $user,
-                $address
-                ];
-            $this->renderprive("panier", $user);
-        }
-        else
-        {
-            $this->renderprive("panier", [$user]);
-        }
-    }
-        
      public function addPanier(int $productId, int $number, int $size)
      {
         $cart=[];
@@ -139,7 +116,6 @@ class PageController extends AbstractController {
             }
         }
     }
-    // && (empty($_SESSION['cart']) === false)
     public function displayPanier()
     {
         if(empty($_SESSION['cart']) === false)
@@ -162,6 +138,27 @@ class PageController extends AbstractController {
                 $cart[] = $tab;
         }
         echo json_encode($cart);   
+        }
+    }
+    public function panier()
+    {
+        $userId = $_SESSION["Connected"][0]["id"];
+        $user = $this->umanager->getUserById($userId);
+        
+        if(isset($_SESSION["Connected"][0]["address_id"]) && $_SESSION["Connected"][0]["address_id"] != null)
+        {
+            $address_id = $_SESSION["Connected"][0]["address_id"];
+            $address = $this->umanager->getUserAdressByAdressId($address_id);
+            $user = 
+                [
+                $user,
+                $address
+                ];
+            $this->renderprive("panier", $user);
+        }
+        else
+        {
+            $this->renderprive("panier", [$user]);
         }
     }
     public function addItem(int $productId, int $number, int $size)
