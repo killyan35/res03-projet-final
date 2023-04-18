@@ -5,25 +5,76 @@
     <title>MM</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/res03-projet-final/projet/assets/styles/css/style.css">
+    <script src="https://kit.fontawesome.com/c326a33220.js" crossorigin="anonymous"></script>
 </head>
 </head>
     <body>
         <header>
-            <nav>
+            <nav class="navbar">
+                <figure>
+                    <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/accueil">
+                        <img src="uploads/RcLTWF9E.png">
+                    </a>
+                </figure>
                 <ul>
                     <?php 
                     if (!isset($_SESSION["Connected"]))
                     { ?>
-                        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/connexion">connexion</a></li>
+                    <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/connexion">connexion</a></li>
                     <?php } ?>
                     <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">boutique</a></li>
                     <li><a href="">Instagraam</a></li>
                 </ul>
             </nav>
         </header>
-        <main>
             <?php require "templates/".$template."/".$template.".phtml";?>
-        </main>
+             <footer class="footer">
+            <section>
+				<figure>
+                    <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/accueil">
+                        <img height=150px src="uploads/RcLTWF9E.png">
+                    </a>
+                </figure>
+
+			<ul class="links">	    
+				    <li><a href="">Home</a></li>
+					<li><a href="">Blog</a></li>
+				    <li><a href="">Pricing</a></li>
+				    <li><a href="">About</a></li>
+					<li><a href="">Faq</a></li>
+					<li><a href="">Contact</a></li>
+			</ul>
+
+			<ul class="contact">
+				<li><i class="fa fa-map-marker"></i>35 rue. lorem ipsum, lorem ipsum</li>
+				<li><i class="fa fa-phone"></i>02846125415</li>
+				<li><i class="fa fa-envelope"></i><a href="mailto:support@company.com">support@company.com</a></li>
+			</ul>
+			<ul class="reseaux">
+
+					<li><a href=""><i class="fa fa-facebook"></i></a></li>
+					<li><a href=""><i class="fa fa-twitter"></i></a></li>
+					<li><a href=""><i class="fa fa-linkedin"></i></a></li>
+					<li><a href=""><i class="fa fa-github"></i></a></li>
+
+			</ul>
+			</section>
+			
+            <section>
+
+				<h2>Contact</h2>
+
+				<form action="" method="post">
+
+					<input type="text" name="email" placeholder="Email">
+					<textarea name="message" placeholder="Message"></textarea>
+					<button>Envoyer</button>
+
+				</form>
+
+			</section>
+
+		</footer>
     </body>
     
 </html>

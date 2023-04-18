@@ -1,0 +1,135 @@
+.footer ::-webkit-input-placeholder {
+	color:  #5c666b;
+}
+.footer ::-moz-placeholder {
+	color:  #5c666b;
+	opacity: 1;
+}
+
+.footer :-ms-input-placeholder{
+	color:  #5c666b;
+}
+.footer {
+	width:100%;
+	display:grid;
+	grid-template-columns: 2fr 1fr ;
+	section:first-of-type {
+		grid-column: 1 / 2 ;
+		display:grid;
+	    grid-template-columns: 2fr 1fr ;
+		
+		.links {
+			grid-column: 1 / 2 ;
+			display: inline-flex;
+			color:  #ffffff;
+			margin-left: 20px;
+			padding: 0;
+			li {
+			
+			}
+			
+			a {
+				display:inline-block;
+				line-height: 1.8;
+			    font-weight:400;
+				text-decoration: none;
+				color:  inherit;
+			}
+		}
+		
+		.contact {
+			grid-column: 2 / 3 ;
+			color: #ffffff;
+			width: 38px;
+			height: 38px;
+			border-radius: 50%;
+			text-align: center;
+			margin: 10px 15px;
+			vertical-align: middle;
+			a {
+				display:inline-block;
+				line-height: 1.8;
+				text-decoration: none;
+				color:  inherit;
+			}
+		}
+		.reseaux {
+			li {
+				display: inline-flex;
+			}
+			a {
+				
+			display: inline-block;
+			width: 35px;
+			height: 35px;
+			cursor: pointer;
+			background-color:  #33383b;
+			border-radius: 2px;
+		
+			font-size: 20px;
+			color: #ffffff;
+			text-align: center;
+			line-height: 35px;
+		
+			margin-right: 3px;
+			margin-bottom: 5px;
+			
+			}
+		}
+	}
+	
+	
+	
+	section:last-of-type {
+		grid-column: 2 / 3 ;
+		
+		h2 {
+			padding:1rem;
+			font-size:2rem;
+			font-weight:bold;
+			color:fff;
+		}
+		
+		form {
+			display: inline-block;
+			
+			input {
+				height: 55px;
+				margin-bottom: 15px;
+			}
+			textarea {
+				height: 100px;
+				margin-bottom: 20px;
+			}
+			button {
+				border-radius: 3px;
+				background-color:  #33383b;
+				color: #ffffff;
+				border: 0;
+				padding: 15px 50px;
+				font-weight: bold;
+				float: right;
+			}
+			
+			input, textarea {
+			
+				display: block;
+				border-radius: 3px;
+				box-sizing: border-box;
+				background-color:  #1f2022;
+				box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+				border: none;
+				resize: none;
+			    
+				font: inherit;
+				font-size: 14px;
+				font-weight: normal;
+				color:  #d1d2d2;
+			
+				width: 400px;
+				padding: 18px;
+		
+			}
+		}
+	}
+}

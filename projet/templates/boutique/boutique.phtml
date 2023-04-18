@@ -1,14 +1,17 @@
+<main id="boutique">
 <h1>Boutique</h1>
-
-    <?php 
-    foreach($data["category"] as $category){ 
-    ?>
-    <ul>
-        <li><h2><?= $category->getName() ?></h2></li>
-        <li>
-            <a  href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique/<?=$category->getSlug()?>">
-            <figure><img height=60px src="/res03-projet-final/projet/<?= $category->getImgURL()?>"></figure>
-            </a>
-        </li>
-    </ul>
-       <?php } ?>
+    <section id="categorie">
+        <ul>
+        <?php 
+        foreach($data["category"] as $category){ 
+        ?>
+            <li>
+                <h2><?= $category->getName() ?></h2>
+                <a  href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique/<?=$category->getSlug()?>">
+                <figure><img height=60px src="/res03-projet-final/projet/<?= $category->getImgURL()?>"></figure>
+                </a>
+            </li>
+        <?php } ?>
+        </ul>
+    </section>
+</main>

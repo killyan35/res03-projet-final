@@ -19,26 +19,31 @@
                          <?php } ?>
                     </select>
                      
-                    <label for="ingredient">avec quel ingredient ?</label>
-                    <select name="ingredient" id="ingredient">
-                        <option value=""></option>
-                         <?php var_dump($data["ingredients"]);
-                              foreach($data["ingredients"] as $ingredient){ ?>
-                              
-                        <option value="<?= $ingredient->getId()?>"><?= $ingredient->getName()?></option>
-                         <?php } ?>
-                    </select>
+                    <section id="section-ingredient">
+                        <label for="ingredient">avec quel ingredient ?</label>
+                        <select name="ingredient" class="ingredient">
+                            <option class="op-ingredient" value=""></option>
+                             <?php var_dump($data["ingredients"]);
+                                  foreach($data["ingredients"] as $ingredient){ ?>
+                                  
+                            <option class="data-ingredient" value="<?= $ingredient->getId()?>"><?= $ingredient->getName()?></option>
+                             <?php } ?>
+                        </select>
+                    </section>
                     
-                    <label for="allergen">avec quel allergen ?</label>
-                    <select name="allergen" id="allergen">
-                        <option value=""></option>
-                         <?php 
-                              foreach($data["allergens"] as $allergen){ ?>
-                              
-                        <option value="<?= $allergen->getId()?>"><?= $allergen->getName()?></option>
-                         <?php } ?>
-                    </select>
-                    
+                    <section id="section-allergen">
+                        <label for="allergen">avec quel allergen ?</label>
+                        <select name="allergen" class="allergen">
+                            <option class="op-allergen" value=""></option>
+                             <?php 
+                                  foreach($data["allergens"] as $allergen){ ?>
+                                  
+                            <option class="data-allergen" value="<?= $allergen->getId()?>"><?= $allergen->getName()?></option>
+                             <?php } ?>
+                        </select>
+                    </section>
+                    <input type="hidden" id="allergenData" name="allergenData">
+                    <input type="hidden" id="ingredientsData" name="ingredientsData">
                     
                     <label for="image">Importer image</label>
                     <input type="file" name="image" id="image" />
@@ -50,3 +55,4 @@
                     <input type="submit" value="Envoyer"/>
                 
  </form>
+ <script type="module" src="/res03-projet-final/projet/assets/js/product.js"></script>

@@ -1,16 +1,15 @@
-<?php 
+<ul>
+<?php  
     foreach($data["products"] as $product){ 
     ?>
-<h1><?=$product->getName()?></h1>
-    <ul>
         <li>
+            <h2><?=$product->getName()?></h2>
             <a href="/res03-projet-final/projet/boutique/<?php echo $data["category"]->getSlug(); ?>/<?php echo $product->getSlug(); ?>">
             <figure>
-                <img <?php foreach($data["image"] as $image){ ?> height=60px src="/res03-projet-final/projet/<?= $image->getURL(); ?>"   <?php  } ?>>
+                <img height=60px src="/res03-projet-final/projet/<?php foreach($data["image"] as $image){  if( ($image->getProduct_id()) === ($product->getId()) ){ echo $image->getUrl(); } } ?>">
             </figure>
             </a>
+            <button class="add-to-favorite" data-id="<?= $product->getId(); ?>">Ajouter au favoris</button>
         </li>
-    </ul>
-    <button class="add-to-favorite" data-id="<?= $product->getId(); ?>">Ajouter au favoris</button>
        <?php } ?>
     <script type="module" src="/res03-projet-final/projet/assets/js/addFavorite.js"></script>

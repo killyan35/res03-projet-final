@@ -1,0 +1,35 @@
+#boutique{ //main 
+        grid-row: 2/3 ;
+        grid-column: 2/3 ;
+        min-height:85vh;
+    h1{
+        font-size:4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom:6rem;
+    }
+    #categorie{
+    ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            li {
+                text-align:center;
+                display: block;
+                h2{
+                    font-size:2rem;
+                }
+                a{
+                    figure{
+                        img{
+                            height:20rem;
+                            max-height:20rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

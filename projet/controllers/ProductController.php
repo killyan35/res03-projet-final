@@ -34,6 +34,7 @@ class ProductController extends AbstractController {
    
         public function createProduct(array $post)
         {
+            
             if (isset($post["formName"]))
             {
                  if (
@@ -42,14 +43,20 @@ class ProductController extends AbstractController {
                      &&  (isset($post['price']) && $post['price']!=='')
                      &&  (isset($post['category_id']) && $post['category_id']!=='')
                      &&  (isset($post['descriptionimg']) && $post['descriptionimg']!=='')
-                     &&  (isset($post['ingredient']) && $post['ingredient']!=='')
-                     &&  (isset($post['allergen']) && $post['allergen']!=='')
                     ) 
                  {
                      $ProductToAdd = new Product(null, $post["name"],$post["description"], null, floatval($post["price"]), intval($post["category_id"]));
                      $productId= $this->manager->insertProduct($ProductToAdd);
-                     $this->manager->addIngredientOnProduct(intval($post['ingredient']),intval($productId));
-                     $this->manager->addAllergenOnProduct(intval($post['allergen']),intval($productId));
+                     $allergenData = json_decode($_POST['allergenData']);
+                     foreach($allergenData as $allergenId)
+                     {
+                        $this->manager->addAllergenOnProduct(intval($allergenId),intval($productId));
+                     }
+                     $ingredientData = json_decode($_POST['ingredientsData']);
+                     foreach($ingredientData as $ingredientId)
+                     {
+                        $this->manager->addIngredientOnProduct(intval($ingredientId),intval($productId));
+                     }
                      $uploader = new Uploader();
                      $media = $uploader->upload($_FILES, "image");
                      $post["image"]=$media->getUrl();
