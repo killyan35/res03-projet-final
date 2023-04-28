@@ -1,23 +1,29 @@
- <header>
-            <h2>Mon panier</h2>
-            <p id="cart-total-price">Total : </p>
-</header>
-        <section id="section">
-            <ul id="ul">
-                
-            </ul>
-        </section>
-        
-        <footer>
-            <button id="order">Finaliser la commande</button>
-        </footer>
-        <section id="sec">
-            
-        </section>
- <h2><a href="/res03-projet-final/projet/boutique">
-        revenir a la boutique
-</a></h2>
-
-
-<script type="module" src="/res03-projet-final/projet/assets/js/mainOrder.js"></script> 
-<p class="hidden" email="<?= $_SESSION["Connected"][0]["email"];?>" id="userId" idus="<?= $_SESSION["Connected"][0]["id"];?>"></p>
+ <main id="panier">
+     <figure id="logo">
+      
+    </figure>
+    <section id="panierSection">
+                <h2>Mon panier</h2>
+                <section id="section">
+                    <ul id="ul">
+                        
+                    </ul>
+                </section>
+                <section id="sec">
+                    
+                </section>
+                <footer>
+                    <p id="cart-total-price">Total : </p>
+                    <p><button class="button" id="order">Finaliser la commande</button></p>
+                </footer>
+     <aside id="asideCompte">
+        <ul>
+            <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte/mes-commandes">Mes Commandes</a></li>
+            <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte/favoris">Mes Favoris</a></li>
+            <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte/panier">Mon Panier</a></li>
+        </ul>
+    </aside>
+    </section>
+    <p class="hidden" email="<?= $_SESSION["Connected"][0]["email"];?>" id="userId" idus="<?= $_SESSION["Connected"][0]["id"];?>"></p>
+    <script type="module" src="/res03-projet-final/projet/assets/js/mainOrder.js"></script>
+</main>

@@ -20,15 +20,26 @@
                     <?php 
                     if (!isset($_SESSION["Connected"]))
                     { ?>
-                    <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/connexion">connexion</a></li>
+                        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/connexion">connexion</a></li>
+                    <?php }
+                    else if ((isset($_SESSION["Connected"])) && ($_SESSION["Connected"]!=false))
+                    {  ?>  
+                        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/deconnexion">déconnexion</a></li>
+                        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte/panier">Panier</a></li>
+                        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte/favoris">Favoris</a></li>
+                        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte"><?= $data[0]->getFirstname(); ?></a></li>
                     <?php } ?>
-                    <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">boutique</a></li>
-                    <li><a href="">Instagraam</a></li>
+                        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">boutique</a></li>
+                        <li><a href="">Instagraam</a></li>
                 </ul>
             </nav>
         </header>
+        
             <?php require "templates/".$template."/".$template.".phtml";?>
-             <footer class="footer">
+        
+        
+        
+        <footer class="footer">
             <section>
 				<figure>
                     <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/accueil">

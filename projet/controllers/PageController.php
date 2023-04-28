@@ -18,22 +18,78 @@ class PageController extends AbstractController {
     public function displayAllCategorys()
         {
             $Categories = $this->cmanager->findAllCategory();
-            $tab = [];
-            $tab["category"]=$Categories;
-            $this->renderpublic("boutique", $tab);
+            
+            if(isset($_SESSION["Connected"]) && $_SESSION["Connected"] != false)
+            {
+                $user_id = $_SESSION["Connected"][0]["id"];
+                $user = $this->umanager->getUserById($user_id);
+                $tab = 
+                    [
+                    $user,
+                    "category"=>$Categories,
+                    ];
+                $this->renderpublic("boutique", $tab);
+                 
+            }
+            else
+            {
+                $tab = [];
+                $tab["category"]=$Categories;
+                $this->renderpublic("boutique", $tab);    
+            }
+            
         }
     public function displayAllProductsByCategory(string $slug)
         {
+            
            $category = $this->cmanager->getCategoryBySlug($slug);
            $category_id = $category->getId();
            $Allproduct = $this->pmanager->getAllProductsByCategoryId($category_id);
+           $tabIngredient = [];
+           $i = 0;
+           foreach($Allproduct as $products)
+           {
+               $productsId = $products->getId();
+               $Ingredients = $this->imanager->getIngredientsByProductId($productsId);
+               $Allergens= $this->amanager->getAllergensByProductId($productsId);
+               $tabIngredient[$i] = [
+                        "Ingredients"=>$Ingredients,
+                        "Allergens"=>$Allergens,
+                        "Product_id"=>$productsId
+                   ];  
+                $i = $i +1 ;
+           }
+           
            $image = $this->immanager->findAllImages();
-           $tab = [
-               "category"=>$category,
-               "products"=>$Allproduct,
-               "image"=>$image
-           ];
-           $this->renderpublic("Allproduct", $tab);
+           $Categories = $this->cmanager->findAllCategory();
+            if(isset($_SESSION["Connected"]) && $_SESSION["Connected"] != false)
+            {
+                $user_id = $_SESSION["Connected"][0]["id"];
+                $user = $this->umanager->getUserById($user_id);
+                $tab = 
+                    [
+                    $user,
+                    "categorys"=>$Categories,
+                    "category"=>$category,
+                    "products"=>$Allproduct,
+                    "image"=>$image,
+                    "dataProduct"=>$tabIngredient
+                    ];
+                $this->renderpublic("Allproduct", $tab);
+                 
+            }
+            else
+            {
+                $tab = [
+                    "categorys"=>$Categories,
+                    "category"=>$category,
+                    "products"=>$Allproduct,
+                    "image"=>$image,
+                    "dataProduct"=>$tabIngredient
+                ];
+           $this->renderpublic("Allproduct", $tab);   
+            }
+           
         }
     public function displayOneProduct(string $slug)
         {
@@ -44,14 +100,38 @@ class PageController extends AbstractController {
             $image = $this->immanager->findAllImagesInOneProduct($Idproduct);
             $ingredients = $this->imanager->getIngredientsByProductId($Idproduct);
             $Allergens = $this->amanager->getAllergensByProductId($Idproduct); 
-            $tab = [
+            $Categories = $this->cmanager->findAllCategory();
+            
+            if(isset($_SESSION["Connected"]) && $_SESSION["Connected"] != false)
+            {
+                $user_id = $_SESSION["Connected"][0]["id"];
+                $user = $this->umanager->getUserById($user_id);
+                $tab = 
+                    [
+                    $user,
+                    "categorys"=>$Categories,
+                    "category"=>$category,
+                    "image"=>$image,
+                    "product"=>$product,
+                    "ingredients"=>$ingredients,
+                    "allergens"=>$Allergens
+                    ];
+                $this->renderpublic("Oneproduct", $tab);
+                 
+            }
+            else
+            {
+               $tab = [
+                    "categorys"=>$Categories,
                     "category"=>$category,
                     "image"=>$image,
                     "product"=>$product,
                     "ingredients"=>$ingredients,
                     "allergens"=>$Allergens
                 ] ;
-            $this->renderpublic("Oneproduct", $tab);
+            $this->renderpublic("Oneproduct", $tab);   
+            }
+            
         }
      public function addPanier(int $productId, int $number, int $size)
      {
@@ -118,10 +198,11 @@ class PageController extends AbstractController {
     }
     public function displayPanier()
     {
+        $cart = [];
         if(empty($_SESSION['cart']) === false)
         {
             foreach($_SESSION['cart'] as $key => $item)
-        {
+            {
                 $product = $this->pmanager->getProductById1($item["id"]);
                 $image = $this->immanager->getImageById($item["id"]);
                 $tab = [
@@ -136,9 +217,9 @@ class PageController extends AbstractController {
                             "size" => $item["taille"]
                         ];
                 $cart[] = $tab;
+            }
         }
-        echo json_encode($cart);   
-        }
+        echo json_encode($cart);
     }
     public function panier()
     {

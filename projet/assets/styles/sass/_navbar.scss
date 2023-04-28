@@ -7,7 +7,7 @@
     backdrop-filter: blur(10px);
     display:grid;
     grid-template-columns: 1fr 4fr 2fr;
-    
+    text-transform: capitalize;
   figure {
     grid-column: 1 / 2 ;
     align-items: center;

@@ -95,6 +95,7 @@ function renderform(event) {
     let input8 = document.createElement("input");
     input8.setAttribute("type", "submit");
     input8.setAttribute("value", "Envoyer");
+    input8.setAttribute("class", "submit");
     
     
     //Injection de tout les label dans le form

@@ -19,15 +19,30 @@ class UserController extends AbstractController {
     
     public function home()
     {
+        $products = $this->pmanager->findAllProducts();
+        $categorys = $this->cmanager->findAllCategory();
+        $img = $this->imanager->findAllImages();
         if (!isset($_SESSION["Connected"]))
         {
-            $this->renderpublic("accueil", []);
+            $tab = [
+                "image" => $img,
+                "products"=>$products, 
+                "categorys" => $categorys
+                ];
+            $this->renderpublic("accueil", $tab);
         }
         else if ((isset($_SESSION["Connected"])) && ($_SESSION["Connected"]!=false))
         {
             $userId = $_SESSION["Connected"][0]["id"];
             $user = $this->manager->getUserById($userId);
-            $this->renderprive("accueil", [$user]);
+            
+            $tab = [
+                $user ,
+                "image" => $img,
+                "products" => $products,
+                "categorys" => $categorys
+                ];
+            $this->renderprive("accueil", $tab);
         }
     }
     public function login(array $Post) : void
@@ -48,7 +63,6 @@ class UserController extends AbstractController {
                  {
                      if($user->getRole() === "ADMIN")
                      {
-                         $_SESSION["Connected"]=false;
                          $_SESSION["admin"]=true;
                          header("Location: /res03-projet-final/projet/admin");
                      }

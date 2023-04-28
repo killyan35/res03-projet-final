@@ -1,4 +1,42 @@
 body {
+  background-image: url("https://cdn.discordapp.com/attachments/910185843371671562/1100836267878527016/FondMM2.png");
+  background-repeat: repeat;
+}
+
+.hidden {
+  display: none;
+}
+
+#logo {
+  height: 10rem;
+  grid-row: 1/2;
+  grid-column: 1/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://cdn.discordapp.com/attachments/910185843371671562/1100093402084806717/RcLTWF9E-modified.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+h1 {
+  text-transform: capitalize;
+}
+
+h2 {
+  text-transform: capitalize;
+}
+
+h3 {
+  text-transform: capitalize;
+}
+
+h4 {
+  text-transform: capitalize;
+}
+
+body {
   display: grid;
   grid-template-columns: 1fr 8fr 1fr;
   min-height: 85vh;
@@ -10,14 +48,11 @@ body header {
 body #homepage {
   grid-column: 2/3;
 }
-body #homepage #sec1 {
-  padding-bottom: 2rem;
-}
 body #homepage #sec1 > figure:first-of-type {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 8rem;
+  padding-bottom: 10rem;
 }
 body #homepage #sec1 ul {
   display: flex;
@@ -25,30 +60,86 @@ body #homepage #sec1 ul {
   justify-content: space-evenly;
 }
 body #homepage #sec1 ul li a figure img {
-  max-height: 25rem;
+  max-height: 30rem;
 }
 body #homepage #sec2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 2rem;
+  padding-top: 6rem;
+}
+body #homepage #sec2 h1 {
+  grid-column: 1/2;
+  grid-row: 1/2;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
+  justify-content: center;
+  height: 3rem;
+  max-height: 3rem;
 }
 body #homepage #sec2 h1 a {
   text-decoration: none;
   color: #000;
-  width: 35%;
   font-size: 3rem;
 }
 body #homepage #sec2 input {
-  width: 35%;
-  height: 2rem;
+  grid-column: 2/3;
+  grid-row: 1/2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 3rem;
   font-size: 1.5rem;
+}
+body #homepage #sec2 #UlSearchBar {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: row;
+}
+body #homepage #sec2 #UlSearchBar li {
+  display: block;
+}
+body #homepage #sec2 #UlSearchBar li a {
+  text-decoration: none;
+  color: #000;
+}
+body #homepage #sec2 #UlSearchBar li a article {
+  display: grid;
+  grid-template-columns: 4fr 4fr;
+  grid-template-rows: 1fr;
+}
+body #homepage #sec2 #UlSearchBar li a article h2 {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  text-align: center;
+}
+body #homepage #sec2 #UlSearchBar li a article figure {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body #homepage #sec2 #UlSearchBar li a article figure img {
+  height: 7rem;
 }
 body #homepage #about {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
+  padding-top: 8rem;
+}
+body #homepage #about article {
+  padding: 4rem;
 }
 body footer {
   grid-column: 1/4;
@@ -69,6 +160,7 @@ body footer {
 }
 
 .footer {
+  padding-top: 5rem;
   width: 100%;
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -179,6 +271,7 @@ body footer {
   backdrop-filter: blur(10px);
   display: grid;
   grid-template-columns: 1fr 4fr 2fr;
+  text-transform: capitalize;
 }
 .navbar figure {
   grid-column: 1/2;
@@ -245,6 +338,7 @@ body footer {
   align-items: center;
   justify-content: center;
   padding-bottom: 6rem;
+  padding-top: 4rem;
 }
 #boutique #categorie ul {
   display: flex;
@@ -255,13 +349,15 @@ body footer {
 #boutique #categorie ul li {
   text-align: center;
   display: block;
+  padding: 2rem;
 }
 #boutique #categorie ul li h2 {
   font-size: 2rem;
+  padding: 1rem;
 }
 #boutique #categorie ul li a figure img {
-  height: 20rem;
-  max-height: 20rem;
+  height: 25rem;
+  max-height: 25rem;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -367,6 +463,744 @@ table {
 #connexion .regist {
   grid-column: 2/3;
   grid-row: 1/2;
+}
+
+#mon-compte {
+  grid-column: 2/3;
+}
+#mon-compte > figure:first-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 4rem;
+}
+#mon-compte h1 {
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+#mon-compte #SectionInfoPerso {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-rows: 1fr;
+}
+#mon-compte #SectionInfoPerso #ulListeInfo {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  border: 0.2rem solid;
+  border-radius: 5px;
+}
+#mon-compte #SectionInfoPerso #ulListeInfo button {
+  margin: 1rem;
+  font-size: 1rem;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+#mon-compte #SectionInfoPerso #ulListeInfo li {
+  margin: 1rem;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  list-style: none;
+  color: #000;
+}
+#mon-compte #SectionInfoPerso #asideCompte {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  z-index: 100;
+  position: sticky;
+  top: 20rem;
+}
+#mon-compte #SectionInfoPerso #asideCompte > ul li {
+  font-size: 2rem;
+  line-height: 3rem;
+  list-style: none;
+  color: #000;
+}
+#mon-compte #SectionInfoPerso #asideCompte > ul li a {
+  text-decoration: none;
+  color: #000;
+}
+#mon-compte #SectionInfoPerso form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 1rem;
+  line-height: 1rem;
+  width: 50%;
+}
+#mon-compte #SectionInfoPerso form input {
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+}
+#mon-compte #SectionInfoPerso form input:last-of-type {
+  margin: 1rem;
+  font-size: 1rem;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+#mon-compte #SectionInfoPerso form label {
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  padding-bottom: 0.7rem;
+  padding-top: 0.7rem;
+}
+#mon-compte #SectionInfoPerso #createAddress {
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+#mon-compte #SectionInfoPerso #edituser {
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+#mon-compte #SectionInfoPerso .hidden {
+  display: none;
+}
+
+#favorite {
+  grid-column: 2/3;
+}
+#favorite > figure:first-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 4rem;
+}
+#favorite h1 {
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+}
+#favorite #section {
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  grid-template-rows: 1fr;
+}
+#favorite #section > #ul {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+#favorite #section > #ul > li > section {
+  text-align: center;
+  justify-content: start;
+  display: block;
+  padding: 2rem;
+}
+#favorite #section > #ul > li > section button {
+  margin-top: 0.2rem;
+  font-size: 1rem;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+#favorite #section > #ul > li > section h2 {
+  font-size: 2rem;
+  padding: 1rem;
+  text-align: center;
+}
+#favorite #section > #ul > li > section a figure img {
+  max-height: 15rem;
+}
+#favorite #section #asideCompte {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  z-index: 100;
+  position: sticky;
+  top: 20rem;
+}
+#favorite #section #asideCompte > ul li {
+  font-size: 2rem;
+  line-height: 3rem;
+  list-style: none;
+  color: #000;
+}
+#favorite #section #asideCompte > ul li a {
+  text-decoration: none;
+  color: #000;
+}
+#favorite .hidden {
+  display: none;
+}
+
+#commandes {
+  grid-row: 2/3;
+  grid-column: 2/3;
+}
+#commandes > figure:first-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 4rem;
+}
+#commandes #comm {
+  text-transform: capitalize;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+#commandes #comm h1 {
+  grid-column: 1/3;
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 6rem;
+}
+#commandes #comm section {
+  grid-column: 2/3;
+}
+#commandes #comm section table {
+  margin-bottom: 5rem;
+  padding: 1rem;
+  border: 0.2rem solid;
+  border-radius: 5px;
+}
+#commandes #comm section table thead tr th {
+  padding: 1rem;
+  font-size: 2rem;
+}
+#commandes #comm section table tbody tr td {
+  text-align: center;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+  vertical-align: middle;
+}
+#commandes #comm section table tbody tr td img {
+  height: 5rem;
+}
+#commandes #comm section table tbody tr #total {
+  font-size: 2rem;
+  color: darkred;
+}
+#commandes #comm #asideCompte {
+  grid-column: 1/2;
+  z-index: 100;
+  position: sticky;
+  top: 20rem;
+}
+#commandes #comm #asideCompte > ul li {
+  font-size: 2rem;
+  line-height: 3rem;
+  list-style: none;
+  color: #000;
+}
+#commandes #comm #asideCompte > ul li a {
+  text-decoration: none;
+  color: #000;
+}
+
+#products {
+  grid-column: 2/3;
+  display: grid;
+  grid-template-columns: 2fr 8fr;
+  grid-template-rows: 2fr 1fr 8fr;
+}
+#products > figure:first-of-type {
+  grid-row: 1/2;
+  grid-column: 1/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://cdn.discordapp.com/attachments/910185843371671562/1100093402084806717/RcLTWF9E-modified.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#products #top {
+  grid-row: 2/3;
+  grid-column: 1/3;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+#products #top nav ul {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.2rem solid;
+  border-radius: 5px;
+}
+#products #top nav ul li {
+  padding: 1rem 3rem 1rem 3rem;
+}
+#products #top nav ul li a {
+  text-decoration: none;
+  color: #000;
+}
+#products #top nav ul li a h3 {
+  font-size: 3rem;
+  color: #000;
+}
+#products #top nav ul li:not(:last-of-type) {
+  border-right: 0.1rem solid;
+}
+#products #Allproducts {
+  grid-row: 3/4;
+  grid-column: 2/3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+#products #Allproducts li {
+  text-align: center;
+  display: block;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+#products #Allproducts li h2 {
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem;
+}
+#products #Allproducts li button {
+  margin-top: 0.2rem;
+  font-size: 1rem;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+#products #Allproducts li a figure img {
+  height: 15rem;
+  width: 15rem;
+  border-width: 0.4rem;
+  border-style: solid;
+  border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+}
+#products #Allproducts .hidden {
+  display: none;
+}
+#products #gauche {
+  grid-row: 3/4;
+  grid-column: 1/2;
+  line-height: 6rem;
+}
+#products #gauche nav {
+  z-index: 100;
+  position: sticky;
+  top: 20rem;
+}
+#products #gauche nav h2 {
+  font-size: 2.5rem;
+  text-transform: capitalize;
+}
+#products #gauche nav ul {
+  flex-direction: column;
+}
+#products #gauche nav ul li a {
+  text-decoration: none;
+  color: #000;
+}
+#products #gauche nav ul li a h3 {
+  line-height: 3rem;
+  font-size: 2rem;
+  color: #000;
+}
+
+#OneProduct {
+  grid-row: 2/3;
+  grid-column: 2/3;
+}
+#OneProduct #article {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 4fr 0.2fr 5fr;
+  grid-template-rows: 0.3fr 0.7fr 0.1fr;
+  border: 0.2rem solid;
+  border-radius: 5px;
+}
+#OneProduct #article #headerArticle {
+  grid-row: 1/2;
+  grid-column: 3/4;
+  border: 0.2rem solid;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+#OneProduct #article #headerArticle h1 {
+  font-size: 4rem;
+}
+#OneProduct #article #media {
+  grid-row: 1/3;
+  grid-column: 1/2;
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+#OneProduct #article #media img {
+  height: 50rem;
+}
+#OneProduct #article #ulArticle {
+  grid-row: 2/3;
+  grid-column: 3/4;
+  display: flex;
+  flex-direction: column;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  border: 0.2rem solid;
+  border-radius: 5px;
+}
+#OneProduct #article #ulArticle li {
+  font-size: 1.4rem;
+  padding: 1rem;
+  padding-left: 2rem;
+}
+#OneProduct #article #ulArticle li h2 {
+  padding-bottom: 0.5rem;
+}
+#OneProduct #article #ulArticle #description {
+  padding-top: 2rem;
+}
+#OneProduct #article #ulArticle #prix #footerArticle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+#OneProduct #article #ulArticle #prix #footerArticle fieldset {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  font-size: 1.5rem;
+}
+#OneProduct #article #ulArticle #prix #footerArticle p {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  font-size: 1.5rem;
+}
+#OneProduct #article #ulArticle #prix #footerArticle span {
+  grid-row: 3/4;
+  grid-column: 2/3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+#OneProduct .button {
+  margin-top: 0.2rem;
+  font-size: 1rem;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+#OneProduct #asidePanier {
+  margin-top: 2rem;
+  border: 0.2rem solid;
+  border-radius: 5px;
+}
+#OneProduct #asidePanier h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-size: 3rem;
+}
+#OneProduct #asidePanier #section #ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 1rem;
+}
+#OneProduct #asidePanier #section #ul .liArticle {
+  border: 0.2rem solid;
+  border-radius: 5px;
+  margin: 1rem;
+  max-width: 40%;
+}
+#OneProduct #asidePanier #section #ul .liArticle article {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 2fr 6fr 2fr;
+  grid-template-rows: 1fr 1fr;
+  font-size: 2rem;
+}
+#OneProduct #asidePanier #section #ul .liArticle article h3 {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#OneProduct #asidePanier #section #ul .liArticle article p {
+  grid-row: 1/2;
+  grid-column: 3/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#OneProduct #asidePanier #section #ul .liArticle article .buttonSection {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#OneProduct #asidePanier #section #ul .liArticle article .buttonSection span {
+  padding: 0.5rem;
+}
+#OneProduct #asidePanier #section #ul .liArticle article figure {
+  grid-row: 1/3;
+  grid-column: 1/2;
+}
+#OneProduct #asidePanier #section #ul .liArticle article figure img {
+  height: 10rem;
+}
+#OneProduct #asidePanier #section #ul .liArticle article button {
+  grid-row: 2/3;
+  grid-column: 3/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+#OneProduct #asidePanier footer {
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr;
+  grid-template-rows: 1fr 1fr;
+}
+#OneProduct #asidePanier footer p {
+  font-size: 2rem;
+  grid-row: 2/3;
+  grid-column: 3/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#OneProduct #asidePanier footer p a {
+  text-decoration: none;
+  color: #000;
+}
+#OneProduct #asidePanier footer p:first-of-type {
+  grid-row: 1/2;
+  grid-column: 3/4;
+}
+#OneProduct #asidePanier footer p:last-of-type {
+  grid-row: 1/3;
+  grid-column: 1/2;
+}
+#OneProduct #footer {
+  padding-top: 5rem;
+}
+#OneProduct #footer ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+#OneProduct #footer ul li {
+  text-align: center;
+  display: block;
+}
+#OneProduct #footer ul li h2 {
+  font-size: 2rem;
+  padding: 0.5rem;
+}
+#OneProduct #footer ul li a figure img {
+  height: 12rem;
+  max-height: 12rem;
+}
+
+#panier {
+  grid-row: 2/3;
+  grid-column: 2/3;
+}
+#panier > figure:first-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 4rem;
+}
+#panier #panierSection {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 0.1fr 4fr;
+}
+#panier #panierSection h2 {
+  grid-column: 1/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-size: 3rem;
+}
+#panier #panierSection #section {
+  grid-column: 3/4;
+}
+#panier #panierSection #section #ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 1rem;
+}
+#panier #panierSection #section #ul .liArticle {
+  border: 0.2rem solid;
+  border-radius: 5px;
+  margin: 1rem;
+  width: 90%;
+}
+#panier #panierSection #section #ul .liArticle article {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 2fr 6fr 2fr;
+  grid-template-rows: 1fr 1fr;
+  font-size: 2rem;
+}
+#panier #panierSection #section #ul .liArticle article h3 {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#panier #panierSection #section #ul .liArticle article p {
+  grid-row: 1/2;
+  grid-column: 3/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#panier #panierSection #section #ul .liArticle article .buttonSection {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#panier #panierSection #section #ul .liArticle article .buttonSection span {
+  padding: 0.5rem;
+}
+#panier #panierSection #section #ul .liArticle article figure {
+  grid-row: 1/3;
+  grid-column: 1/2;
+}
+#panier #panierSection #section #ul .liArticle article figure img {
+  height: 20rem;
+}
+#panier #panierSection #section #ul .liArticle article button {
+  grid-row: 2/3;
+  grid-column: 3/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+#panier #panierSection .button {
+  margin-top: 0.2rem;
+  font-size: 1rem;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+#panier #panierSection footer {
+  grid-column: 3/4;
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr;
+  grid-template-rows: 1fr 1fr;
+}
+#panier #panierSection footer p {
+  font-size: 2rem;
+  grid-row: 2/3;
+  grid-column: 3/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#panier #panierSection footer p a {
+  text-decoration: none;
+  color: #000;
+}
+#panier #panierSection footer p:first-of-type {
+  grid-row: 1/2;
+  grid-column: 3/4;
+}
+#panier #panierSection footer p:last-of-type {
+  grid-row: 2/3;
+  grid-column: 3/4;
+}
+#panier #panierSection #asideCompte {
+  grid-column: 1/2;
+  grid-row: 2/4;
+  z-index: 100;
+  position: sticky;
+  top: 20rem;
+}
+#panier #panierSection #asideCompte > ul li {
+  font-size: 2rem;
+  line-height: 3rem;
+  list-style: none;
+  color: #000;
+}
+#panier #panierSection #asideCompte > ul li a {
+  text-decoration: none;
+  color: #000;
+}
+#panier #panierSection #sec {
+  grid-row: 5/6;
+  grid-column: 3/4;
+}
+#panier #panierSection #sec h2 {
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 3rem;
+}
+#panier #panierSection #sec fieldset form {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#panier #panierSection #sec fieldset form label {
+  padding-bottom: 0.5rem;
+  text-align: center;
+  font-size: 2rem;
+  width: 60%;
+}
+#panier #panierSection #sec fieldset form input {
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  width: 60%;
+}
+#panier #panierSection #sec fieldset form .submit {
+  padding: 1rem;
+  margin: 1rem;
+  width: 20%;
+  border-radius: 0.5rem;
+  background-color: darkred;
+  font-size: 1.5rem;
+  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

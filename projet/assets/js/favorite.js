@@ -62,6 +62,15 @@ function createFavoriteItem(item)
     
         let containerSection = document.createElement("section");
         containerSection.setAttribute("id", item.id);
+        
+        // creating the cart title
+        let NomProduits = document.createElement("h2");
+        let TextH2 = document.createTextNode(item.name);
+        NomProduits.classList.add("cart-cart-info");
+        NomProduits.appendChild(TextH2);
+    
+        containerSection.appendChild(NomProduits);
+        
         // creating the figure and img
         let a = document.createElement("a");
         a.setAttribute("href", "https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique/"+item.catslug+"/"+item.slug);
@@ -69,38 +78,17 @@ function createFavoriteItem(item)
         let img = document.createElement("img");
         img.setAttribute("alt", "image du produit " + item.name);
         img.setAttribute("src", "https://kilyangerard.sites.3wa.io/res03-projet-final/projet/" + item.url);
-        
         figure.appendChild(img);
         a.appendChild(figure);
         containerSection.appendChild(a);
-        
-        
-        // creating the cart info
-        let cartInfo = document.createElement("section");
-        cartInfo.classList.add("cart-cart-info");
-        let cartName = document.createElement("h3");
-        let cartNameContent = document.createTextNode(item.name);
-        cartName.appendChild(cartNameContent);
-        cartInfo.appendChild(cartName);
-    
-        containerSection.appendChild(cartInfo);
     
         // creating the cart actions
-        
-        let cartActions = document.createElement("section");
-        cartActions.classList.add("cart-cart-actions");
-        
         let newbtn = document.createElement("button");
         newbtn.setAttribute("data-id", item.id);
         newbtn.setAttribute("class", "remove-to-favorite");
         let removeitemtext = document.createTextNode("supprimer");
         newbtn.appendChild(removeitemtext);
  
-        let buttonsSection = document.createElement("section");
-        
-        cartActions.appendChild(buttonsSection);
-        
-        containerSection.appendChild(cartActions);
         containerSection.appendChild(newbtn);
     
         return containerSection;

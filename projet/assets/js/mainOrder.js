@@ -6,6 +6,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 displayPanier();
 
 let btn = document.getElementById("order");
+
 btn.addEventListener("click", function() 
 {
     renderform();

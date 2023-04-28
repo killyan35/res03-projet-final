@@ -83,6 +83,7 @@ class ProductManager extends AbstractManager {
             }
             return $return;
     }
+    
     public function findAllProducts() : array
         {
             $query = $this->db->prepare("SELECT * FROM product");

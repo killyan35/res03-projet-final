@@ -1,15 +1,93 @@
-<ul>
-<?php  
-    foreach($data["products"] as $product){ 
-    ?>
-        <li>
+<main id="products">
+    <figure>
+       
+    </figure>
+    <aside id="top">
+        <nav>
+            <ul>
+                <?php  
+                foreach($data["categorys"] as $cat){ 
+                ?>
+                <li>
+                    <a href="/res03-projet-final/projet/boutique/<?=$cat->getSlug()?>">
+                        <h3><?=$cat->getName()?></h3>
+                    </a>
+                </li>
+                <?php } ?>
+            </ul>
+        </nav>
+    </aside>
+    <ul id="Allproducts">
+        <?php  
+        foreach($data["products"] as $product){ 
+        ?>
+        <li class="product"
+        ingredients="<?php $ingredient = []; foreach($data["dataProduct"] as $dataP){  if( ($dataP["Product_id"]) === ($product->getId()) ){ foreach($dataP["Ingredients"] as $dataI){ $ingredient[]= $dataI->getName(); } echo(implode(", ", $ingredient)); } } ?>"
+        allergens="<?php $allergens = []; foreach($data["dataProduct"] as $dataP){  if( ($dataP["Product_id"]) === ($product->getId()) ){ foreach($dataP["Allergens"] as $dataA){ $allergens[]= $dataA->getName(); } echo(implode(", ", $allergens)); } } ?>">
             <h2><?=$product->getName()?></h2>
             <a href="/res03-projet-final/projet/boutique/<?php echo $data["category"]->getSlug(); ?>/<?php echo $product->getSlug(); ?>">
-            <figure>
-                <img height=60px src="/res03-projet-final/projet/<?php foreach($data["image"] as $image){  if( ($image->getProduct_id()) === ($product->getId()) ){ echo $image->getUrl(); } } ?>">
-            </figure>
+                <figure>
+                    <img src="/res03-projet-final/projet/<?php foreach($data["image"] as $image){  if( ($image->getProduct_id()) === ($product->getId()) ){ echo $image->getUrl(); } } ?>">
+                </figure>
             </a>
             <button class="add-to-favorite" data-id="<?= $product->getId(); ?>">Ajouter au favoris</button>
         </li>
        <?php } ?>
+    </ul>
+    <aside id="gauche">
+        
+        <nav>
+            <h2>Filtres :</h2>
+            <ul>
+                <li>
+                    <label for="ingredient">Par Ingredients</label>
+                        <select class="select" name="ingredients" id="ingredients">
+                            <option class="philtre-ingredient" value=""></option>
+                             <?php
+                                $tab = [];
+                                foreach($data["dataProduct"] as $dataP){ 
+                                foreach($dataP["Ingredients"] as $ingredient){
+                                    $tab[]=$ingredient;  
+                                } }
+                                $ingredientUnique = array_unique($tab, SORT_REGULAR);
+                                  ?>
+                                <?php foreach($ingredientUnique as $ingredients){ ?>  
+                            <option class="ingredientChoice" value="<?= $ingredients->getName()?>"><?= $ingredients->getName()?></option>
+                             <?php  }?>
+                        </select>
+                </li>
+                <li>
+                    <label for="allergen">Par Allergens</label>
+                        <select class="select" name="allergens" id="allergens">
+                            <option class="philtre-allergen" value=""></option>
+                             <?php
+                                $tab = [];
+                                foreach($data["dataProduct"] as $dataP){ 
+                                foreach($dataP["Allergens"] as $allergen){
+                                    $tab[]=$allergen;  
+                                } }
+                                $allergenUnique = array_unique($tab, SORT_REGULAR);
+                                  ?>
+                                <?php foreach($allergenUnique as $allergens){ ?>  
+                            <option class="allergensChoice" value="<?= $allergens->getName()?>"><?= $allergens->getName()?></option>
+                             <?php  }?>
+                        </select>
+                </li>
+            </ul>
+            <h2>Catégories :</h2>
+            <ul>
+                <?php  
+                foreach($data["categorys"] as $cat){ 
+                ?>
+                <li>
+                    <a href="/res03-projet-final/projet/boutique/<?=$cat->getSlug()?>">
+                        <h3><?=$cat->getName()?></h3>
+                    </a>
+                </li>
+                <?php } ?>
+            </ul>
+        </nav>
+    </aside>
     <script type="module" src="/res03-projet-final/projet/assets/js/addFavorite.js"></script>
+    <script type="module" src="/res03-projet-final/projet/assets/js/philtre.js"></script>
+</main>

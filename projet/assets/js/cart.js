@@ -23,6 +23,7 @@ function addtopanier(event)
             .then(data => {
                 rendercart(data);
                 TotalPrices(data);
+                displayPanier();
             });
        
 }
@@ -44,6 +45,7 @@ function rendercart(data) {
     {
         let item = cart[i];
         let li = document.createElement("li");
+        li.setAttribute("class", "liArticle");
         li.appendChild(createcartItem(item)); // append them
         newUl.appendChild(li);
     }
@@ -61,9 +63,17 @@ function createcartItem(item)
 {
     if(item.number !== 0)
     {
-        let containerSection = document.createElement("section");
+        let containerSection = document.createElement("article");
         containerSection.setAttribute("id", item.id);
         let number = item.number;
+    
+        // creating the cart title
+        let cartName = document.createElement("h3");
+        let cartNameContent = document.createTextNode(item.number + "  " + item.name + " " + item.size + "p");
+        cartName.appendChild(cartNameContent);
+    
+        containerSection.appendChild(cartName);
+    
         // creating the figure and img
         let figure = document.createElement("figure");
         let img = document.createElement("img");
@@ -72,26 +82,13 @@ function createcartItem(item)
         figure.appendChild(img);
         containerSection.appendChild(figure);
     
-        // creating the cart info
-        let cartInfo = document.createElement("section");
-        cartInfo.classList.add("cart-cart-info");
-        let cartName = document.createElement("h3");
-        let cartNameContent = document.createTextNode(item.name);
-        cartName.appendChild(cartNameContent);
-        cartInfo.appendChild(cartName);
-    
-        containerSection.appendChild(cartInfo);
-    
         // creating the cart actions
-        
-        let cartActions = document.createElement("section");
-        cartActions.classList.add("cart-cart-actions");
-        
         let newbtn = document.createElement("button");
         newbtn.setAttribute("removedata-id", item.id);
         newbtn.setAttribute("removedata-size", item.size);
         newbtn.setAttribute("id", item.id);
-        newbtn.setAttribute("class", "supp");
+        newbtn.classList.add("supp");
+        newbtn.classList.add("button");
         let removeitemtext = document.createTextNode("supprimer");
         newbtn.appendChild(removeitemtext);
         
@@ -107,7 +104,7 @@ function createcartItem(item)
         
         // quantité du produit
         let amountSpan = document.createElement("span");
-        let amountContent = document.createTextNode(item.number);
+        let amountContent = document.createTextNode("   " + item.number + "   ");
         amountSpan.appendChild(amountContent);
     
         // bouton +
@@ -121,13 +118,12 @@ function createcartItem(item)
         addButton.appendChild(plus);
         
         let buttonsSection = document.createElement("section");
-    
+        buttonsSection.classList.add("buttonSection");
+        
         buttonsSection.appendChild(reButton);
         buttonsSection.appendChild(amountSpan);
         buttonsSection.appendChild(addButton);
         
-        
-        cartActions.appendChild(buttonsSection);
         
         let cartPrice = document.createElement("p");
         cartPrice.setAttribute("data-cart-id", item.price);
@@ -143,15 +139,16 @@ function createcartItem(item)
         cartPrice.appendChild(cartPriceSpan);
         cartPrice.appendChild(currencyContent);
     
-        cartActions.appendChild(cartPrice);
         
-        containerSection.appendChild(cartActions);
+        containerSection.appendChild(buttonsSection);
+        containerSection.appendChild(cartPrice);
         containerSection.appendChild(newbtn);
     
         return containerSection;
     }
     else
     {
+        
         let containerSection = document.createElement("section");
         containerSection.setAttribute("class", "hidden");
         remove(item.id, item.size);
@@ -163,10 +160,11 @@ function TotalPrices(data)
     let cart = data ;
     let price = [];
     let TotalPrice = 0;
-    
+   
     for(let i = 0; i < cart.length; i++)
     {
-            price.push(cart[i].number * cart[i].price * cart[i].size);
+       price.push(cart[i].number * cart[i].price * cart[i].size);
+       
     } 
     
     for (let i = 0; i < price.length; i++) 
@@ -184,13 +182,28 @@ function remove(id, size)
 }
 function displayPanier()
 {
-        
+    let aside = document.getElementById("asidePanier");
     fetch("https://kilyangerard.sites.3wa.io/res03-projet-final/projet/displayPanier")
     .then(response => response.json())
     .then(data => {
+    
+    console.log(data);
+    if(data.length > 0)
+    {
         rendercart(data);
         TotalPrices(data);
-    });
+        aside.classList.remove("hidden");
+    }
+    else
+    {
+        aside.classList.add("hidden");
+    }
+  })
+    .catch(error => {
+     console.log("catch");
+     
+  });
+    
 }
 
 function loadListeners()

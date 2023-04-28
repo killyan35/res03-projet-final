@@ -1,83 +1,104 @@
-<h2><a href="/res03-projet-final/projet/accueil">
-        revenir a l'accueil
-    </a></h2>
-    <header>
-        <h1><?=$data["product"]->getName()?></h1>
-    </header>
-    <section>
-        <ul>
-            <li>
-                <figure>
-                    <img height=60px src="/res03-projet-final/projet/<?php foreach($data["image"] as $image){ echo $image->getURL(); } ?>">
-                </figure>
-            </li>
-            <li>
-                <?php foreach($data["ingredients"] as $ingredients)
-                {    
-                    echo $ingredients->getName(); 
-                } ?>
-            </li>
-            <li>
-                <?php foreach($data["allergens"] as $allergens)
-                {    
-                    echo $allergens->getName(); 
-                } ?>
-            </li>
-            <li>
+<main id="OneProduct">
+    <figure id="logo">
+    
+    </figure>
+    
+    <article id="article">
+        <header id="headerArticle">
+            <h1><?=$data["product"]->getName()?></h1>
+        </header>
+        <figure id="media">
+            <img src="/res03-projet-final/projet/<?php foreach($data["image"] as $image){ echo $image->getURL(); } ?>">
+        </figure>
+        <ul id="ulArticle">
+            <li id="description"><h2>Description :</h2>
                 <?php  
                     echo $data["product"]->getDescription(); 
+                ?>
+            </li>
+            <li id="ingredients"><h2>Ingrédients :</h2>
+                <?php
+                $ingredient = [];
+                foreach($data["ingredients"] as $ingredients)
+                {   
+                    
+                    $ingredient[]= $ingredients->getName(); 
+                    
+                }
+                echo(implode(", ", $ingredient));
+                ?>
+            </li>
+            <li id="allergens"><h2>Allergens :</h2>
+                <?php
+                $allergen = [];
+                foreach($data["allergens"] as $allergens)
+                {   
+                    
+                    $allergen[]= $allergens->getName(); 
+                    
+                }
+                echo(implode(", ", $allergen));
                 ?>
             </li>
             <li id="prix" price="<?php  
                     echo $data["product"]->getPrice(); 
                 ?>">
-                <?php  
-                    echo $data["product"]->getPrice(); 
-                ?>€
+               
+                <footer id="footerArticle">
+                    <fieldset>
+                        <form action="" method="post">
+                            <label for="select">Choisissez une taille</label>
+                            <select name="size" id="select">
+                                <option value="1">Individuelle</option>
+                                <option value="4">4 personnes</option>
+                                <option value="6">6 personnes</option>
+                                <option value="8">8 personnes</option>
+                                <option value="10">10 personnes</option>
+                                <option value="12">12 personnes</option>
+                            </select>
+                        </form>
+                    </fieldset>
+                    <p> 
+                        <?php  
+                        echo $data["product"]->getPrice(); 
+                        ?>€ / personne
+                    </p>
+                    <span>
+                        <button class="button" id="add-to-cart" data-number="1" data-id="<?php echo $data["product"]->getId(); ?>">Ajouter au panier</button>
+                        <button class="add-to-favorite button" data-id="<?php echo $data["product"]->getId(); ?>">Ajouter au favoris</button>
+                    </span>
+                </footer>
             </li>
         </ul>
-        <fieldset>
-            <form action="" method="post">
-                <label for="select">Pour combien de personne ?</label>
-
-                <select name="size" id="select">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="4">4</option>
-                    <option value="6">6</option>
-                    <option value="8">8</option>
-                    <option value="10">10</option>
-                    <option value="12">12</option>
-                </select>
-            </form>
-
-        </fieldset>
-        <button id="add-to-cart" data-number="1" data-id="<?php echo $data["product"]->getId(); ?>">Ajouter au panier</button>
-        <button class="add-to-favorite" data-id="<?php echo $data["product"]->getId(); ?>">Ajouter au favoris</button>
-    </section>
-    <aside>
-                <header>
+    </article>
+    <aside class="hidden" id="asidePanier">
                     <h2>Mon panier</h2>
-                    <p id="cart-total-price">Total : </p>
-                </header>
+                    
                 <section id="section">
                     <ul id="ul">
                         
                     </ul>
                 </section>
                 <footer>
-                    <a class="btn btn-cart-back" href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">Continuer mes achats</a>
-                    <a class="btn btn-cart-order" href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte/panier">Finaliser la commande</a>
-                </footer>
-                
+                    <p id="cart-total-price">Total : </p>
+                    <p><a class="btn btn-cart-order" href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte/panier">Finaliser la commande</a></p>
+                    <p><a class="btn btn-cart-back" href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">Continuer mes achats</a></p>
+                </footer>    
     </aside>
-    
-    
-    <h2><a href="/res03-projet-final/projet/boutique/<?php echo $data["category"]->getSlug(); ?>">
-        revenir a la category <?php echo $data["category"]->getName();  ?>
-    </a></h2>
-    <h2><a href="/res03-projet-final/projet/boutique">
-        revenir a la boutique
-    </a></h2>
+    <footer id="footer">
+        <ul>
+        <?php 
+        foreach($data["categorys"] as $category){ 
+        ?>
+            <li>
+                <h2><?= $category->getName() ?></h2>
+                <a  href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique/<?=$category->getSlug()?>">
+                <figure><img height=60px src="/res03-projet-final/projet/<?= $category->getImgURL()?>"></figure>
+                </a>
+            </li>
+        <?php } ?>
+        </ul>
+    </footer>
     <script type="module" src="/res03-projet-final/projet/assets/js/mainCart.js"></script>
     <script type="module" src="/res03-projet-final/projet/assets/js/addFavorite.js"></script>
+</main>

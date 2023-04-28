@@ -1,0 +1,79 @@
+#commandes{ //main 
+        grid-row: 2/3 ;
+        grid-column: 2/3 ;
+    > figure:first-of-type {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-bottom:4rem;
+    }
+    #comm{
+        text-transform: capitalize;
+        display:grid;
+        grid-template-columns: 1fr 4fr;
+        h1{
+            grid-column: 1/3;
+            font-size:4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom:6rem;
+        }
+        section{
+            grid-column: 2/3;
+            table{
+                
+                margin-bottom:5rem;
+                padding:1rem;
+                border: 0.2rem solid;
+                border-radius:5px;
+                thead{
+                    tr{
+                        th{
+                            padding:1rem;
+                            font-size:2rem;
+                        }
+                    }
+                    
+                }
+                tbody{
+                    tr{
+                        td{
+                            text-align:center;
+                            font-size:1.5rem;
+                            padding-bottom:1rem;
+                            vertical-align: middle;
+                            img{
+                                height:5rem;
+                            }
+                        }
+                        #total{
+                            font-size:2rem;
+                            color:darkred;
+                        }
+                    }
+                }
+            }
+        }
+          #asideCompte{
+            grid-column: 1/2;
+            z-index: 100;
+            position: sticky;
+            top:20rem;
+          
+                > ul{
+                    li {
+        	 	font-size:2rem;
+        	 	line-height:3rem;
+        		list-style: none;
+        		color: #000;
+                		a {
+                		  text-decoration:none;
+                		  color: #000;
+                		}
+                    }    
+                }
+        }
+    }
+   
+}

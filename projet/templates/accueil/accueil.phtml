@@ -1,28 +1,43 @@
 <main id="homepage">
 <section id="sec1">
-    <figure>
-        <img src="uploads/RcLTWF9E.png">
+    <figure id="logo">
+      
     </figure>
     <section id="sec2">
         <h1><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">Boutique en ligne</a></h1>
-        <input id="searchbar"  type="text" name="search" placeholder="Trouver un produit">
+        
+        <input type="text" id="search" onkeyup="searchProduct()" name="search" placeholder="Trouver un produit">
+        <ul id="UlSearchBar">
+            <?php foreach($data["products"] as $product){ ?>
+            <li><a class="li hidden" name="<?= $product->getName() ;?>" href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique/<?php foreach($data["categorys"] as $category){  if( ($product->getCategoryId()) === ($category->getId()) ){ echo $category->getSlug(); } } ?>/<?=$product->getSlug();?>"> 
+            <article>
+                <h2><?= $product->getName() ;?></h2>
+                <figure>
+                    <img src="/res03-projet-final/projet/<?php foreach($data["image"] as $image){  if( ($image->getProduct_id()) === ($product->getId()) ){ echo $image->getUrl(); } } ?>">
+                </figure>
+            </article>
+            </a></li>
+            <?php } ?>
+        </ul>
+        
     </section>
     <ul>
         <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">
                 <figure>
-                    <img src="uploads/682c1Knp.jpg">
+                    <img src="/res03-projet-final/projet/uploads/ThTdsGVO.jpg">
                 </figure>
             </a>
         </li>
         <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">
             <figure>
-                <img src="uploads/bNq77tnc.jpg">
+                <img src="/res03-projet-final/projet/uploads/ThTdsGVO.jpg">
             </figure>
             </a>
         </li>
         <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">
             <figure>
-                <img src="uploads/cg66LJdW.jpg">
+
+                <img src="/res03-projet-final/projet/uploads/ThTdsGVO.jpg">
             </figure>
             </a>
         </li>
@@ -43,4 +58,39 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</p>
             </article>
     </section>
+<script>
+function searchProduct() 
+{
+  // Declare variables
+ let input = document.getElementById('search');
+ let UserSearch = input.value;
+
+ let ul = document.getElementById("UlProduct");
+ let li = document.getElementsByClassName("li");
+ 
+ if (UserSearch === "") 
+ {
+   for (let i = 0; i < li.length; i++) 
+   {
+      li[i].classList.add("hidden");
+      li[i].classList.remove("active");
+    }
+ } 
+ else 
+ {
+    for (let i = 0; i < li.length; i++) {
+      let result = li[i].getAttribute("name");
+      if (result.startsWith(UserSearch)) {
+        li[i].classList.add("active");
+        li[i].classList.remove("hidden");
+      } 
+      else 
+      {
+        li[i].classList.add("hidden");
+        li[i].classList.remove("active");
+      }
+    }
+  }
+}
+</script>
 </main>

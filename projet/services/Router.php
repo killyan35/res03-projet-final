@@ -65,8 +65,8 @@ class Router {
         {
             if(!isset($route[1])) // j'ai donc juste /admin
             {
-                // on vérifie que c'est bien un admin et on le renvoi vers la user list 
-                if(!isset($route[1]) && ($_SESSION["Connected"] === true) && ($_SESSION["admin"] === true))
+                // on vérifie que c'est bien un admin et on le renvoi vers le pannel admin
+                if(!isset($route[1]) && ($_SESSION["admin"] === true))
                 {
                     $this->uc->admin();
                     
@@ -290,18 +290,7 @@ class Router {
             $this->uc->home();
         }
     }
-    if($route[0] === "admin")
-    {
-        if(!isset($route[1]) && ($_SESSION["Connected"] === false) && ($_SESSION["admin"] === true))
-        {
-            // j'affiche mon interface admin
-            $this->uc->admin();
-        }
-    }
-        
-        
-        
-        
+ 
         if($route[0] === "boutique")
         {
             if(!isset($route[1])) // j'ai donc juste /connexion
