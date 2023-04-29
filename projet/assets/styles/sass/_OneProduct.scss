@@ -7,12 +7,16 @@
         display:grid;
         grid-template-columns:  4fr 0.2fr 5fr;
         grid-template-rows: 0.3fr 0.7fr 0.1fr;
-        border: 0.2rem solid;
+        border-width: 0.2rem;
+        border-style: solid;
+        border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
         border-radius:5px;
         #headerArticle{
                 grid-row: 1/2 ;
                 grid-column: 3/4 ;
-                border: 0.2rem solid;
+                border-width: 0.2rem;
+                border-style: solid;
+                border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
                 border-radius:5px;
                 display: flex;
                 align-items: center;
@@ -41,7 +45,9 @@
             flex-direction:column;
             margin-right:2rem;
             margin-left:2rem;
-            border: 0.2rem solid;
+            border-width: 0.2rem;
+            border-style: solid;
+            border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
             border-radius:5px;
             li{
                 font-size:1.4rem;
@@ -100,7 +106,9 @@
         }
         #asidePanier{
             margin-top:2rem;
-            border: 0.2rem solid;
+            border-width: 0.2rem;
+            border-style: solid;
+            border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
             border-radius:5px;
             h2{
                 display: flex;
@@ -117,7 +125,9 @@
                     justify-content: space-evenly;
                     margin:1rem;
                     .liArticle{
-                        border: 0.2rem solid;
+                        border-width: 0.2rem;
+                        border-style: solid;
+                        border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
                         border-radius:5px;
                         margin:1rem;
                         max-width:40%;

@@ -51,15 +51,15 @@
     #Allproducts{ //ul
         grid-row: 3/4;
         grid-column: 2/3;
+        margin:2rem;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
         flex-wrap: wrap;
             li {
                 text-align:center;
-                display: block;
-                padding-left:2rem;
-                padding-right:2rem;
+                padding-left:3rem;
+                padding-right:3rem;
                 h2{
                     font-size:2rem;
                     text-align:center;
@@ -71,6 +71,7 @@
                         background-color:darkred;
                         color:#fff;
                         border-radius:5px;
+                        border-color:darkred;
                         padding:0.5rem;
                     }
                 a{
@@ -79,7 +80,7 @@
                         img{
                             height:15rem;
                             width:15rem;
-                            border-width: 0.4rem;
+                            border-width: 0.3rem;
                             border-style: solid;
                             border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
                          
@@ -109,15 +110,39 @@
                 flex-direction:column;
                  
                 li{
-                    
                     a{
             		  text-decoration:none;
             		  color: #000;
             		  h3{
             		      line-height:3rem;
-            		      font-size:2rem;
+            		      font-size:1.8rem;
             		      color:#000;
             		  }
+            		}
+                }
+            }
+            #filtre{ //ul
+                .filtres{ //li
+                    display:flex;
+                    flex-direction:column;
+                    label{
+            		    font-size:1.8rem;
+                        text-transform: capitalize;
+                        
+            		}
+            		select{
+            		    border-width: 0.1rem;
+                        border-style: solid;
+                        border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+            		    font-size:1.5rem;
+                        text-transform: capitalize;
+                        background-color:#fff;
+                        color:#000;
+                        width:60%;
+                        
+                        option{
+                            font-size:1.3rem;
+                        }
             		}
                 }
             }

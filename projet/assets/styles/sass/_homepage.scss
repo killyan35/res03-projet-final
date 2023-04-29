@@ -1,7 +1,6 @@
 body {
         display:grid;
-        grid-template-columns: 1fr 8fr 1fr;
-        min-height:85vh;
+        grid-template-columns: 1fr 8fr 1.5fr;
     header {
         grid-column: 1/4 ;
         height:15vh;

@@ -1,23 +1,25 @@
 .navbar {
     width:100%;
-	background-color: rgba(0, 0, 0, .6);
+	background-color: rgba(0, 0, 0, .5);
 	z-index: 100;
     position:fixed;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
     display:grid;
     grid-template-columns: 1fr 4fr 2fr;
     text-transform: capitalize;
-  figure {
-    grid-column: 1 / 2 ;
-    align-items: center;
-	justify-content: center;
-	  a {
-	      img {
-	    max-height: 6rem;
-	    padding-left:2rem;
-	   }
-	  }
+     a {
+     	grid-column: 1 / 2 ;
+	    align-items: center;
+		justify-content: center;
+		height:6rem;
+	  figure {
+	  	margin-top:0.5rem;
+		background-image:url("https://cdn.discordapp.com/attachments/910185843371671562/1100093402084806717/RcLTWF9E-modified.png");
+	    background-repeat: no-repeat;
+	    background-position: center;
+	    background-size: contain;
+	    height: 5rem;
+ 	 }
+	
 	}
 	ul {
 	  display: inline-flex;

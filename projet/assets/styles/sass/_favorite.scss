@@ -16,7 +16,7 @@
     }
     #section{
         display:grid;
-        grid-template-columns: 1fr 8fr;
+        grid-template-columns: 2fr 8fr;
         grid-template-rows: 1fr ;
         > #ul{
             grid-row: 1/2;

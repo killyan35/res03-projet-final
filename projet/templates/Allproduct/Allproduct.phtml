@@ -38,11 +38,11 @@
         
         <nav>
             <h2>Filtres :</h2>
-            <ul>
-                <li>
+            <ul id="filtre">
+                <li class="filtres">
                     <label for="ingredient">Par Ingredients</label>
                         <select class="select" name="ingredients" id="ingredients">
-                            <option class="philtre-ingredient" value=""></option>
+                            <option class="philtre-ingredient" value="">Tous</option>
                              <?php
                                 $tab = [];
                                 foreach($data["dataProduct"] as $dataP){ 
@@ -56,10 +56,10 @@
                              <?php  }?>
                         </select>
                 </li>
-                <li>
+                <li class="filtres">
                     <label for="allergen">Par Allergens</label>
                         <select class="select" name="allergens" id="allergens">
-                            <option class="philtre-allergen" value=""></option>
+                            <option class="philtre-allergen" value="">Aucun</option>
                              <?php
                                 $tab = [];
                                 foreach($data["dataProduct"] as $dataP){ 
