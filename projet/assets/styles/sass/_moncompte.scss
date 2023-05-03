@@ -1,18 +1,237 @@
+@media(min-width: 0px) and (max-width: 425px) 
+{
 #mon-compte{ //main 
     grid-column: 2/3 ;
+    padding-top:5rem;
+    h1{
+        font-size:3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom:2rem;
+        text-align:center;
+    }
+    #SectionInfoPerso{
+        display:grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.01fr 0.3fr 0.1fr;
+        
+            #ulListeInfo{
+                grid-row: 2/3 ;
+                grid-column: 1/2 ;
+                border: 0.2rem solid;
+                border-radius:5px;
+                li{
+                    margin:1rem;
+                    font-size:1.5rem;
+                    line-height:2.5rem;
+                	list-style: none;
+                	color: #000;
+                	button{
+                        margin:1rem;
+                        font-size:1rem;
+                        background-color:darkred;
+                        color:#fff;
+                        border-radius:5px;
+                        padding:0.5rem;
+                    }
+                }
+            }
     
-    > figure:first-of-type {
-                display: flex;
+        #asideCompte{
+            grid-column: 1/2 ;
+            grid-row: 1/2 ;
+            display:flex;
+            text-align:center;
+            justify-content: center;
+            > ul{
+                li {
+    	 	font-size:1.4rem;
+    	 	line-height:2.5rem;
+    		list-style: none;
+    		color: #000;
+    	
+            		a {
+            		  text-decoration:none;
+            		  color: #000;
+            		}
+                }    
+            }
+            
+        }
+    
+        form{
+            display:block;
+            fieldset{
+                display:flex;
+                flex-direction:column;
                 align-items: center;
                 justify-content: center;
-                padding-bottom:4rem;
+                padding:1rem;
+                margin:1rem;
+                line-height:1rem;
+                width:80%;
+                input{
+                    display:flex;
+                    justify-content: center;
+                    font-size:1rem;
+                }
+                
+                label{
+                    display:flex;
+                    justify-content: center;
+                    font-size:1.3rem;
+                    padding-bottom:0.7rem;
+                    padding-top:0.7rem;
+                }
+            }
+            .sub{
+                    margin:1rem;
+                    font-size:1rem;
+                    background-color:darkred;
+                    color:#fff;
+                    border-radius:5px;
+                    padding:0.5rem;
+                }
+        }
+        #createAddress{
+           grid-column: 1/2 ;
+           grid-row: 3/4 ;
+        }
+        #edituser{
+           grid-column: 1/2 ;
+           grid-row: 3/4 ;
+        }
+        .hidden{
+        display:none;
     }
+  }
+
+}
+}
+@media(min-width: 425px) and (max-width: 1024px) 
+{
+#mon-compte{ //main 
+    grid-column: 2/3 ;
+    padding-top:5rem;
     h1{
         font-size:3rem;
         display: flex;
         align-items: center;
         justify-content: center;
         padding:2rem;
+        text-align:center;
+    }
+    #SectionInfoPerso{
+        display:grid;
+        grid-template-columns: 2fr 2fr;
+        grid-template-rows: 1fr 1fr;
+        
+            #ulListeInfo{
+                grid-row: 1/2 ;
+                grid-column: 2/3 ;
+                border: 0.2rem solid;
+                border-radius:5px;
+                li{
+                    margin:1rem;
+                    font-size:1.5rem;
+                    line-height:2.5rem;
+                	list-style: none;
+                	color: #000;
+                	button{
+                        margin:1rem;
+                        font-size:1rem;
+                        background-color:darkred;
+                        color:#fff;
+                        border-radius:5px;
+                        padding:0.5rem;
+                    }
+                }
+            }
+    
+        #asideCompte{
+            grid-column: 1/2 ;
+            grid-row: 1/2 ;
+            z-index: 100;
+            position: sticky;
+            top:20rem;
+            > ul{
+                
+                li {
+    	 	font-size:1.8rem;
+    	 	line-height:3rem;
+    		list-style: none;
+    		color: #000;
+    	
+            		a {
+            		  text-decoration:none;
+            		  color: #000;
+            		}
+                }    
+            }
+        }
+    
+        form{
+            fieldset{
+                display:flex;
+                flex-direction:column;
+                align-items: center;
+                justify-content: center;
+                padding:1rem;
+                margin:1rem;
+                line-height:1rem;
+                width:80%;
+                input{
+                    display:flex;
+                    justify-content: center;
+                    font-size:1rem;
+                }
+                
+                label{
+                    display:flex;
+                    justify-content: center;
+                    font-size:1.3rem;
+                    padding-bottom:0.7rem;
+                    padding-top:0.7rem;
+                }
+            }
+            .sub{
+                    margin:1rem;
+                    font-size:1rem;
+                    background-color:darkred;
+                    color:#fff;
+                    border-radius:5px;
+                    padding:0.5rem;
+                }
+        }
+        #createAddress{
+           grid-column: 1/3 ;
+           grid-row: 2/3 ;
+        }
+        #edituser{
+           grid-column: 1/3 ;
+           grid-row: 2/3 ;
+        }
+        .hidden{
+        display:none;
+    }
+  }
+
+}
+}
+
+@media(min-width: 1024px) 
+{
+#mon-compte{ //main 
+    grid-column: 2/3 ;
+    padding-top:5rem;
+    h1{
+        font-size:3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:2rem;
+        text-align:center;
     }
     #SectionInfoPerso{
         display:grid;
@@ -24,23 +243,24 @@
                 grid-column: 2/3 ;
                 border: 0.2rem solid;
                 border-radius:5px;
-                button{
-                    margin:1rem;
-                    font-size:1rem;
-                    background-color:darkred;
-                    color:#fff;
-                    border-radius:5px;
-                    padding:0.5rem;
-                }
+                
                 li{
                     margin:1rem;
                     font-size:1.5rem;
                     line-height:2.5rem;
                 	list-style: none;
                 	color: #000;
+                	button{
+                        margin:1rem;
+                        font-size:1rem;
+                        background-color:darkred;
+                        color:#fff;
+                        border-radius:5px;
+                        padding:0.5rem;
+                    }
                 }
             }
-   
+    
         #asideCompte{
             grid-column: 1/2 ;
             grid-row: 1/2 ;
@@ -64,32 +284,34 @@
         }
     
         form{
-            display:flex;
-            flex-direction:column;
-            padding:1rem;
-            margin:1rem;
-            line-height:1rem;
-            width:50%;
-            input{
+            fieldset{
                 display:flex;
-                justify-content: center;
-                font-size:1rem;
-            }
-            input:last-of-type{
+                flex-direction:column;
+                padding:1rem;
                 margin:1rem;
-                font-size:1rem;
-                background-color:darkred;
-                color:#fff;
-                border-radius:5px;
-                padding:0.5rem;
+                line-height:1rem;
+                width:50%;
+                input{
+                    display:flex;
+                    justify-content: center;
+                    font-size:1rem;
+                }
+                label{
+                    display:flex;
+                    justify-content: center;
+                    font-size:1.3rem;
+                    padding-bottom:0.7rem;
+                    padding-top:0.7rem;
+                }
             }
-            label{
-                display:flex;
-                justify-content: center;
-                font-size:1.3rem;
-                padding-bottom:0.7rem;
-                padding-top:0.7rem;
-            }
+            .sub{
+                    margin:1rem;
+                    font-size:1rem;
+                    background-color:darkred;
+                    color:#fff;
+                    border-radius:5px;
+                    padding:0.5rem;
+                }
         }
         #createAddress{
            grid-column: 3/4 ;
@@ -102,6 +324,7 @@
         .hidden{
         display:none;
     }
-    }
-    
+  }
+
+}
 }

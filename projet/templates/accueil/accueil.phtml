@@ -1,96 +1,59 @@
 <main id="homepage">
 <section id="sec1">
-    <figure id="logo">
-      
-    </figure>
+    <h1 class="hidden">MM</h1>
     <section id="sec2">
-        <h1><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">Boutique en ligne</a></h1>
+        <h2><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">Boutique en ligne</a></h2>
         
-        <input type="text" id="search" onkeyup="searchProduct()" name="search" placeholder="Trouver un produit">
+        <input type="text" id="search" name="search" placeholder="Trouver un produit">
         <ul id="UlSearchBar">
             <?php foreach($data["products"] as $product){ ?>
-            <li><a class="li hidden" name="<?= $product->getName() ;?>" href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique/<?php foreach($data["categorys"] as $category){  if( ($product->getCategoryId()) === ($category->getId()) ){ echo $category->getSlug(); } } ?>/<?=$product->getSlug();?>"> 
-            <article>
-                <h2><?= $product->getName() ;?></h2>
-                <figure>
-                    <img src="/res03-projet-final/projet/<?php foreach($data["image"] as $image){  if( ($image->getProduct_id()) === ($product->getId()) ){ echo $image->getUrl(); } } ?>">
-                </figure>
-            </article>
-            </a></li>
+            <li>
+                <a class="li hidden" data-name="<?= $product->getName() ;?>" href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique/<?php foreach($data["categorys"] as $category){  if( ($product->getCategoryId()) === ($category->getId()) ){ echo $category->getSlug(); } } ?>/<?=$product->getSlug();?>"> 
+                    <article>
+                        <h2><?= $product->getName() ;?></h2>
+                        <figure>
+                            <img alt="<?php foreach($data["image"] as $image){  if( ($image->getProduct_id()) === ($product->getId()) ){ echo $image->getDescription(); } } ?>" src="/res03-projet-final/projet/<?php foreach($data["image"] as $image){  if( ($image->getProduct_id()) === ($product->getId()) ){ echo $image->getUrl(); } } ?>">
+                        </figure>
+                    </article>
+                </a>
+            </li>
             <?php } ?>
         </ul>
-        
     </section>
-    <ul>
-        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">
-                <figure>
-                    <img src="/res03-projet-final/projet/uploads/ThTdsGVO.jpg">
-                </figure>
-            </a>
-        </li>
-        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">
-            <figure>
-                <img src="/res03-projet-final/projet/uploads/ThTdsGVO.jpg">
-            </figure>
-            </a>
-        </li>
-        <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">
-            <figure>
-
-                <img src="/res03-projet-final/projet/uploads/ThTdsGVO.jpg">
-            </figure>
-            </a>
-        </li>
-    </ul>
-    
-</section>    
+        <ul id="carrousel">
+            <li>
+                <a id="Aimg1" href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">
+                    <figure>
+                        <img id="carrousel1" src="/res03-projet-final/projet/uploads/ThTdsGVO.jpg" alt="st-ho">
+                    </figure>
+                </a>
+            </li>
+            <li>
+                <a id="Aimg2" href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">
+                    <figure>
+                        <img id="carrousel2" src="/res03-projet-final/projet/uploads/ThTdsGVO.jpg" alt="st-ho">
+                    </figure>
+                </a>
+            </li>
+            <li>
+                <a id="Aimg3" href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">
+                    <figure>
+                        <img id="carrousel3" src="/res03-projet-final/projet/uploads/ThTdsGVO.jpg" alt="st-ho">
+                    </figure>
+                </a>
+            </li>
+        </ul>
+    </section>    
     <section id="about">
-            <article>
-                <h2>A PROPOS DE NOUS</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</p>
-            </article>
-            <article>
-                <h2>Nos Produits</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</p>
-            </article>
-            <article>
-                <h2>Nos DERNIERES CREATION</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</p>
-            </article>
+        <h2 class="hidden">A propos de nous</h2>
+        <article>
+            <h2>A Propos De Nous</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, 
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede.
+            Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</p>
+        </article>
     </section>
-<script>
-function searchProduct() 
-{
-  // Declare variables
- let input = document.getElementById('search');
- let UserSearch = input.value;
-
- let ul = document.getElementById("UlProduct");
- let li = document.getElementsByClassName("li");
- 
- if (UserSearch === "") 
- {
-   for (let i = 0; i < li.length; i++) 
-   {
-      li[i].classList.add("hidden");
-      li[i].classList.remove("active");
-    }
- } 
- else 
- {
-    for (let i = 0; i < li.length; i++) {
-      let result = li[i].getAttribute("name");
-      if (result.startsWith(UserSearch)) {
-        li[i].classList.add("active");
-        li[i].classList.remove("hidden");
-      } 
-      else 
-      {
-        li[i].classList.add("hidden");
-        li[i].classList.remove("active");
-      }
-    }
-  }
-}
-</script>
+<script type="module" src="/res03-projet-final/projet/assets/js/carrousel.js"></script> 
+<script type="module" src="/res03-projet-final/projet/assets/js/SearchBar.js"></script> 
 </main>

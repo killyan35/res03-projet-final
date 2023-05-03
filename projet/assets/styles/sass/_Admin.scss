@@ -1,0 +1,679 @@
+#CategorysAdmin{//main 
+    grid-column: 2/3 ;
+    grid-row: 2/3 ;
+    h2{
+        font-size:2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:3rem;
+    }
+    form{
+                
+                padding:2rem;
+                display: flex;
+                flex-direction: column;
+                
+                align-items: center;
+                justify-content: center;
+                label{
+                    padding-bottom:0.5rem;
+                    text-align:center;
+                    font-size:2rem;
+                    width:60%;
+                }
+                input{
+                    margin:1rem;
+                    padding:0.5rem;
+                    font-size:1.5rem;
+                    border-radius:0.2rem;
+                    width:30%;
+                }
+                #url{
+                    font-size:1.4rem;
+                }
+                .submit{
+                    cursor:pointer;
+                    padding:1rem;
+                    margin:1rem;
+                    width:20%;
+                    border-radius:0.5rem;
+                    background-color:darkred;
+                    font-size:1.5rem;
+                    color:#fff;
+                }
+            }
+     table{
+            border:3px solid;
+            width:100%;
+            margin-bottom:2rem;
+                thead{
+                    tr{
+                        th{
+                            border:3px solid;
+                            padding:2rem;
+                            font-size:2rem;
+                        }
+                    }
+                    
+                }
+                tbody{
+                    tr{
+                        td{
+                            text-align:center;
+                            font-size:2rem;
+                            padding:1rem;
+                            padding-left:1rem;
+                            vertical-align: middle;
+                            img{
+                                height:7rem;
+                            }
+                            a{
+                                text-decoration:none;
+                                background-color:darkred;
+                                color:#fff;
+                                border-radius:5px;
+                                padding:0.7rem;
+                            }
+                        }
+                    }
+                    tr:nth-child(even){
+                        background-color:#D3D3D3;
+                    }
+                    tr:nth-child(odd){
+                       background-color:#A9A9A9;
+                    }
+                }
+            }
+}
+#editcat{
+    //main 
+    grid-column: 2/3 ;
+    grid-row: 2/3 ;
+    h2{
+        font-size:2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:3rem;
+    }
+    form{
+                
+                padding:2rem;
+                display: flex;
+                flex-direction: column;
+                
+                align-items: center;
+                justify-content: center;
+                label{
+                    padding-bottom:0.5rem;
+                    text-align:center;
+                    font-size:2rem;
+                    width:60%;
+                }
+                input{
+                    margin:1rem;
+                    padding:0.5rem;
+                    border-radius:0.2rem;
+                    width:30%;
+                    font-size:1.4rem;
+                }
+                #url{
+                    font-size:1.4rem;
+                }
+                .submit{
+                    cursor:pointer;
+                    padding:1rem;
+                    margin:1rem;
+                    width:20%;
+                    border-radius:0.5rem;
+                    background-color:darkred;
+                    font-size:1.5rem;
+                    color:#fff;
+                }
+            }
+    a{
+        font-size:1.5rem;
+        text-decoration:none;
+        background-color:darkred;
+        color:#fff;
+        border-radius:5px;
+        padding:0.7rem;
+    }
+}
+#usersAdmin{//main 
+    grid-column: 2/3 ;
+    grid-row: 2/3 ;
+    h2{
+        font-size:2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:3rem;
+    }
+    table{
+            border:3px solid;
+            width:100%;
+            margin-bottom:2rem;
+                thead{
+                    tr{
+                        th{
+                            border:3px solid;
+                            padding:2rem;
+                            font-size:2rem;
+                        }
+                    }
+                    
+                }
+                tbody{
+                    tr{
+                        td{
+                            text-align:center;
+                            font-size:2rem;
+                            padding:2rem;
+                            padding-left:1rem;
+                            vertical-align: middle;
+                            img{
+                                height:7rem;
+                            }
+                            a{
+                                text-decoration:none;
+                                background-color:darkred;
+                                color:#fff;
+                                border-radius:5px;
+                                padding:0.7rem;
+                            }
+                        }
+                    }
+                    tr:nth-child(even){
+                        background-color:#D3D3D3;
+                    }
+                    tr:nth-child(odd){
+                       background-color:#A9A9A9;
+                    }
+                }
+            }
+}
+#userAdmin{//main 
+    grid-column: 2/3 ;
+    grid-row: 2/3 ;
+    display:grid;
+    grid-template-columns: 1fr;
+    h2{
+        grid-column: 1/2 ;
+        font-size:2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:3rem;
+    }
+    a{
+        font-size:1.5rem;
+        text-decoration:none;
+        background-color:darkred;
+        color:#fff;
+        border-radius:5px;
+        padding:0.7rem;
+    }
+    #tableUser{
+            grid-column: 1/2 ;
+            border:3px solid;
+            width:100%;
+            margin-bottom:2rem;
+                thead{
+                    tr{
+                        th{
+                            border:3px solid;
+                            padding:2rem;
+                            font-size:2rem;
+                        }
+                    }
+                    
+                }
+                tbody{
+                    tr{
+                        td{
+                            text-align:center;
+                            font-size:2rem;
+                            padding:2rem;
+                            padding-left:1rem;
+                            vertical-align: middle;
+                            img{
+                                height:7rem;
+                            }
+                            a{
+                                text-decoration:none;
+                                background-color:darkred;
+                                color:#fff;
+                                border-radius:5px;
+                                padding:0.7rem;
+                            }
+                        }
+                    }
+                    tr:nth-child(even){
+                        background-color:#D3D3D3;
+                    }
+                    tr:nth-child(odd){
+                       background-color:#A9A9A9;
+                    }
+                }
+            }
+            #sectionCommandes{//section
+            grid-column: 1/2 ;
+                table{
+                    margin-bottom:5rem;
+                    padding:1rem;
+                    border:3px solid;
+                    width:100%;
+                    thead{
+                        tr{
+                            th{
+                                
+                                padding:1rem;
+                                font-size:2rem;
+                            }
+                        }
+                        
+                    }
+                    tbody{
+                        tr{
+                            td{
+                                text-align:center;
+                                font-size:1.5rem;
+                                padding-bottom:1rem;
+                                vertical-align: middle;
+                                img{
+                                    height:5rem;
+                                }
+                            }
+                            #total{
+                                font-size:2rem;
+                                color:darkred;
+                            }
+                        }
+                    }
+                }
+            }
+}
+#productsAdmin{//main 
+    grid-column: 2/3 ;
+    grid-row: 2/3 ;
+    h2{
+        font-size:3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:3rem;
+    }
+    form{
+                padding:2rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                label{
+                    padding-bottom:0.5rem;
+                    text-align:center;
+                    font-size:2rem;
+                    width:60%;
+                }
+                input{
+                    margin:1rem;
+                    padding:0.5rem;
+                    font-size:1.5rem;
+                    border-radius:0.2rem;
+                    width:30%;
+                }
+                select{
+                    margin:1rem;
+                    padding:0.5rem;
+                    font-size:1.5rem;
+                    border-radius:0.2rem;
+                    width:31%;
+                }
+                   
+                #url{
+                    font-size:1.4rem;
+                }
+                .submit{
+                    cursor:pointer;
+                    padding:1rem;
+                    margin:1rem;
+                    width:20%;
+                    border-radius:0.5rem;
+                    background-color:darkred;
+                    font-size:1.5rem;
+                    color:#fff;
+                }
+                
+                section{
+                    
+                    .allergen{
+                        width:100%;
+                        
+                    }
+                    .ingredient{
+                        width:100%;
+                    }
+                }
+            }
+     table{
+         grid-row: 4/5;
+            border:3px solid;
+            width:100%;
+            margin-bottom:2rem;
+                thead{
+                    tr{
+                        th{
+                            border:3px solid;
+                            padding:2rem;
+                            font-size:2rem;
+                        }
+                    }
+                    
+                }
+                tbody{
+                    tr{
+                        td{
+                            text-align:center;
+                            font-size:2rem;
+                            padding:1rem;
+                            padding-left:1rem;
+                            vertical-align: middle;
+                            img{
+                                height:7rem;
+                            }
+                            a{
+                                text-decoration:none;
+                                background-color:darkred;
+                                color:#fff;
+                                border-radius:5px;
+                                padding:0.7rem;
+                            }
+                        }
+                    }
+                    tr:nth-child(even){
+                        background-color:#D3D3D3;
+                    }
+                    tr:nth-child(odd){
+                       background-color:#A9A9A9;
+                    }
+                }
+                .action{
+                    width:30rem;
+                }
+            }
+}
+#editproduct{//main 
+    grid-column: 2/3 ;
+    grid-row: 2/3 ;
+    margin-bottom:4rem;
+    h2{
+        font-size:2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:3rem;
+    }
+    form{
+                
+                padding:2rem;
+                display: flex;
+                flex-direction: column;
+                
+                align-items: center;
+                justify-content: center;
+                label{
+                    padding-bottom:0.5rem;
+                    text-align:center;
+                    font-size:2rem;
+                    width:60%;
+                }
+                input{
+                    margin:1rem;
+                    padding:0.5rem;
+                    border-radius:0.2rem;
+                    width:30%;
+                    font-size:1.4rem;
+                }
+                select{
+                    margin:1rem;
+                    padding:0.5rem;
+                    font-size:1.5rem;
+                    border-radius:0.2rem;
+                    width:31%;
+                }
+                section{
+                    
+                    .allergen{
+                        width:100%;
+                        
+                    }
+                    .ingredient{
+                        width:100%;
+                    }
+                }
+                .submit{
+                    cursor:pointer;
+                    padding:1rem;
+                    margin:1rem;
+                    width:20%;
+                    border-radius:0.5rem;
+                    background-color:darkred;
+                    font-size:1.5rem;
+                    color:#fff;
+                }
+            }
+    a{
+        font-size:1.5rem;
+        text-decoration:none;
+        background-color:darkred;
+        color:#fff;
+        border-radius:5px;
+        padding:0.7rem;
+    }
+}
+#infoProductAdmin{//main 
+    grid-column: 2/3 ;
+    grid-row: 2/3 ;
+    h2{
+        font-size:2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:3rem;
+    }
+     table{
+            border:3px solid;
+            width:100%;
+            margin-bottom:2rem;
+                thead{
+                    tr{
+                        th{
+                            border:3px solid;
+                            padding:2rem;
+                            font-size:2rem;
+                        }
+                    }
+                    
+                }
+                tbody{
+                    tr{
+                        td{
+                            text-align:center;
+                            font-size:2rem;
+                            padding:2rem;
+                            padding-left:1rem;
+                            vertical-align: middle;
+                            img{
+                                height:7rem;
+                            }
+                            a{
+                                text-decoration:none;
+                                background-color:darkred;
+                                color:#fff;
+                                border-radius:5px;
+                                padding:0.7rem;
+                            }
+                        }
+                    }
+                    tr:nth-child(even){
+                        background-color:#D3D3D3;
+                    }
+                    tr:nth-child(odd){
+                       background-color:#A9A9A9;
+                    }
+                }
+            }
+    a{
+        font-size:1.5rem;
+        text-decoration:none;
+        background-color:darkred;
+        color:#fff;
+        border-radius:5px;
+        padding:0.7rem;
+    }
+}
+.createAdmin{//main 
+    grid-column: 2/3 ;
+    grid-row: 2/3 ;
+    h2{
+        font-size:2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:3rem;
+    }
+    form{
+                
+                padding:2rem;
+                display: flex;
+                flex-direction: column;
+                
+                align-items: center;
+                justify-content: center;
+                label{
+                    padding-bottom:0.5rem;
+                    text-align:center;
+                    font-size:2rem;
+                    width:60%;
+                }
+                input{
+                    margin:1rem;
+                    padding:0.5rem;
+                    font-size:1.5rem;
+                    border-radius:0.2rem;
+                    width:30%;
+                }
+                #url{
+                    font-size:1.4rem;
+                }
+                .submit{
+                    cursor:pointer;
+                    padding:1rem;
+                    margin:1rem;
+                    width:20%;
+                    border-radius:0.5rem;
+                    background-color:darkred;
+                    font-size:1.5rem;
+                    color:#fff;
+                }
+            }
+     table{
+            border:3px solid;
+            width:100%;
+            margin-bottom:2rem;
+                thead{
+                    tr{
+                        th{
+                            border:3px solid;
+                            padding:2rem;
+                            font-size:2rem;
+                        }
+                    }
+                    
+                }
+                tbody{
+                    tr{
+                        td{
+                            text-align:center;
+                            font-size:2rem;
+                            padding:1rem;
+                            padding-left:1rem;
+                            vertical-align: middle;
+                            img{
+                                height:7rem;
+                            }
+                            a{
+                                text-decoration:none;
+                                background-color:darkred;
+                                color:#fff;
+                                border-radius:5px;
+                                padding:0.7rem;
+                            }
+                        }
+                    }
+                    tr:nth-child(even){
+                        background-color:#D3D3D3;
+                    }
+                    tr:nth-child(odd){
+                       background-color:#A9A9A9;
+                    }
+                }
+            }
+}
+.edit{//main 
+    grid-column: 2/3 ;
+    grid-row: 2/3 ;
+    h2{
+        font-size:2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:3rem;
+    }
+    form{
+                
+                padding:2rem;
+                display: flex;
+                flex-direction: column;
+                
+                align-items: center;
+                justify-content: center;
+                label{
+                    padding-bottom:0.5rem;
+                    text-align:center;
+                    font-size:2rem;
+                    width:60%;
+                }
+                input{
+                    margin:1rem;
+                    padding:0.5rem;
+                    border-radius:0.2rem;
+                    width:30%;
+                    font-size:1.4rem;
+                }
+                #url{
+                    font-size:1.4rem;
+                }
+                .submit{
+                    cursor:pointer;
+                    padding:1rem;
+                    margin:1rem;
+                    width:20%;
+                    border-radius:0.5rem;
+                    background-color:darkred;
+                    font-size:1.5rem;
+                    color:#fff;
+                }
+            }
+    a{
+        font-size:1.5rem;
+        text-decoration:none;
+        background-color:darkred;
+        color:#fff;
+        border-radius:5px;
+        padding:0.7rem;
+    }
+    
+}

@@ -1,15 +1,14 @@
-<section class="createproduct">
-    <h1>Creation de produits</h1>
+<main id="productsAdmin">
+    <h2>Creation de produits</h2>
     <?php  require  '_product-form.phtml'; ?>
-</section>
-<h2><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin">revenir aux menu admin</a></h2>
-<section>
-<h2>Toutes les produits</h2>
+    <h2>Tous les produits</h2>
     <table>
         <thead>
             <tr>
                 <th>Image du produit</th>
                 <th>Nom du produit</th>
+                <th>Description du produit</th>
+                <th class="action">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -23,7 +22,7 @@
                 </td>
                 <td><?= $product->getName() ?></td>
                 <td><?= $product->getDescription() ?></td>
-                <td>
+                <td class="action">
                    <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/product/delete/<?=$product->getId()?>">Supprimer</a>
                     <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/product/update/<?=$product->getSlug()?>">Modifier</a>
                     <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/product/info/<?=$product->getId()?>">Info</a>
@@ -32,4 +31,5 @@
         <?php  } ?>
         </tbody>
     </table>
-</section>
+<script type="module" src="/res03-projet-final/projet/assets/js/product.js"></script>
+</main>

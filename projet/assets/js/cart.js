@@ -187,7 +187,6 @@ function displayPanier()
     .then(response => response.json())
     .then(data => {
     
-    console.log(data);
     if(data.length > 0)
     {
         rendercart(data);
@@ -199,11 +198,6 @@ function displayPanier()
         aside.classList.add("hidden");
     }
   })
-    .catch(error => {
-     console.log("catch");
-     
-  });
-    
 }
 
 function loadListeners()

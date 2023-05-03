@@ -1,22 +1,16 @@
 <main id="mon-compte">
-    <figure>
-        <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/accueil">
-            <img height=150px src="uploads/RcLTWF9E.png">
-        </a>
-    </figure>
     <h1>Mon compte</h1>
     
     <section id="SectionInfoPerso">
-       
+       <h2 class="hidden">Info Perso</h2>
         <ul id="ulListeInfo">
-            <li>Nom : </br><?= $data[0]->getLastname(); ?></li>
-            <li>Prénom : </br><?= $data[0]->getFirstname(); ?></li>
-            <li>Email : </br><?= $data[0]->getEmail(); ?></li>
-            <li>Adresse : </br><?php if(isset($data[1])){ echo $data[1]->getNumber();?> <?php echo $data[1]->getStreet(); ?> , <?php echo $data[1]->getCity();?> <?php echo $data[1]->getZipcode();  }  ?>
-            </li>
+            <li>Nom : <p><?= $data[0]->getLastname(); ?></p></li>
+            <li>Prénom : <p><?= $data[0]->getFirstname(); ?></p></li>
+            <li>Email : <p><?= $data[0]->getEmail(); ?></p></li>
+            <li>Adresse : <p><?php if(isset($data[1])){ echo $data[1]->getNumber();?> <?php echo $data[1]->getStreet(); ?> , <?php echo $data[1]->getCity();?> <?php echo $data[1]->getZipcode();  }  ?></p></li>
         
-        <button id="editform">modifier</button>
-        <button id="editaddress">Créer ou modifier son adresse</button>
+        <li id="editform"><button>modifier</button></li>
+        <li id="editaddress"><button>Créer ou modifier son adresse</button></li>
         </ul>
     
         <aside id="asideCompte">
@@ -29,48 +23,56 @@
     
     <form class="hidden"  method="post" action="/res03-projet-final/projet/mon-compte/edituser" id="edituser">
               
-            <input value="<?= $data[0]->getId(); ?>" type="int" class="hidden" name="id" id="id">
-            
+        <input value="<?= $data[0]->getId(); ?>" type="number" class="hidden" name="id">
+        <fieldset>
             <label for="firstname">Prénom</label>
-            <input value="<?= $data[0]->getFirstname(); ?>" type="text" name="firstname" id="firstname" />
-            
-            <label for="lastname">Nom</label>
-            <input value="<?= $data[0]->getLastname(); ?>" type="text" name="lastname" id="lastname" />
-            
-            <label for="email">Email</label>
-            <input value="<?= $data[0]->getEmail(); ?>" type="email" name="email" id="email" />
-            
-            <label for="password">Mot de passe</label>
-            <input type="password" name="password" id="password" />
-            
-            <label for="confirmPassword">Confirmer le mot de passe </label>
-            <input type="password" name="confirmPassword" id="confirmPassword" />
-            
-            <input value="<?= $data[0]->getAddress_Id(); ?>" type="int" class="hidden" name="addressid" id="id">
-            
-            <input type="hidden" name="formName" value="edituser">
-            <input type="submit" value="Envoyer"/>
+            <input value="<?= $data[0]->getFirstname(); ?>" type="text" name="firstname" id="firstname" required>
+        </fieldset>
+        <fieldset>
+        <label for="lastname">Nom</label>
+        <input value="<?= $data[0]->getLastname(); ?>" type="text" name="lastname" id="lastname" required>
+        </fieldset>
+        <fieldset>
+        <label for="email">Email</label>
+        <input value="<?= $data[0]->getEmail(); ?>" type="email" name="email" id="email" required>
+        </fieldset>
+        <fieldset>
+        <label for="password">Mot de passe</label>
+        <input type="password" name="password" id="password" required>
+        </fieldset>
+        <fieldset>
+        <label for="confirmPassword">Confirmer le mot de passe </label>
+        <input type="password" name="confirmPassword" id="confirmPassword" required>
+        </fieldset>
+        <input value="<?= $data[0]->getAddress_Id(); ?>" type="number" class="hidden" name="addressid">
+        
+        <input type="hidden" name="formName" value="edituser">
+        <input class="sub" type="submit" value="Envoyer"/>
     </form>
     
     <form class="hidden" method="post" action="/res03-projet-final/projet/mon-compte/addAddress" id="createAddress">
             
-            <input value="<?= $data[0]->getId(); ?>" type="int" class="hidden" name="id" id="id">
-            <input value="<?php if(isset($data[1])) { echo $data[1]->getId(); } ?>" type="int" class="hidden" name="addressid" id="addressid">
-            
-            <label for="street">Rue ou Avenue</label>
-            <input value="<?php if(isset($data[1])) { echo $data[1]->getStreet(); } ?>" type="string" name="street" id="street">
-            
-            <label for="number">Numéro</label>
-            <input value="<?php if(isset($data[1])) { echo $data[1]->getNumber(); } ?>" type="text" name="number" id="number">
-            
-            <label for="city">Ville</label>
-            <input value="<?php if(isset($data[1])) { echo $data[1]->getCity(); } ?>" type="string" name="city" id="city">
-            
-            <label for="zipcod">Code postal</label>
-            <input value="<?php if(isset($data[1])) { echo $data[1]->getZipcode(); } ?>" type="text" name="zipcod" id="zipcod">
+        <input value="<?= $data[0]->getId(); ?>" type="number" class="hidden" name="id" id="id">
+        <input value="<?php if(isset($data[1])) { echo $data[1]->getId(); } ?>" type="number" class="hidden" name="addressid" id="addressid">
         
-            <input type="hidden" name="formName" value="createAddress">
-            <input type="submit" value="Envoyer">
+        <fieldset>
+        <label for="street">Rue ou Avenue</label>
+        <input value="<?php if(isset($data[1])) { echo $data[1]->getStreet(); } ?>" type="text" name="street" id="street" required>
+        </fieldset>
+        <fieldset>
+        <label for="number">Numéro</label>
+        <input value="<?php if(isset($data[1])) { echo $data[1]->getNumber(); } ?>" type="text" name="number" id="number" required>
+        </fieldset>
+        <fieldset>
+        <label for="city">Ville</label>
+        <input value="<?php if(isset($data[1])) { echo $data[1]->getCity(); } ?>" type="text" name="city" id="city" required>
+        </fieldset>
+        <fieldset>
+        <label for="zipcod">Code postal</label>
+        <input value="<?php if(isset($data[1])) { echo $data[1]->getZipcode(); } ?>" type="text" name="zipcod" id="zipcod" required>
+        </fieldset>
+        <input type="hidden" name="formName" value="createAddress">
+        <input class="sub" type="submit" value="Envoyer">
     </form>
 </section>
     <script type="module" src="/res03-projet-final/projet/assets/js/account.js"></script>

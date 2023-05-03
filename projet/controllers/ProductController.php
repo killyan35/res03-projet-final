@@ -5,7 +5,7 @@ class ProductController extends AbstractController {
     private IngredientManager $imanager;
     private AllergenManager $amanager;
     private ImageManager $immanager;
-    
+    private UserManager $umanager;
     public function __construct()
     {
         $this->manager = new ProductManager();
@@ -13,6 +13,7 @@ class ProductController extends AbstractController {
         $this->imanager = new IngredientManager();
         $this->amanager = new AllergenManager();
         $this->immanager = new ImageManager();
+        $this->umanager = new UserManager();
     }
     // getIngredientsBySlugProduct
         public function displayAllProducts()
@@ -97,16 +98,23 @@ class ProductController extends AbstractController {
                      $productToChange->setDescription($post['description']);
                      $productToChange->setPrice($post['price']);
                      $productId = $productToChange->getId();
-                     if((isset($post['ingredient']) && $post['ingredient']!==''))
+                     $allergenData = json_decode($_POST['allergenData']);
+                     if((isset($allergenData) && $allergenData!==''))
                      {
-                         $this->manager->addIngredientOnProduct(intval($post['ingredient']),intval($productId));
+                         foreach($allergenData as $allergenId)
+                         {
+                            $this->manager->addAllergenOnProduct(intval($allergenId),intval($productId));
+                         }
                      }
-                     if((isset($post['allergen']) && $post['allergen']!==''))
+                     $ingredientData = json_decode($_POST['ingredientsData']);
+                     if((isset($ingredientData) && $ingredientData!==''))
                      {
-                         $this->manager->addAllergenOnProduct(intval($post['allergen']),intval($productId));
+                        foreach($ingredientData as $ingredientId)
+                         {
+                            $this->manager->addIngredientOnProduct(intval($ingredientId),intval($productId));
+                         }
                      }
                      $this->manager->editProduct($productToChange);
-                     header("Location: /res03-projet-final/projet/admin/product");
                  }
                  
                  
@@ -126,13 +134,15 @@ class ProductController extends AbstractController {
             $this->renderadmin("editproduct", $tab);
         }
         
-    public function deleteProduct(int $id)
+    public function deleteProduct(int $Product_id)
         {
-            $deleteing = $this->manager->deleteAllergenOnProduct(intval($id));
-            $deletealler = $this->manager->deleteIngredientOnProduct(intval($id));
-            $deleteimg = $this->immanager->getImageById(intval($id));
+            $deleteing = $this->manager->deleteAllergenOnProduct(intval($Product_id));
+            $deletealler = $this->manager->deleteIngredientOnProduct(intval($Product_id));
+            $deleteimg = $this->immanager->getImageById(intval($Product_id));
             $deleteim = $this->immanager->deleteImage($deleteimg);
-            $delete = $this->manager->getProductbyId1(intval($id));
+            $deletefavorite = $this->umanager->deletefavoritefromProductId(intval($Product_id));
+            $delete = $this->manager->getProductbyId1(intval($Product_id));
+            
             $this->manager->deleteProduct($delete);
             header("Location: /res03-projet-final/projet/admin/product");
         }

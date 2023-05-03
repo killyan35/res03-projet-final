@@ -1,7 +1,4 @@
 <main id="products">
-    <figure>
-       
-    </figure>
     <aside id="top">
         <nav>
             <ul>
@@ -22,12 +19,12 @@
         foreach($data["products"] as $product){ 
         ?>
         <li class="product"
-        ingredients="<?php $ingredient = []; foreach($data["dataProduct"] as $dataP){  if( ($dataP["Product_id"]) === ($product->getId()) ){ foreach($dataP["Ingredients"] as $dataI){ $ingredient[]= $dataI->getName(); } echo(implode(", ", $ingredient)); } } ?>"
-        allergens="<?php $allergens = []; foreach($data["dataProduct"] as $dataP){  if( ($dataP["Product_id"]) === ($product->getId()) ){ foreach($dataP["Allergens"] as $dataA){ $allergens[]= $dataA->getName(); } echo(implode(", ", $allergens)); } } ?>">
+        data-ingredients="<?php $ingredient = []; foreach($data["dataProduct"] as $dataP){  if( ($dataP["Product_id"]) === ($product->getId()) ){ foreach($dataP["Ingredients"] as $dataI){ $ingredient[]= $dataI->getName(); } echo(implode(", ", $ingredient)); } } ?>"
+        data-allergens="<?php $allergens = []; foreach($data["dataProduct"] as $dataP){  if( ($dataP["Product_id"]) === ($product->getId()) ){ foreach($dataP["Allergens"] as $dataA){ $allergens[]= $dataA->getName(); } echo(implode(", ", $allergens)); } } ?>">
             <h2><?=$product->getName()?></h2>
             <a href="/res03-projet-final/projet/boutique/<?php echo $data["category"]->getSlug(); ?>/<?php echo $product->getSlug(); ?>">
                 <figure>
-                    <img src="/res03-projet-final/projet/<?php foreach($data["image"] as $image){  if( ($image->getProduct_id()) === ($product->getId()) ){ echo $image->getUrl(); } } ?>">
+                    <img src="/res03-projet-final/projet/<?php foreach($data["image"] as $image){  if( ($image->getProduct_id()) === ($product->getId()) ){ echo $image->getUrl(); } } ?>" alt="<?php foreach($data["image"] as $image){  if( ($image->getProduct_id()) === ($product->getId()) ){ echo $image->getDescription(); } } ?>">
                 </figure>
             </a>
             <button class="add-to-favorite" data-id="<?= $product->getId(); ?>">Ajouter au favoris</button>
@@ -35,12 +32,11 @@
        <?php } ?>
     </ul>
     <aside id="gauche">
-        
         <nav>
             <h2>Filtres :</h2>
             <ul id="filtre">
                 <li class="filtres">
-                    <label for="ingredient">Par Ingredients</label>
+                    <label for="ingredients">Par Ingredients</label>
                         <select class="select" name="ingredients" id="ingredients">
                             <option class="philtre-ingredient" value="">Tous</option>
                              <?php
@@ -57,7 +53,7 @@
                         </select>
                 </li>
                 <li class="filtres">
-                    <label for="allergen">Par Allergens</label>
+                    <label for="allergens">Par Allergens</label>
                         <select class="select" name="allergens" id="allergens">
                             <option class="philtre-allergen" value="">Aucun</option>
                              <?php

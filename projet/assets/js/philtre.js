@@ -18,8 +18,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
     select[i].addEventListener("change", function() {
   
         for (let i = 0; i < products.length; i++) {
-          let resultI = products[i].getAttribute("ingredients");
-          let resultA = products[i].getAttribute("allergens");
+          let resultI = products[i].getAttribute("data-ingredients");
+          let resultA = products[i].getAttribute("data-allergens");
           
           if (selectedAllergen !== "" && selectedIngredient === "") 
           {

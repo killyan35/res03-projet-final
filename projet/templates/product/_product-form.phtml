@@ -1,13 +1,13 @@
  <form method="post" action="product/create" id="createproduct" enctype="multipart/form-data">
                 
                     <label for="name">Name</label>
-                    <input type="text" name="name" id="name" />
+                    <input type="text" name="name" id="name" required>
                     
                     <label for="description">description</label>
-                    <input type="text" name="description" id="description" />
+                    <input class = "textarea" type="text" name="description" id="description" required>
                     
                     <label for="price">price</label>
-                    <input type="number" step="0.01" name="price" id="price" />
+                    <input type="text" name="price" id="price" required>
                     
                     <label for="category_id">dans quel catégorie ?</label>
                     <select name="category_id" id="category_id">
@@ -41,6 +41,7 @@
                             <option class="data-allergen" value="<?= $allergen->getId()?>"><?= $allergen->getName()?></option>
                              <?php } ?>
                         </select>
+                        
                     </section>
                     <input type="hidden" id="allergenData" name="allergenData">
                     <input type="hidden" id="ingredientsData" name="ingredientsData">
@@ -49,10 +50,9 @@
                     <input type="file" name="image" id="image" />
                     
                     <label for="descriptionimg">Description</label>
-                    <input type="text" name="descriptionimg" id="descriptionimg" />
+                    <input  class = "textarea" type="text" name="descriptionimg" id="descriptionimg" />
                     
                     <input type="hidden" name="formName" value="createproduct">
-                    <input type="submit" value="Envoyer"/>
+                    <input class="submit" type="submit" value="Envoyer"/>
                 
  </form>
- <script type="module" src="/res03-projet-final/projet/assets/js/product.js"></script>

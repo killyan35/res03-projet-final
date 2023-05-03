@@ -1,32 +1,29 @@
-<section class="createcat">
-    <h2>Creation de catégorie</h2>
-    <?php  require  '_category-form.phtml'; ?>
-</section>
-<h2><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin">revenir aux menu admin</a></h2>
+<main id="CategorysAdmin">
 
-<section>
-<h1>Toutes les catégories</h1>
-<table>
-    <thead>
-        <tr>
-            <th>Nom de la catégorie</th>
-            <th>Image de la catégorie</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php 
-    foreach($data as $category){ 
-    ?>
-        <tr>
-            <td><?= $category->getName() ?></td>
-            <td><img height=60px src="/res03-projet-final/projet/<?= $category->getImgURL()?>"></td>
-            <td>
-                <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/category/delete/<?=$category->getSlug()?>">Supprimer</a>
-                <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/category/update/<?=$category->getSlug()?>">Modifier</a>
-            </td>
-        </tr>
-    <?php } ?>
-    </tbody>
-</table>
-</section>
+        <h2>Création de catégorie</h2>
+        <?php  require  '_category-form.phtml'; ?>
+        <h2>Toutes les catégories</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Image de la catégorie</th>
+                    <th>Nom de la catégorie</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+            foreach($data as $category){ 
+            ?>
+                <tr>
+                    <td><img height=60px src="/res03-projet-final/projet/<?= $category->getImgURL()?>"></td>
+                    <td><?= $category->getName() ?></td>
+                    <td>
+                        <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/category/delete/<?=$category->getSlug()?>">Supprimer</a>
+                        <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/category/update/<?=$category->getSlug()?>">Modifier</a>
+                    </td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
+</main>

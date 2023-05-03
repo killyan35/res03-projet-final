@@ -1,22 +1,32 @@
 <!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <title>MM</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="title" content="MM Pâtisserie" />
+    <meta name="description" content="Boutique de pâtisserie en ligne" />
+    <meta name="keywords" content="pâtisserie, confiserie, chocolat, evenementiels" />
+    <meta name="author" content="Killyan Gerard" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:title" content="MM Pâtisserie" />   
+    <meta property="og:type" content="Boutique de pâtisserie"/>  
+    <meta property="og:url" content="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/accueil" />
+    <meta property="og:image" content="https://cdn.discordapp.com/attachments/910185843371671562/1100093402084806717/RcLTWF9E-modified.png" />
+    <meta property="og:description" content="Pâtisserie, confiserie, chocolat" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="MM"/>
+    <title>MM</title>
     <link rel="stylesheet" href="/res03-projet-final/projet/assets/styles/css/style.css">
     <script src="https://kit.fontawesome.com/c326a33220.js" crossorigin="anonymous"></script>
-</head>
 </head>
     <body>
         <header>
             <nav class="navbar">
-                
-                 <figure>
+                <div class="logoNav">
                     <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/accueil">
                         
                     </a>
-                </figure>
+                </div>
                 <ul>
                     <?php 
                     if (!isset($_SESSION["Connected"]))
@@ -34,50 +44,42 @@
                         <li><a href="">Instagraam</a></li>
                 </ul>
             </nav>
+            <div id="logo">
+      
+            </div>
         </header>
         
-        
-            <?php require "templates/".$template."/".$template.".phtml";?>
-        
+        <?php require "templates/".$template."/".$template.".phtml";?>
         
         <footer class="footer">
-            
             <section>
-			<ul class="contact">
-				<li><i class="fa fa-map-marker"></i>35 rue. lorem ipsum, lorem ipsum</li>
-				<li><i class="fa fa-phone"></i>02846125415</li>
-				<li><i class="fa fa-envelope"></i><a href="">support@email.com</a></li>
-			</ul>
-			<ul class="reseaux">
-
-					<li><a href=""><i class="fa fa-facebook"></i></a></li>
-					<li><a href=""><i class="fa fa-twitter"></i></a></li>
-					<li><a href=""><i class="fa fa-linkedin"></i></a></li>
-					<li><a href=""><i class="fa fa-github"></i></a></li>
-
-			</ul>
-			</section>
-			<section class="logo">
-			    <h2 class="hidden">hidden</h2>
-			    <figure>
+                <h2 class="hidden">Contact</h2>
+    			<ul class="contact">
+    				<li><i class="fa fa-map-marker"></i>35 rue. lorem ipsum, lorem ipsum</li>
+    				<li><i class="fa fa-phone"></i>02846125415</li>
+    				<li><i class="fa fa-envelope"></i><a href="">support@email.com</a></li>
+    			</ul>
+    			<ul class="reseaux">
+    					<li><a href=""><i class="fa fa-facebook"></i></a></li>
+    					<li><a href=""><i class="fa fa-twitter"></i></a></li>
+    					<li><a href=""><i class="fa fa-linkedin"></i></a></li>
+    			</ul>
+    		</section>
+    		<section class="logo">
+    		    <h2 class="hidden">Logo</h2>
+    		    <div>
             			     
-                </figure>
+                </div>
             </section>
             <section>
-
-				<h2>Contact</h2>
-
-				<form action="" method="post">
-
-					<input type="text" name="email" placeholder="Email">
-					<textarea name="message" placeholder="Message"></textarea>
-					<button>Envoyer</button>
-
-				</form>
-
-			</section>
-            
-		</footer>
+    			<h2>Contact</h2>
+    			<form>
+    				<input type="text" name="email" placeholder="Email">
+    				<textarea name="message" placeholder="Message"></textarea>
+    				<button>Envoyer</button>
+    			</form>
+    		</section>
+    	</footer>
     </body>
 </html>
  

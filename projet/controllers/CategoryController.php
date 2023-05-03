@@ -31,12 +31,24 @@ class CategoryController extends AbstractController {
         { 
             if (isset($post["formName"]))
             {
-                 if ((isset($post['name']) && $post['name']!=='')  &&  (isset($post['url']) && $post['url']!=='')) 
+                 if (isset($post['name']) && $post['name']!=='') 
                  {
                      $categoryToChange = $this->manager->getCategoryBySlug($catslug);
                      $categoryToChange->setName($post['name']);
-                     $categoryToChange->setImgURL($post['url']);
-                     $this->manager->editCategory($categoryToChange);
+                     $uploader = new Uploader();
+                     $media = $uploader->upload($_FILES, "url");
+                    
+                     if(isset($media) && $media!=='' && $media!== null)
+                     {
+                        $post['url'] = $media->getUrl();
+                        $categoryToChange->setImgURL($post['url']);
+                        $this->manager->editCategory($categoryToChange);
+                     }
+                     else
+                     {
+                        $this->manager->editCategoryNameOnly($categoryToChange);
+                     }
+                     
                      header("Location: /res03-projet-final/projet/admin/category");
                  }
             }
@@ -69,7 +81,9 @@ class CategoryController extends AbstractController {
                 $id = $deleteproduct->getId();
                 $deleteing = $this->pmanager->deleteAllergenOnProduct(intval($id));
                 $deletealler = $this->pmanager->deleteIngredientOnProduct(intval($id));
+                var_dump($id);
                 $deleteimg = $this->immanager->getImageById(intval($id));
+                var_dump($deleteimg);
                 $deleteim = $this->immanager->deleteImage($deleteimg);
                 $deletep = $this->pmanager->getProductbyId1(intval($id));
                 $this->pmanager->deleteProduct($deletep);

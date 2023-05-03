@@ -10,13 +10,14 @@ function renderform(event) {
     h2.appendChild(texth2);
     section.appendChild(h2);
     // création du form
-    let fieldset = document.createElement("fieldset");
+    
     let form = document.createElement("form");
     form.setAttribute("method", "post");
     form.setAttribute("action", "panier/formulaire-de-commande");
     form.setAttribute("id", "createCommande");
     
     //rue de l'adresse de facturation
+    let fieldset1 = document.createElement("fieldset");
     let label1 = document.createElement("label");
     label1.setAttribute("for", "street");
     let input1 = document.createElement("input");
@@ -27,6 +28,7 @@ function renderform(event) {
     label1.appendChild(street);
     
     //numero de l'adresse de facturation
+    let fieldset2 = document.createElement("fieldset");
     let label2 = document.createElement("label");
     label2.setAttribute("for", "number");
     let input2 = document.createElement("input");
@@ -37,6 +39,7 @@ function renderform(event) {
     label2.appendChild(number);
     
     //ville de l'adresse de facturation
+    let fieldset3 = document.createElement("fieldset");
     let label3 = document.createElement("label");
     label3.setAttribute("for", "city");
     let input3 = document.createElement("input");
@@ -47,6 +50,7 @@ function renderform(event) {
     label3.appendChild(city);
     
     //Zipcod de l'adresse de facturation
+    let fieldset4 = document.createElement("fieldset");
     let label4 = document.createElement("label");
     label4.setAttribute("for", "zipcod");
     let input4 = document.createElement("input");
@@ -57,8 +61,10 @@ function renderform(event) {
     label4.appendChild(zipcod);
     
     // je récupere le montant total de la commande
+    let fieldset5 = document.createElement("fieldset");
+    fieldset5.setAttribute("class", "hidden");
     let TotalpriceOrder = document.getElementById("cart-total-price");
-    let price = TotalpriceOrder.getAttribute("price");
+    let price = TotalpriceOrder.getAttribute("data-price");
     // je créer son input pour le récuperer plus tard
     let label5 = document.createElement("label");
     label5.setAttribute("for", "totalprice");
@@ -72,8 +78,10 @@ function renderform(event) {
     label5.innerText = "Montant de la commande en €";
     
     // je récupere l'id de l'utilisateur
+    let fieldset6 = document.createElement("fieldset");
+    fieldset6.setAttribute("class", "hidden");
     let userId = document.getElementById("userId");
-    let Id = userId.getAttribute("idus");
+    let Id = userId.getAttribute("data-user");
     // je créer son input pour le récuperer plus tard
     let label6 = document.createElement("label");
     label6.setAttribute("for", "Userid");
@@ -99,29 +107,35 @@ function renderform(event) {
     
     
     //Injection de tout les label dans le form
-    form.appendChild(label1);
-    form.appendChild(input1);
+    fieldset1.appendChild(label1);
+    fieldset1.appendChild(input1);
     
-    form.appendChild(label2);
-    form.appendChild(input2);
+    fieldset2.appendChild(label2);
+    fieldset2.appendChild(input2);
     
-    form.appendChild(label3);
-    form.appendChild(input3);
+    fieldset3.appendChild(label3);
+    fieldset3.appendChild(input3);
     
-    form.appendChild(label4);
-    form.appendChild(input4);
+    fieldset4.appendChild(label4);
+    fieldset4.appendChild(input4);
     
-    form.appendChild(label5);
-    form.appendChild(input5);
+    fieldset5.appendChild(label5);
+    fieldset5.appendChild(input5);
     
-    form.appendChild(label6);
-    form.appendChild(input6);
+    fieldset6.appendChild(label6);
+    fieldset6.appendChild(input6);
+    
+    form.appendChild(fieldset1);
+    form.appendChild(fieldset2);
+    form.appendChild(fieldset3);
+    form.appendChild(fieldset4);
+    form.appendChild(fieldset5);
+    form.appendChild(fieldset6);
     
     form.appendChild(input7);
     form.appendChild(input8);
     
-    fieldset.appendChild(form);
-    section.appendChild(fieldset);
+    section.appendChild(form);
     
    
     // je rend mon prix non modifiable par l'utilisateur

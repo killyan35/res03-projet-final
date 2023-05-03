@@ -1,0 +1,71 @@
+header{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr ;
+    h1{
+        grid-column: 2/3 ;
+        grid-row: 1/2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size:4rem;
+        a{
+            color:#000;
+            text-decoration:none;
+        }
+    }
+    #logoAdmin{
+        grid-column: 1/2 ;
+        grid-row: 1/2;
+        height:10rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image:url("https://cdn.discordapp.com/attachments/910185843371671562/1100093402084806717/RcLTWF9E-modified.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+    h2{
+        grid-column: 3/4 ;
+        grid-row: 1/2;
+        font-size:2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a{
+            text-decoration:none;
+            background-color:darkred;
+            color:#fff;
+            border-radius:5px;
+            padding:0.7rem;
+        }
+    }
+}
+#HomepageAdmin{ //main 
+    grid-column: 2/3 ;
+    grid-row: 2/3 ;
+    ul{
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        h2{
+            grid-column: 2/3 ;
+            padding:5rem;
+            text-align:center;
+            font-size:3rem;
+        }
+        li{
+            grid-column: 2/3 ;
+            padding:2rem;
+            font-size:2rem;
+            a{
+                text-decoration:none;
+                background-color:darkred;
+                color:#fff;
+                border-radius:5px;
+                padding:0.7rem;
+            }
+        }
+    }
+}
+ 

@@ -132,14 +132,6 @@ class Router {
                             $this->uc->displayOneUser($route[3]);
                         }
                     }
-                    // else if ($route[2] === "update")
-                    // {
-                    //     if(isset($route[3]))
-                    //     {
-                    //         $this->uc->displayUpdateFormUser($route[3]);
-                    //         $this->uc->EditUser($_POST, $route[3]);
-                    //     }
-                    // }
                 }
                 
                 
@@ -256,22 +248,6 @@ class Router {
                         }
                     }
                 }
-                // else if ($route[1] === "events")
-                // {
-                //     if ($route[2] === "delete")
-                //     {
-                //         $this->ac->deleteEvent();
-                //     }
-                //     else if ($route[2] === "create")
-                //     {
-                //         $this->ac->createEvent();
-                //     }
-                //     else if ($route[2] === "update")
-                //     {
-                //         $this->ac->updateEvent();
-                //     }
-                    
-                // }
             }
         }
         
@@ -288,6 +264,7 @@ class Router {
         {
             // j'affiche ma homepage en tant que User connecté
             $this->uc->home();
+            
         }
     }
  
@@ -382,6 +359,10 @@ class Router {
             else if($route[0] === "removePanier")
             {
                 $this->page->removeOnPanier($route[1], $route[2]);
+            }
+            else if($route[0] === "carrousel")
+            {
+                $this->uc->carrousel();
             }
             else if($route[0] === "addItem")
             {

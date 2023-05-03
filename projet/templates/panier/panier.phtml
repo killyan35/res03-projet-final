@@ -1,21 +1,22 @@
  <main id="panier">
-     <figure id="logo">
-      
-    </figure>
     <section id="panierSection">
-                <h2>Mon panier</h2>
+        <h1>Mon panier</h1>
+        <aside class="hidden" id="asidePanier">
+                <h2 class="hide">Mon panier</h2>
                 <section id="section">
+                    <h2 class="hidden">Panier</h2>
                     <ul id="ul">
                         
                     </ul>
                 </section>
                 <section id="sec">
-                    
+                    <h2 class="hide">Panier</h2>
                 </section>
                 <footer>
                     <p id="cart-total-price">Total : </p>
-                    <p><button class="button" id="order">Finaliser la commande</button></p>
-                </footer>
+                <p><button class="button" id="order">Finaliser la commande</button></p>
+            </footer>
+        </aside>
      <aside id="asideCompte">
         <ul>
             <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte/mes-commandes">Mes Commandes</a></li>
@@ -24,6 +25,6 @@
         </ul>
     </aside>
     </section>
-    <p class="hidden" email="<?= $_SESSION["Connected"][0]["email"];?>" id="userId" idus="<?= $_SESSION["Connected"][0]["id"];?>"></p>
+    <p class="hidden" email="<?= $_SESSION["Connected"][0]["email"];?>" id="userId" data-user="<?= $_SESSION["Connected"][0]["id"];?>"></p>
     <script type="module" src="/res03-projet-final/projet/assets/js/mainOrder.js"></script>
 </main>

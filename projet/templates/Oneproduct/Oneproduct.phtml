@@ -1,22 +1,18 @@
 <main id="OneProduct">
-    <figure id="logo">
-    
-    </figure>
-    
     <article id="article">
         <header id="headerArticle">
             <h1><?=$data["product"]->getName()?></h1>
         </header>
         <figure id="media">
-            <img src="/res03-projet-final/projet/<?php foreach($data["image"] as $image){ echo $image->getURL(); } ?>">
+            <img src="/res03-projet-final/projet/<?php foreach($data["image"] as $image){ echo $image->getURL(); } ?>" alt="<?php foreach($data["image"] as $image){ echo $image->getDescription(); } ?>">
         </figure>
         <ul id="ulArticle">
-            <li id="description"><h2>Description :</h2>
+            <li id="description"><h2>Description :</h2><p>
                 <?php  
                     echo $data["product"]->getDescription(); 
                 ?>
-            </li>
-            <li id="ingredients"><h2>Ingrédients :</h2>
+            </p></li>
+            <li id="ingredients"><h2>Composition :</h2><p>
                 <?php
                 $ingredient = [];
                 foreach($data["ingredients"] as $ingredients)
@@ -27,8 +23,8 @@
                 }
                 echo(implode(", ", $ingredient));
                 ?>
-            </li>
-            <li id="allergens"><h2>Allergens :</h2>
+            </p></li>
+            <li id="allergens"><h2>Allergens :</h2><p>
                 <?php
                 $allergen = [];
                 foreach($data["allergens"] as $allergens)
@@ -39,14 +35,12 @@
                 }
                 echo(implode(", ", $allergen));
                 ?>
-            </li>
-            <li id="prix" price="<?php  
-                    echo $data["product"]->getPrice(); 
-                ?>">
-               
-                <footer id="footerArticle">
-                    <fieldset>
-                        <form action="" method="post">
+            </p></li>
+            <li id="prix" data-price="<?= $data["product"]->getPrice(); ?>">
+                <section id="footerArticle">
+                    <h2 class="hidden">Footer de mon article</h2>
+                    <form>
+                        <fieldset>
                             <label for="select">Choisissez une taille</label>
                             <select name="size" id="select">
                                 <option value="1">Individuelle</option>
@@ -56,8 +50,8 @@
                                 <option value="10">10 personnes</option>
                                 <option value="12">12 personnes</option>
                             </select>
-                        </form>
-                    </fieldset>
+                        </fieldset>
+                    </form>
                     <p> 
                         <?php  
                         echo $data["product"]->getPrice(); 
@@ -67,14 +61,14 @@
                         <button class="button" id="add-to-cart" data-number="1" data-id="<?php echo $data["product"]->getId(); ?>">Ajouter au panier</button>
                         <button class="add-to-favorite button" data-id="<?php echo $data["product"]->getId(); ?>">Ajouter au favoris</button>
                     </span>
-                </footer>
+                </section>
             </li>
         </ul>
     </article>
     <aside class="hidden" id="asidePanier">
-                    <h2>Mon panier</h2>
-                    
+                <h2>Mon panier</h2>
                 <section id="section">
+                    <h2 class="hidden">Panier</h2>
                     <ul id="ul">
                         
                     </ul>
@@ -90,12 +84,14 @@
         <?php 
         foreach($data["categorys"] as $category){ 
         ?>
-            <li>
-                <h2><?= $category->getName() ?></h2>
-                <a  href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique/<?=$category->getSlug()?>">
-                <figure><img height=60px src="/res03-projet-final/projet/<?= $category->getImgURL()?>"></figure>
-                </a>
-            </li>
+        <li>
+            <h2><?= $category->getName() ?></h2>
+            <a  href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique/<?=$category->getSlug()?>">
+                <figure>
+                    <img src="/res03-projet-final/projet/<?= $category->getImgURL()?>" alt="<?= $category->getName()?>">
+                </figure>
+            </a>
+        </li>
         <?php } ?>
         </ul>
     </footer>

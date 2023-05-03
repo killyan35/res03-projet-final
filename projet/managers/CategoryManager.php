@@ -71,6 +71,16 @@ class CategoryManager extends AbstractManager {
     $query->execute($parameters);
     }
     
+    public function editCategoryNameOnly(Category $category) : void
+    {
+    $query = $this->db->prepare("UPDATE category SET name=:name, slug=:slug WHERE id=:id");
+    $parameters = [
+        'id'=>$category->getId(),
+        'name'=>$category->getName(),
+        'slug'=>$category->getSlug()
+    ];
+    $query->execute($parameters);
+    }
     
     public function deleteCat(Category $category)
     {

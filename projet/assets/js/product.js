@@ -129,5 +129,5 @@ function addIngSelecteur()
                result.push(ingredientSelect[i].value);  
             }
         }
-        let Data = document.getElementById("ingredrientsData").value = JSON.stringify(result);
+        let Data = document.getElementById("ingredientsData").value = JSON.stringify(result);
 }

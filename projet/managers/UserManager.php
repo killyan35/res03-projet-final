@@ -209,6 +209,15 @@ class UserManager extends AbstractManager {
         ];
         $query->execute($parameters);
     }
+    public function deletefavoritefromProductId(int $productId)
+    {
+        
+        $query = $this->db->prepare("DELETE FROM favorite WHERE product_id=:product_id");
+        $parameters = [
+            'product_id'=>$productId
+        ];
+        $query->execute($parameters);
+    }
     public function findAllfavorite(int $userId): array
     {
         $query = $this->db->prepare("SELECT * FROM favorite WHERE user_id = :user_id");
@@ -219,7 +228,7 @@ class UserManager extends AbstractManager {
         $favorites = $query->fetchAll(PDO::FETCH_ASSOC);
         return $favorites;
     }
-    public function findAllOrders(int $userId): array
+    public function findAllOrdersForOneUser(int $userId): array
     {
         $query = $this->db->prepare("
         SELECT orders.*, product.*, orders_has_product.*, media.* FROM orders
@@ -249,5 +258,6 @@ class UserManager extends AbstractManager {
         }
         return $myProducts;
     }
+    
 }
 ?>

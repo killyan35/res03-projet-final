@@ -1,11 +1,11 @@
 <form method="post" action="/res03-projet-final/projet/admin/ingredient/update/<?php echo($data["ingredient"]->getSlug()); ?>" id="editingredient">
-      <label for="id">Id</label>
+      <label class="hidden" for="id">Id</label>
       <input type="text" value="<?= $data["ingredient"]->getId(); ?>" 
-      name="id" id="id" disabled/>
+      name="id" class="hidden" id="id" disabled/>
   
       <label for="name">Name</label>
-      <input type="text" name="name" id="name" value="<?php echo($data["ingredient"]->getName()); ?>"/>
+      <input type="text" name="name" id="name" value="<?php echo($data["ingredient"]->getName()); ?>"required>
       
       <input type="hidden" name="formName" value="editingredient">
-      <input type="submit" value="Envoyer"/>
+      <input class="submit" type="submit" value="Envoyer"/>
 </form>

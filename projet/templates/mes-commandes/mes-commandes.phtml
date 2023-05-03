@@ -1,12 +1,9 @@
 <main id="commandes">
-    <figure id="logo">
-      
-    </figure>
     <section id="comm">
     <h1>Toutes mes commandes</h1>
     <aside id="asideCompte">
         <ul>
-            <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte/mon-compte">Mon Compte</a></li>
+            <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte">Mon Compte</a></li>
             <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte/favoris">Mes Favoris</a></li>
             <li><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/mon-compte/panier">Mon Panier</a></li>
         </ul>
@@ -16,6 +13,7 @@
                  foreach($orders as $order){
         ?>
         <section>
+            <h2 class="hidden">Section toute les tables</h2>
             <table>
                 <thead>
                     <tr>
@@ -32,14 +30,16 @@
                     <tr>
                        
                         <td>
-                            <img src="/res03-projet-final/projet/<?= $Order['url']; ?>">
+                            <figure>
+                                <img alt="<?= $Order['name']; ?>" src="/res03-projet-final/projet/<?= $Order['url']; ?>">
+                            </figure>
                         </td>
                         <td><?= $Order['name']; ?></td>
                         <td><?= $Order['size']; ?></td>
                         <td><?= $Order['number']; ?></td>
                         <td><?php $price = $Order['price']*$Order['number']*$Order['size']; echo $price; ?> €</td>
                 <?php } ?>
-                        <td id="total"><?php echo $order[0]["total_price"]; ?> €</td>
+                        <td class="total"><?php echo $order[0]["total_price"]; ?> €</td>
                         
                     </tr>
                      

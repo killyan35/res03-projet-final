@@ -44,6 +44,33 @@ class UserController extends AbstractController {
                 ];
             $this->renderprive("accueil", $tab);
         }
+        
+    }
+    public function carrousel()
+    {
+        $imgs = $this->imanager->findAllImages();
+        $Carrousels = [];
+        foreach($imgs as $img)
+         {
+            $product_id= $img->getProduct_id();
+            $product = $this->pmanager->getProductById1($product_id);
+            $catID = $product->getCategoryId();
+            $cat = $this->cmanager->getCategoryById($catID);
+            
+            $catSlug = $cat->getSlug();
+            $slug= $product->getSlug();
+            $descriptionImg= $img->getDescription();
+            $url= $img->getUrl();
+            $Carrousel=[
+                "slug" => $slug,
+                "catslug" => $catSlug,
+                "url" => $url,
+                "descriptionIMG" => $descriptionImg
+            ];
+            array_push($Carrousels, $Carrousel);
+         }
+         
+        echo json_encode($Carrousels);
     }
     public function login(array $Post) : void
     {
@@ -173,15 +200,6 @@ class UserController extends AbstractController {
         $delete = $this->manager->getUserByEmail($email);
         $this->manager->deleteUser($delete);
         header("Location: /res03-projet-final/projet/admin/user");
-    }
-    
-    
-    public function displayOneUser(string $email)
-    {
-        $one = $this->manager->getUserByEmail($email);
-        $user = [];
-        $user ["user"] = $one;
-        $this->renderadmin("user", $user);
     }
     public function CommandeUser(array $post)
     {
@@ -404,7 +422,7 @@ class UserController extends AbstractController {
            $user_id = $_SESSION["Connected"][0]["id"];
            $user = $this->manager->getUserById($user_id);
            $address_id = $_SESSION["Connected"][0]["address_id"];
-           $orders = $this->manager->findAllOrders($user_id);
+           $orders = $this->manager->findAllOrdersForOneUser($user_id);
                 if($address_id != null)
                          {
                             $address = $this->manager->getUserAdressByAdressId($address_id);
@@ -422,6 +440,44 @@ class UserController extends AbstractController {
             echo "vous devez etre connecter";    
         }
     }
+    public function displayOneUser(string $email)
+    {
+        $user = $this->manager->getUserByEmail($email);
+        $user_id = $user->getId();
+        $userAdress_id = $user->getAddress_id();
+        if( isset($userAdress_id) && $userAdress_id !== null ) 
+        {
+            $address = $this->manager->getUserAdressByAdressId($userAdress_id);
+            $orders = $this->manager->findAllOrdersForOneUser($user_id);
+            if( isset($orders) && $orders !== null ) 
+            {
+                $tab = 
+                    [
+                    $user,
+                    $address,
+                    $orders
+                    ];
+            }
+            else
+            {
+                 $tab = 
+                    [
+                    $user,
+                    $address
+                    ];
+            }
+        }
+        else
+        {
+            $tab = 
+                    [
+                    $user
+                    ];
+        }
+        $this->renderadmin("user", $tab);
+    }
+
+
     public function displayError404()
     {
         $this->renderpublic("error404", []);

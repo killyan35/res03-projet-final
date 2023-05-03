@@ -1,16 +1,48 @@
 body {
   background-image: url("https://cdn.discordapp.com/attachments/910185843371671562/1100836267878527016/FondMM2.png");
   background-repeat: repeat;
+  font-size: 14px;
+  display: grid;
+  grid-template-columns: 0.5fr 8fr 0.5fr;
 }
-
-.hidden {
+body .hidden {
   display: none;
 }
-
-#logo {
-  height: 15rem;
-  grid-row: 1/2;
-  grid-column: 1/3;
+body header {
+  grid-column: 1/4;
+}
+@media (min-width: 0px) and (max-width: 720px) {
+  body header {
+    height: 12vh;
+  }
+}
+@media (min-width: 720px) and (max-width: 900px) {
+  body header {
+    height: 12vh;
+  }
+}
+@media (min-width: 900px) and (max-width: 1024px) {
+  body header {
+    height: 14vh;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1200px) {
+  body header {
+    height: 20vh;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1919px) {
+  body header {
+    height: 25vh;
+  }
+}
+@media (min-width: 1920px) {
+  body header {
+    height: 28vh;
+  }
+}
+body header #logo {
+  grid-column: 2/3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,264 +51,1211 @@ body {
   background-position: center;
   background-size: contain;
 }
-
-h1 {
+@media (min-width: 0px) and (max-width: 720px) {
+  body #logo {
+    height: 8rem;
+    margin-top: 6rem;
+  }
+}
+@media (min-width: 720px) and (max-width: 900px) {
+  body #logo {
+    height: 9rem;
+    margin-top: 6rem;
+  }
+}
+@media (min-width: 900px) and (max-width: 1024px) {
+  body #logo {
+    height: 12rem;
+    margin-top: 6rem;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1200px) {
+  body #logo {
+    height: 14rem;
+    margin-top: 8rem;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1919px) {
+  body #logo {
+    height: 15rem;
+    margin-top: 8rem;
+  }
+}
+@media (min-width: 1920px) {
+  body #logo {
+    height: 18rem;
+    margin-top: 8rem;
+  }
+}
+body h1 {
   text-transform: capitalize;
 }
-
-h2 {
+body h2 {
   text-transform: capitalize;
 }
-
-h3 {
+body h3 {
   text-transform: capitalize;
 }
-
-h4 {
+body h4 {
   text-transform: capitalize;
-}
-
-body {
-  display: grid;
-  grid-template-columns: 1fr 8fr 1.5fr;
-}
-body header {
-  grid-column: 1/4;
-  height: 15vh;
-}
-body #homepage {
-  grid-column: 2/3;
-}
-body #homepage #sec1 > figure:first-of-type {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 10rem;
-}
-body #homepage #sec1 ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-body #homepage #sec1 ul li a figure img {
-  max-height: 30rem;
-}
-body #homepage #sec2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  padding: 2rem;
-  padding-top: 6rem;
-}
-body #homepage #sec2 h1 {
-  grid-column: 1/2;
-  grid-row: 1/2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 3rem;
-  max-height: 3rem;
-}
-body #homepage #sec2 h1 a {
-  text-decoration: none;
-  color: #000;
-  font-size: 3rem;
-}
-body #homepage #sec2 input {
-  grid-column: 2/3;
-  grid-row: 1/2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-height: 3rem;
-  font-size: 1.5rem;
-}
-body #homepage #sec2 #UlSearchBar {
-  grid-column: 2/3;
-  grid-row: 2/3;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  flex-direction: row;
-}
-body #homepage #sec2 #UlSearchBar li {
-  display: block;
-}
-body #homepage #sec2 #UlSearchBar li a {
-  text-decoration: none;
-  color: #000;
-}
-body #homepage #sec2 #UlSearchBar li a article {
-  display: grid;
-  grid-template-columns: 4fr 4fr;
-  grid-template-rows: 1fr;
-}
-body #homepage #sec2 #UlSearchBar li a article h2 {
-  grid-column: 2/3;
-  grid-row: 1/2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  text-align: center;
-}
-body #homepage #sec2 #UlSearchBar li a article figure {
-  grid-column: 1/2;
-  grid-row: 1/2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-body #homepage #sec2 #UlSearchBar li a article figure img {
-  height: 7rem;
-}
-body #homepage #about {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  padding-top: 8rem;
-}
-body #homepage #about article {
-  padding: 4rem;
 }
 body footer {
   grid-column: 1/4;
   height: 15vh;
 }
 
-.footer {
-  margin-top: 5rem;
-  width: 100%;
-  height: 20rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-}
-.footer .logo {
+#homepage {
   grid-column: 2/3;
-  grid-row: 1/2;
-  height: 100%;
-  width: 100%;
+  padding-top: 5rem;
 }
-.footer .logo figure {
-  margin-top: 2.5rem;
-  grid-column: 2/3;
-  grid-row: 2/3;
-  background-image: url("https://cdn.discordapp.com/attachments/910185843371671562/1100093402084806717/RcLTWF9E-modified.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  height: 70%;
-  width: 70%;
-}
-.footer .logo figure a {
-  height: 100%;
-  width: 100%;
-}
-.footer section:first-of-type {
-  grid-column: 1/2;
-  grid-row: 1/2;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-}
-.footer section:first-of-type .contact {
-  grid-row: 1/2;
-  color: #000;
+#homepage #sec1 #carrousel {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding-top: 1rem;
-}
-.footer section:first-of-type .contact li {
-  color: #fff;
-  padding-top: 1rem;
-}
-.footer section:first-of-type .contact li i {
-  color: #33383b;
-  padding-right: 1rem;
-}
-.footer section:first-of-type .contact li a {
-  text-decoration: none;
-  color: #fff;
-}
-.footer section:first-of-type .reseaux {
-  grid-row: 2/3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
-.footer section:first-of-type .reseaux li {
-  display: inline-flex;
+#homepage #sec1 #carrousel li {
+  padding-bottom: 2rem;
 }
-.footer section:first-of-type .reseaux a {
-  width: 3rem;
-  height: 3rem;
-  background-color: #33383b;
-  border-radius: 5px;
-  font-size: 2rem;
-  color: #ffffff;
-  text-align: center;
-  margin-right: 0.5rem;
+#homepage #sec1 #carrousel li a figure img {
+  border-width: 0.2rem;
+  border-style: solid;
+  border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
 }
-.footer section:first-of-type .reseaux a i {
-  padding: 0.5rem;
+@media (min-width: 0px) and (max-width: 480px) {
+  #homepage #sec1 #carrousel li a figure img {
+    height: 10rem;
+  }
 }
-.footer section:last-of-type {
-  grid-column: 3/4;
-  grid-row: 1/2;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.2fr 1fr;
-  text-align: center;
+@media (min-width: 480px) and (max-width: 720px) {
+  #homepage #sec1 #carrousel li a figure img {
+    height: 13rem;
+  }
 }
-.footer section:last-of-type h2 {
-  grid-column: 2/3;
-  grid-row: 1/2;
-  padding: 1rem;
-  font-size: 2.4rem;
-  color: #fff;
+@media (min-width: 720px) and (max-width: 900px) {
+  #homepage #sec1 #carrousel li a figure img {
+    height: 15rem;
+  }
 }
-.footer section:last-of-type form {
-  grid-column: 2/3;
-  grid-row: 2/3;
-  display: inline-block;
+@media (min-width: 900px) and (max-width: 1024px) {
+  #homepage #sec1 #carrousel li a figure img {
+    height: 18rem;
+  }
 }
-.footer section:last-of-type form input {
-  height: 55px;
-  margin-bottom: 15px;
+@media (min-width: 1024px) and (max-width: 1200px) {
+  #homepage #sec1 #carrousel li a figure img {
+    height: 22rem;
+  }
 }
-.footer section:last-of-type form textarea {
-  height: 100px;
-  margin-bottom: 20px;
+@media (min-width: 1200px) and (max-width: 1924px) {
+  #homepage #sec1 #carrousel li a figure img {
+    height: 25rem;
+  }
 }
-.footer section:last-of-type form button {
-  border-radius: 3px;
-  background-color: #33383b;
-  color: #ffffff;
-  border: 0;
-  padding: 15px 50px;
-  float: right;
+@media (min-width: 1925px) {
+  #homepage #sec1 #carrousel li a figure img {
+    height: 30rem;
+  }
 }
-.footer section:last-of-type form input, .footer section:last-of-type form textarea {
-  display: block;
-  border-radius: 3px;
-  box-sizing: border-box;
-  background-color: #1f2022;
-  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
-  border: none;
-  resize: none;
-  font: inherit;
-  font-size: 14px;
-  font-weight: normal;
-  color: #d1d2d2;
-  width: 400px;
-  padding: 18px;
+@media (max-width: 479px) {
+  #homepage #sec2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0.7rem;
+    padding-top: 1.5rem;
+  }
+  #homepage #sec2 h2 {
+    grid-column: 1/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1rem;
+    max-height: 1rem;
+  }
+  #homepage #sec2 h2 a {
+    text-decoration: none;
+    color: #000;
+    font-size: 0.9rem;
+  }
+  #homepage #sec2 input {
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 1rem;
+    font-size: 0.7rem;
+  }
+  #homepage #sec2 #UlSearchBar {
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+    max-width: 82%;
+  }
+  #homepage #sec2 #UlSearchBar li {
+    display: block;
+    max-width: 40%;
+    margin: 0.4rem;
+  }
+  #homepage #sec2 #UlSearchBar li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #homepage #sec2 #UlSearchBar li a article {
+    display: grid;
+    grid-template-columns: 4fr 4fr;
+    grid-template-rows: 1fr;
+  }
+  #homepage #sec2 #UlSearchBar li a article h2 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  #homepage #sec2 #UlSearchBar li a article figure {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  #homepage #sec2 #UlSearchBar li a article figure img {
+    height: 2.5rem;
+  }
+}
+@media (min-width: 480px) and (max-width: 720px) {
+  #homepage #sec2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem;
+    padding-top: 2rem;
+  }
+  #homepage #sec2 h2 {
+    grid-column: 1/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.3rem;
+    max-height: 1.3rem;
+  }
+  #homepage #sec2 h2 a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.1rem;
+  }
+  #homepage #sec2 input {
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 1.3rem;
+    font-size: 0.9rem;
+  }
+  #homepage #sec2 #UlSearchBar {
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+    max-width: 82%;
+  }
+  #homepage #sec2 #UlSearchBar li {
+    display: block;
+    max-width: 40%;
+    margin: 0.5rem;
+  }
+  #homepage #sec2 #UlSearchBar li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #homepage #sec2 #UlSearchBar li a article {
+    display: grid;
+    grid-template-columns: 4fr 4fr;
+    grid-template-rows: 1fr;
+  }
+  #homepage #sec2 #UlSearchBar li a article h2 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    text-align: center;
+  }
+  #homepage #sec2 #UlSearchBar li a article figure {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  #homepage #sec2 #UlSearchBar li a article figure img {
+    height: 3rem;
+  }
+}
+@media (min-width: 720px) and (max-width: 900px) {
+  #homepage #sec2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1.2rem;
+    padding-top: 2.5rem;
+  }
+  #homepage #sec2 h2 {
+    grid-column: 1/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.5rem;
+    max-height: 1.5rem;
+  }
+  #homepage #sec2 h2 a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.3rem;
+  }
+  #homepage #sec2 input {
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 1.5rem;
+    font-size: 1rem;
+  }
+  #homepage #sec2 #UlSearchBar {
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+    max-width: 82%;
+  }
+  #homepage #sec2 #UlSearchBar li {
+    display: block;
+    max-width: 40%;
+    margin: 0.6rem;
+  }
+  #homepage #sec2 #UlSearchBar li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #homepage #sec2 #UlSearchBar li a article {
+    display: grid;
+    grid-template-columns: 4fr 4fr;
+    grid-template-rows: 1fr;
+  }
+  #homepage #sec2 #UlSearchBar li a article h2 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  #homepage #sec2 #UlSearchBar li a article figure {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  #homepage #sec2 #UlSearchBar li a article figure img {
+    height: 3rem;
+  }
+}
+@media (min-width: 900px) and (max-width: 1024px) {
+  #homepage #sec2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1.2rem;
+    padding-top: 3rem;
+  }
+  #homepage #sec2 h2 {
+    grid-column: 1/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.5rem;
+    max-height: 1.5rem;
+  }
+  #homepage #sec2 h2 a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.5rem;
+  }
+  #homepage #sec2 input {
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 1.7rem;
+    font-size: 1.1rem;
+  }
+  #homepage #sec2 #UlSearchBar {
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+    max-width: 82%;
+  }
+  #homepage #sec2 #UlSearchBar li {
+    display: block;
+    max-width: 40%;
+    margin: 0.6rem;
+  }
+  #homepage #sec2 #UlSearchBar li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #homepage #sec2 #UlSearchBar li a article {
+    display: grid;
+    grid-template-columns: 4fr 4fr;
+    grid-template-rows: 1fr;
+  }
+  #homepage #sec2 #UlSearchBar li a article h2 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  #homepage #sec2 #UlSearchBar li a article figure {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  #homepage #sec2 #UlSearchBar li a article figure img {
+    height: 3.5rem;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1200px) {
+  #homepage #sec2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1.5rem;
+    padding-top: 3.5rem;
+  }
+  #homepage #sec2 h2 {
+    grid-column: 1/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.8rem;
+    max-height: 1.8rem;
+  }
+  #homepage #sec2 h2 a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.8rem;
+  }
+  #homepage #sec2 input {
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 2rem;
+    font-size: 1.3rem;
+  }
+  #homepage #sec2 #UlSearchBar {
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+    max-width: 82%;
+  }
+  #homepage #sec2 #UlSearchBar li {
+    display: block;
+    max-width: 40%;
+    margin: 0.7rem;
+  }
+  #homepage #sec2 #UlSearchBar li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #homepage #sec2 #UlSearchBar li a article {
+    display: grid;
+    grid-template-columns: 4fr 4fr;
+    grid-template-rows: 1fr;
+  }
+  #homepage #sec2 #UlSearchBar li a article h2 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+  #homepage #sec2 #UlSearchBar li a article figure {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  #homepage #sec2 #UlSearchBar li a article figure img {
+    height: 4rem;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1919px) {
+  #homepage #sec2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1.7rem;
+    padding-top: 4rem;
+  }
+  #homepage #sec2 h2 {
+    grid-column: 1/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    max-height: 2rem;
+  }
+  #homepage #sec2 h2 a {
+    text-decoration: none;
+    color: #000;
+    font-size: 2rem;
+  }
+  #homepage #sec2 input {
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 2rem;
+    font-size: 1.4rem;
+  }
+  #homepage #sec2 #UlSearchBar {
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+    max-width: 82%;
+  }
+  #homepage #sec2 #UlSearchBar li {
+    display: block;
+    max-width: 40%;
+    margin: 0.8rem;
+  }
+  #homepage #sec2 #UlSearchBar li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #homepage #sec2 #UlSearchBar li a article {
+    display: grid;
+    grid-template-columns: 4fr 4fr;
+    grid-template-rows: 1fr;
+  }
+  #homepage #sec2 #UlSearchBar li a article h2 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  #homepage #sec2 #UlSearchBar li a article figure {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  #homepage #sec2 #UlSearchBar li a article figure img {
+    height: 5rem;
+  }
+}
+@media (min-width: 1920px) {
+  #homepage #sec2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem;
+    padding-top: 6rem;
+  }
+  #homepage #sec2 h2 {
+    grid-column: 1/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    max-height: 3rem;
+  }
+  #homepage #sec2 h2 a {
+    text-decoration: none;
+    color: #000;
+    font-size: 3rem;
+  }
+  #homepage #sec2 input {
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 3rem;
+    font-size: 1.5rem;
+  }
+  #homepage #sec2 #UlSearchBar {
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+    max-width: 82%;
+  }
+  #homepage #sec2 #UlSearchBar li {
+    display: block;
+    max-width: 40%;
+    margin: 1rem;
+  }
+  #homepage #sec2 #UlSearchBar li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #homepage #sec2 #UlSearchBar li a article {
+    display: grid;
+    grid-template-columns: 4fr 4fr;
+    grid-template-rows: 1fr;
+  }
+  #homepage #sec2 #UlSearchBar li a article h2 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    text-align: center;
+  }
+  #homepage #sec2 #UlSearchBar li a article figure {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  #homepage #sec2 #UlSearchBar li a article figure img {
+    height: 7rem;
+  }
+}
+@media (min-width: 0px) and (max-width: 720px) {
+  #homepage #about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 2rem;
+  }
+  #homepage #about article {
+    padding: 1.4rem;
+  }
+  #homepage #about article h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-bottom: 0.8rem;
+  }
+  #homepage #about article p {
+    font-size: 0.9rem;
+    line-height: 1.2rem;
+    text-align: center;
+  }
+}
+@media (min-width: 720px) and (max-width: 900px) {
+  #homepage #about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 2rem;
+  }
+  #homepage #about article {
+    padding: 1.4rem;
+  }
+  #homepage #about article h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-bottom: 0.8rem;
+  }
+  #homepage #about article p {
+    font-size: 0.9rem;
+    line-height: 1.2rem;
+    text-align: center;
+  }
+}
+@media (min-width: 900px) and (max-width: 1024px) {
+  #homepage #about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 2.5rem;
+  }
+  #homepage #about article {
+    padding: 1.8rem;
+  }
+  #homepage #about article h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+  #homepage #about article p {
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+    text-align: center;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1200px) {
+  #homepage #about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 3rem;
+  }
+  #homepage #about article {
+    padding: 2rem;
+  }
+  #homepage #about article h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    text-align: center;
+    padding-bottom: 1.2rem;
+  }
+  #homepage #about article p {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    text-align: center;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1919px) {
+  #homepage #about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 5rem;
+  }
+  #homepage #about article {
+    padding: 3rem;
+  }
+  #homepage #about article h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    text-align: center;
+    padding-bottom: 1.7rem;
+  }
+  #homepage #about article p {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    text-align: center;
+  }
+}
+@media (min-width: 1920px) {
+  #homepage #about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 8rem;
+  }
+  #homepage #about article {
+    padding: 4rem;
+  }
+  #homepage #about article h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+  #homepage #about article p {
+    font-size: 1.8rem;
+    line-height: 2rem;
+    text-align: center;
+  }
 }
 
+@media (min-width: 0px) and (max-width: 530px) {
+  .footer {
+    margin-top: 5rem;
+    width: 100%;
+    height: 28rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .footer section:first-of-type {
+    grid-row: 2/3;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+  .footer section:first-of-type .contact {
+    grid-row: 1/2;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 1rem;
+  }
+  .footer section:first-of-type .contact li {
+    color: #fff;
+    padding-top: 1rem;
+  }
+  .footer section:first-of-type .contact li i {
+    color: #33383b;
+    padding-right: 1rem;
+  }
+  .footer section:first-of-type .contact li a {
+    text-decoration: none;
+    color: #fff;
+  }
+  .footer section:first-of-type .reseaux {
+    grid-row: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .footer section:first-of-type .reseaux li {
+    display: inline-flex;
+  }
+  .footer section:first-of-type .reseaux a {
+    width: 2rem;
+    height: 2rem;
+    background-color: #33383b;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #ffffff;
+    text-align: center;
+    margin-right: 0.3rem;
+  }
+  .footer section:first-of-type .reseaux a i {
+    padding: 0.3rem;
+  }
+  .footer section:last-of-type {
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1fr;
+    text-align: center;
+  }
+  .footer section:last-of-type h2 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    padding: 1rem;
+    font-size: 1.3rem;
+    color: #fff;
+  }
+  .footer section:last-of-type form {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: inline-block;
+  }
+  .footer section:last-of-type form input {
+    height: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .footer section:last-of-type form textarea {
+    height: 3.5rem;
+    margin-bottom: 1rem;
+  }
+  .footer section:last-of-type form button {
+    border-radius: 3px;
+    background-color: #33383b;
+    color: #ffffff;
+    border: 0;
+    padding: 15px 50px;
+    float: right;
+  }
+  .footer section:last-of-type form input, .footer section:last-of-type form textarea {
+    display: block;
+    border-radius: 3px;
+    box-sizing: border-box;
+    background-color: #1f2022;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    border: none;
+    resize: none;
+    font: inherit;
+    font-size: 0.7rem;
+    font-weight: normal;
+    color: #d1d2d2;
+    width: 14rem;
+    padding: 1rem;
+  }
+}
+@media (min-width: 530px) and (max-width: 720px) {
+  .footer {
+    margin-top: 5rem;
+    width: 100%;
+    height: 26rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .footer section:first-of-type {
+    grid-row: 2/3;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+  .footer section:first-of-type .contact {
+    grid-row: 1/2;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 1rem;
+  }
+  .footer section:first-of-type .contact li {
+    color: #fff;
+    padding-top: 1rem;
+  }
+  .footer section:first-of-type .contact li i {
+    color: #33383b;
+    padding-right: 1rem;
+  }
+  .footer section:first-of-type .contact li a {
+    text-decoration: none;
+    color: #fff;
+  }
+  .footer section:first-of-type .reseaux {
+    grid-row: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .footer section:first-of-type .reseaux li {
+    display: inline-flex;
+  }
+  .footer section:first-of-type .reseaux a {
+    width: 2rem;
+    height: 2rem;
+    background-color: #33383b;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #ffffff;
+    text-align: center;
+    margin-right: 0.3rem;
+  }
+  .footer section:first-of-type .reseaux a i {
+    padding: 0.3rem;
+  }
+  .footer section:last-of-type {
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1fr;
+    text-align: center;
+  }
+  .footer section:last-of-type h2 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    padding: 1rem;
+    font-size: 1.3rem;
+    color: #fff;
+  }
+  .footer section:last-of-type form {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: inline-block;
+  }
+  .footer section:last-of-type form input {
+    height: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .footer section:last-of-type form textarea {
+    height: 3.5rem;
+    margin-bottom: 1rem;
+  }
+  .footer section:last-of-type form button {
+    border-radius: 3px;
+    background-color: #33383b;
+    color: #ffffff;
+    border: 0;
+    padding: 15px 50px;
+    float: right;
+  }
+  .footer section:last-of-type form input, .footer section:last-of-type form textarea {
+    display: block;
+    border-radius: 3px;
+    box-sizing: border-box;
+    background-color: #1f2022;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    border: none;
+    resize: none;
+    font: inherit;
+    font-size: 0.7rem;
+    font-weight: normal;
+    color: #d1d2d2;
+    width: 14rem;
+    padding: 1rem;
+  }
+}
+@media (min-width: 720px) and (max-width: 1200px) {
+  .footer {
+    margin-top: 5rem;
+    width: 100%;
+    height: 18rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  .footer .logo {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    height: 100%;
+    width: 100%;
+  }
+  .footer .logo figure {
+    margin-top: 2rem;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    background-image: url("https://cdn.discordapp.com/attachments/910185843371671562/1100093402084806717/RcLTWF9E-modified.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 50%;
+    width: 50%;
+  }
+  .footer .logo figure a {
+    height: 100%;
+    width: 100%;
+  }
+  .footer section:first-of-type {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+  .footer section:first-of-type .contact {
+    grid-row: 1/2;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 1rem;
+  }
+  .footer section:first-of-type .contact li {
+    color: #fff;
+    padding-top: 1rem;
+  }
+  .footer section:first-of-type .contact li i {
+    color: #33383b;
+    padding-right: 1rem;
+  }
+  .footer section:first-of-type .contact li a {
+    text-decoration: none;
+    color: #fff;
+  }
+  .footer section:first-of-type .reseaux {
+    grid-row: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .footer section:first-of-type .reseaux li {
+    display: inline-flex;
+  }
+  .footer section:first-of-type .reseaux a {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #33383b;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    color: #ffffff;
+    text-align: center;
+    margin-right: 0.5rem;
+  }
+  .footer section:first-of-type .reseaux a i {
+    padding: 0.5rem;
+  }
+  .footer section:last-of-type {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1fr;
+    text-align: center;
+  }
+  .footer section:last-of-type h2 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  .footer section:last-of-type form {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: inline-block;
+  }
+  .footer section:last-of-type form input {
+    height: 3rem;
+    margin-bottom: 1rem;
+  }
+  .footer section:last-of-type form textarea {
+    height: 4rem;
+    margin-bottom: 1.3rem;
+  }
+  .footer section:last-of-type form button {
+    border-radius: 3px;
+    background-color: #33383b;
+    color: #ffffff;
+    border: 0;
+    padding: 15px 50px;
+    float: right;
+  }
+  .footer section:last-of-type form input, .footer section:last-of-type form textarea {
+    display: block;
+    border-radius: 3px;
+    box-sizing: border-box;
+    background-color: #1f2022;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    border: none;
+    resize: none;
+    font: inherit;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #d1d2d2;
+    width: 14rem;
+    padding: 1rem;
+  }
+}
+@media (min-width: 1200px) {
+  .footer {
+    margin-top: 5rem;
+    width: 100%;
+    height: 25rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  .footer .logo {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    height: 100%;
+    width: 100%;
+  }
+  .footer .logo figure {
+    margin-top: 2.5rem;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    background-image: url("https://cdn.discordapp.com/attachments/910185843371671562/1100093402084806717/RcLTWF9E-modified.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 60%;
+    width: 60%;
+  }
+  .footer .logo figure a {
+    height: 100%;
+    width: 100%;
+  }
+  .footer section:first-of-type {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+  .footer section:first-of-type .contact {
+    grid-row: 1/2;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 1rem;
+  }
+  .footer section:first-of-type .contact li {
+    color: #fff;
+    padding-top: 1rem;
+  }
+  .footer section:first-of-type .contact li i {
+    color: #33383b;
+    padding-right: 1rem;
+  }
+  .footer section:first-of-type .contact li a {
+    text-decoration: none;
+    color: #fff;
+  }
+  .footer section:first-of-type .reseaux {
+    grid-row: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .footer section:first-of-type .reseaux li {
+    display: inline-flex;
+  }
+  .footer section:first-of-type .reseaux a {
+    width: 3rem;
+    height: 3rem;
+    background-color: #33383b;
+    border-radius: 5px;
+    font-size: 2rem;
+    color: #ffffff;
+    text-align: center;
+    margin-right: 0.5rem;
+  }
+  .footer section:first-of-type .reseaux a i {
+    padding: 0.5rem;
+  }
+  .footer section:last-of-type {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1fr;
+    text-align: center;
+  }
+  .footer section:last-of-type h2 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    padding: 1rem;
+    font-size: 2rem;
+    color: #fff;
+  }
+  .footer section:last-of-type form {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: inline-block;
+  }
+  .footer section:last-of-type form input {
+    height: 4rem;
+    margin-bottom: 1rem;
+  }
+  .footer section:last-of-type form textarea {
+    height: 7rem;
+    margin-bottom: 1.3rem;
+  }
+  .footer section:last-of-type form button {
+    border-radius: 3px;
+    background-color: #33383b;
+    color: #ffffff;
+    border: 0;
+    padding: 15px 50px;
+    float: right;
+  }
+  .footer section:last-of-type form input, .footer section:last-of-type form textarea {
+    display: block;
+    border-radius: 3px;
+    box-sizing: border-box;
+    background-color: #1f2022;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    border: none;
+    resize: none;
+    font: inherit;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #d1d2d2;
+    width: 28rem;
+    padding: 1.2rem;
+  }
+}
 .navbar {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
@@ -286,13 +1265,11 @@ body footer {
   grid-template-columns: 1fr 4fr 2fr;
   text-transform: capitalize;
 }
-.navbar a {
+.navbar .logoNav {
   grid-column: 1/2;
+  display: flex;
   align-items: center;
   justify-content: center;
-  height: 6rem;
-}
-.navbar a figure {
   margin-top: 0.5rem;
   background-image: url("https://cdn.discordapp.com/attachments/910185843371671562/1100093402084806717/RcLTWF9E-modified.png");
   background-repeat: no-repeat;
@@ -300,17 +1277,67 @@ body footer {
   background-size: contain;
   height: 5rem;
 }
+.navbar .logoNav a {
+  width: 100%;
+  height: 100%;
+}
 .navbar ul {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
+@media (min-width: 0px) and (max-width: 480px) {
+  .navbar ul li {
+    padding: 0.2rem;
+    margin: 0.2rem;
+    font-size: 0.7rem;
+  }
+}
+@media (min-width: 480px) and (max-width: 720px) {
+  .navbar ul li {
+    padding: 0.4rem;
+    margin: 0.4rem;
+    font-size: 0.7rem;
+  }
+}
+@media (min-width: 720px) and (max-width: 900px) {
+  .navbar ul li {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    font-size: 1.4rem;
+  }
+}
+@media (min-width: 900px) and (max-width: 1024px) {
+  .navbar ul li {
+    padding: 0.7rem;
+    margin: 0.7rem;
+    font-size: 1.7rem;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .navbar ul li {
+    padding: 0.8rem;
+    margin: 0.8rem;
+    font-size: 1.8rem;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1924px) {
+  .navbar ul li {
+    padding: 0.9rem;
+    margin: 0.9rem;
+    font-size: 1.9rem;
+  }
+}
+@media (min-width: 1925px) {
+  .navbar ul li {
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 2rem;
+  }
+}
 .navbar ul li {
-  font-size: 2rem;
   list-style: none;
   color: #fff;
-  padding: 1rem;
-  margin: 1rem;
   position: relative;
   cursor: pointer;
   white-space: nowrap;
@@ -345,42 +1372,185 @@ body footer {
   grid-column: 3/4;
 }
 
-#boutique {
-  grid-row: 2/3;
-  grid-column: 2/3;
-  min-height: 85vh;
+@media (min-width: 0px) and (max-width: 900px) {
+  #boutique {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    padding-top: 5rem;
+  }
+  #boutique h1 {
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #boutique #categorie ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #boutique #categorie ul li {
+    text-align: center;
+    display: block;
+    padding: 1rem;
+  }
+  #boutique #categorie ul li h2 {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+  #boutique #categorie ul li a figure img {
+    height: 10rem;
+    max-height: 10rem;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
 }
-#boutique h1 {
-  font-size: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 3rem;
-  padding-top: 4rem;
+@media (min-width: 900px) and (max-width: 1024px) {
+  #boutique {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    padding-top: 8rem;
+  }
+  #boutique h1 {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1.5rem;
+  }
+  #boutique #categorie ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #boutique #categorie ul li {
+    text-align: center;
+    display: block;
+    padding: 1.4rem;
+  }
+  #boutique #categorie ul li h2 {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+  #boutique #categorie ul li a figure img {
+    height: 12rem;
+    max-height: 12rem;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
 }
-#boutique #categorie ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+@media (min-width: 1024px) and (max-width: 1200px) {
+  #boutique {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    padding-top: 8rem;
+  }
+  #boutique h1 {
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1.5rem;
+  }
+  #boutique #categorie ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #boutique #categorie ul li {
+    text-align: center;
+    display: block;
+    padding: 1.5rem;
+  }
+  #boutique #categorie ul li h2 {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  #boutique #categorie ul li a figure img {
+    height: 15rem;
+    max-height: 15rem;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
 }
-#boutique #categorie ul li {
-  text-align: center;
-  display: block;
-  padding: 4rem;
+@media (min-width: 1200px) and (max-width: 1919px) {
+  #boutique {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    padding-top: 10rem;
+  }
+  #boutique h1 {
+    font-size: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2rem;
+  }
+  #boutique #categorie ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #boutique #categorie ul li {
+    text-align: center;
+    display: block;
+    padding: 2rem;
+  }
+  #boutique #categorie ul li h2 {
+    font-size: 2.5rem;
+    padding: 1rem;
+  }
+  #boutique #categorie ul li a figure img {
+    height: 20rem;
+    max-height: 20rem;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
 }
-#boutique #categorie ul li h2 {
-  font-size: 3rem;
-  padding: 1rem;
+@media (min-width: 1920px) {
+  #boutique {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    padding-top: 15rem;
+  }
+  #boutique h1 {
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 3rem;
+  }
+  #boutique #categorie ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #boutique #categorie ul li {
+    text-align: center;
+    display: block;
+    padding: 4rem;
+  }
+  #boutique #categorie ul li h2 {
+    font-size: 3rem;
+    padding: 1rem;
+  }
+  #boutique #categorie ul li a figure img {
+    height: 25rem;
+    max-height: 25rem;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
 }
-#boutique #categorie ul li a figure img {
-  height: 25rem;
-  max-height: 25rem;
-  border-width: 0.2rem;
-  border-style: solid;
-  border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
-}
-
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -435,818 +1605,4054 @@ table {
   border-spacing: 0;
 }
 
-#connexion {
-  height: 85vh;
-  grid-row: 2/3;
-  grid-column: 2/3;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+@media (max-width: 479px) {
+  #connexion {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: grid;
+    grid-template-rows: 0.8fr 0.5fr;
+    padding-bottom: 3rem;
+  }
+  #connexion section h2 {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+  }
+  #connexion section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #connexion section form label {
+    padding-bottom: 0.4rem;
+    text-align: center;
+    font-size: 0.8rem;
+    width: 60%;
+  }
+  #connexion section form input {
+    margin: 0.8rem;
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+    width: 80%;
+    font-size: 0.8rem;
+  }
+  #connexion section form .submit {
+    padding: 0.6rem;
+    margin: 0.6rem;
+    width: 40%;
+    border-radius: 0.4rem;
+    background-color: darkred;
+    font-size: 0.8rem;
+    color: #fff;
+  }
+  #connexion .log {
+    grid-row: 1/2;
+  }
+  #connexion .regist {
+    grid-row: 2/3;
+  }
 }
-#connexion section h2 {
-  font-size: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 6rem;
+@media (min-width: 480px) and (max-width: 900px) {
+  #connexion {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 4rem;
+  }
+  #connexion section h2 {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1.5rem;
+  }
+  #connexion section form {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #connexion section form label {
+    padding-bottom: 0.4rem;
+    text-align: center;
+    font-size: 0.8rem;
+    width: 60%;
+  }
+  #connexion section form input {
+    margin: 0.8rem;
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+    width: 80%;
+    font-size: 0.8rem;
+  }
+  #connexion section form .submit {
+    padding: 0.6rem;
+    margin: 0.6rem;
+    width: 40%;
+    border-radius: 0.4rem;
+    background-color: darkred;
+    font-size: 0.8rem;
+    color: #fff;
+  }
+  #connexion .log {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  #connexion .regist {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
 }
-#connexion section form {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+@media (min-width: 900px) and (max-width: 1200px) {
+  #connexion {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  #connexion section h2 {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2rem;
+  }
+  #connexion section form {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #connexion section form label {
+    padding-bottom: 0.5rem;
+    text-align: center;
+    font-size: 1rem;
+    width: 60%;
+  }
+  #connexion section form input {
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    width: 70%;
+    font-size: 1rem;
+  }
+  #connexion section form .submit {
+    padding: 0.7rem;
+    margin: 0.7rem;
+    width: 30%;
+    border-radius: 0.5rem;
+    background-color: darkred;
+    font-size: 1rem;
+    color: #fff;
+  }
+  #connexion .log {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  #connexion .regist {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
 }
-#connexion section form label {
-  padding-bottom: 0.5rem;
-  text-align: center;
-  font-size: 2rem;
-  width: 60%;
+@media (min-width: 1200px) and (max-width: 1919px) {
+  #connexion {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  #connexion section h2 {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 3rem;
+  }
+  #connexion section form {
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #connexion section form label {
+    padding-bottom: 0.5rem;
+    text-align: center;
+    font-size: 1.4rem;
+    width: 60%;
+  }
+  #connexion section form input {
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    width: 70%;
+    font-size: 1.4rem;
+  }
+  #connexion section form .submit {
+    padding: 1rem;
+    margin: 1rem;
+    width: 30%;
+    border-radius: 0.5rem;
+    background-color: darkred;
+    font-size: 1.4rem;
+    color: #fff;
+  }
+  #connexion .log {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  #connexion .regist {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
 }
-#connexion section form input {
-  margin: 1rem;
-  padding: 0.5rem;
-  border-radius: 0.2rem;
-  width: 60%;
+@media (min-width: 1920px) {
+  #connexion {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  #connexion section h2 {
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 6rem;
+  }
+  #connexion section form {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #connexion section form label {
+    padding-bottom: 0.5rem;
+    text-align: center;
+    font-size: 2rem;
+    width: 60%;
+  }
+  #connexion section form input {
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    width: 60%;
+    font-size: 1.5rem;
+  }
+  #connexion section form .submit {
+    padding: 1rem;
+    margin: 1rem;
+    width: 20%;
+    border-radius: 0.5rem;
+    background-color: darkred;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  #connexion .log {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  #connexion .regist {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
 }
-#connexion section form .submit {
-  padding: 1rem;
-  margin: 1rem;
-  width: 20%;
-  border-radius: 0.5rem;
-  background-color: darkred;
-  font-size: 1.5rem;
-  color: #fff;
+@media (min-width: 0px) and (max-width: 425px) {
+  #mon-compte {
+    grid-column: 2/3;
+    padding-top: 5rem;
+  }
+  #mon-compte h1 {
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2rem;
+    text-align: center;
+  }
+  #mon-compte #SectionInfoPerso {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.01fr 0.3fr 0.1fr;
+  }
+  #mon-compte #SectionInfoPerso #ulListeInfo {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    border: 0.2rem solid;
+    border-radius: 5px;
+  }
+  #mon-compte #SectionInfoPerso #ulListeInfo li {
+    margin: 1rem;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    list-style: none;
+    color: #000;
+  }
+  #mon-compte #SectionInfoPerso #ulListeInfo li button {
+    margin: 1rem;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  #mon-compte #SectionInfoPerso #asideCompte {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+  #mon-compte #SectionInfoPerso #asideCompte > ul li {
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+    list-style: none;
+    color: #000;
+  }
+  #mon-compte #SectionInfoPerso #asideCompte > ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #mon-compte #SectionInfoPerso form {
+    display: block;
+  }
+  #mon-compte #SectionInfoPerso form fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    margin: 1rem;
+    line-height: 1rem;
+    width: 80%;
+  }
+  #mon-compte #SectionInfoPerso form fieldset input {
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+  }
+  #mon-compte #SectionInfoPerso form fieldset label {
+    display: flex;
+    justify-content: center;
+    font-size: 1.3rem;
+    padding-bottom: 0.7rem;
+    padding-top: 0.7rem;
+  }
+  #mon-compte #SectionInfoPerso form .sub {
+    margin: 1rem;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  #mon-compte #SectionInfoPerso #createAddress {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+  #mon-compte #SectionInfoPerso #edituser {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+  #mon-compte #SectionInfoPerso .hidden {
+    display: none;
+  }
 }
-#connexion .log {
-  grid-column: 1/2;
-  grid-row: 1/2;
+@media (min-width: 425px) and (max-width: 1024px) {
+  #mon-compte {
+    grid-column: 2/3;
+    padding-top: 5rem;
+  }
+  #mon-compte h1 {
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+  }
+  #mon-compte #SectionInfoPerso {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  #mon-compte #SectionInfoPerso #ulListeInfo {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    border: 0.2rem solid;
+    border-radius: 5px;
+  }
+  #mon-compte #SectionInfoPerso #ulListeInfo li {
+    margin: 1rem;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    list-style: none;
+    color: #000;
+  }
+  #mon-compte #SectionInfoPerso #ulListeInfo li button {
+    margin: 1rem;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  #mon-compte #SectionInfoPerso #asideCompte {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    z-index: 100;
+    position: sticky;
+    top: 20rem;
+  }
+  #mon-compte #SectionInfoPerso #asideCompte > ul li {
+    font-size: 1.8rem;
+    line-height: 3rem;
+    list-style: none;
+    color: #000;
+  }
+  #mon-compte #SectionInfoPerso #asideCompte > ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #mon-compte #SectionInfoPerso form fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    margin: 1rem;
+    line-height: 1rem;
+    width: 80%;
+  }
+  #mon-compte #SectionInfoPerso form fieldset input {
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+  }
+  #mon-compte #SectionInfoPerso form fieldset label {
+    display: flex;
+    justify-content: center;
+    font-size: 1.3rem;
+    padding-bottom: 0.7rem;
+    padding-top: 0.7rem;
+  }
+  #mon-compte #SectionInfoPerso form .sub {
+    margin: 1rem;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  #mon-compte #SectionInfoPerso #createAddress {
+    grid-column: 1/3;
+    grid-row: 2/3;
+  }
+  #mon-compte #SectionInfoPerso #edituser {
+    grid-column: 1/3;
+    grid-row: 2/3;
+  }
+  #mon-compte #SectionInfoPerso .hidden {
+    display: none;
+  }
 }
-#connexion .regist {
-  grid-column: 2/3;
-  grid-row: 1/2;
+@media (min-width: 1024px) {
+  #mon-compte {
+    grid-column: 2/3;
+    padding-top: 5rem;
+  }
+  #mon-compte h1 {
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+  }
+  #mon-compte #SectionInfoPerso {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    grid-template-rows: 1fr;
+  }
+  #mon-compte #SectionInfoPerso #ulListeInfo {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    border: 0.2rem solid;
+    border-radius: 5px;
+  }
+  #mon-compte #SectionInfoPerso #ulListeInfo li {
+    margin: 1rem;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    list-style: none;
+    color: #000;
+  }
+  #mon-compte #SectionInfoPerso #ulListeInfo li button {
+    margin: 1rem;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  #mon-compte #SectionInfoPerso #asideCompte {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    z-index: 100;
+    position: sticky;
+    top: 20rem;
+  }
+  #mon-compte #SectionInfoPerso #asideCompte > ul li {
+    font-size: 2rem;
+    line-height: 3rem;
+    list-style: none;
+    color: #000;
+  }
+  #mon-compte #SectionInfoPerso #asideCompte > ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #mon-compte #SectionInfoPerso form fieldset {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 1rem;
+    line-height: 1rem;
+    width: 50%;
+  }
+  #mon-compte #SectionInfoPerso form fieldset input {
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+  }
+  #mon-compte #SectionInfoPerso form fieldset label {
+    display: flex;
+    justify-content: center;
+    font-size: 1.3rem;
+    padding-bottom: 0.7rem;
+    padding-top: 0.7rem;
+  }
+  #mon-compte #SectionInfoPerso form .sub {
+    margin: 1rem;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  #mon-compte #SectionInfoPerso #createAddress {
+    grid-column: 3/4;
+    grid-row: 1/2;
+  }
+  #mon-compte #SectionInfoPerso #edituser {
+    grid-column: 3/4;
+    grid-row: 1/2;
+  }
+  #mon-compte #SectionInfoPerso .hidden {
+    display: none;
+  }
 }
-
-#mon-compte {
-  grid-column: 2/3;
+@media (min-width: 0px) and (max-width: 1024px) {
+  #favorite {
+    grid-column: 2/3;
+    padding-top: 5rem;
+  }
+  #favorite h1 {
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    text-align: center;
+  }
+  #favorite #section {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.01fr 0.1fr;
+  }
+  #favorite #section > #ul {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #favorite #section > #ul > li > section {
+    text-align: center;
+    justify-content: start;
+    display: block;
+    padding: 2rem;
+  }
+  #favorite #section > #ul > li > section button {
+    margin-top: 0.2rem;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  #favorite #section > #ul > li > section h2 {
+    font-size: 2rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  #favorite #section > #ul > li > section a figure img {
+    max-height: 15rem;
+  }
+  #favorite #section #asideCompte {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+  #favorite #section #asideCompte > ul li {
+    font-size: 2rem;
+    line-height: 3rem;
+    list-style: none;
+    color: #000;
+  }
+  #favorite #section #asideCompte > ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #favorite .hidden {
+    display: none;
+  }
 }
-#mon-compte > figure:first-of-type {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 4rem;
+@media (min-width: 1024px) {
+  #favorite {
+    grid-column: 2/3;
+    padding-top: 5rem;
+  }
+  #favorite h1 {
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    text-align: center;
+  }
+  #favorite #section {
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: 1fr;
+  }
+  #favorite #section > #ul {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #favorite #section > #ul > li > section {
+    text-align: center;
+    justify-content: start;
+    display: block;
+    padding: 2rem;
+  }
+  #favorite #section > #ul > li > section button {
+    margin-top: 0.2rem;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  #favorite #section > #ul > li > section h2 {
+    font-size: 2rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  #favorite #section > #ul > li > section a figure img {
+    max-height: 15rem;
+  }
+  #favorite #section #asideCompte {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    z-index: 100;
+    position: sticky;
+    top: 20rem;
+  }
+  #favorite #section #asideCompte > ul li {
+    font-size: 2rem;
+    line-height: 3rem;
+    list-style: none;
+    color: #000;
+  }
+  #favorite #section #asideCompte > ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #favorite .hidden {
+    display: none;
+  }
 }
-#mon-compte h1 {
-  font-size: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+@media (min-width: 0px) and (max-width: 720px) {
+  #commandes {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    padding-top: 4rem;
+  }
+  #commandes #comm {
+    text-transform: capitalize;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.01 0.01fr;
+  }
+  #commandes #comm h1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    text-align: center;
+  }
+  #commandes #comm section {
+    grid-column: 1/2;
+    max-width: 90%;
+  }
+  #commandes #comm section table {
+    border: 2px solid;
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+  }
+  #commandes #comm section table thead tr th {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+  #commandes #comm section table tbody tr td {
+    text-align: center;
+    font-size: 0.8rem;
+    padding-bottom: 0.5rem;
+    vertical-align: middle;
+  }
+  #commandes #comm section table tbody tr td img {
+    height: 3rem;
+  }
+  #commandes #comm section table tbody tr .total {
+    font-size: 1rem;
+    color: darkred;
+  }
+  #commandes #comm #asideCompte {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+  #commandes #comm #asideCompte > ul li {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    list-style: none;
+    color: #000;
+  }
+  #commandes #comm #asideCompte > ul li a {
+    text-decoration: none;
+    color: #000;
+  }
 }
-#mon-compte #SectionInfoPerso {
-  display: grid;
-  grid-template-columns: 2fr 2fr 2fr;
-  grid-template-rows: 1fr;
+@media (min-width: 720px) and (max-width: 1200px) {
+  #commandes {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    padding-top: 5rem;
+  }
+  #commandes #comm {
+    text-transform: capitalize;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.01 0.01fr;
+  }
+  #commandes #comm h1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+    text-align: center;
+  }
+  #commandes #comm section {
+    grid-column: 1/2;
+  }
+  #commandes #comm section table {
+    border: 2px solid;
+    margin-bottom: 4rem;
+    padding: 0.7rem;
+    border-radius: 5px;
+  }
+  #commandes #comm section table thead tr th {
+    padding: 0.7rem;
+    font-size: 1.5rem;
+  }
+  #commandes #comm section table tbody tr td {
+    text-align: center;
+    font-size: 1.3rem;
+    padding-bottom: 1rem;
+    vertical-align: middle;
+  }
+  #commandes #comm section table tbody tr td img {
+    height: 4rem;
+  }
+  #commandes #comm section table tbody tr .total {
+    font-size: 1.5rem;
+    color: darkred;
+  }
+  #commandes #comm #asideCompte {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    text-align: center;
+    padding-bottom: 2.5rem;
+  }
+  #commandes #comm #asideCompte > ul li {
+    font-size: 1.7rem;
+    line-height: 2.7rem;
+    list-style: none;
+    color: #000;
+  }
+  #commandes #comm #asideCompte > ul li a {
+    text-decoration: none;
+    color: #000;
+  }
 }
-#mon-compte #SectionInfoPerso #ulListeInfo {
-  grid-row: 1/2;
-  grid-column: 2/3;
-  border: 0.2rem solid;
-  border-radius: 5px;
+@media (min-width: 1200px) and (max-width: 1919px) {
+  #commandes {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    padding-top: 5rem;
+  }
+  #commandes #comm {
+    text-transform: capitalize;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.01 0.01fr;
+  }
+  #commandes #comm h1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 6rem;
+    padding-top: 6rem;
+    text-align: center;
+  }
+  #commandes #comm section {
+    grid-column: 1/2;
+  }
+  #commandes #comm section table {
+    border: 2px solid;
+    margin-bottom: 5rem;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+  #commandes #comm section table thead tr th {
+    padding: 1rem;
+    font-size: 2rem;
+  }
+  #commandes #comm section table tbody tr td {
+    text-align: center;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+    vertical-align: middle;
+  }
+  #commandes #comm section table tbody tr td img {
+    height: 5rem;
+  }
+  #commandes #comm section table tbody tr .total {
+    font-size: 2rem;
+    color: darkred;
+  }
+  #commandes #comm #asideCompte {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    text-align: center;
+    padding-bottom: 3rem;
+  }
+  #commandes #comm #asideCompte > ul li {
+    font-size: 2rem;
+    line-height: 3rem;
+    list-style: none;
+    color: #000;
+  }
+  #commandes #comm #asideCompte > ul li a {
+    text-decoration: none;
+    color: #000;
+  }
 }
-#mon-compte #SectionInfoPerso #ulListeInfo button {
-  margin: 1rem;
-  font-size: 1rem;
-  background-color: darkred;
-  color: #fff;
-  border-radius: 5px;
-  padding: 0.5rem;
+@media (min-width: 1920px) {
+  #commandes {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    padding-top: 5rem;
+  }
+  #commandes #comm {
+    text-transform: capitalize;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+  }
+  #commandes #comm h1 {
+    grid-column: 1/3;
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 6rem;
+    padding-top: 6rem;
+    text-align: center;
+  }
+  #commandes #comm section {
+    grid-column: 2/3;
+  }
+  #commandes #comm section table {
+    border: 2px solid;
+    margin-bottom: 5rem;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+  #commandes #comm section table thead tr th {
+    padding: 1rem;
+    font-size: 2rem;
+  }
+  #commandes #comm section table tbody tr td {
+    text-align: center;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+    vertical-align: middle;
+  }
+  #commandes #comm section table tbody tr td img {
+    height: 5rem;
+  }
+  #commandes #comm section table tbody tr .total {
+    font-size: 2rem;
+    color: darkred;
+  }
+  #commandes #comm #asideCompte {
+    grid-column: 1/2;
+    z-index: 100;
+    position: sticky;
+    top: 20rem;
+  }
+  #commandes #comm #asideCompte > ul li {
+    font-size: 2rem;
+    line-height: 3rem;
+    list-style: none;
+    color: #000;
+  }
+  #commandes #comm #asideCompte > ul li a {
+    text-decoration: none;
+    color: #000;
+  }
 }
-#mon-compte #SectionInfoPerso #ulListeInfo li {
-  margin: 1rem;
-  font-size: 1.5rem;
-  line-height: 2.5rem;
-  list-style: none;
-  color: #000;
+@media (max-width: 544px) {
+  #products {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: 0.01fr 0.01fr;
+    padding-top: 5rem;
+  }
+  #products #top {
+    grid-row: 1/2;
+    grid-column: 1/3;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  #products #top nav ul {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #top nav ul li {
+    padding: 0.4rem 0.1rem 0.4rem 0.1rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+    text-align: center;
+  }
+  #products #top nav ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #products #top nav ul li a h3 {
+    font-size: 0.7rem;
+    color: #000;
+  }
+  #products #top nav ul li:not(:last-of-type) {
+    border-right: 0.1rem solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #Allproducts {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    margin: 2rem;
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #products #Allproducts li {
+    text-align: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 1rem;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #products #Allproducts li h2 {
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 0.8rem;
+  }
+  #products #Allproducts li button {
+    margin-top: 0.6rem;
+    font-size: 0.7rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    border-color: darkred;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  #products #Allproducts li button:hover {
+    background-color: red;
+  }
+  #products #Allproducts li button:active {
+    margin-top: 0.9rem;
+  }
+  #products #Allproducts li a figure {
+    height: 6rem;
+    width: 6rem;
+  }
+  #products #Allproducts li a figure img {
+    height: 100%;
+    width: 100%;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #Allproducts .hidden {
+    display: none;
+  }
+  #products #gauche {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    line-height: 2rem;
+    width: 100%;
+  }
+  #products #gauche nav {
+    z-index: 100;
+    position: sticky;
+    top: 10rem;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  #products #gauche nav h2 {
+    font-size: 0.7rem;
+    text-transform: capitalize;
+  }
+  #products #gauche nav h2:last-of-type {
+    margin-top: 1rem;
+    border-top-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #gauche nav ul {
+    flex-direction: column;
+  }
+  #products #gauche nav ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #products #gauche nav ul li a h3 {
+    line-height: 1.5rem;
+    font-size: 0.7rem;
+    color: #000;
+  }
+  #products #gauche nav #filtre .filtres {
+    display: flex;
+    flex-direction: column;
+  }
+  #products #gauche nav #filtre .filtres label {
+    font-size: 0.59rem;
+    text-transform: capitalize;
+  }
+  #products #gauche nav #filtre .filtres select {
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    background-color: #fff;
+    color: #000;
+    width: 100%;
+  }
+  #products #gauche nav #filtre .filtres select option {
+    font-size: 0.7rem;
+  }
 }
-#mon-compte #SectionInfoPerso #asideCompte {
-  grid-column: 1/2;
-  grid-row: 1/2;
-  z-index: 100;
-  position: sticky;
-  top: 20rem;
+@media (min-width: 545px) and (max-width: 720px) {
+  #products {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: 0.1fr 0.2fr;
+    padding-top: 5rem;
+  }
+  #products #top {
+    grid-row: 1/2;
+    grid-column: 1/3;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  #products #top nav ul {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #top nav ul li {
+    padding: 0.5rem 0.2rem 0.5rem 0.2rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+    text-align: center;
+  }
+  #products #top nav ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #products #top nav ul li a h3 {
+    font-size: 1rem;
+    color: #000;
+  }
+  #products #top nav ul li:not(:last-of-type) {
+    border-right: 0.1rem solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #Allproducts {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    margin: 2rem;
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #products #Allproducts li {
+    text-align: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #products #Allproducts li h2 {
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 0.8rem;
+  }
+  #products #Allproducts li button {
+    margin-top: 0.6rem;
+    font-size: 0.7rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    border-color: darkred;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  #products #Allproducts li button:hover {
+    background-color: red;
+  }
+  #products #Allproducts li button:active {
+    margin-top: 0.9rem;
+  }
+  #products #Allproducts li a figure {
+    height: 12rem;
+    width: 12rem;
+  }
+  #products #Allproducts li a figure img {
+    height: 100%;
+    width: 100%;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #Allproducts .hidden {
+    display: none;
+  }
+  #products #gauche {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    line-height: 5rem;
+  }
+  #products #gauche nav {
+    z-index: 100;
+    position: sticky;
+    top: 10rem;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  #products #gauche nav h2 {
+    font-size: 1rem;
+    text-transform: capitalize;
+  }
+  #products #gauche nav h2:last-of-type {
+    margin-top: 1.4rem;
+    border-top-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #gauche nav ul {
+    flex-direction: column;
+  }
+  #products #gauche nav ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #products #gauche nav ul li a h3 {
+    line-height: 2rem;
+    font-size: 0.8rem;
+    color: #000;
+  }
+  #products #gauche nav #filtre .filtres {
+    display: flex;
+    flex-direction: column;
+  }
+  #products #gauche nav #filtre .filtres label {
+    font-size: 0.8rem;
+    text-transform: capitalize;
+  }
+  #products #gauche nav #filtre .filtres select {
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    background-color: #fff;
+    color: #000;
+    width: 100%;
+  }
+  #products #gauche nav #filtre .filtres select option {
+    font-size: 0.8rem;
+  }
 }
-#mon-compte #SectionInfoPerso #asideCompte > ul li {
-  font-size: 2rem;
-  line-height: 3rem;
-  list-style: none;
-  color: #000;
+@media (min-width: 720px) and (max-width: 900px) {
+  #products {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: 0.1fr 2fr;
+    padding-top: 8rem;
+  }
+  #products #top {
+    grid-row: 1/2;
+    grid-column: 1/3;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  #products #top nav ul {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #top nav ul li {
+    padding: 0.5rem 0.2rem 0.5rem 0.2rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+    text-align: center;
+  }
+  #products #top nav ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #products #top nav ul li a h3 {
+    font-size: 1rem;
+    color: #000;
+  }
+  #products #top nav ul li:not(:last-of-type) {
+    border-right: 0.1rem solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #Allproducts {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    margin: 2rem;
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #products #Allproducts li {
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #products #Allproducts li h2 {
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 0.8rem;
+  }
+  #products #Allproducts li button {
+    margin-top: 0.6rem;
+    font-size: 0.7rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    border-color: darkred;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  #products #Allproducts li button:hover {
+    background-color: red;
+  }
+  #products #Allproducts li button:active {
+    margin-top: 0.9rem;
+  }
+  #products #Allproducts li a figure {
+    height: 11rem;
+    width: 11rem;
+  }
+  #products #Allproducts li a figure img {
+    height: 100%;
+    width: 100%;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #Allproducts .hidden {
+    display: none;
+  }
+  #products #gauche {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    line-height: 5rem;
+  }
+  #products #gauche nav {
+    z-index: 100;
+    position: sticky;
+    top: 17rem;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  #products #gauche nav h2 {
+    font-size: 1rem;
+    text-transform: capitalize;
+  }
+  #products #gauche nav h2:last-of-type {
+    margin-top: 1.4rem;
+    border-top-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #gauche nav ul {
+    flex-direction: column;
+  }
+  #products #gauche nav ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #products #gauche nav ul li a h3 {
+    line-height: 2rem;
+    font-size: 0.8rem;
+    color: #000;
+  }
+  #products #gauche nav #filtre .filtres {
+    display: flex;
+    flex-direction: column;
+  }
+  #products #gauche nav #filtre .filtres label {
+    font-size: 0.8rem;
+    text-transform: capitalize;
+  }
+  #products #gauche nav #filtre .filtres select {
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    background-color: #fff;
+    color: #000;
+    width: 100%;
+  }
+  #products #gauche nav #filtre .filtres select option {
+    font-size: 0.8rem;
+  }
 }
-#mon-compte #SectionInfoPerso #asideCompte > ul li a {
-  text-decoration: none;
-  color: #000;
+@media (min-width: 900px) and (max-width: 1024px) {
+  #products {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: 0.1fr 2fr;
+    padding-top: 8rem;
+  }
+  #products #top {
+    grid-row: 1/2;
+    grid-column: 1/3;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  #products #top nav ul {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #top nav ul li {
+    padding: 0.2rem 0.7rem 0.2rem 0.7rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+    text-align: center;
+  }
+  #products #top nav ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #products #top nav ul li a h3 {
+    font-size: 1rem;
+    color: #000;
+  }
+  #products #top nav ul li:not(:last-of-type) {
+    border-right: 0.1rem solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #Allproducts {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    margin: 2rem;
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #products #Allproducts li {
+    text-align: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #products #Allproducts li h2 {
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 0.8rem;
+  }
+  #products #Allproducts li button {
+    margin-top: 0.6rem;
+    font-size: 0.7rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    border-color: darkred;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  #products #Allproducts li button:hover {
+    background-color: red;
+  }
+  #products #Allproducts li button:active {
+    margin-top: 0.9rem;
+  }
+  #products #Allproducts li a figure {
+    height: 12rem;
+    width: 12rem;
+  }
+  #products #Allproducts li a figure img {
+    height: 100%;
+    width: 100%;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #Allproducts .hidden {
+    display: none;
+  }
+  #products #gauche {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    line-height: 5rem;
+  }
+  #products #gauche nav {
+    z-index: 100;
+    position: sticky;
+    top: 17rem;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+  #products #gauche nav h2 {
+    font-size: 1rem;
+    text-transform: capitalize;
+  }
+  #products #gauche nav h2:last-of-type {
+    margin-top: 1.7rem;
+    border-top-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #gauche nav ul {
+    flex-direction: column;
+  }
+  #products #gauche nav ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #products #gauche nav ul li a h3 {
+    line-height: 2rem;
+    font-size: 0.8rem;
+    color: #000;
+  }
+  #products #gauche nav #filtre .filtres {
+    display: flex;
+    flex-direction: column;
+  }
+  #products #gauche nav #filtre .filtres label {
+    font-size: 1rem;
+    text-transform: capitalize;
+  }
+  #products #gauche nav #filtre .filtres select {
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    background-color: #fff;
+    color: #000;
+    width: 100%;
+  }
+  #products #gauche nav #filtre .filtres select option {
+    font-size: 0.7rem;
+  }
 }
-#mon-compte #SectionInfoPerso form {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  margin: 1rem;
-  line-height: 1rem;
-  width: 50%;
+@media (min-width: 1024px) and (max-width: 1200px) {
+  #products {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: 0.1fr 2fr;
+    padding-top: 8rem;
+  }
+  #products #top {
+    grid-row: 1/2;
+    grid-column: 1/3;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  #products #top nav ul {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #top nav ul li {
+    padding: 0.3rem 1rem 0.3rem 1rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+    text-align: center;
+  }
+  #products #top nav ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #products #top nav ul li a h3 {
+    font-size: 1rem;
+    color: #000;
+  }
+  #products #top nav ul li:not(:last-of-type) {
+    border-right: 0.1rem solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #Allproducts {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    margin: 2rem;
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #products #Allproducts li {
+    text-align: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #products #Allproducts li h2 {
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 1rem;
+  }
+  #products #Allproducts li button {
+    margin-top: 0.6rem;
+    font-size: 0.7rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    border-color: darkred;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  #products #Allproducts li button:hover {
+    background-color: red;
+  }
+  #products #Allproducts li button:active {
+    margin-top: 0.9rem;
+  }
+  #products #Allproducts li a figure {
+    height: 12rem;
+    width: 12rem;
+  }
+  #products #Allproducts li a figure img {
+    height: 100%;
+    width: 100%;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #Allproducts .hidden {
+    display: none;
+  }
+  #products #gauche {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    line-height: 6rem;
+  }
+  #products #gauche nav {
+    z-index: 100;
+    position: sticky;
+    top: 17rem;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+  #products #gauche nav h2 {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+  }
+  #products #gauche nav h2:last-of-type {
+    margin-top: 2rem;
+    border-top-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #gauche nav ul {
+    flex-direction: column;
+  }
+  #products #gauche nav ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #products #gauche nav ul li a h3 {
+    line-height: 2rem;
+    font-size: 0.8rem;
+    color: #000;
+  }
+  #products #gauche nav #filtre .filtres {
+    display: flex;
+    flex-direction: column;
+  }
+  #products #gauche nav #filtre .filtres label {
+    font-size: 1.3rem;
+    text-transform: capitalize;
+  }
+  #products #gauche nav #filtre .filtres select {
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    background-color: #fff;
+    color: #000;
+    width: 100%;
+  }
+  #products #gauche nav #filtre .filtres select option {
+    font-size: 0.7rem;
+  }
 }
-#mon-compte #SectionInfoPerso form input {
-  display: flex;
-  justify-content: center;
-  font-size: 1rem;
+@media (min-width: 1200px) and (max-width: 1919px) {
+  #products {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: 0.1fr 2fr;
+    padding-top: 5rem;
+  }
+  #products #top {
+    grid-row: 1/2;
+    grid-column: 1/3;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  #products #top nav ul {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #top nav ul li {
+    padding: 0.3rem 1rem 0.3rem 1rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+    text-align: center;
+  }
+  #products #top nav ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #products #top nav ul li a h3 {
+    font-size: 1.5rem;
+    color: #000;
+  }
+  #products #top nav ul li:not(:last-of-type) {
+    border-right: 0.1rem solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #Allproducts {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    margin: 2rem;
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #products #Allproducts li {
+    text-align: center;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 3rem;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #products #Allproducts li h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1rem;
+  }
+  #products #Allproducts li button {
+    margin-top: 1rem;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    border-color: darkred;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  #products #Allproducts li button:hover {
+    background-color: red;
+  }
+  #products #Allproducts li button:active {
+    margin-top: 0.9rem;
+  }
+  #products #Allproducts li a figure {
+    height: 15rem;
+    width: 15rem;
+  }
+  #products #Allproducts li a figure img {
+    height: 100%;
+    width: 100%;
+    border-width: 0.3rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #Allproducts .hidden {
+    display: none;
+  }
+  #products #gauche {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    line-height: 6rem;
+  }
+  #products #gauche nav {
+    z-index: 100;
+    position: sticky;
+    top: 15rem;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    padding: 1rem;
+    padding-top: 0;
+  }
+  #products #gauche nav h2 {
+    font-size: 2rem;
+    text-transform: capitalize;
+  }
+  #products #gauche nav h2:last-of-type {
+    margin-top: 2rem;
+    border-top-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #gauche nav ul {
+    flex-direction: column;
+  }
+  #products #gauche nav ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #products #gauche nav ul li a h3 {
+    line-height: 2rem;
+    font-size: 1rem;
+    color: #000;
+  }
+  #products #gauche nav #filtre .filtres {
+    display: flex;
+    flex-direction: column;
+  }
+  #products #gauche nav #filtre .filtres label {
+    font-size: 1.3rem;
+    text-transform: capitalize;
+  }
+  #products #gauche nav #filtre .filtres select {
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    font-size: 1rem;
+    text-transform: capitalize;
+    background-color: #fff;
+    color: #000;
+    width: 90%;
+  }
+  #products #gauche nav #filtre .filtres select option {
+    font-size: 1rem;
+  }
 }
-#mon-compte #SectionInfoPerso form input:last-of-type {
-  margin: 1rem;
-  font-size: 1rem;
-  background-color: darkred;
-  color: #fff;
-  border-radius: 5px;
-  padding: 0.5rem;
+@media (min-width: 1920px) and (max-width: 2400px) {
+  #products {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: 0.3fr 2fr;
+    padding-top: 5rem;
+  }
+  #products #top {
+    grid-row: 1/2;
+    grid-column: 1/3;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  #products #top nav ul {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #top nav ul li {
+    padding: 0.4rem 1.5rem 0.4rem 1.5rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    text-align: center;
+  }
+  #products #top nav ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #products #top nav ul li a h3 {
+    font-size: 1.7rem;
+    color: #000;
+  }
+  #products #top nav ul li:not(:last-of-type) {
+    border-right: 0.1rem solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #Allproducts {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    margin: 2rem;
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #products #Allproducts li {
+    text-align: center;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 3rem;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #products #Allproducts li h2 {
+    font-size: 2rem;
+    text-align: center;
+    padding: 1rem;
+  }
+  #products #Allproducts li button {
+    margin-top: 1rem;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    border-color: darkred;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  #products #Allproducts li button:hover {
+    background-color: red;
+  }
+  #products #Allproducts li button:active {
+    margin-top: 0.9rem;
+  }
+  #products #Allproducts li a figure {
+    height: 20rem;
+    width: 20rem;
+  }
+  #products #Allproducts li a figure img {
+    height: 100%;
+    width: 100%;
+    border-width: 0.3rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #Allproducts .hidden {
+    display: none;
+  }
+  #products #gauche {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    line-height: 6rem;
+  }
+  #products #gauche nav {
+    z-index: 100;
+    position: sticky;
+    top: 15rem;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    padding: 1rem;
+    padding-top: 0;
+  }
+  #products #gauche nav h2 {
+    font-size: 2.5rem;
+    text-transform: capitalize;
+  }
+  #products #gauche nav h2:last-of-type {
+    margin-top: 2rem;
+    border-top-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #gauche nav ul {
+    flex-direction: column;
+  }
+  #products #gauche nav ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #products #gauche nav ul li a h3 {
+    line-height: 3rem;
+    font-size: 1.8rem;
+    color: #000;
+  }
+  #products #gauche nav #filtre .filtres {
+    display: flex;
+    flex-direction: column;
+  }
+  #products #gauche nav #filtre .filtres label {
+    font-size: 1.8rem;
+    text-transform: capitalize;
+  }
+  #products #gauche nav #filtre .filtres select {
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    background-color: #fff;
+    color: #000;
+    width: 90%;
+  }
+  #products #gauche nav #filtre .filtres select option {
+    font-size: 1.3rem;
+  }
 }
-#mon-compte #SectionInfoPerso form label {
-  display: flex;
-  justify-content: center;
-  font-size: 1.3rem;
-  padding-bottom: 0.7rem;
-  padding-top: 0.7rem;
+@media (min-width: 2400px) {
+  #products {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: 0.3fr 2fr;
+    padding-top: 5rem;
+  }
+  #products #top {
+    grid-row: 1/2;
+    grid-column: 1/3;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  #products #top nav ul {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #top nav ul li {
+    padding: 0.4rem 1.5rem 0.4rem 1.5rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    text-align: center;
+  }
+  #products #top nav ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #products #top nav ul li a h3 {
+    font-size: 2.2rem;
+    color: #000;
+  }
+  #products #top nav ul li:not(:last-of-type) {
+    border-right: 0.1rem solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #Allproducts {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    margin: 2rem;
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #products #Allproducts li {
+    text-align: center;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 3rem;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #products #Allproducts li h2 {
+    font-size: 2rem;
+    text-align: center;
+    padding: 1rem;
+  }
+  #products #Allproducts li button {
+    margin-top: 1rem;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    border-color: darkred;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  #products #Allproducts li button:hover {
+    background-color: red;
+  }
+  #products #Allproducts li button:active {
+    margin-top: 0.9rem;
+  }
+  #products #Allproducts li a figure {
+    height: 20rem;
+    width: 20rem;
+  }
+  #products #Allproducts li a figure img {
+    height: 100%;
+    width: 100%;
+    border-width: 0.3rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #Allproducts .hidden {
+    display: none;
+  }
+  #products #gauche {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    line-height: 6rem;
+  }
+  #products #gauche nav {
+    z-index: 100;
+    position: sticky;
+    top: 15rem;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    padding: 1rem;
+    padding-top: 0;
+  }
+  #products #gauche nav h2 {
+    font-size: 2.5rem;
+    text-transform: capitalize;
+  }
+  #products #gauche nav h2:last-of-type {
+    margin-top: 2rem;
+    border-top-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #products #gauche nav ul {
+    flex-direction: column;
+  }
+  #products #gauche nav ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #products #gauche nav ul li a h3 {
+    line-height: 3rem;
+    font-size: 1.8rem;
+    color: #000;
+  }
+  #products #gauche nav #filtre .filtres {
+    display: flex;
+    flex-direction: column;
+  }
+  #products #gauche nav #filtre .filtres label {
+    font-size: 1.8rem;
+    text-transform: capitalize;
+  }
+  #products #gauche nav #filtre .filtres select {
+    border-width: 0.1rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    background-color: #fff;
+    color: #000;
+    width: 90%;
+  }
+  #products #gauche nav #filtre .filtres select option {
+    font-size: 1.3rem;
+  }
 }
-#mon-compte #SectionInfoPerso #createAddress {
-  grid-column: 3/4;
-  grid-row: 1/2;
+@media (min-width: 0px) and (max-width: 425px) {
+  #OneProduct {
+    grid-column: 2/3;
+    padding-top: 5rem;
+  }
+  #OneProduct #article {
+    display: grid;
+    grid-template-rows: 0.05fr 0.1fr 0.4fr;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    margin-right: 2rem;
+    margin-left: 2rem;
+  }
+  #OneProduct #article #headerArticle {
+    grid-row: 1/2;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    height: 3rem;
+  }
+  #OneProduct #article #headerArticle h1 {
+    font-size: 2rem;
+  }
+  #OneProduct #article #media {
+    grid-row: 2/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+  }
+  #OneProduct #article #media img {
+    height: 15rem;
+  }
+  #OneProduct #article #ulArticle {
+    grid-row: 3/4;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  #OneProduct #article #ulArticle li {
+    font-size: 1rem;
+    padding: 1rem;
+    padding-left: 2rem;
+  }
+  #OneProduct #article #ulArticle li h2 {
+    padding-bottom: 1rem;
+  }
+  #OneProduct #article #ulArticle #description {
+    padding-top: 2rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle form fieldset {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    font-size: 1rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle form fieldset #select {
+    font-size: 0.8rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle p {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    font-size: 1rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle span {
+    grid-row: 3/4;
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #OneProduct .button {
+    margin-top: 0.2rem;
+    font-size: 0.7rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    height: 2rem;
+  }
+  #OneProduct #asidePanier {
+    margin-top: 2rem;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+  }
+  #OneProduct #asidePanier h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    font-size: 2rem;
+  }
+  #OneProduct #asidePanier #section #ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0.2rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle {
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+    margin: 1rem;
+    width: 100%;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article {
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    font-size: 1rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article h3 {
+    grid-row: 1/2;
+    grid-column: 2/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article p {
+    grid-row: 1/2;
+    grid-column: 4/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article .buttonSection {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article .buttonSection span {
+    padding: 0.5rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article figure {
+    grid-row: 1/3;
+    grid-column: 1/2;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article figure img {
+    height: 6rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article button {
+    grid-row: 2/3;
+    grid-column: 3/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+  }
+  #OneProduct #asidePanier footer {
+    display: grid;
+    grid-template-columns: 0.2fr 2fr 3fr 2fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  #OneProduct #asidePanier footer p {
+    font-size: 1rem;
+    width: 70%;
+    grid-row: 2/3;
+    grid-column: 4/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  #OneProduct #asidePanier footer p a {
+    text-decoration: none;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.4rem;
+    font-size: 1rem;
+  }
+  #OneProduct #asidePanier footer p:first-of-type {
+    grid-row: 1/2;
+    grid-column: 4/5;
+  }
+  #OneProduct #asidePanier footer p:last-of-type {
+    grid-row: 1/3;
+    grid-column: 2/3;
+  }
+  #OneProduct #footer {
+    padding-top: 5rem;
+    padding-bottom: 30rem;
+  }
+  #OneProduct #footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-bottom: 4rem;
+  }
+  #OneProduct #footer ul li {
+    text-align: center;
+    display: block;
+  }
+  #OneProduct #footer ul li h2 {
+    font-size: 1rem;
+    padding: 0.2rem;
+  }
+  #OneProduct #footer ul li a figure img {
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    height: 8rem;
+    max-height: 8rem;
+  }
 }
-#mon-compte #SectionInfoPerso #edituser {
-  grid-column: 3/4;
-  grid-row: 1/2;
+@media (min-width: 425px) and (max-width: 1024px) {
+  #OneProduct {
+    grid-column: 2/3;
+    padding-top: 5rem;
+  }
+  #OneProduct #article {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-rows: 0.05fr 0.1fr 0.4fr;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+  }
+  #OneProduct #article #headerArticle {
+    grid-row: 1/2;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    height: 5rem;
+  }
+  #OneProduct #article #headerArticle h1 {
+    font-size: 2rem;
+  }
+  #OneProduct #article #media {
+    grid-row: 2/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+  }
+  #OneProduct #article #media img {
+    height: 20rem;
+  }
+  #OneProduct #article #ulArticle {
+    grid-row: 3/4;
+    display: flex;
+    flex-direction: column;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  #OneProduct #article #ulArticle li {
+    font-size: 1.4rem;
+    padding: 1rem;
+    padding-left: 2rem;
+  }
+  #OneProduct #article #ulArticle li h2 {
+    padding-bottom: 1rem;
+  }
+  #OneProduct #article #ulArticle #description {
+    padding-top: 2rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle fieldset {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    font-size: 1.5rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle fieldset #select {
+    font-size: 1rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle p {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    font-size: 1.5rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle span {
+    grid-row: 3/4;
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #OneProduct .button {
+    margin-top: 0.2rem;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+    height: 3rem;
+  }
+  #OneProduct #asidePanier {
+    margin-top: 2rem;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #OneProduct #asidePanier h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    font-size: 2rem;
+  }
+  #OneProduct #asidePanier #section #ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 1rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle {
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+    margin: 1rem;
+    width: 100%;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article {
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: 2fr 6fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    font-size: 1rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article h3 {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article p {
+    grid-row: 1/2;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article .buttonSection {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article .buttonSection span {
+    padding: 0.5rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article figure {
+    grid-row: 1/3;
+    grid-column: 1/2;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article figure img {
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    height: 7rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article button {
+    grid-row: 2/3;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  #OneProduct #asidePanier footer {
+    display: grid;
+    grid-template-columns: 0.1fr 2fr 3fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    font-size: 1rem;
+  }
+  #OneProduct #asidePanier footer p {
+    font-size: 1rem;
+    width: 70%;
+    grid-row: 2/3;
+    grid-column: 4/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  #OneProduct #asidePanier footer p a {
+    text-decoration: none;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.4rem;
+    font-size: 1rem;
+  }
+  #OneProduct #asidePanier footer p:first-of-type {
+    grid-row: 1/2;
+    grid-column: 4/5;
+  }
+  #OneProduct #asidePanier footer p:last-of-type {
+    grid-row: 1/3;
+    grid-column: 2/3;
+  }
+  #OneProduct #footer {
+    padding-top: 5rem;
+    padding-bottom: 25rem;
+  }
+  #OneProduct #footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-bottom: 4rem;
+  }
+  #OneProduct #footer ul li {
+    text-align: center;
+    display: block;
+  }
+  #OneProduct #footer ul li h2 {
+    font-size: 1rem;
+    padding: 0.2rem;
+  }
+  #OneProduct #footer ul li a figure img {
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    height: 8rem;
+    max-height: 8rem;
+  }
 }
-#mon-compte #SectionInfoPerso .hidden {
+@media (min-width: 1024px) and (max-width: 1450px) {
+  #OneProduct {
+    grid-column: 2/3;
+    padding-top: 5rem;
+  }
+  #OneProduct #article {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.05fr 0.1fr 0.4fr;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+    width: 100%;
+  }
+  #OneProduct #article #headerArticle {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    height: 5rem;
+  }
+  #OneProduct #article #headerArticle h1 {
+    font-size: 3rem;
+  }
+  #OneProduct #article #media {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+  }
+  #OneProduct #article #media img {
+    height: 35rem;
+  }
+  #OneProduct #article #ulArticle {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    display: flex;
+    flex-direction: column;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+    margin: 1rem;
+  }
+  #OneProduct #article #ulArticle li {
+    font-size: 1.4rem;
+    padding: 1rem;
+  }
+  #OneProduct #article #ulArticle li h2 {
+    padding-bottom: 1rem;
+  }
+  #OneProduct #article #ulArticle #description {
+    padding-top: 2rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle fieldset {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    font-size: 1.5rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle fieldset #select {
+    font-size: 1rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle p {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    font-size: 1.5rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle span {
+    grid-row: 3/4;
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #OneProduct .button {
+    margin-top: 0.2rem;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+    height: 2.5rem;
+  }
+  #OneProduct #asidePanier {
+    margin-top: 2rem;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+  }
+  #OneProduct #asidePanier h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    font-size: 3rem;
+  }
+  #OneProduct #asidePanier #section #ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 1rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle {
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+    margin: 1rem;
+    width: 100%;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article {
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: 2fr 6fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    font-size: 2rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article h3 {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article p {
+    grid-row: 1/2;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article .buttonSection {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article .buttonSection span {
+    padding: 0.5rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article figure {
+    grid-row: 1/3;
+    grid-column: 1/2;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article figure img {
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    height: 10rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article button {
+    grid-row: 2/3;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  #OneProduct #asidePanier footer {
+    display: grid;
+    grid-template-columns: 0.1fr 2fr 3fr 2fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  #OneProduct #asidePanier footer p {
+    font-size: 2rem;
+    width: 70%;
+    grid-row: 2/3;
+    grid-column: 4/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  #OneProduct #asidePanier footer p a {
+    text-decoration: none;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.4rem;
+  }
+  #OneProduct #asidePanier footer p:first-of-type {
+    grid-row: 1/2;
+    grid-column: 4/5;
+  }
+  #OneProduct #asidePanier footer p:last-of-type {
+    grid-row: 1/3;
+    grid-column: 2/3;
+  }
+  #OneProduct #footer {
+    padding-top: 5rem;
+    padding-bottom: 20rem;
+  }
+  #OneProduct #footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-bottom: 4rem;
+  }
+  #OneProduct #footer ul li {
+    text-align: center;
+    display: block;
+  }
+  #OneProduct #footer ul li h2 {
+    font-size: 2rem;
+    padding: 0.5rem;
+  }
+  #OneProduct #footer ul li a figure img {
+    height: 12rem;
+    max-height: 12rem;
+  }
+}
+@media (min-width: 1450px) and (max-width: 1920px) {
+  #OneProduct {
+    grid-column: 2/3;
+    padding-top: 5rem;
+  }
+  #OneProduct #article {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 3fr 0.2fr 5fr;
+    grid-template-rows: 0.2fr 0.6fr 0.1fr;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+  }
+  #OneProduct #article #headerArticle {
+    grid-row: 1/2;
+    grid-column: 3/4;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    height: 15rem;
+  }
+  #OneProduct #article #headerArticle h1 {
+    font-size: 4rem;
+  }
+  #OneProduct #article #media {
+    grid-row: 1/3;
+    grid-column: 1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+  }
+  #OneProduct #article #media img {
+    height: 45rem;
+  }
+  #OneProduct #article #ulArticle {
+    grid-row: 2/3;
+    grid-column: 3/4;
+    display: flex;
+    flex-direction: column;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+    margin-top: 1rem;
+  }
+  #OneProduct #article #ulArticle li {
+    font-size: 1.4rem;
+    padding: 1rem;
+    padding-left: 2rem;
+  }
+  #OneProduct #article #ulArticle li h2 {
+    padding-bottom: 1rem;
+  }
+  #OneProduct #article #ulArticle #description {
+    padding-top: 2rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle fieldset {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    font-size: 1.5rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle fieldset #select {
+    font-size: 1rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle p {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    font-size: 1.5rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle span {
+    grid-row: 3/4;
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #OneProduct .button {
+    margin-top: 0.2rem;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.2rem;
+    height: 2.5rem;
+  }
+  #OneProduct #asidePanier {
+    margin-top: 2rem;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+  }
+  #OneProduct #asidePanier h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    font-size: 3rem;
+  }
+  #OneProduct #asidePanier #section #ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 1rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle {
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+    margin: 1rem;
+    max-width: 40%;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article {
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: 2fr 6fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    font-size: 2rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article h3 {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article p {
+    grid-row: 1/2;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article .buttonSection {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article .buttonSection span {
+    padding: 0.5rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article figure {
+    grid-row: 1/3;
+    grid-column: 1/2;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article figure img {
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    height: 10rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article button {
+    grid-row: 2/3;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  #OneProduct #asidePanier footer {
+    display: grid;
+    grid-template-columns: 2fr 4fr 2fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  #OneProduct #asidePanier footer p {
+    font-size: 2rem;
+    grid-row: 2/3;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #OneProduct #asidePanier footer p a {
+    text-decoration: none;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.7rem;
+  }
+  #OneProduct #asidePanier footer p:first-of-type {
+    grid-row: 1/2;
+    grid-column: 3/4;
+  }
+  #OneProduct #asidePanier footer p:last-of-type {
+    grid-row: 1/3;
+    grid-column: 1/2;
+  }
+  #OneProduct #footer {
+    padding-top: 5rem;
+    padding-bottom: 20rem;
+  }
+  #OneProduct #footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-bottom: 4rem;
+  }
+  #OneProduct #footer ul li {
+    text-align: center;
+    display: block;
+  }
+  #OneProduct #footer ul li h2 {
+    font-size: 2rem;
+    padding: 0.5rem;
+  }
+  #OneProduct #footer ul li a figure img {
+    height: 12rem;
+    max-height: 12rem;
+  }
+}
+@media (min-width: 1920px) {
+  #OneProduct {
+    grid-column: 2/3;
+    padding-top: 5rem;
+  }
+  #OneProduct #article {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 4fr 0.2fr 5fr;
+    grid-template-rows: 0.3fr 0.7fr 0.1fr;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+  }
+  #OneProduct #article #headerArticle {
+    grid-row: 1/2;
+    grid-column: 3/4;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    height: 15rem;
+  }
+  #OneProduct #article #headerArticle h1 {
+    font-size: 6rem;
+  }
+  #OneProduct #article #media {
+    grid-row: 1/3;
+    grid-column: 1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+  }
+  #OneProduct #article #media img {
+    height: 45rem;
+  }
+  #OneProduct #article #ulArticle {
+    grid-row: 2/3;
+    grid-column: 3/4;
+    display: flex;
+    flex-direction: column;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    border-radius: 5px;
+    margin-top: 1rem;
+  }
+  #OneProduct #article #ulArticle li {
+    font-size: 1.4rem;
+    padding: 1rem;
+    padding-left: 2rem;
+  }
+  #OneProduct #article #ulArticle li h2 {
+    padding-bottom: 1rem;
+  }
+  #OneProduct #article #ulArticle #description {
+    padding-top: 2rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle form fieldset {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    font-size: 1.5rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle form fieldset #select {
+    font-size: 1rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle p {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    font-size: 1.5rem;
+  }
+  #OneProduct #article #ulArticle #prix #footerArticle span {
+    grid-row: 3/4;
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #OneProduct .button {
+    margin-top: 0.2rem;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.2rem;
+    height: 2.5rem;
+  }
+  #OneProduct #asidePanier {
+    margin-top: 2rem;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+  }
+  #OneProduct #asidePanier h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    font-size: 3rem;
+  }
+  #OneProduct #asidePanier #section #ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 1rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle {
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    margin: 1rem;
+    max-width: 40%;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article {
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: 2fr 6fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    font-size: 2rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article h3 {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article p {
+    grid-row: 1/2;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article .buttonSection {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article .buttonSection span {
+    padding: 0.5rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article figure {
+    grid-row: 1/3;
+    grid-column: 1/2;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article figure img {
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    height: 10rem;
+  }
+  #OneProduct #asidePanier #section #ul .liArticle article button {
+    grid-row: 2/3;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  #OneProduct #asidePanier footer {
+    display: grid;
+    grid-template-columns: 2fr 4fr 2fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  #OneProduct #asidePanier footer p {
+    font-size: 2rem;
+    grid-row: 2/3;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #OneProduct #asidePanier footer p a {
+    text-decoration: none;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.7rem;
+  }
+  #OneProduct #asidePanier footer p:first-of-type {
+    grid-row: 1/2;
+    grid-column: 3/4;
+  }
+  #OneProduct #asidePanier footer p:last-of-type {
+    grid-row: 1/3;
+    grid-column: 1/2;
+  }
+  #OneProduct #footer {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  #OneProduct #footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-bottom: 4rem;
+  }
+  #OneProduct #footer ul li {
+    text-align: center;
+    display: block;
+  }
+  #OneProduct #footer ul li h2 {
+    font-size: 2rem;
+    padding: 0.5rem;
+  }
+  #OneProduct #footer ul li a figure img {
+    border-width: 0.2rem;
+    border-style: solid;
+    border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+    height: 12rem;
+    max-height: 12rem;
+  }
+}
+.hide {
   display: none;
 }
 
-#favorite {
-  grid-column: 2/3;
+@media (min-width: 0px) and (max-width: 730px) {
+  #panier {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    padding-top: 5rem;
+    min-height: 45vh;
+    text-align: center;
+  }
+  #panier #panierSection {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 0.1fr 1fr 0.4fr;
+  }
+  #panier #panierSection h1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  #panier #panierSection #section {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+  #panier #panierSection #section #ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0.5rem;
+  }
+  #panier #panierSection #section #ul .liArticle {
+    border: 0.2rem solid;
+    border-radius: 5px;
+    margin: 0.5rem;
+    width: 90%;
+  }
+  #panier #panierSection #section #ul .liArticle article {
+    margin: 0.5rem;
+    display: grid;
+    grid-template-columns: 2fr 6fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    font-size: 0.7rem;
+  }
+  #panier #panierSection #section #ul .liArticle article h3 {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #panier #panierSection #section #ul .liArticle article p {
+    grid-row: 1/2;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #panier #panierSection #section #ul .liArticle article .buttonSection {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #panier #panierSection #section #ul .liArticle article .buttonSection span {
+    padding: 0.5rem;
+  }
+  #panier #panierSection #section #ul .liArticle article figure {
+    grid-row: 1/3;
+    grid-column: 1/2;
+  }
+  #panier #panierSection #section #ul .liArticle article figure img {
+    height: 7rem;
+  }
+  #panier #panierSection #section #ul .liArticle article button {
+    grid-row: 2/3;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+    height: 2rem;
+  }
+  #panier #panierSection .button {
+    margin-top: 0.2rem;
+    font-size: 0.7rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  #panier #panierSection footer {
+    grid-column: 1/2;
+    grid-row: 4/5;
+    display: grid;
+    grid-template-columns: 2fr 4fr 2fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  #panier #panierSection footer p {
+    font-size: 1rem;
+    grid-row: 2/3;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #panier #panierSection footer p a {
+    text-decoration: none;
+    color: #000;
+  }
+  #panier #panierSection footer p:first-of-type {
+    grid-row: 1/2;
+    grid-column: 3/4;
+  }
+  #panier #panierSection footer p:last-of-type {
+    grid-row: 2/3;
+    grid-column: 3/4;
+  }
+  #panier #panierSection #asideCompte {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+  #panier #panierSection #asideCompte > ul li {
+    font-size: 1rem;
+    line-height: 2rem;
+    list-style: none;
+    color: #000;
+  }
+  #panier #panierSection #asideCompte > ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #panier #panierSection #sec {
+    grid-row: 5/6;
+    grid-column: 3/4;
+  }
+  #panier #panierSection #sec h2 {
+    display: none;
+  }
+  #panier #panierSection #sec form fieldset {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #panier #panierSection #sec form fieldset label {
+    padding-bottom: 0.5rem;
+    text-align: center;
+    font-size: 1rem;
+    width: 80%;
+  }
+  #panier #panierSection #sec form fieldset input {
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    width: 80%;
+  }
+  #panier #panierSection #sec form .submit {
+    padding: 1rem;
+    margin: 1rem;
+    width: 40%;
+    border-radius: 0.5rem;
+    background-color: darkred;
+    font-size: 1rem;
+    color: #fff;
+  }
 }
-#favorite > figure:first-of-type {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 4rem;
+@media (min-width: 730px) and (max-width: 1024px) {
+  #panier {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    padding-top: 5rem;
+    min-height: 60vh;
+    text-align: center;
+  }
+  #panier #panierSection {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 0.1fr 1fr 0.4fr;
+  }
+  #panier #panierSection h1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    font-size: 2rem;
+    text-align: center;
+  }
+  #panier #panierSection #section {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+  #panier #panierSection #section #ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 1rem;
+  }
+  #panier #panierSection #section #ul .liArticle {
+    border: 0.2rem solid;
+    border-radius: 5px;
+    margin: 1rem;
+    width: 90%;
+  }
+  #panier #panierSection #section #ul .liArticle article {
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: 2fr 6fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    font-size: 1rem;
+  }
+  #panier #panierSection #section #ul .liArticle article h3 {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #panier #panierSection #section #ul .liArticle article p {
+    grid-row: 1/2;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #panier #panierSection #section #ul .liArticle article .buttonSection {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #panier #panierSection #section #ul .liArticle article .buttonSection span {
+    padding: 0.5rem;
+  }
+  #panier #panierSection #section #ul .liArticle article figure {
+    grid-row: 1/3;
+    grid-column: 1/2;
+  }
+  #panier #panierSection #section #ul .liArticle article figure img {
+    height: 10rem;
+  }
+  #panier #panierSection #section #ul .liArticle article button {
+    grid-row: 2/3;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+    height: 3rem;
+  }
+  #panier #panierSection .button {
+    margin-top: 0.2rem;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  #panier #panierSection footer {
+    grid-column: 1/2;
+    grid-row: 4/5;
+    display: grid;
+    grid-template-columns: 2fr 4fr 2fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  #panier #panierSection footer p {
+    font-size: 2rem;
+    grid-row: 2/3;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #panier #panierSection footer p a {
+    text-decoration: none;
+    color: #000;
+  }
+  #panier #panierSection footer p:first-of-type {
+    grid-row: 1/2;
+    grid-column: 3/4;
+  }
+  #panier #panierSection footer p:last-of-type {
+    grid-row: 2/3;
+    grid-column: 3/4;
+  }
+  #panier #panierSection #asideCompte {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+  #panier #panierSection #asideCompte > ul li {
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+    list-style: none;
+    color: #000;
+  }
+  #panier #panierSection #asideCompte > ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #panier #panierSection #sec {
+    grid-row: 5/6;
+    grid-column: 3/4;
+  }
+  #panier #panierSection #sec h2 {
+    display: none;
+  }
+  #panier #panierSection #sec form fieldset {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #panier #panierSection #sec form fieldset label {
+    padding-bottom: 0.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+    width: 60%;
+  }
+  #panier #panierSection #sec form fieldset input {
+    margin: 0.7rem;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    width: 60%;
+  }
+  #panier #panierSection #sec form .submit {
+    padding: 1rem;
+    margin: 1rem;
+    width: 20%;
+    border-radius: 0.5rem;
+    background-color: darkred;
+    font-size: 1.5rem;
+    color: #fff;
+  }
 }
-#favorite h1 {
-  font-size: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem;
+@media (min-width: 1025px) {
+  #panier {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    padding-top: 5rem;
+    min-height: 55vh;
+    text-align: center;
+  }
+  #panier #panierSection {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+  }
+  #panier #panierSection h1 {
+    grid-column: 1/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    font-size: 3rem;
+    text-align: center;
+  }
+  #panier #panierSection #section {
+    grid-column: 2/3;
+  }
+  #panier #panierSection #section #ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 1rem;
+  }
+  #panier #panierSection #section #ul .liArticle {
+    border: 0.2rem solid;
+    border-radius: 5px;
+    margin: 1rem;
+    width: 90%;
+  }
+  #panier #panierSection #section #ul .liArticle article {
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: 2fr 6fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    font-size: 2rem;
+  }
+  #panier #panierSection #section #ul .liArticle article h3 {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #panier #panierSection #section #ul .liArticle article p {
+    grid-row: 1/2;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #panier #panierSection #section #ul .liArticle article .buttonSection {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #panier #panierSection #section #ul .liArticle article .buttonSection span {
+    padding: 0.5rem;
+  }
+  #panier #panierSection #section #ul .liArticle article figure {
+    grid-row: 1/3;
+    grid-column: 1/2;
+  }
+  #panier #panierSection #section #ul .liArticle article figure img {
+    height: 20rem;
+  }
+  #panier #panierSection #section #ul .liArticle article button {
+    grid-row: 2/3;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+    height: 4rem;
+  }
+  #panier #panierSection .button {
+    margin-top: 0.2rem;
+    font-size: 1rem;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  #panier #panierSection footer {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 2fr 4fr 2fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  #panier #panierSection footer p {
+    font-size: 2rem;
+    grid-row: 2/3;
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #panier #panierSection footer p a {
+    text-decoration: none;
+    color: #000;
+  }
+  #panier #panierSection footer p:first-of-type {
+    grid-row: 1/2;
+    grid-column: 3/4;
+  }
+  #panier #panierSection footer p:last-of-type {
+    grid-row: 2/3;
+    grid-column: 3/4;
+  }
+  #panier #panierSection #asideCompte {
+    grid-column: 1/2;
+    grid-row: 2/4;
+    z-index: 100;
+    position: sticky;
+    top: 20rem;
+  }
+  #panier #panierSection #asideCompte > ul li {
+    font-size: 2rem;
+    line-height: 3rem;
+    list-style: none;
+    color: #000;
+  }
+  #panier #panierSection #asideCompte > ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #panier #panierSection #sec {
+    grid-row: 5/6;
+    grid-column: 3/4;
+  }
+  #panier #panierSection #sec h2 {
+    display: none;
+  }
+  #panier #panierSection #sec form fieldset {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #panier #panierSection #sec form fieldset label {
+    padding-bottom: 0.5rem;
+    text-align: center;
+    font-size: 2rem;
+    width: 60%;
+  }
+  #panier #panierSection #sec form fieldset input {
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    width: 60%;
+  }
+  #panier #panierSection #sec form .submit {
+    padding: 1rem;
+    margin: 1rem;
+    width: 20%;
+    border-radius: 0.5rem;
+    background-color: darkred;
+    font-size: 1.5rem;
+    color: #fff;
+  }
 }
-#favorite #section {
+header {
   display: grid;
-  grid-template-columns: 2fr 8fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
 }
-#favorite #section > #ul {
-  grid-row: 1/2;
+header h1 {
   grid-column: 2/3;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-#favorite #section > #ul > li > section {
-  text-align: center;
-  justify-content: start;
-  display: block;
-  padding: 2rem;
-}
-#favorite #section > #ul > li > section button {
-  margin-top: 0.2rem;
-  font-size: 1rem;
-  background-color: darkred;
-  color: #fff;
-  border-radius: 5px;
-  padding: 0.5rem;
-}
-#favorite #section > #ul > li > section h2 {
-  font-size: 2rem;
-  padding: 1rem;
-  text-align: center;
-}
-#favorite #section > #ul > li > section a figure img {
-  max-height: 15rem;
-}
-#favorite #section #asideCompte {
   grid-row: 1/2;
-  grid-column: 1/2;
-  z-index: 100;
-  position: sticky;
-  top: 20rem;
-}
-#favorite #section #asideCompte > ul li {
-  font-size: 2rem;
-  line-height: 3rem;
-  list-style: none;
-  color: #000;
-}
-#favorite #section #asideCompte > ul li a {
-  text-decoration: none;
-  color: #000;
-}
-#favorite .hidden {
-  display: none;
-}
-
-#commandes {
-  grid-row: 2/3;
-  grid-column: 2/3;
-}
-#commandes > figure:first-of-type {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 4rem;
-}
-#commandes #comm {
-  text-transform: capitalize;
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-}
-#commandes #comm h1 {
-  grid-column: 1/3;
   font-size: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 6rem;
-  padding-top: 6rem;
 }
-#commandes #comm section {
-  grid-column: 2/3;
-}
-#commandes #comm section table {
-  margin-bottom: 5rem;
-  padding: 1rem;
-  border-radius: 5px;
-}
-#commandes #comm section table thead tr th {
-  padding: 1rem;
-  font-size: 2rem;
-}
-#commandes #comm section table tbody tr td {
-  text-align: center;
-  font-size: 1.5rem;
-  padding-bottom: 1rem;
-  vertical-align: middle;
-}
-#commandes #comm section table tbody tr td img {
-  height: 5rem;
-}
-#commandes #comm section table tbody tr #total {
-  font-size: 2rem;
-  color: darkred;
-}
-#commandes #comm #asideCompte {
-  grid-column: 1/2;
-  z-index: 100;
-  position: sticky;
-  top: 20rem;
-}
-#commandes #comm #asideCompte > ul li {
-  font-size: 2rem;
-  line-height: 3rem;
-  list-style: none;
+header h1 a {
   color: #000;
-}
-#commandes #comm #asideCompte > ul li a {
   text-decoration: none;
-  color: #000;
 }
-
-#products {
-  grid-column: 2/3;
-  display: grid;
-  grid-template-columns: 2fr 8fr;
-  grid-template-rows: 2fr 1fr 8fr;
-}
-#products > figure:first-of-type {
+header #logoAdmin {
+  grid-column: 1/2;
   grid-row: 1/2;
-  grid-column: 1/3;
+  height: 10rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background-image: url("https://cdn.discordapp.com/attachments/910185843371671562/1100093402084806717/RcLTWF9E-modified.png");
   background-repeat: no-repeat;
   background-position: center;
+  background-size: contain;
 }
-#products #top {
-  grid-row: 2/3;
-  grid-column: 1/3;
+header h2 {
+  grid-column: 3/4;
+  grid-row: 1/2;
+  font-size: 2rem;
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-#products #top nav ul {
-  display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 0.2rem solid;
-  border-radius: 5px;
 }
-#products #top nav ul li {
-  padding: 1rem 3rem 1rem 3rem;
-}
-#products #top nav ul li a {
+header h2 a {
   text-decoration: none;
-  color: #000;
-}
-#products #top nav ul li a h3 {
-  font-size: 3rem;
-  color: #000;
-}
-#products #top nav ul li:not(:last-of-type) {
-  border-right: 0.1rem solid;
-}
-#products #Allproducts {
-  grid-row: 3/4;
-  grid-column: 2/3;
-  margin: 2rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-#products #Allproducts li {
-  text-align: center;
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
-#products #Allproducts li h2 {
-  font-size: 2rem;
-  text-align: center;
-  padding: 1rem;
-}
-#products #Allproducts li button {
-  margin-top: 0.2rem;
-  font-size: 1rem;
   background-color: darkred;
   color: #fff;
   border-radius: 5px;
-  border-color: darkred;
-  padding: 0.5rem;
-}
-#products #Allproducts li a figure img {
-  height: 15rem;
-  width: 15rem;
-  border-width: 0.3rem;
-  border-style: solid;
-  border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
-}
-#products #Allproducts .hidden {
-  display: none;
-}
-#products #gauche {
-  grid-row: 3/4;
-  grid-column: 1/2;
-  line-height: 6rem;
-}
-#products #gauche nav {
-  z-index: 100;
-  position: sticky;
-  top: 20rem;
-}
-#products #gauche nav h2 {
-  font-size: 2.5rem;
-  text-transform: capitalize;
-}
-#products #gauche nav ul {
-  flex-direction: column;
-}
-#products #gauche nav ul li a {
-  text-decoration: none;
-  color: #000;
-}
-#products #gauche nav ul li a h3 {
-  line-height: 3rem;
-  font-size: 1.8rem;
-  color: #000;
-}
-#products #gauche nav #filtre .filtres {
-  display: flex;
-  flex-direction: column;
-}
-#products #gauche nav #filtre .filtres label {
-  font-size: 1.8rem;
-  text-transform: capitalize;
-}
-#products #gauche nav #filtre .filtres select {
-  border-width: 0.1rem;
-  border-style: solid;
-  border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
-  font-size: 1.5rem;
-  text-transform: capitalize;
-  background-color: #fff;
-  color: #000;
-  width: 60%;
-}
-#products #gauche nav #filtre .filtres select option {
-  font-size: 1.3rem;
+  padding: 0.7rem;
 }
 
-#OneProduct {
-  grid-row: 2/3;
+#HomepageAdmin {
   grid-column: 2/3;
-}
-#OneProduct #article {
-  margin-top: 4rem;
-  display: grid;
-  grid-template-columns: 4fr 0.2fr 5fr;
-  grid-template-rows: 0.3fr 0.7fr 0.1fr;
-  border-width: 0.2rem;
-  border-style: solid;
-  border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
-  border-radius: 5px;
-}
-#OneProduct #article #headerArticle {
-  grid-row: 1/2;
-  grid-column: 3/4;
-  border-width: 0.2rem;
-  border-style: solid;
-  border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2rem;
-  margin-right: 2rem;
-  margin-left: 2rem;
-}
-#OneProduct #article #headerArticle h1 {
-  font-size: 4rem;
-}
-#OneProduct #article #media {
-  grid-row: 1/3;
-  grid-column: 1/2;
-  display: flex;
-  justify-content: center;
-  margin: 2rem;
-}
-#OneProduct #article #media img {
-  height: 50rem;
-}
-#OneProduct #article #ulArticle {
   grid-row: 2/3;
-  grid-column: 3/4;
-  display: flex;
-  flex-direction: column;
-  margin-right: 2rem;
-  margin-left: 2rem;
-  border-width: 0.2rem;
-  border-style: solid;
-  border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
-  border-radius: 5px;
 }
-#OneProduct #article #ulArticle li {
-  font-size: 1.4rem;
-  padding: 1rem;
-  padding-left: 2rem;
-}
-#OneProduct #article #ulArticle li h2 {
-  padding-bottom: 0.5rem;
-}
-#OneProduct #article #ulArticle #description {
-  padding-top: 2rem;
-}
-#OneProduct #article #ulArticle #prix #footerArticle {
+#HomepageAdmin ul {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
-#OneProduct #article #ulArticle #prix #footerArticle fieldset {
-  grid-row: 1/2;
-  grid-column: 1/2;
-  font-size: 1.5rem;
-}
-#OneProduct #article #ulArticle #prix #footerArticle p {
-  grid-row: 2/3;
-  grid-column: 1/2;
-  font-size: 1.5rem;
-}
-#OneProduct #article #ulArticle #prix #footerArticle span {
-  grid-row: 3/4;
+#HomepageAdmin ul h2 {
   grid-column: 2/3;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-#OneProduct .button {
-  margin-top: 0.2rem;
-  font-size: 1rem;
-  background-color: darkred;
-  color: #fff;
-  border-radius: 5px;
-  padding: 0.5rem;
-}
-#OneProduct #asidePanier {
-  margin-top: 2rem;
-  border-width: 0.2rem;
-  border-style: solid;
-  border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
-  border-radius: 5px;
-}
-#OneProduct #asidePanier h2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+  padding: 5rem;
+  text-align: center;
   font-size: 3rem;
 }
-#OneProduct #asidePanier #section #ul {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 1rem;
-}
-#OneProduct #asidePanier #section #ul .liArticle {
-  border-width: 0.2rem;
-  border-style: solid;
-  border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
-  border-radius: 5px;
-  margin: 1rem;
-  max-width: 40%;
-}
-#OneProduct #asidePanier #section #ul .liArticle article {
-  margin: 1rem;
-  display: grid;
-  grid-template-columns: 2fr 6fr 2fr;
-  grid-template-rows: 1fr 1fr;
+#HomepageAdmin ul li {
+  grid-column: 2/3;
+  padding: 2rem;
   font-size: 2rem;
 }
-#OneProduct #asidePanier #section #ul .liArticle article h3 {
-  grid-row: 1/2;
-  grid-column: 2/3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#OneProduct #asidePanier #section #ul .liArticle article p {
-  grid-row: 1/2;
-  grid-column: 3/4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#OneProduct #asidePanier #section #ul .liArticle article .buttonSection {
-  grid-row: 2/3;
-  grid-column: 2/3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#OneProduct #asidePanier #section #ul .liArticle article .buttonSection span {
-  padding: 0.5rem;
-}
-#OneProduct #asidePanier #section #ul .liArticle article figure {
-  grid-row: 1/3;
-  grid-column: 1/2;
-}
-#OneProduct #asidePanier #section #ul .liArticle article figure img {
-  height: 10rem;
-}
-#OneProduct #asidePanier #section #ul .liArticle article button {
-  grid-row: 2/3;
-  grid-column: 3/4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
+#HomepageAdmin ul li a {
+  text-decoration: none;
   background-color: darkred;
   color: #fff;
   border-radius: 5px;
-  padding: 0.5rem;
-}
-#OneProduct #asidePanier footer {
-  display: grid;
-  grid-template-columns: 2fr 4fr 2fr;
-  grid-template-rows: 1fr 1fr;
-}
-#OneProduct #asidePanier footer p {
-  font-size: 2rem;
-  grid-row: 2/3;
-  grid-column: 3/4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#OneProduct #asidePanier footer p a {
-  text-decoration: none;
-  color: #000;
-}
-#OneProduct #asidePanier footer p:first-of-type {
-  grid-row: 1/2;
-  grid-column: 3/4;
-}
-#OneProduct #asidePanier footer p:last-of-type {
-  grid-row: 1/3;
-  grid-column: 1/2;
-}
-#OneProduct #footer {
-  padding-top: 5rem;
-}
-#OneProduct #footer ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-#OneProduct #footer ul li {
-  text-align: center;
-  display: block;
-}
-#OneProduct #footer ul li h2 {
-  font-size: 2rem;
-  padding: 0.5rem;
-}
-#OneProduct #footer ul li a figure img {
-  height: 12rem;
-  max-height: 12rem;
+  padding: 0.7rem;
 }
 
-#panier {
-  grid-row: 2/3;
+#CategorysAdmin {
   grid-column: 2/3;
+  grid-row: 2/3;
 }
-#panier > figure:first-of-type {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 4rem;
-}
-#panier #panierSection {
-  margin-top: 2rem;
-  display: grid;
-  grid-template-columns: 1fr 0.1fr 4fr;
-}
-#panier #panierSection h2 {
-  grid-column: 1/4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  font-size: 3rem;
-}
-#panier #panierSection #section {
-  grid-column: 3/4;
-}
-#panier #panierSection #section #ul {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 1rem;
-}
-#panier #panierSection #section #ul .liArticle {
-  border: 0.2rem solid;
-  border-radius: 5px;
-  margin: 1rem;
-  width: 90%;
-}
-#panier #panierSection #section #ul .liArticle article {
-  margin: 1rem;
-  display: grid;
-  grid-template-columns: 2fr 6fr 2fr;
-  grid-template-rows: 1fr 1fr;
+#CategorysAdmin h2 {
   font-size: 2rem;
-}
-#panier #panierSection #section #ul .liArticle article h3 {
-  grid-row: 1/2;
-  grid-column: 2/3;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 3rem;
 }
-#panier #panierSection #section #ul .liArticle article p {
-  grid-row: 1/2;
-  grid-column: 3/4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#panier #panierSection #section #ul .liArticle article .buttonSection {
-  grid-row: 2/3;
-  grid-column: 2/3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#panier #panierSection #section #ul .liArticle article .buttonSection span {
-  padding: 0.5rem;
-}
-#panier #panierSection #section #ul .liArticle article figure {
-  grid-row: 1/3;
-  grid-column: 1/2;
-}
-#panier #panierSection #section #ul .liArticle article figure img {
-  height: 20rem;
-}
-#panier #panierSection #section #ul .liArticle article button {
-  grid-row: 2/3;
-  grid-column: 3/4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  background-color: darkred;
-  color: #fff;
-  border-radius: 5px;
-  padding: 0.5rem;
-}
-#panier #panierSection .button {
-  margin-top: 0.2rem;
-  font-size: 1rem;
-  background-color: darkred;
-  color: #fff;
-  border-radius: 5px;
-  padding: 0.5rem;
-}
-#panier #panierSection footer {
-  grid-column: 3/4;
-  display: grid;
-  grid-template-columns: 2fr 4fr 2fr;
-  grid-template-rows: 1fr 1fr;
-}
-#panier #panierSection footer p {
-  font-size: 2rem;
-  grid-row: 2/3;
-  grid-column: 3/4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#panier #panierSection footer p a {
-  text-decoration: none;
-  color: #000;
-}
-#panier #panierSection footer p:first-of-type {
-  grid-row: 1/2;
-  grid-column: 3/4;
-}
-#panier #panierSection footer p:last-of-type {
-  grid-row: 2/3;
-  grid-column: 3/4;
-}
-#panier #panierSection #asideCompte {
-  grid-column: 1/2;
-  grid-row: 2/4;
-  z-index: 100;
-  position: sticky;
-  top: 20rem;
-}
-#panier #panierSection #asideCompte > ul li {
-  font-size: 2rem;
-  line-height: 3rem;
-  list-style: none;
-  color: #000;
-}
-#panier #panierSection #asideCompte > ul li a {
-  text-decoration: none;
-  color: #000;
-}
-#panier #panierSection #sec {
-  grid-row: 5/6;
-  grid-column: 3/4;
-}
-#panier #panierSection #sec h2 {
-  font-size: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 3rem;
-}
-#panier #panierSection #sec fieldset form {
+#CategorysAdmin form {
   padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-#panier #panierSection #sec fieldset form label {
+#CategorysAdmin form label {
   padding-bottom: 0.5rem;
   text-align: center;
   font-size: 2rem;
   width: 60%;
 }
-#panier #panierSection #sec fieldset form input {
+#CategorysAdmin form input {
   margin: 1rem;
   padding: 0.5rem;
+  font-size: 1.5rem;
   border-radius: 0.2rem;
-  width: 60%;
+  width: 30%;
 }
-#panier #panierSection #sec fieldset form .submit {
+#CategorysAdmin form #url {
+  font-size: 1.4rem;
+}
+#CategorysAdmin form .submit {
+  cursor: pointer;
   padding: 1rem;
   margin: 1rem;
   width: 20%;
@@ -1254,6 +5660,563 @@ table {
   background-color: darkred;
   font-size: 1.5rem;
   color: #fff;
+}
+#CategorysAdmin table {
+  border: 3px solid;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+#CategorysAdmin table thead tr th {
+  border: 3px solid;
+  padding: 2rem;
+  font-size: 2rem;
+}
+#CategorysAdmin table tbody tr td {
+  text-align: center;
+  font-size: 2rem;
+  padding: 1rem;
+  padding-left: 1rem;
+  vertical-align: middle;
+}
+#CategorysAdmin table tbody tr td img {
+  height: 7rem;
+}
+#CategorysAdmin table tbody tr td a {
+  text-decoration: none;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.7rem;
+}
+#CategorysAdmin table tbody tr:nth-child(even) {
+  background-color: #D3D3D3;
+}
+#CategorysAdmin table tbody tr:nth-child(odd) {
+  background-color: #A9A9A9;
+}
+
+#editcat {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+#editcat h2 {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+#editcat form {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#editcat form label {
+  padding-bottom: 0.5rem;
+  text-align: center;
+  font-size: 2rem;
+  width: 60%;
+}
+#editcat form input {
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  width: 30%;
+  font-size: 1.4rem;
+}
+#editcat form #url {
+  font-size: 1.4rem;
+}
+#editcat form .submit {
+  cursor: pointer;
+  padding: 1rem;
+  margin: 1rem;
+  width: 20%;
+  border-radius: 0.5rem;
+  background-color: darkred;
+  font-size: 1.5rem;
+  color: #fff;
+}
+#editcat a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.7rem;
+}
+
+#usersAdmin {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+#usersAdmin h2 {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+#usersAdmin table {
+  border: 3px solid;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+#usersAdmin table thead tr th {
+  border: 3px solid;
+  padding: 2rem;
+  font-size: 2rem;
+}
+#usersAdmin table tbody tr td {
+  text-align: center;
+  font-size: 2rem;
+  padding: 2rem;
+  padding-left: 1rem;
+  vertical-align: middle;
+}
+#usersAdmin table tbody tr td img {
+  height: 7rem;
+}
+#usersAdmin table tbody tr td a {
+  text-decoration: none;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.7rem;
+}
+#usersAdmin table tbody tr:nth-child(even) {
+  background-color: #D3D3D3;
+}
+#usersAdmin table tbody tr:nth-child(odd) {
+  background-color: #A9A9A9;
+}
+
+#userAdmin {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+#userAdmin h2 {
+  grid-column: 1/2;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+#userAdmin a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.7rem;
+}
+#userAdmin #tableUser {
+  grid-column: 1/2;
+  border: 3px solid;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+#userAdmin #tableUser thead tr th {
+  border: 3px solid;
+  padding: 2rem;
+  font-size: 2rem;
+}
+#userAdmin #tableUser tbody tr td {
+  text-align: center;
+  font-size: 2rem;
+  padding: 2rem;
+  padding-left: 1rem;
+  vertical-align: middle;
+}
+#userAdmin #tableUser tbody tr td img {
+  height: 7rem;
+}
+#userAdmin #tableUser tbody tr td a {
+  text-decoration: none;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.7rem;
+}
+#userAdmin #tableUser tbody tr:nth-child(even) {
+  background-color: #D3D3D3;
+}
+#userAdmin #tableUser tbody tr:nth-child(odd) {
+  background-color: #A9A9A9;
+}
+#userAdmin #sectionCommandes {
+  grid-column: 1/2;
+}
+#userAdmin #sectionCommandes table {
+  margin-bottom: 5rem;
+  padding: 1rem;
+  border: 3px solid;
+  width: 100%;
+}
+#userAdmin #sectionCommandes table thead tr th {
+  padding: 1rem;
+  font-size: 2rem;
+}
+#userAdmin #sectionCommandes table tbody tr td {
+  text-align: center;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+  vertical-align: middle;
+}
+#userAdmin #sectionCommandes table tbody tr td img {
+  height: 5rem;
+}
+#userAdmin #sectionCommandes table tbody tr #total {
+  font-size: 2rem;
+  color: darkred;
+}
+
+#productsAdmin {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+#productsAdmin h2 {
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+#productsAdmin form {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#productsAdmin form label {
+  padding-bottom: 0.5rem;
+  text-align: center;
+  font-size: 2rem;
+  width: 60%;
+}
+#productsAdmin form input {
+  margin: 1rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border-radius: 0.2rem;
+  width: 30%;
+}
+#productsAdmin form select {
+  margin: 1rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border-radius: 0.2rem;
+  width: 31%;
+}
+#productsAdmin form #url {
+  font-size: 1.4rem;
+}
+#productsAdmin form .submit {
+  cursor: pointer;
+  padding: 1rem;
+  margin: 1rem;
+  width: 20%;
+  border-radius: 0.5rem;
+  background-color: darkred;
+  font-size: 1.5rem;
+  color: #fff;
+}
+#productsAdmin form section .allergen {
+  width: 100%;
+}
+#productsAdmin form section .ingredient {
+  width: 100%;
+}
+#productsAdmin table {
+  grid-row: 4/5;
+  border: 3px solid;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+#productsAdmin table thead tr th {
+  border: 3px solid;
+  padding: 2rem;
+  font-size: 2rem;
+}
+#productsAdmin table tbody tr td {
+  text-align: center;
+  font-size: 2rem;
+  padding: 1rem;
+  padding-left: 1rem;
+  vertical-align: middle;
+}
+#productsAdmin table tbody tr td img {
+  height: 7rem;
+}
+#productsAdmin table tbody tr td a {
+  text-decoration: none;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.7rem;
+}
+#productsAdmin table tbody tr:nth-child(even) {
+  background-color: #D3D3D3;
+}
+#productsAdmin table tbody tr:nth-child(odd) {
+  background-color: #A9A9A9;
+}
+#productsAdmin table .action {
+  width: 30rem;
+}
+
+#editproduct {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  margin-bottom: 4rem;
+}
+#editproduct h2 {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+#editproduct form {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#editproduct form label {
+  padding-bottom: 0.5rem;
+  text-align: center;
+  font-size: 2rem;
+  width: 60%;
+}
+#editproduct form input {
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  width: 30%;
+  font-size: 1.4rem;
+}
+#editproduct form select {
+  margin: 1rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border-radius: 0.2rem;
+  width: 31%;
+}
+#editproduct form section .allergen {
+  width: 100%;
+}
+#editproduct form section .ingredient {
+  width: 100%;
+}
+#editproduct form .submit {
+  cursor: pointer;
+  padding: 1rem;
+  margin: 1rem;
+  width: 20%;
+  border-radius: 0.5rem;
+  background-color: darkred;
+  font-size: 1.5rem;
+  color: #fff;
+}
+#editproduct a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.7rem;
+}
+
+#infoProductAdmin {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+#infoProductAdmin h2 {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+#infoProductAdmin table {
+  border: 3px solid;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+#infoProductAdmin table thead tr th {
+  border: 3px solid;
+  padding: 2rem;
+  font-size: 2rem;
+}
+#infoProductAdmin table tbody tr td {
+  text-align: center;
+  font-size: 2rem;
+  padding: 2rem;
+  padding-left: 1rem;
+  vertical-align: middle;
+}
+#infoProductAdmin table tbody tr td img {
+  height: 7rem;
+}
+#infoProductAdmin table tbody tr td a {
+  text-decoration: none;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.7rem;
+}
+#infoProductAdmin table tbody tr:nth-child(even) {
+  background-color: #D3D3D3;
+}
+#infoProductAdmin table tbody tr:nth-child(odd) {
+  background-color: #A9A9A9;
+}
+#infoProductAdmin a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.7rem;
+}
+
+.createAdmin {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+.createAdmin h2 {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+.createAdmin form {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.createAdmin form label {
+  padding-bottom: 0.5rem;
+  text-align: center;
+  font-size: 2rem;
+  width: 60%;
+}
+.createAdmin form input {
+  margin: 1rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border-radius: 0.2rem;
+  width: 30%;
+}
+.createAdmin form #url {
+  font-size: 1.4rem;
+}
+.createAdmin form .submit {
+  cursor: pointer;
+  padding: 1rem;
+  margin: 1rem;
+  width: 20%;
+  border-radius: 0.5rem;
+  background-color: darkred;
+  font-size: 1.5rem;
+  color: #fff;
+}
+.createAdmin table {
+  border: 3px solid;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.createAdmin table thead tr th {
+  border: 3px solid;
+  padding: 2rem;
+  font-size: 2rem;
+}
+.createAdmin table tbody tr td {
+  text-align: center;
+  font-size: 2rem;
+  padding: 1rem;
+  padding-left: 1rem;
+  vertical-align: middle;
+}
+.createAdmin table tbody tr td img {
+  height: 7rem;
+}
+.createAdmin table tbody tr td a {
+  text-decoration: none;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.7rem;
+}
+.createAdmin table tbody tr:nth-child(even) {
+  background-color: #D3D3D3;
+}
+.createAdmin table tbody tr:nth-child(odd) {
+  background-color: #A9A9A9;
+}
+
+.edit {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+.edit h2 {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+.edit form {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.edit form label {
+  padding-bottom: 0.5rem;
+  text-align: center;
+  font-size: 2rem;
+  width: 60%;
+}
+.edit form input {
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  width: 30%;
+  font-size: 1.4rem;
+}
+.edit form #url {
+  font-size: 1.4rem;
+}
+.edit form .submit {
+  cursor: pointer;
+  padding: 1rem;
+  margin: 1rem;
+  width: 20%;
+  border-radius: 0.5rem;
+  background-color: darkred;
+  font-size: 1.5rem;
+  color: #fff;
+}
+.edit a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  background-color: darkred;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.7rem;
 }
 
 /*# sourceMappingURL=style.css.map */

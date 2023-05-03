@@ -1,44 +1,227 @@
-#boutique{ //main 
-        grid-row: 2/3 ;
-        grid-column: 2/3 ;
-        min-height:85vh;
 
-    h1{
-        font-size:4rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-bottom:3rem;
-        padding-top:4rem;
-    }
-    #categorie{
-    ul {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            flex-wrap: wrap;
-            
-            li {
-                text-align:center;
-                display: block;
-                padding:4rem;
-                
-                h2{
-                    font-size:3rem;
-                    padding:1rem;
+        @media(min-width: 0px) and (max-width: 900px) 
+        {
+            #boutique{ //main 
+                    grid-row: 2/3 ;
+                    grid-column: 2/3 ;
+                    padding-top:5rem;
+                h1{
+                    font-size:1.7rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
-                a{
-                    figure{
-                        img{
-                            height:25rem;
-                            max-height:25rem;
-                            border-width: 0.2rem;
-                            border-style: solid;
-                            border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+                #categorie{
+                ul {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-evenly;
+                        flex-wrap: wrap;
+                        
+                        li {
+                            text-align:center;
+                            display: block;
+                            padding:1rem;
+                            
+                            h2{
+                                font-size:1rem;
+                                padding:0.8rem;
+                            }
+                            a{
+                                figure{
+                                    img{
+                                        height:10rem;
+                                        max-height:10rem;
+                                        border-width: 0.2rem;
+                                        border-style: solid;
+                                        border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             }
         }
-    }
-}
+        @media(min-width: 900px) and (max-width: 1024px) 
+        {
+            #boutique{ //main 
+                    grid-row: 2/3 ;
+                    grid-column: 2/3 ;
+                    padding-top:8rem;
+                h1{
+                    font-size:2.5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding-bottom:1.5rem;
+                }
+                #categorie{
+                ul {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-evenly;
+                        flex-wrap: wrap;
+                        
+                        li {
+                            text-align:center;
+                            display: block;
+                            padding:1.4rem;
+                            
+                            h2{
+                                font-size:1.2rem;
+                                padding:1rem;
+                            }
+                            a{
+                                figure{
+                                    img{
+                                        height:12rem;
+                                        max-height:12rem;
+                                        border-width: 0.2rem;
+                                        border-style: solid;
+                                        border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @media(min-width: 1024px) and (max-width: 1200px) 
+        {
+            #boutique{ //main 
+                    grid-row: 2/3 ;
+                    grid-column: 2/3 ;
+                    padding-top:8rem;
+                h1{
+                    font-size:3rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding-bottom:1.5rem;
+                }
+                #categorie{
+                ul {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-evenly;
+                        flex-wrap: wrap;
+                        
+                        li {
+                            text-align:center;
+                            display: block;
+                            padding:1.5rem;
+                            
+                            h2{
+                                font-size:1.5rem;
+                                padding:1rem;
+                            }
+                            a{
+                                figure{
+                                    img{
+                                        height:15rem;
+                                        max-height:15rem;
+                                        border-width: 0.2rem;
+                                        border-style: solid;
+                                        border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @media(min-width: 1200px) and (max-width: 1919px) 
+            {
+                #boutique{ //main 
+                    grid-row: 2/3 ;
+                    grid-column: 2/3 ;
+                    padding-top:10rem;
+            
+                h1{
+                    font-size:3.5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding-bottom:2rem;
+                }
+                #categorie{
+                ul {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-evenly;
+                        flex-wrap: wrap;
+                        
+                        li {
+                            text-align:center;
+                            display: block;
+                            padding:2rem;
+                            
+                            h2{
+                                font-size:2.5rem;
+                                padding:1rem;
+                            }
+                            a{
+                                figure{
+                                    img{
+                                        height:20rem;
+                                        max-height:20rem;
+                                        border-width: 0.2rem;
+                                        border-style: solid;
+                                        border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @media(min-width: 1920px) 
+            {
+                #boutique{ //main 
+                    grid-row: 2/3 ;
+                    grid-column: 2/3 ;
+                    padding-top:15rem;
+            
+                h1{
+                    font-size:4rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding-bottom:3rem;
+                }
+                #categorie{
+                ul {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-evenly;
+                        flex-wrap: wrap;
+                        
+                        li {
+                            text-align:center;
+                            display: block;
+                            padding:4rem;
+                            
+                            h2{
+                                font-size:3rem;
+                                padding:1rem;
+                            }
+                            a{
+                                figure{
+                                    img{
+                                        height:25rem;
+                                        max-height:25rem;
+                                        border-width: 0.2rem;
+                                        border-style: solid;
+                                        border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }

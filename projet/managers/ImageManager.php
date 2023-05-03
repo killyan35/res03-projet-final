@@ -53,7 +53,6 @@ class ImageManager extends AbstractManager {
        
         $ImageToReturn = new Image(intval($image["id"]),$image["url"],$image["description"], $image["product_id"]);
         $ImageToReturn->setId($image["id"]);
-        
         return $ImageToReturn;
     }
     public function deleteImage(Image $image)

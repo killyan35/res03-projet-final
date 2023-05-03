@@ -1,41 +1,43 @@
-<h2><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin">revenir aux menu admin</a></h2>
-<h1><?php
+<main id="infoProductAdmin">
+<h2><?php
      foreach($data["product"] as $product)
     { 
             echo $product->getName() ;
     } 
     ?>
-</h1>
-<table>
-    <thead>
-        <tr>
-            <th>Liste des ingredients</th>
-            <th>Liste des allergenes</th>
-            <th>prix</th>
-        </tr>
-    </thead>
-    <tbody>
-      
-        <tr>
-            <td><ul><?php 
-            foreach($data["ingredients"] as $ingredient)
-            { ?>
-                <li> <?php   echo $ingredient->getName(); ?></li>
-          <?php  } ?></ul></td>
-            <td><ul>
-                 <?php 
-                foreach($data["allergens"] as $allergen){ ?>
-                    
-                   <li><?php echo $allergen->getName() ; ?></li>
-                <?php } ?>
-            </ul></td>
-            <td>
-            <?php
-             foreach($data["product"] as $product)
-            { 
-            echo  round($product->getPrice(),2) ;
-    } ?></td>
-        </tr>
-   
-    </tbody>
-</table>
+</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Liste des ingredients</th>
+                <th>Liste des allergenes</th>
+                <th>prix</th>
+            </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+                <td><ul><?php 
+                foreach($data["ingredients"] as $ingredient)
+                { ?>
+                    <li> <?php   echo $ingredient->getName(); ?></li>
+              <?php  } ?></ul></td>
+                <td><ul>
+                     <?php 
+                    foreach($data["allergens"] as $allergen){ ?>
+                        
+                       <li><?php echo $allergen->getName() ; ?></li>
+                    <?php } ?>
+                </ul></td>
+                <td>
+                <?php
+                 foreach($data["product"] as $product)
+                { 
+                echo  round($product->getPrice(),2) ;
+        } ?></td>
+            </tr>
+       
+        </tbody>
+    </table>
+    <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/admin/product">revenir aux produits</a>
+</main>
