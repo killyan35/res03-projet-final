@@ -4,8 +4,6 @@ class Router {
     private UserController $uc;
     private CategoryController $cc;
     private ProductController $pc;
-    private AdminController $ac;
-    private EventController $ec;
     private IngredientController $ic;
     private AllergenController $alc;
     private ImageController $imc;
@@ -16,8 +14,6 @@ class Router {
         $this->uc = new UserController();
         $this->cc = new CategoryController();
         $this->pc = new ProductController();
-        $this->ac = new AdminController();
-        $this->ec = new EventController();
         $this->ic = new IngredientController();
         $this->alc = new AllergenController();
         $this->imc = new ImageController();

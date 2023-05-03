@@ -1,7 +1,8 @@
 #homepage //main 
     {
         grid-column: 2/3 ;
-        padding-top:5rem;
+        padding-top:14rem;
+        padding-bottom:8rem;
         #sec1{
             #carrousel{ //ul
                 display: flex;
@@ -73,11 +74,11 @@
             }
         }
        
-                @media(max-width: 479px) 
+                @media(min-width: 0px) and (max-width: 479px) 
                 {
                    #sec2{
                             display: grid;
-                            grid-template-columns: 1fr 1fr;
+                            grid-template-columns: 4fr 1fr;
                             padding:0.7rem;
                             padding-top:1.5rem;
                             h2 {
@@ -87,6 +88,7 @@
                                 justify-content: center;
                                 height:1rem;
                                 max-height:1rem;
+                                width:100%;
                                 a{
                                     text-decoration:none;
                                     color: #000;
@@ -100,6 +102,7 @@
                                 justify-content: center;
                                 max-height:1rem;
                                 font-size:0.7rem;
+                                width:50%;
                             }
                         #UlSearchBar{
                             grid-column: 2/3 ;
@@ -144,7 +147,7 @@
                 {
                    #sec2{
                             display: grid;
-                            grid-template-columns: 1fr 1fr;
+                            grid-template-columns: 4fr 1fr;
                             padding:1rem;
                             padding-top:2rem;
                             h2 {
@@ -154,6 +157,7 @@
                                 justify-content: center;
                                 height:1.3rem;
                                 max-height:1.3rem;
+                                width:100%;
                                 a{
                                     text-decoration:none;
                                     color: #000;
@@ -167,6 +171,7 @@
                                 justify-content: center;
                                 max-height:1.3rem;
                                 font-size:0.9rem;
+                                width:50%;
                             }
                         #UlSearchBar{
                             grid-column: 2/3 ;
@@ -211,7 +216,7 @@
                 {
                     #sec2{
                             display: grid;
-                            grid-template-columns: 1fr 1fr;
+                            grid-template-columns: 4fr 1fr;
                             padding:1.2rem;
                             padding-top:2.5rem;
                             h2 {
@@ -221,6 +226,7 @@
                                 justify-content: center;
                                 height:1.5rem;
                                 max-height:1.5rem;
+                                width:100%;
                                 a{
                                     text-decoration:none;
                                     color: #000;
@@ -234,6 +240,7 @@
                                 justify-content: center;
                                 max-height:1.5rem;
                                 font-size:1rem;
+                                width:50%;
                             }
                         #UlSearchBar{
                             grid-column: 2/3 ;
@@ -278,7 +285,7 @@
                 {
                    #sec2{
                             display: grid;
-                            grid-template-columns: 1fr 1fr;
+                            grid-template-columns: 4fr 1fr;
                             padding:1.2rem;
                             padding-top:3rem;
                             h2 {
@@ -288,6 +295,7 @@
                                 justify-content: center;
                                 height:1.5rem;
                                 max-height:1.5rem;
+                                width:100%;
                                 a{
                                     text-decoration:none;
                                     color: #000;
@@ -301,6 +309,7 @@
                                 justify-content: center;
                                 max-height:1.7rem;
                                 font-size:1.1rem;
+                                width:50%;
                             }
                         #UlSearchBar{
                             grid-column: 2/3 ;
@@ -345,7 +354,7 @@
                 {
                     #sec2{
                             display: grid;
-                            grid-template-columns: 1fr 1fr;
+                            grid-template-columns: 4fr 1fr;
                             padding:1.5rem;
                             padding-top:3.5rem;
                             h2 {
@@ -355,6 +364,7 @@
                                 justify-content: center;
                                 height:1.8rem;
                                 max-height:1.8rem;
+                                width:100%;
                                 a{
                                     text-decoration:none;
                                     color: #000;
@@ -368,6 +378,7 @@
                                 justify-content: center;
                                 max-height:2rem;
                                 font-size:1.3rem;
+                                width:50%;
                             }
                         #UlSearchBar{
                             grid-column: 2/3 ;
@@ -412,7 +423,7 @@
                     {
                        #sec2{
                             display: grid;
-                            grid-template-columns: 1fr 1fr;
+                            grid-template-columns: 4fr 1fr;
                             padding:1.7rem;
                             padding-top:4rem;
                             h2 {
@@ -422,6 +433,7 @@
                                 justify-content: center;
                                 height:2rem;
                                 max-height:2rem;
+                                width:100%;
                                 a{
                                     text-decoration:none;
                                     color: #000;
@@ -435,6 +447,7 @@
                                 justify-content: center;
                                 max-height:2rem;
                                 font-size:1.4rem;
+                                width:50%;
                             }
                         #UlSearchBar{
                             grid-column: 2/3 ;
@@ -479,7 +492,7 @@
                     {
                         #sec2{
                             display: grid;
-                            grid-template-columns: 1fr 1fr;
+                            grid-template-columns: 4fr 1fr;
                             padding:2rem;
                             padding-top:6rem;
                             h2 {
@@ -489,6 +502,7 @@
                                 justify-content: center;
                                 height:3rem;
                                 max-height:3rem;
+                                width:100%;
                                 a{
                                     text-decoration:none;
                                     color: #000;
@@ -498,10 +512,10 @@
                             input {
                                 grid-column: 2/3 ;
                                 display:flex;
-                                align-items: center;
                                 justify-content: center;
                                 max-height:3rem;
                                 font-size:1.5rem;
+                                width:50%;
                             }
                         #UlSearchBar{
                             grid-column: 2/3 ;

@@ -106,7 +106,8 @@ body footer {
 
 #homepage {
   grid-column: 2/3;
-  padding-top: 5rem;
+  padding-top: 14rem;
+  padding-bottom: 8rem;
 }
 #homepage #sec1 #carrousel {
   display: flex;
@@ -157,10 +158,10 @@ body footer {
     height: 30rem;
   }
 }
-@media (max-width: 479px) {
+@media (min-width: 0px) and (max-width: 479px) {
   #homepage #sec2 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 4fr 1fr;
     padding: 0.7rem;
     padding-top: 1.5rem;
   }
@@ -171,6 +172,7 @@ body footer {
     justify-content: center;
     height: 1rem;
     max-height: 1rem;
+    width: 100%;
   }
   #homepage #sec2 h2 a {
     text-decoration: none;
@@ -184,6 +186,7 @@ body footer {
     justify-content: center;
     max-height: 1rem;
     font-size: 0.7rem;
+    width: 50%;
   }
   #homepage #sec2 #UlSearchBar {
     grid-column: 2/3;
@@ -226,7 +229,7 @@ body footer {
 @media (min-width: 480px) and (max-width: 720px) {
   #homepage #sec2 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 4fr 1fr;
     padding: 1rem;
     padding-top: 2rem;
   }
@@ -237,6 +240,7 @@ body footer {
     justify-content: center;
     height: 1.3rem;
     max-height: 1.3rem;
+    width: 100%;
   }
   #homepage #sec2 h2 a {
     text-decoration: none;
@@ -250,6 +254,7 @@ body footer {
     justify-content: center;
     max-height: 1.3rem;
     font-size: 0.9rem;
+    width: 50%;
   }
   #homepage #sec2 #UlSearchBar {
     grid-column: 2/3;
@@ -292,7 +297,7 @@ body footer {
 @media (min-width: 720px) and (max-width: 900px) {
   #homepage #sec2 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 4fr 1fr;
     padding: 1.2rem;
     padding-top: 2.5rem;
   }
@@ -303,6 +308,7 @@ body footer {
     justify-content: center;
     height: 1.5rem;
     max-height: 1.5rem;
+    width: 100%;
   }
   #homepage #sec2 h2 a {
     text-decoration: none;
@@ -316,6 +322,7 @@ body footer {
     justify-content: center;
     max-height: 1.5rem;
     font-size: 1rem;
+    width: 50%;
   }
   #homepage #sec2 #UlSearchBar {
     grid-column: 2/3;
@@ -358,7 +365,7 @@ body footer {
 @media (min-width: 900px) and (max-width: 1024px) {
   #homepage #sec2 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 4fr 1fr;
     padding: 1.2rem;
     padding-top: 3rem;
   }
@@ -369,6 +376,7 @@ body footer {
     justify-content: center;
     height: 1.5rem;
     max-height: 1.5rem;
+    width: 100%;
   }
   #homepage #sec2 h2 a {
     text-decoration: none;
@@ -382,6 +390,7 @@ body footer {
     justify-content: center;
     max-height: 1.7rem;
     font-size: 1.1rem;
+    width: 50%;
   }
   #homepage #sec2 #UlSearchBar {
     grid-column: 2/3;
@@ -424,7 +433,7 @@ body footer {
 @media (min-width: 1024px) and (max-width: 1200px) {
   #homepage #sec2 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 4fr 1fr;
     padding: 1.5rem;
     padding-top: 3.5rem;
   }
@@ -435,6 +444,7 @@ body footer {
     justify-content: center;
     height: 1.8rem;
     max-height: 1.8rem;
+    width: 100%;
   }
   #homepage #sec2 h2 a {
     text-decoration: none;
@@ -448,6 +458,7 @@ body footer {
     justify-content: center;
     max-height: 2rem;
     font-size: 1.3rem;
+    width: 50%;
   }
   #homepage #sec2 #UlSearchBar {
     grid-column: 2/3;
@@ -490,7 +501,7 @@ body footer {
 @media (min-width: 1200px) and (max-width: 1919px) {
   #homepage #sec2 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 4fr 1fr;
     padding: 1.7rem;
     padding-top: 4rem;
   }
@@ -501,6 +512,7 @@ body footer {
     justify-content: center;
     height: 2rem;
     max-height: 2rem;
+    width: 100%;
   }
   #homepage #sec2 h2 a {
     text-decoration: none;
@@ -514,6 +526,7 @@ body footer {
     justify-content: center;
     max-height: 2rem;
     font-size: 1.4rem;
+    width: 50%;
   }
   #homepage #sec2 #UlSearchBar {
     grid-column: 2/3;
@@ -556,7 +569,7 @@ body footer {
 @media (min-width: 1920px) {
   #homepage #sec2 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 4fr 1fr;
     padding: 2rem;
     padding-top: 6rem;
   }
@@ -567,6 +580,7 @@ body footer {
     justify-content: center;
     height: 3rem;
     max-height: 3rem;
+    width: 100%;
   }
   #homepage #sec2 h2 a {
     text-decoration: none;
@@ -576,10 +590,10 @@ body footer {
   #homepage #sec2 input {
     grid-column: 2/3;
     display: flex;
-    align-items: center;
     justify-content: center;
     max-height: 3rem;
     font-size: 1.5rem;
+    width: 50%;
   }
   #homepage #sec2 #UlSearchBar {
     grid-column: 2/3;
@@ -774,7 +788,7 @@ body footer {
   .footer {
     margin-top: 5rem;
     width: 100%;
-    height: 28rem;
+    height: 30rem;
     background-color: rgba(0, 0, 0, 0.5);
     display: grid;
     grid-template-columns: 1fr;
@@ -884,7 +898,7 @@ body footer {
   .footer {
     margin-top: 5rem;
     width: 100%;
-    height: 26rem;
+    height: 28rem;
     background-color: rgba(0, 0, 0, 0.5);
     display: grid;
     grid-template-columns: 1fr;
@@ -1376,7 +1390,8 @@ body footer {
   #boutique {
     grid-row: 2/3;
     grid-column: 2/3;
-    padding-top: 5rem;
+    padding-top: 15rem;
+    padding-bottom: 8rem;
   }
   #boutique h1 {
     font-size: 1.7rem;
@@ -1411,7 +1426,7 @@ body footer {
   #boutique {
     grid-row: 2/3;
     grid-column: 2/3;
-    padding-top: 8rem;
+    padding-top: 15rem;
   }
   #boutique h1 {
     font-size: 2.5rem;
@@ -1447,7 +1462,7 @@ body footer {
   #boutique {
     grid-row: 2/3;
     grid-column: 2/3;
-    padding-top: 8rem;
+    padding-top: 15rem;
   }
   #boutique h1 {
     font-size: 3rem;
@@ -1483,7 +1498,7 @@ body footer {
   #boutique {
     grid-row: 2/3;
     grid-column: 2/3;
-    padding-top: 10rem;
+    padding-top: 15rem;
   }
   #boutique h1 {
     font-size: 3.5rem;
@@ -1612,6 +1627,7 @@ table {
     display: grid;
     grid-template-rows: 0.8fr 0.5fr;
     padding-bottom: 3rem;
+    padding-top: 15rem;
   }
   #connexion section h2 {
     font-size: 1.2rem;
@@ -1662,6 +1678,7 @@ table {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding-bottom: 4rem;
+    padding-top: 15rem;
   }
   #connexion section h2 {
     font-size: 1.2rem;
@@ -1714,6 +1731,7 @@ table {
     grid-column: 2/3;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding-top: 15rem;
   }
   #connexion section h2 {
     font-size: 2rem;
@@ -1766,6 +1784,7 @@ table {
     grid-column: 2/3;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding-top: 15rem;
   }
   #connexion section h2 {
     font-size: 2.5rem;
@@ -1818,6 +1837,7 @@ table {
     grid-column: 2/3;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding-top: 15rem;
   }
   #connexion section h2 {
     font-size: 4rem;
@@ -2566,7 +2586,8 @@ table {
     display: grid;
     grid-template-columns: 2fr 8fr;
     grid-template-rows: 0.01fr 0.01fr;
-    padding-top: 5rem;
+    padding-top: 15rem;
+    padding-bottom: 8rem;
   }
   #products #top {
     grid-row: 1/2;
@@ -2724,7 +2745,7 @@ table {
     display: grid;
     grid-template-columns: 2fr 8fr;
     grid-template-rows: 0.1fr 0.2fr;
-    padding-top: 5rem;
+    padding-top: 15rem;
   }
   #products #top {
     grid-row: 1/2;
@@ -2824,7 +2845,7 @@ table {
   #products #gauche nav {
     z-index: 100;
     position: sticky;
-    top: 10rem;
+    top: 5rem;
     border-width: 0.1rem;
     border-style: solid;
     border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
@@ -2836,7 +2857,7 @@ table {
     text-transform: capitalize;
   }
   #products #gauche nav h2:last-of-type {
-    margin-top: 1.4rem;
+    margin-top: 1rem;
     border-top-width: 0.1rem;
     border-style: solid;
     border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
@@ -2881,7 +2902,7 @@ table {
     display: grid;
     grid-template-columns: 2fr 8fr;
     grid-template-rows: 0.1fr 2fr;
-    padding-top: 8rem;
+    padding-top: 15rem;
   }
   #products #top {
     grid-row: 1/2;
@@ -2981,7 +3002,7 @@ table {
   #products #gauche nav {
     z-index: 100;
     position: sticky;
-    top: 17rem;
+    top: 5rem;
     border-width: 0.1rem;
     border-style: solid;
     border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
@@ -3038,7 +3059,7 @@ table {
     display: grid;
     grid-template-columns: 2fr 8fr;
     grid-template-rows: 0.1fr 2fr;
-    padding-top: 8rem;
+    padding-top: 15rem;
   }
   #products #top {
     grid-row: 1/2;
@@ -3133,24 +3154,24 @@ table {
   #products #gauche {
     grid-row: 2/3;
     grid-column: 1/2;
-    line-height: 5rem;
+    line-height: 2.5rem;
   }
   #products #gauche nav {
     z-index: 100;
     position: sticky;
-    top: 17rem;
+    top: 6rem;
     border-width: 0.1rem;
     border-style: solid;
     border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
-    padding: 1rem;
-    margin-top: 1rem;
+    padding: 0.7rem;
+    margin-top: 0.7rem;
   }
   #products #gauche nav h2 {
-    font-size: 1rem;
+    font-size: 0.7rem;
     text-transform: capitalize;
   }
   #products #gauche nav h2:last-of-type {
-    margin-top: 1.7rem;
+    margin-top: 1.5rem;
     border-top-width: 0.1rem;
     border-style: solid;
     border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
@@ -3163,7 +3184,7 @@ table {
     color: #000;
   }
   #products #gauche nav ul li a h3 {
-    line-height: 2rem;
+    line-height: 1.7rem;
     font-size: 0.8rem;
     color: #000;
   }
@@ -3195,7 +3216,7 @@ table {
     display: grid;
     grid-template-columns: 2fr 8fr;
     grid-template-rows: 0.1fr 2fr;
-    padding-top: 8rem;
+    padding-top: 15rem;
   }
   #products #top {
     grid-row: 1/2;
@@ -3290,12 +3311,12 @@ table {
   #products #gauche {
     grid-row: 2/3;
     grid-column: 1/2;
-    line-height: 6rem;
+    line-height: 3rem;
   }
   #products #gauche nav {
     z-index: 100;
     position: sticky;
-    top: 17rem;
+    top: 6rem;
     border-width: 0.1rem;
     border-style: solid;
     border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
@@ -3352,7 +3373,7 @@ table {
     display: grid;
     grid-template-columns: 2fr 8fr;
     grid-template-rows: 0.1fr 2fr;
-    padding-top: 5rem;
+    padding-top: 15rem;
   }
   #products #top {
     grid-row: 1/2;
@@ -3447,12 +3468,12 @@ table {
   #products #gauche {
     grid-row: 2/3;
     grid-column: 1/2;
-    line-height: 6rem;
+    line-height: 3rem;
   }
   #products #gauche nav {
     z-index: 100;
     position: sticky;
-    top: 15rem;
+    top: 6rem;
     border-width: 0.1rem;
     border-style: solid;
     border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
@@ -3509,7 +3530,7 @@ table {
     display: grid;
     grid-template-columns: 2fr 8fr;
     grid-template-rows: 0.3fr 2fr;
-    padding-top: 5rem;
+    padding-top: 15rem;
   }
   #products #top {
     grid-row: 1/2;
@@ -3666,7 +3687,7 @@ table {
     display: grid;
     grid-template-columns: 2fr 8fr;
     grid-template-rows: 0.3fr 2fr;
-    padding-top: 5rem;
+    padding-top: 15rem;
   }
   #products #top {
     grid-row: 1/2;
@@ -3820,7 +3841,7 @@ table {
 @media (min-width: 0px) and (max-width: 425px) {
   #OneProduct {
     grid-column: 2/3;
-    padding-top: 5rem;
+    padding-top: 15rem;
   }
   #OneProduct #article {
     display: grid;
@@ -3927,6 +3948,9 @@ table {
     justify-content: center;
     padding: 1rem;
     font-size: 2rem;
+  }
+  #OneProduct #asidePanier .hide {
+    display: none;
   }
   #OneProduct #asidePanier #section #ul {
     display: flex;
@@ -4054,7 +4078,7 @@ table {
 @media (min-width: 425px) and (max-width: 1024px) {
   #OneProduct {
     grid-column: 2/3;
-    padding-top: 5rem;
+    padding-top: 15rem;
   }
   #OneProduct #article {
     margin-top: 2rem;
@@ -4163,6 +4187,9 @@ table {
     justify-content: center;
     padding: 1.5rem;
     font-size: 2rem;
+  }
+  #OneProduct #asidePanier .hide {
+    display: none;
   }
   #OneProduct #asidePanier #section #ul {
     display: flex;
@@ -4295,7 +4322,7 @@ table {
 @media (min-width: 1024px) and (max-width: 1450px) {
   #OneProduct {
     grid-column: 2/3;
-    padding-top: 5rem;
+    padding-top: 15rem;
   }
   #OneProduct #article {
     margin-top: 4rem;
@@ -4407,6 +4434,9 @@ table {
     justify-content: center;
     padding: 2rem;
     font-size: 3rem;
+  }
+  #OneProduct #asidePanier .hide {
+    display: none;
   }
   #OneProduct #asidePanier #section #ul {
     display: flex;
@@ -4533,7 +4563,7 @@ table {
 @media (min-width: 1450px) and (max-width: 1920px) {
   #OneProduct {
     grid-column: 2/3;
-    padding-top: 5rem;
+    padding-top: 15rem;
   }
   #OneProduct #article {
     margin-top: 4rem;
@@ -4631,7 +4661,7 @@ table {
     color: #fff;
     border-radius: 5px;
     padding: 0.2rem;
-    height: 2.5rem;
+    height: 2rem;
   }
   #OneProduct #asidePanier {
     margin-top: 2rem;
@@ -4646,6 +4676,9 @@ table {
     justify-content: center;
     padding: 2rem;
     font-size: 3rem;
+  }
+  #OneProduct #asidePanier .hide {
+    display: none;
   }
   #OneProduct #asidePanier #section #ul {
     display: flex;
@@ -4667,7 +4700,7 @@ table {
     display: grid;
     grid-template-columns: 2fr 6fr 2fr;
     grid-template-rows: 1fr 1fr;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   #OneProduct #asidePanier #section #ul .liArticle article h3 {
     grid-row: 1/2;
@@ -4709,7 +4742,7 @@ table {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1rem;
     background-color: darkred;
     color: #fff;
     border-radius: 5px;
@@ -4770,7 +4803,7 @@ table {
 @media (min-width: 1920px) {
   #OneProduct {
     grid-column: 2/3;
-    padding-top: 5rem;
+    padding-top: 15rem;
   }
   #OneProduct #article {
     margin-top: 4rem;
@@ -4882,6 +4915,9 @@ table {
     justify-content: center;
     padding: 2rem;
     font-size: 3rem;
+  }
+  #OneProduct #asidePanier .hide {
+    display: none;
   }
   #OneProduct #asidePanier #section #ul {
     display: flex;
