@@ -15,7 +15,7 @@ class ProductManager extends AbstractManager {
         return $return; //renvoie le tableau de résultats
     }
     
-    public function getProductById1(int $id) : Product
+    public function getProductById1(int $id) : ?Product
     {
         //préparez la requête SQL pour sélectionner tous les produits de la table product ayant pour id la valeur de l'entrée
         $query = $this->db->prepare("SELECT * FROM product WHERE id=:id");
@@ -25,6 +25,7 @@ class ProductManager extends AbstractManager {
         $ProductToReturn = new Product(intval($product["id"]),$product["name"], $product["description"], $product["slug"], floatval($product["price"]), intval($product["category_id"])); //instanciation d'un objet Product à partir des données obtenues dans la requête SQL
         $ProductToReturn->setId($product["id"]); //définition de la valeur de l'identifiant du produit
         return $ProductToReturn; //renvoie l'objet Product obtenu
+        
     }
     
     public function insertProduct(Product $product)
@@ -64,7 +65,7 @@ class ProductManager extends AbstractManager {
         return $ProductToReturn ;
     }
     
-    public function getProductBySlug(string $slug) : Product
+    public function getProductBySlug(string $slug) : ?Product
     {
         // Prépare la requête SQL pour récupérer un produit par son slug
         $query = $this->db->prepare("SELECT * FROM product WHERE slug=:slug");
@@ -75,12 +76,21 @@ class ProductManager extends AbstractManager {
         // Récupère les résultats de la requête sous forme de tableau associatif
         $products = $query->fetch(PDO::FETCH_ASSOC);
         // Crée un nouvel objet de type Product avec les données récupérées de la base de données
-        $ProductToReturn = new Product(intval($products["id"]),$products["name"],$products["description"],$products["slug"],floatval($products["price"]),intval($products["category_id"]));
+        
+        if($products != false)
+        {
+            $ProductToReturn = new Product(intval($products["id"]),$products["name"],$products["description"],$products["slug"],floatval($products["price"]),intval($products["category_id"]));
         $ProductToReturn->setId(intval($products["id"]));
         $ProductToReturn->setSlug($products["slug"]);
         
         // Renvoie l'objet Product créé
         return $ProductToReturn ;
+        }
+        //sinon ne retourne rien
+        else
+        {
+            return null;
+        }
     }
     public function getAllProductsByCategoryId(int $category_id) : array
     {

@@ -49,67 +49,74 @@ public function displayAllProductsByCategory(string $slug)
 {
     // Récupère la catégorie correspondant au slug donné en paramètre
     $category = $this->cmanager->getCategoryBySlug($slug);
-    // Récupère l'id de la catégorie
-    $category_id = $category->getId();
-    // Récupère tous les produits de la catégorie
-    $Allproduct = $this->pmanager->getAllProductsByCategoryId($category_id);
-    // Tableau de données pour stocker les ingrédients et les allergènes de chaque produit
-    $tabIngredient = [];
-    $i = 0;
-    // Parcourt tous les produits
-    foreach($Allproduct as $products)
-    {
-        // Récupère l'id du produit
-        $productsId = $products->getId();
-        // Récupère les ingrédients du produit
-        $Ingredients = $this->imanager->getIngredientsByProductId($productsId);
-        // Récupère les allergènes du produit
-        $Allergens= $this->amanager->getAllergensByProductId($productsId);
-        // Stocke les ingrédients et les allergènes du produit dans le tableau $tabIngredient
-        $tabIngredient[$i] = [
-            "Ingredients"=>$Ingredients,
-            "Allergens"=>$Allergens,
-            "Product_id"=>$productsId
-        ];  
-        $i = $i +1 ;
-    }
-    
-    // Récupère toutes les images
-    $image = $this->immanager->findAllImages();
-    // Récupère toutes les catégories
-    $Categories = $this->cmanager->findAllCategory();
-    // Vérifie si l'utilisateur est connecté
-    if(isset($_SESSION["Connected"]) && $_SESSION["Connected"] != false)
-    {
-        // Récupère l'id de l'utilisateur connecté
-        $user_id = $_SESSION["Connected"][0]["id"];
-        // Récupère les informations de l'utilisateur connecté
-        $user = $this->umanager->getUserById($user_id);
-        // Tableau de données à afficher dans la vue "Allproduct"
-        $tab = [
-            $user,
-            "categorys"=>$Categories,
-            "category"=>$category,
-            "products"=>$Allproduct,
-            "image"=>$image,
-            "dataProduct"=>$tabIngredient
-        ];
+    if($category !=null)
+        {
+        // Récupère l'id de la catégorie
+        $category_id = $category->getId();
+        // Récupère tous les produits de la catégorie
+        $Allproduct = $this->pmanager->getAllProductsByCategoryId($category_id);
+        // Tableau de données pour stocker les ingrédients et les allergènes de chaque produit
+        $tabIngredient = [];
+        $i = 0;
+        // Parcourt tous les produits
+        foreach($Allproduct as $products)
+        {
+            // Récupère l'id du produit
+            $productsId = $products->getId();
+            // Récupère les ingrédients du produit
+            $Ingredients = $this->imanager->getIngredientsByProductId($productsId);
+            // Récupère les allergènes du produit
+            $Allergens= $this->amanager->getAllergensByProductId($productsId);
+            // Stocke les ingrédients et les allergènes du produit dans le tableau $tabIngredient
+            $tabIngredient[$i] = [
+                "Ingredients"=>$Ingredients,
+                "Allergens"=>$Allergens,
+                "Product_id"=>$productsId
+            ];  
+            $i = $i +1 ;
+        }
+        
+        // Récupère toutes les images
+        $image = $this->immanager->findAllImages();
+        // Récupère toutes les catégories
+        $Categories = $this->cmanager->findAllCategory();
+        // Vérifie si l'utilisateur est connecté
+        if(isset($_SESSION["Connected"]) && $_SESSION["Connected"] != false)
+        {
+            // Récupère l'id de l'utilisateur connecté
+            $user_id = $_SESSION["Connected"][0]["id"];
+            // Récupère les informations de l'utilisateur connecté
+            $user = $this->umanager->getUserById($user_id);
+            // Tableau de données à afficher dans la vue "Allproduct"
+            $tab = [
+                $user,
+                "categorys"=>$Categories,
+                "category"=>$category,
+                "products"=>$Allproduct,
+                "image"=>$image,
+                "dataProduct"=>$tabIngredient
+            ];
+            // Affiche la vue "Allproduct" avec son tableau
+            $this->renderpublic("Allproduct", $tab);
+             
+        }
+        else
+        {
+            // Tableau de données à afficher dans la vue "Allproduct"
+            $tab = [
+                "categorys"=>$Categories,
+                "category"=>$category,
+                "products"=>$Allproduct,
+                "image"=>$image,
+                "dataProduct"=>$tabIngredient
+            ];
         // Affiche la vue "Allproduct" avec son tableau
-        $this->renderpublic("Allproduct", $tab);
-         
+        $this->renderpublic("Allproduct", $tab);   
+        }
     }
     else
     {
-        // Tableau de données à afficher dans la vue "Allproduct"
-        $tab = [
-            "categorys"=>$Categories,
-            "category"=>$category,
-            "products"=>$Allproduct,
-            "image"=>$image,
-            "dataProduct"=>$tabIngredient
-        ];
-    // Affiche la vue "Allproduct" avec son tableau
-    $this->renderpublic("Allproduct", $tab);   
+        header("Location: /res03-projet-final/projet/accueil");
     }
    
 }
@@ -117,61 +124,67 @@ public function displayOneProduct(string $slug)
 {
     // Récupérer le produit associé au slug fourni en paramètre
     $product = $this->pmanager->getProductBySlug($slug);
-    
-    // Récupérer l'id et l'id de la catégorie du produit
-    $Idproduct = $product->getId();
-    $categoryId = $product->getCategoryId();
-    
-    // Récupérer la catégorie associée à l'id de la catégorie
-    $category = $this->cmanager->getCategoryById($categoryId);
-    
-    // Récupérer toutes les images associées au produit
-    $image = $this->immanager->findAllImagesInOneProduct($Idproduct);
-    
-    // Récupérer tous les ingrédients associés au produit
-    $ingredients = $this->imanager->getIngredientsByProductId($Idproduct);
-    
-    // Récupérer tous les allergènes associés au produit
-    $Allergens = $this->amanager->getAllergensByProductId($Idproduct); 
-    
-    // Récupérer toutes les catégories
-    $Categories = $this->cmanager->findAllCategory();
-    
-    // Si un utilisateur est connecté, afficher la page du produit avec les informations de l'utilisateur
-    if(isset($_SESSION["Connected"]) && $_SESSION["Connected"] != false)
-    {
-        // Récupérer l'id de l'utilisateur connecté
-        $user_id = $_SESSION["Connected"][0]["id"];
+    if($product !=null)
+        {    
+        // Récupérer l'id et l'id de la catégorie du produit
+        $Idproduct = $product->getId();
+        $categoryId = $product->getCategoryId();
         
-        // Récupérer l'utilisateur associé à l'id
-        $user = $this->umanager->getUserById($user_id);
+        // Récupérer la catégorie associée à l'id de la catégorie
+        $category = $this->cmanager->getCategoryById($categoryId);
         
-        // Créer un tableau avec toutes les informations nécessaires pour afficher la page du produit
-        $tab = 
-            [
-            $user,
-            "categorys"=>$Categories,
-            "category"=>$category,
-            "image"=>$image,
-            "product"=>$product,
-            "ingredients"=>$ingredients,
-            "allergens"=>$Allergens
-            ];
-        $this->renderpublic("Oneproduct", $tab);
-         
+        // Récupérer toutes les images associées au produit
+        $image = $this->immanager->findAllImagesInOneProduct($Idproduct);
+        
+        // Récupérer tous les ingrédients associés au produit
+        $ingredients = $this->imanager->getIngredientsByProductId($Idproduct);
+        
+        // Récupérer tous les allergènes associés au produit
+        $Allergens = $this->amanager->getAllergensByProductId($Idproduct); 
+        
+        // Récupérer toutes les catégories
+        $Categories = $this->cmanager->findAllCategory();
+        
+        // Si un utilisateur est connecté, afficher la page du produit avec les informations de l'utilisateur
+        if(isset($_SESSION["Connected"]) && $_SESSION["Connected"] != false)
+        {
+            // Récupérer l'id de l'utilisateur connecté
+            $user_id = $_SESSION["Connected"][0]["id"];
+            
+            // Récupérer l'utilisateur associé à l'id
+            $user = $this->umanager->getUserById($user_id);
+            
+            // Créer un tableau avec toutes les informations nécessaires pour afficher la page du produit
+            $tab = 
+                [
+                $user,
+                "categorys"=>$Categories,
+                "category"=>$category,
+                "image"=>$image,
+                "product"=>$product,
+                "ingredients"=>$ingredients,
+                "allergens"=>$Allergens
+                ];
+            $this->renderpublic("Oneproduct", $tab);
+             
+        }
+        // Si aucun utilisateur n'est connecté, afficher la page du produit sans les informations de l'utilisateur
+        else
+        {
+           $tab = [
+                "categorys"=>$Categories,
+                "category"=>$category,
+                "image"=>$image,
+                "product"=>$product,
+                "ingredients"=>$ingredients,
+                "allergens"=>$Allergens
+            ] ;
+        $this->renderpublic("Oneproduct", $tab);   
+        }
     }
-    // Si aucun utilisateur n'est connecté, afficher la page du produit sans les informations de l'utilisateur
     else
     {
-       $tab = [
-            "categorys"=>$Categories,
-            "category"=>$category,
-            "image"=>$image,
-            "product"=>$product,
-            "ingredients"=>$ingredients,
-            "allergens"=>$Allergens
-        ] ;
-    $this->renderpublic("Oneproduct", $tab);   
+        header("Location: /res03-projet-final/projet/accueil");
     }
     
 }

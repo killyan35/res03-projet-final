@@ -1,6 +1,6 @@
 <?php
 class CategoryManager extends AbstractManager {
-    public function getCategoryBySlug(string $slug) : Category
+    public function getCategoryBySlug(string $slug) : ?Category
     {
        
         // Prépare une requête SQL pour sélectionner la catégorie avec le slug donné
@@ -12,10 +12,17 @@ class CategoryManager extends AbstractManager {
         $query->execute($parameter);
         // Récupère la catégorie trouvée sous forme de tableau associatif
         $category = $query->fetch(PDO::FETCH_ASSOC);
-        // Crée un objet Category à partir des données récupérées et le retourne
-        $return = new Category(intval($category["id"]),$category["name"], $category["img_url"], $category["slug"]);
-        
-        return $return;
+        // Crée un objet Category à partir des données récupérées et le retourne a condition qu'il existe dans la bdd
+        if($category != false)
+        {
+            $return = new Category(intval($category["id"]),$category["name"], $category["img_url"], $category["slug"]);
+            return $return;
+        }
+        //sinon ne retourne rien
+        else
+        {
+            return null;
+        }
     }
 
     public function getCategoryById(int $categoryId) : Category
