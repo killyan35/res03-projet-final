@@ -3,12 +3,13 @@
     <h1 class="hidden">MM</h1>
     <section id="sec2">
         <h2><a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique">Boutique en ligne</a></h2>
-        
-        <input type="text" id="search" name="search" placeholder="Trouver un produit">
+        <fieldset>
+            <input type="text" id="search" name="search" placeholder="Trouver un produit">
+        </fieldset>
         <ul id="UlSearchBar">
             <?php foreach($data["products"] as $product){ ?>
-            <li>
-                <a class="li hidden" data-name="<?= $product->getName() ;?>" href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique/<?php foreach($data["categorys"] as $category){  if( ($product->getCategoryId()) === ($category->getId()) ){ echo $category->getSlug(); } } ?>/<?=$product->getSlug();?>"> 
+            <li class="li hidden" data-name="<?= $product->getName() ;?>">
+                <a href="https://kilyangerard.sites.3wa.io/res03-projet-final/projet/boutique/<?php foreach($data["categorys"] as $category){  if( ($product->getCategoryId()) === ($category->getId()) ){ echo $category->getSlug(); } } ?>/<?=$product->getSlug();?>"> 
                     <article>
                         <h2><?= $product->getName() ;?></h2>
                         <figure>
