@@ -319,8 +319,8 @@ public function compte()
     // Vérifie si l'utilisateur est connecté
     if (!isset($_SESSION["Connected"]))
     {
-        // Si l'utilisateur n'est pas connecté, affiche la page d'accueil
-        $this->renderpublic("accueil", []);
+        // Si l'utilisateur n'est pas connecté, affiche la page de connexion
+        header("Location: /res03-projet-final/projet/connexion");    
     }
     else if ((isset($_SESSION["Connected"])) && ($_SESSION["Connected"]!=false))
     {
@@ -450,6 +450,11 @@ public function deletefavorite($product_id)
        // Supprime le produit des favoris de l'utilisateur
        $this->manager->deletefavorite(intval($user_id), intval($product_id));
     }
+    else
+    {
+        // Si l'utilisateur n'est pas connecté, affiche la page de connexion
+        header("Location: /res03-projet-final/projet/connexion");
+    }
 }
 
 public function displayfavorite()
@@ -486,6 +491,11 @@ public function displayfavorite()
         }
         // Retourne le panier au format JSON
         echo json_encode($cart);   
+    }
+    else
+    {
+        // Si l'utilisateur n'est pas connecté, affiche la page de connexion
+        header("Location: /res03-projet-final/projet/connexion");
     }
 }
 // Cette fonction affiche la page des favoris d'un utilisateur connecté
@@ -533,6 +543,11 @@ public function displayUserFavorite()
             $this->renderprive("favorite", [$user]);
         }
     }
+    else
+    {
+        // Si l'utilisateur n'est pas connecté, affiche la page de connexion
+        header("Location: /res03-projet-final/projet/connexion");
+    }
 }
 
 // Cette fonction affiche la page des commandes d'un utilisateur connecté
@@ -572,8 +587,8 @@ public function displayAllOrders()
     }
     else
     {
-        // Afficher un message d'erreur si l'utilisateur n'est pas connecté
-        echo "vous devez être connecté";    
+        // Si l'utilisateur n'est pas connecté, affiche la page de connexion
+        header("Location: /res03-projet-final/projet/connexion");
     }
 }
 

@@ -260,7 +260,6 @@ class Router {
         {
             // j'affiche ma homepage en tant que User connecté
             $this->uc->home();
-            
         }
     }
  
@@ -309,11 +308,12 @@ class Router {
                 }    
             }
         }
-        if($route[0] === "mon-compte" && ($_SESSION["Connected"] != false) && !isset($route[1])) // j'affiche mon compte
+        if($route[0] === "mon-compte" && ($_SESSION["Connected"] != null) && ($_SESSION["Connected"] != false) && !isset($route[1])) // j'affiche mon compte
         {
             $this->uc->compte();
         }
-        if($route[0] === "mon-compte" && ($_SESSION["Connected"] != false) && isset($route[1]))
+     
+        if($route[0] === "mon-compte"&& ($_SESSION["Connected"] != null) && ($_SESSION["Connected"] != false) && isset($route[1]))
         {
             if($route[1] === "panier" && !isset($route[2]))
             {
@@ -345,7 +345,11 @@ class Router {
                 $this->uc->displayUserFavorite();
             }
         } 
-        
+        if ($route[0] === "mon-compte" && ($_SESSION["Connected"]===null))
+        {
+            // Si l'utilisateur n'est pas connecté, affiche la page de connexion
+            header("Location: /res03-projet-final/projet/connexion");
+        }
   
         // function php pour JS
             if($route[0] === "addPanier")
