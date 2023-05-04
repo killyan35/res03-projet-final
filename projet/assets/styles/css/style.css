@@ -162,7 +162,7 @@ body footer {
     display: grid;
     grid-template-rows: 0.1fr 0.1fr 0.1fr;
     padding: 2rem;
-    padding-top: 5rem;
+    padding-top: 11rem;
   }
   #homepage #sec2 h2 {
     grid-row: 1/2;
@@ -246,7 +246,7 @@ body footer {
     display: grid;
     grid-template-rows: 0.1fr 0.1fr 0.1fr;
     padding: 2rem;
-    padding-top: 6rem;
+    padding-top: 13rem;
   }
   #homepage #sec2 h2 {
     grid-row: 1/2;
@@ -330,7 +330,7 @@ body footer {
     display: grid;
     grid-template-rows: 0.1fr 0.1fr 0.1fr;
     padding: 2rem;
-    padding-top: 8rem;
+    padding-top: 13rem;
   }
   #homepage #sec2 h2 {
     grid-row: 1/2;
@@ -414,7 +414,7 @@ body footer {
     display: grid;
     grid-template-rows: 0.1fr 0.1fr 0.1fr;
     padding: 2rem;
-    padding-top: 10rem;
+    padding-top: 11rem;
   }
   #homepage #sec2 h2 {
     grid-row: 1/2;
@@ -1500,7 +1500,7 @@ body footer {
   #boutique {
     grid-row: 2/3;
     grid-column: 2/3;
-    padding-top: 10rem;
+    padding-top: 15rem;
     padding-bottom: 7rem;
   }
   #boutique h1 {
@@ -1536,7 +1536,7 @@ body footer {
   #boutique {
     grid-row: 2/3;
     grid-column: 2/3;
-    padding-top: 9rem;
+    padding-top: 12rem;
   }
   #boutique h1 {
     font-size: 2.5rem;
@@ -1997,7 +1997,7 @@ table {
 @media (min-width: 0px) and (max-width: 1024px) {
   #mon-compte {
     grid-column: 2/3;
-    padding-top: 10rem;
+    padding-top: 15rem;
   }
   #mon-compte h1 {
     font-size: 3rem;
@@ -2194,7 +2194,7 @@ table {
 @media (min-width: 0px) and (max-width: 1024px) {
   #favorite {
     grid-column: 2/3;
-    padding-top: 5rem;
+    padding-top: 9rem;
   }
   #favorite h1 {
     font-size: 3rem;
@@ -2263,7 +2263,7 @@ table {
 @media (min-width: 1024px) {
   #favorite {
     grid-column: 2/3;
-    padding-top: 5rem;
+    padding-top: 8rem;
   }
   #favorite h1 {
     font-size: 3rem;
@@ -2333,7 +2333,7 @@ table {
   #commandes {
     grid-row: 2/3;
     grid-column: 2/3;
-    padding-top: 4rem;
+    padding-top: 10rem;
   }
   #commandes #comm {
     text-transform: capitalize;
@@ -2400,7 +2400,7 @@ table {
   #commandes {
     grid-row: 2/3;
     grid-column: 2/3;
-    padding-top: 5rem;
+    padding-top: 10rem;
   }
   #commandes #comm {
     text-transform: capitalize;
@@ -2466,7 +2466,7 @@ table {
   #commandes {
     grid-row: 2/3;
     grid-column: 2/3;
-    padding-top: 5rem;
+    padding-top: 10rem;
   }
   #commandes #comm {
     text-transform: capitalize;
@@ -2598,7 +2598,7 @@ table {
     display: grid;
     grid-template-columns: 3fr 7fr;
     grid-template-rows: 0.01fr 0.01fr;
-    padding-top: 10rem;
+    padding-top: 12rem;
     padding-bottom: 8rem;
   }
   #products #top {
@@ -2700,7 +2700,7 @@ table {
   #products #gauche nav {
     z-index: 100;
     position: sticky;
-    top: 5rem;
+    top: 6rem;
     border-width: 0.1rem;
     border-style: solid;
     border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
@@ -2757,7 +2757,7 @@ table {
     display: grid;
     grid-template-columns: 2.5fr 7.5fr;
     grid-template-rows: 0.1fr 0.2fr;
-    padding-top: 11rem;
+    padding-top: 15rem;
   }
   #products #top {
     grid-row: 1/2;
@@ -2853,6 +2853,7 @@ table {
     grid-row: 2/3;
     grid-column: 1/2;
     line-height: 1.5rem;
+    width: 100%;
   }
   #products #gauche nav {
     z-index: 100;
@@ -2861,15 +2862,15 @@ table {
     border-width: 0.1rem;
     border-style: solid;
     border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
-    padding: 0.4rem;
-    margin-top: 0.4rem;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
   }
   #products #gauche nav h2 {
-    font-size: 1rem;
+    font-size: 0.6rem;
     text-transform: capitalize;
   }
   #products #gauche nav h2:last-of-type {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     border-top-width: 0.1rem;
     border-style: solid;
     border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
@@ -2882,8 +2883,8 @@ table {
     color: #000;
   }
   #products #gauche nav ul li a h3 {
-    line-height: 1.5rem;
-    font-size: 0.9rem;
+    line-height: 0.7rem;
+    font-size: 0.6rem;
     color: #000;
   }
   #products #gauche nav #filtre .filtres {
@@ -2891,21 +2892,21 @@ table {
     flex-direction: column;
   }
   #products #gauche nav #filtre .filtres label {
-    font-size: 0.9rem;
+    font-size: 0.5rem;
     text-transform: capitalize;
   }
   #products #gauche nav #filtre .filtres select {
     border-width: 0.1rem;
     border-style: solid;
     border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) 1;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     text-transform: capitalize;
     background-color: #fff;
     color: #000;
     width: 100%;
   }
   #products #gauche nav #filtre .filtres select option {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
 }
 @media (min-width: 720px) and (max-width: 900px) {
@@ -2914,7 +2915,7 @@ table {
     display: grid;
     grid-template-columns: 2fr 8fr;
     grid-template-rows: 0.1fr 2fr;
-    padding-top: 11rem;
+    padding-top: 15rem;
   }
   #products #top {
     grid-row: 1/2;
@@ -3039,8 +3040,8 @@ table {
     color: #000;
   }
   #products #gauche nav ul li a h3 {
-    line-height: 2rem;
-    font-size: 1rem;
+    line-height: 1rem;
+    font-size: 0.7rem;
     color: #000;
   }
   #products #gauche nav #filtre .filtres {
@@ -5103,7 +5104,7 @@ table {
   #panier {
     grid-row: 2/3;
     grid-column: 2/3;
-    padding-top: 5rem;
+    padding-top: 9rem;
     min-height: 45vh;
     text-align: center;
   }
@@ -5283,7 +5284,7 @@ table {
   #panier {
     grid-row: 2/3;
     grid-column: 2/3;
-    padding-top: 5rem;
+    padding-top: 9rem;
     min-height: 60vh;
     text-align: center;
   }
@@ -5463,7 +5464,7 @@ table {
   #panier {
     grid-row: 2/3;
     grid-column: 2/3;
-    padding-top: 5rem;
+    padding-top: 8rem;
     min-height: 55vh;
     text-align: center;
   }
