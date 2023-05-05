@@ -144,12 +144,12 @@ body footer {
 }
 @media (min-width: 1024px) and (max-width: 1200px) {
   #homepage #sec1 #carrousel li a figure img {
-    height: 22rem;
+    height: 20rem;
   }
 }
 @media (min-width: 1200px) and (max-width: 1924px) {
   #homepage #sec1 #carrousel li a figure img {
-    height: 25rem;
+    height: 22rem;
   }
 }
 @media (min-width: 1925px) {
@@ -2098,7 +2098,7 @@ table {
 @media (min-width: 1024px) {
   #mon-compte {
     grid-column: 2/3;
-    padding-top: 8rem;
+    padding-top: 14rem;
   }
   #mon-compte h1 {
     font-size: 3rem;
@@ -2263,7 +2263,7 @@ table {
 @media (min-width: 1024px) {
   #favorite {
     grid-column: 2/3;
-    padding-top: 8rem;
+    padding-top: 12rem;
   }
   #favorite h1 {
     font-size: 3rem;
@@ -2400,7 +2400,7 @@ table {
   #commandes {
     grid-row: 2/3;
     grid-column: 2/3;
-    padding-top: 10rem;
+    padding-top: 12rem;
   }
   #commandes #comm {
     text-transform: capitalize;
@@ -2466,7 +2466,7 @@ table {
   #commandes {
     grid-row: 2/3;
     grid-column: 2/3;
-    padding-top: 10rem;
+    padding-top: 12rem;
   }
   #commandes #comm {
     text-transform: capitalize;
@@ -5464,7 +5464,7 @@ table {
   #panier {
     grid-row: 2/3;
     grid-column: 2/3;
-    padding-top: 8rem;
+    padding-top: 12rem;
     min-height: 55vh;
     text-align: center;
   }
