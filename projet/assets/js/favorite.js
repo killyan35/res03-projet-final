@@ -37,7 +37,6 @@ function loadListeners()
          removeButtons[i].addEventListener("click", function(event)
          {
             let id = event.target.getAttribute("data-id"); // Récupère l'ID du produit favori à supprimer
-            console.log(id);
             removefavorite(id); // Appelle la fonction pour supprimer le produit favori
           });
     }

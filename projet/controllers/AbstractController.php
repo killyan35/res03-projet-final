@@ -19,5 +19,10 @@ abstract class AbstractController {
         $data=$values;
         require 'templates/layout-prive.phtml';
     }
+    public function cleanInput($unsafeCode)
+    {
+        $safeCode = htmlspecialchars($unsafeCode);
+        return $safeCode;
+    }
 }
 ?>

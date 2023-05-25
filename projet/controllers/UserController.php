@@ -98,79 +98,87 @@ public function carrousel()
         echo json_encode($Carrousels);
 }
 
-public function login(array $Post) : void
+public function login(array $post) : void
 {
     // Vérification si le formulaire est soumis
-    if (isset($Post["formName"]))
+    if (isset($post["formName"]))
     {
         // Vérification des champs de formulaire "email" et "password"
         if (
-            (isset($Post['email']) &&($Post['email']!==''))
-            && (isset($Post['password']) &&($Post['password']!==''))
+            (isset($post['email']) &&($post['email']!==''))
+            && (isset($post['password']) &&($post['password']!==''))
         ) 
         {
+            // On sécurise ce que l'utilisateur a envoyé
+            $UserEmail = $this->cleanInput($post['email']);
+            $UserPassword = $this->cleanInput($post['password']);
             // Récupération de l'utilisateur associé à l'email entré
-            $user = $this->manager->getUserByEmail($Post["email"]);
-            
-            // Vérification si le mot de passe entré correspond au mot de passe hashé de l'utilisateur
-            $mdpClair = password_verify($Post["password"],$user->getPassword());
-            
-            if($mdpClair===true)
+            $user = $this->manager->getUserByEmail($UserEmail);
+            if($user != null)
             {
-                // Si le mot de passe est correct, vérification si l'utilisateur est un administrateur
-                if($user->getRole() === "ADMIN")
+                // Vérification si le mot de passe entré correspond au mot de passe hashé de l'utilisateur
+                $mdpClair = password_verify($UserPassword,$user->getPassword());
+                
+                if($mdpClair===true)
                 {
-                    // Si c'est un administrateur, la variable de session "admin" est initialisée à true et l'utilisateur est redirigé vers la page d'administration
-                    $_SESSION["admin"]=true;
-                    header("Location: /res03-projet-final/projet/admin");
-                }
-                // Sinon, c'est un utilisateur standard
-                else if($user->getRole() === "USER")
-                {
-                    // Initialisation de la variable de session "Connected" à un tableau vide et ajout des informations de l'utilisateur à ce tableau
-                    $_SESSION["Connected"]=[];
-                    $id = $user->getId();
-                    $email = $user->getEmail();
-                    $address = $user->getAddress_id();
-                    if($address === null)
+                    // Si le mot de passe est correct, vérification si l'utilisateur est un administrateur
+                    if($user->getRole() === "ADMIN")
                     {
-                        $tableau = [
-                            "id" => $id,
-                            "email" => $email
-                        ];
+                        // Si c'est un administrateur, la variable de session "admin" est initialisée à true et l'utilisateur est redirigé vers la page d'administration
+                        $_SESSION["admin"]=true;
+                        header("Location: /res03-projet-final/projet/admin");
                     }
+                    // Sinon, c'est un utilisateur standard
+                    else if($user->getRole() === "USER")
+                    {
+                        // Initialisation de la variable de session "Connected" à un tableau vide et ajout des informations de l'utilisateur à ce tableau
+                        $_SESSION["Connected"]=[];
+                        $id = $user->getId();
+                        $email = $user->getEmail();
+                        $address = $user->getAddress_id();
+                        if($address === null)
+                        {
+                            $tableau = [
+                                "id" => $id,
+                                "email" => $email
+                            ];
+                        }
+                        else
+                        {
+                             
+                            $tableau = [
+                                "id" => $id,
+                                "email" => $email,
+                                "address_id" => $address
+                            ];
+                        } 
+                        $_SESSION['Connected'][]=$tableau;
+                        
+                        // Initialisation de la variable de session "admin" à false et redirection de l'utilisateur vers la page d'accueil
+                        $_SESSION["admin"]=false;
+                        $tab = [
+                            "user"=>$user
+                        ];
+                        header("Location: /res03-projet-final/projet/accueil");
+                    }
+                    // Si le rôle de l'utilisateur est inconnu, la variable de session "Connected" est initialisée à false et l'utilisateur est redirigé vers la page d'accueil
                     else
                     {
-                         
-                        $tableau = [
-                            "id" => $id,
-                            "email" => $email,
-                            "address_id" => $address
-                        ];
-                    } 
-                    $_SESSION['Connected'][]=$tableau;
-                    
-                    // Initialisation de la variable de session "admin" à false et redirection de l'utilisateur vers la page d'accueil
-                    $_SESSION["admin"]=false;
-                    $tab = [
-                        "user"=>$user
-                    ];
-                    header("Location: /res03-projet-final/projet/accueil");
+                        $_SESSION["Connected"]=false;
+                        $_SESSION["admin"]=false;
+                        $this->renderpublic("accueil", []);
+                    }
                 }
-                // Si le rôle de l'utilisateur est inconnu, la variable de session "Connected" est initialisée à false et l'utilisateur est redirigé vers la page d'accueil
+                // Si le mot de passe est incorrect, l'utilisateur est redirigé vers la page d'inscription avec un message d'erreur
                 else
                 {
-                    $_SESSION["Connected"]=false;
-                    $_SESSION["admin"]=false;
-                    $this->renderpublic("accueil", []);
+                    $this->renderpublic("register", []);
                 }
             }
-            // Si le mot de passe est incorrect, l'utilisateur est redirigé vers la page d'inscription avec un message d'erreur
-            else
-            {
+            else{
                 $this->renderpublic("register", []);
-                echo "mdp invalide";
             }
+            
         }
     }
     // Si le formulaire n'est pas soumis, l'utilisateur est redirigé vers la page d'inscription
@@ -190,10 +198,20 @@ public function register(array $post)
     if (isset($post["formName"]))
     {
         // Vérifie si les champs obligatoires sont remplis
-        if (($post['firstname']!=='' )  &&  ($post['lastname']!=='') && ($post['email']!=='')  &&  ($post['password']!=='')) 
+        if((isset($post['firstname']) && ($post['firstname']!==''))
+        && (isset($post['lastname']) && ($post['lastname']!==''))
+        && (isset($post['email']) && ($post['email']!==''))
+        && (isset($post['password']) && ($post['password']!==''))
+        )
         {
+            // On sécurise ce que l'utilisateur a envoyé
+            $UserFirstname = $this->cleanInput($post['firstname']);
+            $UserLastname = $this->cleanInput($post['lastname']);
+            $UserEmail = $this->cleanInput($post['email']);
+            $UserPassword = $this->cleanInput($post['password']);
+            
             // Crée un nouvel utilisateur à partir des informations saisies dans le formulaire
-            $userToAdd = new User(null, $post["firstname"],$post["lastname"],$post["email"],$post["password"]);
+            $userToAdd = new User(null, $UserFirstname,$UserLastname,$UserEmail,$UserPassword);
             // Insère le nouvel utilisateur dans la base de données
             $id = $this->manager->insertUser($userToAdd);
             
@@ -265,25 +283,40 @@ public function CommandeUser(array $post)
         && (isset($post['Userid']) && ($post['Userid']!==''))
         )
         {
+            // On sécurise ce que l'utilisateur a envoyé
+            $UserStreet = $this->cleanInput($post['street']);
+            $UserNumber = $this->cleanInput($post['number']);
+            $UserCity = $this->cleanInput($post['city']);
+            $UserZipcod = $this->cleanInput($post['zipcod']);
+            $UserTotalprice = $this->cleanInput($post['totalprice']);
+            $Userid = $this->cleanInput($post['Userid']);
+            
             // Récupération de l'utilisateur à partir de son ID
-            $usertoedit = $this->manager->getUserById(intval($post['Userid']));
+            $userId = intval($Userid);
+            $usertoedit = $this->manager->getUserById($userId);
             $addressId = $usertoedit->getAddress_id();
             
             // Si l'utilisateur n'a pas d'adresse enregistrée, ajout de l'adresse et création de la commande correspondante
             if ($addressId === null)
             {
-                $adressToAdd = new Adress(null, $post["street"],$post["city"], intval($post["number"]), intval($post["zipcod"]));
+                $adressToAdd = new Adress(null, $UserStreet, $UserCity, intval($UserNumber), intval($UserZipcod));
                 $adressId = $this->manager->insertAdress($adressToAdd);
-                $orderToAdd = new Order(intval($adressId),intval($post['Userid']),floatval($post['totalprice']));
+                $orderToAdd = new Order(intval($adressId),intval($Userid),floatval($UserTotalprice));
                 $orderId = $this->manager->insertOrder($orderToAdd);
-                $this->manager->AddAddressOnUser(intval($post['Userid']), intval($adressId));
+                $this->manager->AddAddressOnUser(intval($Userid), intval($adressId));
                 
                 // Ajout des produits du panier à la commande
                 foreach($_SESSION['cart'] as $item)
                 {
                     $this->manager->addProductOnOrder(intval($orderId),intval($item["id"]), intval($item["taille"]), intval($item["quantite"]));
                 }
-                
+                $email = $usertoedit->getEmail();
+                $tableau = [
+                            "id" => $userId,
+                            "email" => $email,
+                            "address_id" => $adressId
+                        ];
+                $_SESSION['Connected'][]=$tableau;
                 // Vidage du panier et redirection vers l'historique des commandes
                 $_SESSION['cart']=[];
                 header ('Location: /res03-projet-final/projet/mon-compte/mes-commandes');
@@ -291,11 +324,11 @@ public function CommandeUser(array $post)
             // Si l'utilisateur a déjà une adresse enregistrée, modification de cette adresse et création de la commande correspondante
             else
             {
-                $AddressToEdit = new Adress(intval($addressId),$post["street"],$post["city"],intval($post["number"]),intval($post["zipcod"]));
+                $AddressToEdit = new Adress(intval($addressId),$UserStreet,$UserCity,intval($UserNumber),intval($UserZipcod));
                 $this->manager->editAdress($AddressToEdit);
-                $orderToAdd = new Order(intval($addressId),intval($post['Userid']),floatval($post['totalprice']));
+                $orderToAdd = new Order(intval($addressId),intval($Userid),floatval($UserTotalprice));
                 $orderId = $this->manager->insertOrder($orderToAdd);
-                $this->manager->AddAddressOnUser(intval($post['Userid']), intval($addressId));
+                $this->manager->AddAddressOnUser(intval($Userid), intval($addressId));
                 
                     // Ajout des produits du panier à la commande
                     foreach($_SESSION['cart'] as $item)
@@ -379,6 +412,14 @@ public function addAddress($post)
                 $addressId = $this->manager->insertAdress($AddressToAdd);
                 $userId = $post['id'];
                 $this->manager->AddAddressOnUser(intval($userId), intval($addressId));
+                $user = $this->manager->getUserById(intval($userId));
+                $email = $user->getEmail();
+                $tableau = [
+                            "id" => $userId,
+                            "email" => $email,
+                            "address_id" => $addressId
+                        ];
+                $_SESSION['Connected'][]=$tableau;
                 // Redirige l'utilisateur vers la page de compte après l'ajout de l'adresse
                 header ('Location: /res03-projet-final/projet/mon-compte');
             }
@@ -394,7 +435,6 @@ public function addAddress($post)
         }
     }
 }
-
 public function edituser($post)
 {
     if (isset($post["formName"])) // Vérifie si le formulaire a été soumis
@@ -405,17 +445,23 @@ public function edituser($post)
          &&  (isset($post['password'])) && ($post['password']!=='' )  
          ) // Vérifie si toutes les informations obligatoires ont été fournies
          {
+            // On sécurise ce que l'utilisateur a envoyé
+            $UserFirstname = $this->cleanInput($post['firstname']);
+            $UserLastname = $this->cleanInput($post['lastname']);
+            $UserEmail = $this->cleanInput($post['email']);
+            $UserPassword = $this->cleanInput($post['password']);
+            
              $userId = $post['id']; // Récupère l'ID de l'utilisateur à modifier
              $userAddressId = $post['addressid']; // Récupère l'ID de l'adresse de l'utilisateur
              if($userAddressId === null) // Si l'utilisateur n'a pas d'adresse
              {
-                 $userToEdit = new User(intval($userId), $post["firstname"],$post["lastname"],$post["email"],$post["password"]); // Crée un objet User avec les données postées
+                 $userToEdit = new User(intval($userId), $UserFirstname,$UserLastname,$UserEmail,$UserPassword); // Crée un objet User avec les données postées
                  $this->manager->editUser($userToEdit); // Modifie les informations de l'utilisateur dans la base de données
                  header ('Location: /res03-projet-final/projet/mon-compte'); // Redirige l'utilisateur vers la page de son compte
              }
              else // Si l'utilisateur a une adresse
              {
-                 $userToEdit = new User(intval($userId), $post["firstname"],$post["lastname"],$post["email"],$post["password"],intval($userAddressId)); // Crée un objet User avec les données postées et l'ID de l'adresse
+                 $userToEdit = new User(intval($userId), $UserFirstname,$UserLastname,$UserEmail,$UserPassword,intval($userAddressId)); // Crée un objet User avec les données postées et l'ID de l'adresse
                  $this->manager->EditUserWithAddress($userToEdit); // Modifie les informations de l'utilisateur et de son adresse dans la base de données
                  header ('Location: /res03-projet-final/projet/mon-compte'); // Redirige l'utilisateur vers la page de son compte
              }
@@ -563,7 +609,7 @@ public function displayAllOrders()
         $user = $this->manager->getUserById($user_id);
 
         // Récupérer l'id de l'adresse de livraison de l'utilisateur
-        $address_id = $_SESSION["Connected"][0]["address_id"];
+        $address_id = $user->getAddress_id();
 
         // Récupérer toutes les commandes de l'utilisateur
         $orders = $this->manager->findAllOrdersForOneUser($user_id);

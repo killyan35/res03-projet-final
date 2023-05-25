@@ -64,7 +64,9 @@ function renderform(event) {
     let fieldset5 = document.createElement("fieldset");
     fieldset5.setAttribute("class", "hidden");
     let TotalpriceOrder = document.getElementById("cart-total-price");
+    console.log(TotalpriceOrder);
     let price = TotalpriceOrder.getAttribute("data-price");
+    console.log(price);
     // je créer son input pour le récuperer plus tard
     let label5 = document.createElement("label");
     label5.setAttribute("for", "totalprice");

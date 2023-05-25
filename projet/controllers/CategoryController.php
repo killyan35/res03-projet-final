@@ -19,6 +19,8 @@ public function createCategory(array $post)
         // Vérifie si le champ nom n'est pas vide
         if ((isset($post['name']) && $post['name']!=='')) 
         {
+            // On sécurise ce que l'utilisateur a envoyé
+            $catName = $this->cleanInput($post['name']);
             // Création d'un objet Uploader pour gérer le téléchargement des images
             $uploader = new Uploader();
             // Envoie du fichier image avec la clé "url" et stockage de l'objet Media retourné dans $media
@@ -27,7 +29,7 @@ public function createCategory(array $post)
             $post["url"]=$media->getUrl();
             
             // Création d'un objet Category avec les données du formulaire
-            $categoryToAdd = new Category(null, $post["name"],$post["url"], null);
+            $categoryToAdd = new Category(null, $catName,$post["url"], null);
             // Ajout de la nouvelle catégorie à la base de données
             $this->manager->insertCategory($categoryToAdd);
             // Redirection vers la page de gestion des catégories
@@ -44,10 +46,12 @@ public function EditCategory(array $post, string $catslug)
         // Vérifie si le champ nom n'est pas vide
         if (isset($post['name']) && $post['name']!=='') 
         {
+            // On sécurise ce que l'utilisateur a envoyé
+            $catName = $this->cleanInput($post['name']);
             // Récupération de l'objet Category à modifier depuis la base de données
             $categoryToChange = $this->manager->getCategoryBySlug($catslug);
             // Modification du nom de la catégorie
-            $categoryToChange->setName($post['name']);
+            $categoryToChange->setName($catName);
             // Création d'un objet Uploader pour gérer le téléchargement des images
             $uploader = new Uploader();
             // Envoie du fichier image avec la clé "url" et stockage de l'objet Media retourné dans $media

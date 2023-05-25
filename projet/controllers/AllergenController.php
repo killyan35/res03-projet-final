@@ -23,8 +23,10 @@ public function createAllergen(array $post)
         // Vérification que le champ "name" du formulaire a été rempli
         if (isset($post['name']) && $post['name']!=='') 
         {
+            // On sécurise ce que l'utilisateur a envoyé
+            $allergenname = $this->cleanInput($post['name']);
             // Création d'un nouvel allergène
-            $allergenToAdd = new Allergen(null, $post["name"]);
+            $allergenToAdd = new Allergen(null, $allergenname);
             // Insertion de l'allergène dans la base de données
             $this->manager->insertAllergen($allergenToAdd);
             // Redirection vers la liste de tous les allergènes
@@ -38,13 +40,16 @@ public function EditAllergen(array $post, string $name)
     // Vérification que le formulaire a été soumis
     if (isset($post["formName"]))
     {
+        
         // Vérification que le champ "name" du formulaire a été rempli
         if (isset($post['name']) && $post['name']!=='')
         {
+            // On sécurise ce que l'utilisateur a envoyé
+            $allergenname = $this->cleanInput($post['name']);
             // Récupération de l'allergène à modifier
             $allergenToChange = $this->manager->getAllergenBySlug($name);
             // Modification du nom de l'allergène
-            $allergenToChange->setName($post['name']);
+            $allergenToChange->setName($allergenname);
             // Mise à jour de l'allergène dans la base de données
             $this->manager->editAllergen($allergenToChange);
             // Redirection vers la liste de tous les allergènes

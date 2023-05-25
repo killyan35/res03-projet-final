@@ -23,8 +23,9 @@ public function createIngredient(array $post)
          // si le champ nom est rempli
          if (isset($post['name']) && $post['name']!=='') 
          {
+             $IngredientName = $this->cleanInput($post['name']);
              // crée un nouvel ingrédient avec le nom du champ
-             $ingredientToAdd = new Ingredient(null, $post["name"]);
+             $ingredientToAdd = new Ingredient(null, $IngredientName);
              // insère le nouvel ingrédient dans la base de données
              $this->manager->insertIngredient($ingredientToAdd);
              // redirige vers la liste des ingrédients
@@ -41,10 +42,11 @@ public function EditIngredient(array $post, string $slug)
          // si le champ nom est rempli
          if (isset($post['name']) && $post['name']!=='')
          {
+             $IngredientName = $this->cleanInput($post['name']);
              // récupère l'ingrédient correspondant au slug dans l'URL
              $ingredientToChange = $this->manager->getIngredientBySlug($slug);
              // modifie le nom de l'ingrédient
-             $ingredientToChange->setName($post['name']);
+             $ingredientToChange->setName($IngredientName);
              // met à jour l'ingrédient dans la base de données
              $this->manager->editIngredient($ingredientToChange);
              // redirige vers la liste des ingrédients

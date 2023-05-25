@@ -38,8 +38,6 @@ class Router {
 
             $route = explode("/", $_GET['path']); // Je sépare tout ce qui se trouve entre les "/" pour les différentes routes
         
-      
-    
         if($route[0] === "boutique")
         {
             if(isset($route[1])  && !isset($route[2])) // j'ai bien /boutique/un-truc mais rien après

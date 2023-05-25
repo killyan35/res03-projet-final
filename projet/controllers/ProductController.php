@@ -50,8 +50,12 @@ public function createProduct(array $post)
              &&  (isset($post['descriptionimg']) && $post['descriptionimg']!=='')
             ) 
          {
+             $ProductName = $this->cleanInput($post['name']);
+             $ProductDescription = $this->cleanInput($post['description']);
+             $ProductPrice = $this->cleanInput($post['price']);
+             $ProductDescriptionIMG = $this->cleanInput($post['descriptionimg']);
              // crée un nouvel objet produit avec les données envoyées dans le formulaire
-             $ProductToAdd = new Product(null, $post["name"],$post["description"], null, floatval($post["price"]), intval($post["category_id"]));
+             $ProductToAdd = new Product(null, $ProductName,$ProductDescription, null, floatval($ProductPrice), intval($post["category_id"]));
              // insère le nouveau produit dans la base de données et récupère son ID
              $productId= $this->manager->insertProduct($ProductToAdd);
              // récupère les données des allergènes sélectionnés dans le formulaire et les ajoute au produit
@@ -70,7 +74,7 @@ public function createProduct(array $post)
              $uploader = new Uploader();
              $media = $uploader->upload($_FILES, "image");
              $post["image"]=$media->getUrl();
-             $mediaToAdd = new Image(null, $post["image"],$post["descriptionimg"], intval($productId));
+             $mediaToAdd = new Image(null, $post["image"],$ProductDescriptionIMG, intval($productId));
              $this->immanager->insertImage($mediaToAdd);
              // redirige l'utilisateur vers la page des produits
              header("Location: /res03-projet-final/projet/admin/product");
@@ -111,12 +115,15 @@ public function EditProduct(array $post, string $prodslug)
          &&  (isset($post['price']) && $post['price']!=='')
          ) 
          {
+             $ProductName = $this->cleanInput($post['name']);
+             $ProductDescription = $this->cleanInput($post['description']);
+             $ProductPrice = $this->cleanInput($post['price']);
              // Récupération du produit à modifier par son slug
              $productToChange = $this->manager->getProductBySlug($prodslug);
              // Modification du nom, de la description et du prix du produit
-             $productToChange->setName($post['name']);
-             $productToChange->setDescription($post['description']);
-             $productToChange->setPrice($post['price']);
+             $productToChange->setName($ProductName);
+             $productToChange->setDescription($ProductDescription);
+             $productToChange->setPrice($ProductPrice);
              // Récupération de l'ID du produit
              $productId = $productToChange->getId();
              // Récupération des données sur les allergènes en JSON et ajout des allergènes au produit

@@ -54,7 +54,7 @@ function rendercart(data) {
     // update cart total price
     let totalPrice = document.getElementById("cart-total-price");
     totalPrice.innerText = "Total : " + TotalPrice + " €";
-    totalPrice.setAttribute("price", TotalPrice);
+    totalPrice.setAttribute("data-price", TotalPrice);
     loadListeners()
 }
 
@@ -130,7 +130,7 @@ function createcartItem(item)
         cartPrice.classList.add("cart-cart-price");
     
         let cartPriceSpan = document.createElement("span");
-        cartPriceSpan.setAttribute("class", "price");
+        cartPriceSpan.setAttribute("class", "data-price");
         let cartPriceSpanContent = document.createTextNode("" + (item.number * item.price * item.size));
         cartPriceSpan.appendChild(cartPriceSpanContent);
     
